@@ -1,0 +1,6 @@
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.logica\bin\Debug\ConoceAColombia.logica.dll
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.logica\bin\Debug\ConoceAColombia.logica.pdb
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.logica\obj\Debug\ConoceAColombia.logica.csprojResolveAssemblyReference.cache
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.logica\obj\Debug\ConoceAColombia.logica.csproj.CoreCompileInputs.cache
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.logica\obj\Debug\ConoceAColombia.logica.dll
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.logica\obj\Debug\ConoceAColombia.logica.pdb

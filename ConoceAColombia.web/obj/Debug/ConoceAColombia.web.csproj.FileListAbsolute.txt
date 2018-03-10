@@ -1,0 +1,11 @@
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\ConoceAColombia.web.dll.config
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\ConoceAColombia.web.dll
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\ConoceAColombia.web.pdb
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\obj\Debug\ConoceAColombia.web.csproj.CoreCompileInputs.cache
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\obj\Debug\ConoceAColombia.web.dll
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\obj\Debug\ConoceAColombia.web.pdb
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\obj\Debug\ConoceAColombia.web.csprojResolveAssemblyReference.cache
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\ConoceAColombia.logica.dll
+C:\Users\JuanFerYuco\source\repos\ConoceAColombia\ConoceAColombia.web\bin\ConoceAColombia.logica.pdb
