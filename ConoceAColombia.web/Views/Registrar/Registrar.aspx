@@ -35,30 +35,42 @@
                             <div class="col-md-6">
                                 <asp:Label ID="lblInputName" runat="server" Text="Nombre"></asp:Label>
                                 <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" placeholder="Ingresar Nombre"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvName" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="txtLastName" ForeColor="Red" ValidationGroup="ValidarCuenta"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-md-6">
                                 <asp:Label ID="lblInputLastName" runat="server" Text="Apellido"></asp:Label>
                                 <asp:TextBox ID="txtLastName" runat="server" CssClass="form-control" placeholder="Ingresar Apellido"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="txtLastName" ForeColor="Red" ValidationGroup="ValidarCuenta"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
-                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" placeholder="Ingresar Email"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control" TextMode="Email" placeholder="Ingresar Email"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="txtEmail" ForeColor="Red" ValidationGroup="ValidarCuenta"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <asp:Label ID="lblPassword" runat="server" Text="Contraseña"></asp:Label>
                                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" placeholder="Ingresar Contraseña" TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="txtPassword" ForeColor="Red" ValidationGroup="ValidarCuenta"></asp:RequiredFieldValidator>
                             </div>
                             <div class="col-md-6">
                                 <asp:Label ID="lblConfirmPassword" runat="server" Text="Confirmar Contraseña"></asp:Label>
                                 <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="form-control" placeholder="Confirmar Contraseña" TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="rfvConfirmPassword" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="txtConfirmPassword" ForeColor="Red" ValidationGroup="ValidarCuenta"></asp:RequiredFieldValidator>
+                                <asp:CompareValidator ID="cvConfirmarPassword" runat="server" ErrorMessage="Password no coincide" ControlToValidate="txtConfirmPassword" ControlToCompare="txtPassword" ForeColor="Red"></asp:CompareValidator>
                             </div>
                         </div>
                     </div>
-                    <asp:Button ID="btnRegistrar" runat="server" CssClass="btn btn-primary btn-block" Text="Registrar" OnClick="btnRegistrar_Click" />
+                    <div class="form-group">
+                        <asp:Label ID="LabelImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                        <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                        <asp:RequiredFieldValidator ID="rfvImagen" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="fuImagen" ForeColor="Red" ValidationGroup="ValidarCuenta"></asp:RequiredFieldValidator>
+                    </div>
+                    <asp:Button ID="btnRegistrar" runat="server" CssClass="btn btn-primary btn-block" Text="Registrar" ValidationGroup="ValidarCuenta"  OnClick="btnRegistrar_Click" />
+                    
                 </form>
                 <div class="text-center">
                     <a class="d-block small mt-3" href="../Login/Login.aspx">Login</a>

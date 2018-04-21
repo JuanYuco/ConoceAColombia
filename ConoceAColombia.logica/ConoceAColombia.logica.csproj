@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\clsArquitectura.cs" />
+    <Compile Include="BL\clsArtistas.cs" />
+    <Compile Include="BL\clsCiudadesPrincipales.cs" />
     <Compile Include="BL\clsConexion.cs" />
+    <Compile Include="BL\clsDepartamentos.cs" />
+    <Compile Include="BL\clsDeportes.cs" />
+    <Compile Include="BL\clsGastronomia.cs" />
+    <Compile Include="BL\clsGeneral.cs" />
+    <Compile Include="BL\clsRecuperarPassword.cs" />
+    <Compile Include="BL\clsTipodeArquitectura.cs" />
+    <Compile Include="BL\clsTipodeArtista.cs" />
+    <Compile Include="BL\clsTipodeGastronomia.cs" />
     <Compile Include="BL\clsUsuarios.cs" />
+    <Compile Include="Models\clsArquitectura.cs" />
+    <Compile Include="Models\clsArtistas.cs" />
+    <Compile Include="Models\clsCiudadesPrincipales.cs" />
+    <Compile Include="Models\clsCorreo.cs" />
+    <Compile Include="Models\clsDepartamentos.cs" />
+    <Compile Include="Models\clsDeportes.cs" />
+    <Compile Include="Models\clsGastronomia.cs" />
+    <Compile Include="Models\clsTipodeArquitectura.cs" />
+    <Compile Include="Models\clsTipodeArtista.cs" />
+    <Compile Include="Models\clsTipodeGastronomia.cs" />
     <Compile Include="Models\clsUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

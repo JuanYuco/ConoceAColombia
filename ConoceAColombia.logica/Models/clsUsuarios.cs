@@ -15,5 +15,6 @@ namespace ConoceAColombia.logica.Models
         public String stPassword { get; set; }
         public int  inPuntuacionMaxima { get; set; }
         public int inTipo { get; set; }
+        public string stUsuaImagen { get; set; }
     }
 }

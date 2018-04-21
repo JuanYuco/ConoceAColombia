@@ -33,12 +33,17 @@
     <!-- Custom scripts for this page-->
     <script src="../../js/sb-admin-datatables.min.js"></script>
     <script src="../../js/sb-admin-charts.min.js"></script>
+    <asp:ContentPlaceHolder runat="server" ID="Header"></asp:ContentPlaceHolder>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <form runat="server">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            
             <a class="navbar-brand" href="../../Views/Index/Index.aspx">Conoce a: Colombia</a>
+            
+
+
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -86,13 +91,13 @@
                             <span class="nav-link-text">Población</span>
                         </a>
                     </li>
-                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
                         <a class="nav-link" href="../../Views/Mini Juego/Mini Juego.aspx">
                             <i class="fa fa-fw fa-gamepad"></i>
                             <span class="nav-link-text">Mini Juego</span>
                         </a>
                     </li>
-                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
                         <a class="nav-link" href="../../Views/Puntuacion/Puntuaciones.aspx">
                             <i class="fa fa-fw fa-trophy"></i>
                             <span class="nav-link-text">Maxima Puntuación</span>
@@ -102,12 +107,18 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
-
+                    <li class="nav-item">
+                        <asp:Label runat="server" ID="lblUsuario" CssClass="btn btn-primary"></asp:Label>>
+                             
+                    </li>
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Views/Login/Login.aspx">
-                            <i class="fa fa-fw fa-sign-out"></i>Salir</a>
+                        <asp:LinkButton Class="nav-link" ID="lbSalir" Text="Salir" runat="server" OnClick="lbSalir_Click">
+                             <i class="fa fa-fw fa-sign-out"></i>Salir
+                        </asp:LinkButton>
+                        <%-- <a class="nav-link" href="../../Views/Login/Login.aspx">
+                            <i class="fa fa-fw fa-sign-out"></i>Salir</a>--%>
                     </li>
                 </ul>
             </div>

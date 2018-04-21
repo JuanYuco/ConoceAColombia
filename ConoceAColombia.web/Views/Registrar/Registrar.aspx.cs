@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -28,6 +29,37 @@ namespace ConoceAColombia.web.Views.Registrar
                 if (String.IsNullOrEmpty(txtConfirmPassword.Text)) stMensaje += " Ingrese la confirmacion de la contraseña,";
                 if (txtPassword.Text != txtConfirmPassword.Text) stMensaje += "Las Contraseñas son diferentes,";
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                Controllers.CrearCuentaControllers obCrearCuentaControllers = new Controllers.CrearCuentaControllers();
+                if (fuImagen.HasFile)
+                {
+                    if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                        throw new Exception("Solo se admiten formatos .JPG");
+
+                    String stRuta = Server.MapPath(@"~\tmp\")+fuImagen.FileName;
+                    fuImagen.PostedFile.SaveAs(stRuta);
+                    String stRutaDestino = Server.MapPath(@"~\Images\") + txtEmail.Text + Path.GetExtension(fuImagen.FileName);
+                    if (File.Exists(stRutaDestino))
+                    {
+                        File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                        File.Delete(stRutaDestino);
+                    }
+
+                    File.Copy(stRuta, stRutaDestino);
+                    File.SetAttributes(stRuta, FileAttributes.Normal);
+                    File.Delete(stRuta);
+
+                    logica.Models.clsUsuarios obclsUsuarios = new logica.Models.clsUsuarios
+                    {
+                        stNombre = txtNombre.Text,
+                        stApellido = txtLastName.Text,
+                        stCorreo = txtEmail.Text,
+                        stPassword = txtPassword.Text,
+                        stUsuaImagen = stRutaDestino
+                    };
+                    ClientScript.RegisterStartupScript(this.GetType(), "mensaje", "<script> swal('Mensaje!', '" + obCrearCuentaControllers.setCrearCuentaControllers(obclsUsuarios, 1) + "!', 'success') </script>");
+                }
             }
             catch (Exception ex)
             {

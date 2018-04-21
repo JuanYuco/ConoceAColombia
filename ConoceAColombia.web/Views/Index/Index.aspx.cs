@@ -11,7 +11,23 @@ namespace ConoceAColombia.web.Views.Index
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //hola
+            if (!IsPostBack)
+            {
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+                if (Session["SessionEmail"] != null)
+                    stLogin = Session["SessionEmail"].ToString();
+                else
+                    Response.Redirect("../Login/Login.aspx");
+
+                iCuenta.ImageUrl = "~/Images/" + Session["sessionEmail"].ToString() + ".jpg";
+
+
+            }
         }
     }
 }
