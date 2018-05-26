@@ -64,7 +64,7 @@ namespace ConoceAColombia.web.Views.Ciudades_Principales_Admin
                     stNombre = txtNombre.Text,
                     stReseña = txtReseña.Text,
                     stLatitud = txtLatitud.Text,
-                    stLongitud= txtLatitud.Text,
+                    stLongitud= txtLongitud.Text,
                     clsDepartamentos = new logica.Models.clsDepartamentos {inCodigo=Convert.ToInt64(ddlDepartamento.SelectedValue)}
                 };
 

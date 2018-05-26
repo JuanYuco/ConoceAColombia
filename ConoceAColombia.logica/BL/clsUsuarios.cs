@@ -63,6 +63,42 @@ namespace ConoceAColombia.logica.BL
 
         }
 
+        public bool getValidarUsuarioAdministrador(logica.Models.clsUsuarios obclsUsuarios)
+        {
+            try
+            {
+                DataSet dsConsulta = new DataSet();
+                _SqlConnection = new SqlConnection(stConexion);
+                _SqlConnection.Open();
+
+                _SqlCommand = new SqlCommand("spConsultarUsuarioAdministrador", _SqlConnection);
+                _SqlCommand.CommandType = CommandType.StoredProcedure;
+
+                _SqlCommand.Parameters.Add(new SqlParameter("@cCorreo", obclsUsuarios.stCorreo));
+                _SqlCommand.Parameters.Add(new SqlParameter("@cPassword", obclsUsuarios.stPassword));
+                _SqlCommand.ExecuteNonQuery();
+
+                _SqlDataAdapter = new SqlDataAdapter(_SqlCommand);
+                _SqlDataAdapter.Fill(dsConsulta);
+
+                if (dsConsulta.Tables[0].Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+            finally { _SqlConnection.Close(); }
+
+        }
+
         /// <summary>
         /// CREAR CUENTA DE USUARIO
         /// </summary>

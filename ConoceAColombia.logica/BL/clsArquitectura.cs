@@ -166,5 +166,34 @@ namespace ConoceAColombia.logica.BL
         }
 
 
+        public DataSet  getEstructuraDeportiva()
+        {
+            try
+            {
+                DataSet dsConsulta = new DataSet();
+                _SqlConnection = new SqlConnection(stConexion);
+                _SqlConnection.Open();
+
+                _SqlCommand = new SqlCommand("spConsultarEstructurasDeportivas", _SqlConnection);
+                _SqlCommand.CommandType = CommandType.StoredProcedure;
+
+
+                _SqlCommand.ExecuteNonQuery();
+
+                _SqlDataAdapter = new SqlDataAdapter(_SqlCommand);
+                _SqlDataAdapter.Fill(dsConsulta);
+
+                return dsConsulta;
+
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+            finally { _SqlConnection.Close(); }
+        }
+
+
+
     }
 }

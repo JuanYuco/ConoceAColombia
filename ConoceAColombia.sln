@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoceAColombia.web", "Cono
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoceAColombia.logica", "ConoceAColombia.logica\ConoceAColombia.logica.csproj", "{B990894B-8C3C-455A-BA3D-EC56C9BE2133}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConoceAColombia.Test", "ConoceAColombia.Test\ConoceAColombia.Test.csproj", "{0BF6ADF9-DD16-4069-B2EB-84FA09F0BFBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B990894B-8C3C-455A-BA3D-EC56C9BE2133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B990894B-8C3C-455A-BA3D-EC56C9BE2133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B990894B-8C3C-455A-BA3D-EC56C9BE2133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF6ADF9-DD16-4069-B2EB-84FA09F0BFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF6ADF9-DD16-4069-B2EB-84FA09F0BFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF6ADF9-DD16-4069-B2EB-84FA09F0BFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF6ADF9-DD16-4069-B2EB-84FA09F0BFBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

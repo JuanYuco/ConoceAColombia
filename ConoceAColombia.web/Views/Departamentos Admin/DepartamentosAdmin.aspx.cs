@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Web.UI.WebControls;
 
@@ -31,8 +32,6 @@ namespace ConoceAColombia.web.Views.Departamentos_Admin
             {
                 getDepartamentos();
             }
-
-
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)

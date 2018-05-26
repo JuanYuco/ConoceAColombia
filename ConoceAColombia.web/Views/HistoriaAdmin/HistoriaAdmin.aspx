@@ -19,18 +19,16 @@
                     <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:Label runat="server" ID="lblNombre" Text="Descripción"></asp:Label>
+                    <asp:Label runat="server" ID="lblNombre" Text="Nombre"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtNombre" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblDescripcion" Text="Descripción"></asp:Label>
                     <asp:TextBox runat="server" ID="txtDescripción" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
                     <asp:Label runat="server" ID="lblTipodeHistoria" Text="Tipo de Historia"></asp:Label>
                     <asp:DropDownList ID="ddlTipoHistoria" runat="server" CssClass="form-control">
-
-                    </asp:DropDownList>
-                </div>
-                <div class="col-md-3">
-                    <asp:Label runat="server" ID="lblPersonajes" Text="Personajes"></asp:Label>
-                    <asp:DropDownList ID="ddlPersonajes" runat="server" CssClass="form-control">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -38,19 +36,31 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblFechaInicio" Text="Fecha de Inicio"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtFechaInicio" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblFechaFin" Text="Fecha del final"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtFechaFin" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-3">
                     <asp:Label runat="server" ID="lblLatitud" Text="Latitud"></asp:Label>
                     <asp:TextBox runat="server" ID="txtLatitud" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
                     <asp:Label runat="server" ID="lblLongitud" Text="Longitud"></asp:Label>
                     <asp:TextBox runat="server" ID="txtLongitud" CssClass="form-control"></asp:TextBox>
+                    
                 </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
                 <div class="col-md-3">
-                    <asp:Label runat="server" ID="lblDepartamento" Text="Departamento"></asp:Label>
-                    <asp:DropDownList ID="ddlDepartamento" runat="server" CssClass="form-control">
+                    <asp:Label runat="server" ID="Label1" Text="Departamento"></asp:Label>
+                    <asp:DropDownList ID="dllDepartamento" runat="server" CssClass="form-control">
                     </asp:DropDownList>
                 </div>
-
             </div>
         </div>
 
@@ -79,14 +89,16 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo">
                                 <ItemTemplate>
-                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("artiCodigo")%>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("histCodigo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="Nombre" DataField="artiNombre" />
-                            <asp:BoundField HeaderText="Genero" DataField="tiatGenero" />
-                            <asp:BoundField HeaderText="Ciudad" DataField="artiCiudad" />
-                            <asp:BoundField HeaderText="Latitud" DataField="artiLatitud" />
-                            <asp:BoundField HeaderText="Longitud" DataField="artiLongitud"/>
+                            <asp:BoundField HeaderText="Nombre" DataField="histNombre" />
+                            <asp:BoundField HeaderText="Descripcion" DataField="histDescripcion" />
+                            <asp:BoundField HeaderText="Tipo Historia" DataField="tihiDescripcion" />
+                            <asp:BoundField HeaderText="Fecha Inicio" DataField="histFechaInicio" />
+                            <asp:BoundField HeaderText="Fecha Fin" DataField="HistFechaFin"/>
+                            <asp:BoundField HeaderText="Latitud" DataField="HistLatitud"/>
+                            <asp:BoundField HeaderText="Longitud" DataField="HistLongitud"/>
                             <asp:BoundField HeaderText="Departamento" DataField="depaNombre"/>
 
                             <asp:TemplateField HeaderText="Editar">

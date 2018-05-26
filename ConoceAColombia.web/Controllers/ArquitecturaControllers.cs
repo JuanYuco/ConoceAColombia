@@ -34,5 +34,18 @@ namespace ConoceAColombia.web.Controllers
                 throw ex;
             }
         }
+
+        public DataSet getConsultarEstructurasDeportivas()
+        {
+            try
+            {
+                logica.BL.clsArquitectura obclsArquitectura = new logica.BL.clsArquitectura();
+                return obclsArquitectura.getEstructuraDeportiva();
+
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
     }
 }

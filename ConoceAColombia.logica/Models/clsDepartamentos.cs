@@ -8,17 +8,17 @@ namespace ConoceAColombia.logica.Models
 {
     public class clsDepartamentos
     {
-        public long inCodigo { get; set; }
-        public String stNombre { get; set; }
-        public String stCapital { get; set; }
-        public String stGobernador { get; set; }
-        public String stMunicipios { get; set; }
-        public String stFundacion { get; set; }
-        public String stGentilicio { get; set; }
-        public String stPoblacion { get; set; }
-        public String stLatitud { get; set; }
-        public String stDemografia { get; set; }
-        public String stLongitud { get; set; }
-        public String stSuperficie { get; set; }
+        public virtual long inCodigo { get; set; }
+        public virtual String stNombre { get; set; }
+        public virtual String stCapital { get; set; }
+        public virtual String stGobernador { get; set; }
+        public virtual String stMunicipios { get; set; }
+        public virtual String stFundacion { get; set; }
+        public virtual String stGentilicio { get; set; }
+        public virtual String stPoblacion { get; set; }
+        public virtual String stLatitud { get; set; }
+        public virtual String stDemografia { get; set; }
+        public virtual String stLongitud { get; set; }
+        public virtual String stSuperficie { get; set; }
     }
 }

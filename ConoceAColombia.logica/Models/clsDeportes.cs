@@ -8,7 +8,7 @@ namespace ConoceAColombia.logica.Models
 {
     public class clsDeportes
     {
-        public long lgCodigo { get; set; }
-        public String stNombre { get; set; }
+        public virtual long lgCodigo { get; set; }
+        public virtual String stNombre { get; set; }
     }
 }

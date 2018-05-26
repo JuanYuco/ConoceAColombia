@@ -23,5 +23,21 @@ namespace ConoceAColombia.web.Controllers
                 throw ew;
             }
         }
+
+
+        public bool getValidarUsuarioAdministradorController(logica.Models.clsUsuarios obclsUsuarios)
+        {
+            try
+            {
+                logica.BL.clsUsuarios obclsUsuario = new logica.BL.clsUsuarios();
+                return obclsUsuario.getValidarUsuarioAdministrador(obclsUsuarios);
+
+
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
     }
 }

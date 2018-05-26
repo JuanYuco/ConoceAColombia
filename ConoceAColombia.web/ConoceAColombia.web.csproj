@@ -44,10 +44,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.1.2\lib\net461\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate, Version=5.1.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.1.2\lib\net461\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.1.2\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.1.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,7 +93,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="css\jquery.gmaps.css" />
     <Content Include="css\sweetalert.css" />
+    <Content Include="js\jquery.gmaps.js" />
+    <Content Include="js\locationpicker.jquery.js" />
     <Content Include="js\sb-admin-charts.js" />
     <Content Include="js\sb-admin-charts.min.js" />
     <Content Include="js\sb-admin-datatables.js" />
@@ -75,9 +104,45 @@
     <Content Include="js\sb-admin.js" />
     <Content Include="js\sb-admin.min.js" />
     <Content Include="js\sweetalert.min.js" />
+    <Content Include="Resources\Images\10departamento.jpg" />
+    <Content Include="Resources\Images\11departamento.jpg" />
+    <Content Include="Resources\Images\12departamento.jpg" />
+    <Content Include="Resources\Images\1departamento.jpg" />
+    <Content Include="Resources\Images\1gastronomia.jpg" />
+    <Content Include="Resources\Images\1musica.jpg" />
+    <Content Include="Resources\Images\1personaje.jpg" />
+    <Content Include="Resources\Images\2departamento.jpg" />
+    <Content Include="Resources\Images\2gastronomia.jpg" />
+    <Content Include="Resources\Images\2musica.jpg" />
+    <Content Include="Resources\Images\2personaje.jpg" />
+    <Content Include="Resources\Images\3departamento.jpg" />
+    <Content Include="Resources\Images\3gastronomia.jpg" />
+    <Content Include="Resources\Images\3musica.jpg" />
+    <Content Include="Resources\Images\3personaje.jpg" />
+    <Content Include="Resources\Images\4departamento.jpg" />
+    <Content Include="Resources\Images\4gastronomia.jpg" />
+    <Content Include="Resources\Images\4musica.jpg" />
+    <Content Include="Resources\Images\4personaje.jpg" />
+    <Content Include="Resources\Images\5departamento.jpg" />
+    <Content Include="Resources\Images\5gastronomia.jpg" />
+    <Content Include="Resources\Images\5musica.jpg" />
+    <Content Include="Resources\Images\5personaje.jpg" />
     <Content Include="Resources\Images\61848.png" />
+    <Content Include="Resources\Images\6departamento.jpg" />
+    <Content Include="Resources\Images\6gastronomia.jpg" />
+    <Content Include="Resources\Images\6musica.jpg" />
+    <Content Include="Resources\Images\6personaje.jpg" />
+    <Content Include="Resources\Images\7departamento.jpg" />
+    <Content Include="Resources\Images\7gastronomia.jpg" />
+    <Content Include="Resources\Images\7musica.jpg" />
+    <Content Include="Resources\Images\7personaje.jpg" />
+    <Content Include="Resources\Images\8departamento.jpg" />
+    <Content Include="Resources\Images\8musica.jpg" />
+    <Content Include="Resources\Images\8personaje.jpg" />
+    <Content Include="Resources\Images\9departamento.jpg" />
     <Content Include="Resources\Images\edit26-300px.png" />
     <Content Include="Resources\Images\hqdefault.jpg" />
+    <Content Include="Resources\Images\iconoGeografia.png" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
@@ -164,13 +229,20 @@
     <Content Include="Views\Ciudades Principales Admin\CiudadesPrincipalesAdmin.aspx" />
     <Content Include="Views\Departamentos Admin\DepartamentosAdmin.aspx" />
     <Content Include="Views\Deportes Admin\DeportesAdmin.aspx" />
+    <Content Include="Views\EquipoAdmin\EquipoAdmin.aspx" />
     <Content Include="Views\EquiposAdmin\EquiposAdmin.aspx" />
     <Content Include="Views\Gastronomia Admin\GastronomiaAdmin.aspx" />
     <Content Include="Views\HistoriaAdmin\HistoriaAdmin.aspx" />
-    <Content Include="Views\MapaGoogle\MapadeGoogle.aspx" />
+    <Content Include="Views\Login Administrador\LoginAdministrador.aspx" />
+    <Content Include="Views\MapaGastronomia\MapaGastronomia.aspx" />
+    <Content Include="Views\MapaGeografia\MapaGeografia.aspx" />
+    <Content Include="Views\MapaMusica\MapaMusica.aspx" />
+    <Content Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx" />
+    <Content Include="Views\MapaTerminado\MapaTerminado.aspx" />
     <Content Include="Views\Mapa\WebForm1.aspx" />
-    <Content Include="Views\Prueba\WebForm1.aspx" />
-    <Content Include="Views\Prueba\WebForm2.aspx" />
+    <Content Include="Views\MusicaAdmin\MusicaAdmin.aspx" />
+    <Content Include="Views\PersonajesHistoricosAdmin\PersonajesHistoricosAdmin.aspx" />
+    <Content Include="Views\PersonajesxHistoriaAdmin\PersonajexHistoriaAdmin.aspx" />
     <Content Include="Views\Tipo Artista Admin\TipoArtistaAdmin.aspx" />
     <Content Include="Views\Index Admin\IndexAdmin.aspx" />
     <Content Include="Views\Index\Index.aspx" />
@@ -191,12 +263,18 @@
     <Compile Include="Controllers\CrearCuentaControllers.cs" />
     <Compile Include="Controllers\DepartamentosControllers.cs" />
     <Compile Include="Controllers\DeportesControllers.cs" />
+    <Compile Include="Controllers\EquipoControllers.cs" />
     <Compile Include="Controllers\GastronomiaControllers.cs" />
+    <Compile Include="Controllers\HistoriaControllers.cs" />
     <Compile Include="Controllers\LoginControllers.cs" />
+    <Compile Include="Controllers\MusicaControllers.cs" />
+    <Compile Include="Controllers\PersoanesxHistoriaControllers.cs" />
+    <Compile Include="Controllers\PersonajesHistoricosControllers.cs" />
     <Compile Include="Controllers\RecuperarPasswordControllers.cs" />
     <Compile Include="Controllers\TipodeArquitecturaControllers.cs" />
     <Compile Include="Controllers\TipodeArtistaControllers.cs" />
     <Compile Include="Controllers\TipodeGastronomiaControllers.cs" />
+    <Compile Include="Controllers\TipodeHistoriaControllers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Template Admin\Template Admin.Master.cs">
       <DependentUpon>Template Admin.Master</DependentUpon>
@@ -247,6 +325,13 @@
     <Compile Include="Views\Deportes Admin\DeportesAdmin.aspx.designer.cs">
       <DependentUpon>DeportesAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\EquipoAdmin\EquipoAdmin.aspx.cs">
+      <DependentUpon>EquipoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EquipoAdmin\EquipoAdmin.aspx.designer.cs">
+      <DependentUpon>EquipoAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\EquiposAdmin\EquiposAdmin.aspx.cs">
       <DependentUpon>EquiposAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -268,12 +353,47 @@
     <Compile Include="Views\HistoriaAdmin\HistoriaAdmin.aspx.designer.cs">
       <DependentUpon>HistoriaAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\MapaGoogle\MapadeGoogle.aspx.cs">
-      <DependentUpon>MapadeGoogle.aspx</DependentUpon>
+    <Compile Include="Views\Login Administrador\LoginAdministrador.aspx.cs">
+      <DependentUpon>LoginAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\MapaGoogle\MapadeGoogle.aspx.designer.cs">
-      <DependentUpon>MapadeGoogle.aspx</DependentUpon>
+    <Compile Include="Views\Login Administrador\LoginAdministrador.aspx.designer.cs">
+      <DependentUpon>LoginAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapaGastronomia\MapaGastronomia.aspx.cs">
+      <DependentUpon>MapaGastronomia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MapaGastronomia\MapaGastronomia.aspx.designer.cs">
+      <DependentUpon>MapaGastronomia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapaGeografia\MapaGeografia.aspx.cs">
+      <DependentUpon>MapaGeografia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MapaGeografia\MapaGeografia.aspx.designer.cs">
+      <DependentUpon>MapaGeografia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapaMusica\MapaMusica.aspx.cs">
+      <DependentUpon>MapaMusica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MapaMusica\MapaMusica.aspx.designer.cs">
+      <DependentUpon>MapaMusica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx.cs">
+      <DependentUpon>MapaPersonajesPublicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx.designer.cs">
+      <DependentUpon>MapaPersonajesPublicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapaTerminado\MapaTerminado.aspx.cs">
+      <DependentUpon>MapaTerminado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MapaTerminado\MapaTerminado.aspx.designer.cs">
+      <DependentUpon>MapaTerminado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Mapa\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -282,19 +402,26 @@
     <Compile Include="Views\Mapa\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Prueba\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\MusicaAdmin\MusicaAdmin.aspx.cs">
+      <DependentUpon>MusicaAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Prueba\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Views\MusicaAdmin\MusicaAdmin.aspx.designer.cs">
+      <DependentUpon>MusicaAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Prueba\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Views\PersonajesHistoricosAdmin\PersonajesHistoricosAdmin.aspx.cs">
+      <DependentUpon>PersonajesHistoricosAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Prueba\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
+    <Compile Include="Views\PersonajesHistoricosAdmin\PersonajesHistoricosAdmin.aspx.designer.cs">
+      <DependentUpon>PersonajesHistoricosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PersonajesxHistoriaAdmin\PersonajexHistoriaAdmin.aspx.cs">
+      <DependentUpon>PersonajexHistoriaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PersonajesxHistoriaAdmin\PersonajexHistoriaAdmin.aspx.designer.cs">
+      <DependentUpon>PersonajexHistoriaAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tipo Artista Admin\TipoArtistaAdmin.aspx.cs">
       <DependentUpon>TipoArtistaAdmin.aspx</DependentUpon>
@@ -378,7 +505,7 @@
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="tmp\" />
-    <Folder Include="Views\Prueba.html\" />
+    <Folder Include="Views\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConoceAColombia.logica\ConoceAColombia.logica.csproj">

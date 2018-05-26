@@ -84,7 +84,7 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
         }
 
         protected void gvwDatos_RowCommand(object sender, GridViewCommandEventArgs e)

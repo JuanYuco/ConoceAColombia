@@ -51,10 +51,10 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo">
                                 <ItemTemplate>
-                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("depoCodigo")%>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("lgCodigo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="Nombre" DataField="depoNombre" />
+                            <asp:BoundField HeaderText="Nombre" DataField="stNombre" />
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ibEditar" runat="server" ImageUrl="~/Resources/Images/edit26-300px.png" Width="50px" Height="50px" CommandName="Editar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />

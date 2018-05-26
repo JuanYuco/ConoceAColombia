@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdConoceAColombiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbArquitectura">
+    <Key>
+      <PropertyRef Name="arquCodigo" />
+    </Key>
+    <Property Name="arquCodigo" Type="bigint" Nullable="false" />
+    <Property Name="arquDepartamento" Type="bigint" />
+    <Property Name="arquNombre" Type="varchar" MaxLength="50" />
+    <Property Name="arquCiudad" Type="varchar" MaxLength="50" />
+    <Property Name="arquLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="arquLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="arquTipo" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbArtistas">
+    <Key>
+      <PropertyRef Name="artiCodigo" />
+    </Key>
+    <Property Name="artiCodigo" Type="bigint" Nullable="false" />
+    <Property Name="artiNombre" Type="varchar" MaxLength="50" />
+    <Property Name="artiGenero" Type="bigint" Nullable="false" />
+    <Property Name="artiCiudad" Type="varchar" MaxLength="50" />
+    <Property Name="artiLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="artiLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="artiDepartamento" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbCiudadesPrincipales">
+    <Key>
+      <PropertyRef Name="ciprCodigo" />
+    </Key>
+    <Property Name="ciprCodigo" Type="bigint" Nullable="false" />
+    <Property Name="ciprNombre" Type="varchar" MaxLength="30" />
+    <Property Name="ciprReseña" Type="varchar" MaxLength="200" />
+    <Property Name="ciprLatitud" Type="varchar" MaxLength="30" />
+    <Property Name="ciprLongitud" Type="varchar" MaxLength="30" />
+    <Property Name="ciprDepartamento" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbDepartamento">
+    <Key>
+      <PropertyRef Name="depaCodigo" />
+    </Key>
+    <Property Name="depaCodigo" Type="bigint" Nullable="false" />
+    <Property Name="depaNombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaCapital" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaGobernador" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaMunicipios" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="depaFundacion" Type="date" Nullable="false" />
+    <Property Name="depaGentilicio" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaPoblacion" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="depaSuperficie" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaDemografia" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaLatitud" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaLongitud" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbDeportes">
+    <Key>
+      <PropertyRef Name="depoCodigo" />
+    </Key>
+    <Property Name="depoCodigo" Type="bigint" Nullable="false" />
+    <Property Name="depoNombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbGastronomia">
+    <Key>
+      <PropertyRef Name="gastCodigo" />
+    </Key>
+    <Property Name="gastCodigo" Type="bigint" Nullable="false" />
+    <Property Name="gastNombre" Type="varchar" MaxLength="50" />
+    <Property Name="gastDescripcion" Type="varchar" MaxLength="200" />
+    <Property Name="gastCiudad" Type="varchar" MaxLength="50" />
+    <Property Name="gastLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="gastLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="gastDepartamento" Type="bigint" />
+    <Property Name="gastTipo" Type="bigint" />
+  </EntityType>
+  <EntityType Name="tbMusica">
+    <Key>
+      <PropertyRef Name="musiCodigo" />
+    </Key>
+    <Property Name="musiCodigo" Type="bigint" Nullable="false" />
+    <Property Name="musiNombre" Type="varchar" MaxLength="50" />
+    <Property Name="musiDescripcion" Type="varchar" MaxLength="300" />
+    <Property Name="musiDepartamento" Type="bigint" />
+    <Property Name="musiLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="musiLongitud" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbTipodeArquitectura">
+    <Key>
+      <PropertyRef Name="tiarCodigo" />
+    </Key>
+    <Property Name="tiarCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tiarDescripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbTipodeArtista">
+    <Key>
+      <PropertyRef Name="tiatCodigo" />
+    </Key>
+    <Property Name="tiatCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tiatGenero" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbTipodeGastronomia">
+    <Key>
+      <PropertyRef Name="tigaCodigo" />
+    </Key>
+    <Property Name="tigaCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tigaDescripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbTipoUsuario">
+    <Key>
+      <PropertyRef Name="tiusCodigo" />
+    </Key>
+    <Property Name="tiusCodigo" Type="int" Nullable="false" />
+    <Property Name="tiusDescripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbUsuarios">
+    <Key>
+      <PropertyRef Name="usuaCodigo" />
+    </Key>
+    <Property Name="usuaCodigo" Type="int" Nullable="false" />
+    <Property Name="usuaNombre" Type="varchar" MaxLength="50" />
+    <Property Name="usuaApellido" Type="varchar" MaxLength="50" />
+    <Property Name="usuaCorreo" Type="varchar" MaxLength="50" />
+    <Property Name="usuaPassword" Type="varchar" MaxLength="50" />
+    <Property Name="usuaPuntuacionMaxima" Type="int" />
+    <Property Name="usuaTipo" Type="int" Nullable="false" />
+    <Property Name="usuaImagen" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_arquDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbArquitectura" Type="Self.tbArquitectura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbArquitectura">
+        <PropertyRef Name="arquDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_arquTipo">
+    <End Role="tbTipodeArquitectura" Type="Self.tbTipodeArquitectura" Multiplicity="1" />
+    <End Role="tbArquitectura" Type="Self.tbArquitectura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeArquitectura">
+        <PropertyRef Name="tiarCodigo" />
+      </Principal>
+      <Dependent Role="tbArquitectura">
+        <PropertyRef Name="arquTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_artiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbArtistas" Type="Self.tbArtistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbArtistas">
+        <PropertyRef Name="artiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_artiGenero">
+    <End Role="tbTipodeArtista" Type="Self.tbTipodeArtista" Multiplicity="1" />
+    <End Role="tbArtistas" Type="Self.tbArtistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeArtista">
+        <PropertyRef Name="tiatCodigo" />
+      </Principal>
+      <Dependent Role="tbArtistas">
+        <PropertyRef Name="artiGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ciprDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbCiudadesPrincipales" Type="Self.tbCiudadesPrincipales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbCiudadesPrincipales">
+        <PropertyRef Name="ciprDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gastDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbGastronomia">
+        <PropertyRef Name="gastDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gastTipo">
+    <End Role="tbTipodeGastronomia" Type="Self.tbTipodeGastronomia" Multiplicity="0..1" />
+    <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeGastronomia">
+        <PropertyRef Name="tigaCodigo" />
+      </Principal>
+      <Dependent Role="tbGastronomia">
+        <PropertyRef Name="gastTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_musiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbMusica" Type="Self.tbMusica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbMusica">
+        <PropertyRef Name="musiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuaTipo">
+    <End Role="tbTipoUsuario" Type="Self.tbTipoUsuario" Multiplicity="1" />
+    <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoUsuario">
+        <PropertyRef Name="tiusCodigo" />
+      </Principal>
+      <Dependent Role="tbUsuarios">
+        <PropertyRef Name="usuaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdConoceAColombiaModelStoreContainer">
+    <EntitySet Name="tbArquitectura" EntityType="Self.tbArquitectura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbArtistas" EntityType="Self.tbArtistas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCiudadesPrincipales" EntityType="Self.tbCiudadesPrincipales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMusica" EntityType="Self.tbMusica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipodeGastronomia" EntityType="Self.tbTipodeGastronomia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_arquDepartamento" Association="Self.FK_arquDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbArquitectura" EntitySet="tbArquitectura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_arquTipo" Association="Self.FK_arquTipo">
+      <End Role="tbTipodeArquitectura" EntitySet="tbTipodeArquitectura" />
+      <End Role="tbArquitectura" EntitySet="tbArquitectura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_artiDepartamento" Association="Self.FK_artiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbArtistas" EntitySet="tbArtistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_artiGenero" Association="Self.FK_artiGenero">
+      <End Role="tbTipodeArtista" EntitySet="tbTipodeArtista" />
+      <End Role="tbArtistas" EntitySet="tbArtistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ciprDepartamento" Association="Self.FK_ciprDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbCiudadesPrincipales" EntitySet="tbCiudadesPrincipales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gastDepartamento" Association="Self.FK_gastDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbGastronomia" EntitySet="tbGastronomia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gastTipo" Association="Self.FK_gastTipo">
+      <End Role="tbTipodeGastronomia" EntitySet="tbTipodeGastronomia" />
+      <End Role="tbGastronomia" EntitySet="tbGastronomia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_musiDepartamento" Association="Self.FK_musiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbMusica" EntitySet="tbMusica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuaTipo" Association="Self.FK_usuaTipo">
+      <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />
+      <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
