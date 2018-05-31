@@ -135,6 +135,26 @@ namespace ConoceAColombia.web.Views.MapaTerminado
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string[] stEmail = null;
+                if (Session["SessionEmail"] != null)
+                {
+                    stEmail = Session["SessionEmail"].ToString().Split('@');
+                    lblUsuario.Text = stEmail[0];
+                }
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+
+                if (Session["SessionEmail"] != null)
+                    stLogin = Session["SessionEmail"].ToString();
+                else
+                    Response.Redirect("../Login/Login.aspx");
+            }
 
         }
 

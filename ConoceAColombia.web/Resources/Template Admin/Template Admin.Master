@@ -53,11 +53,18 @@
                         </a>
                         <ul class="sidenav-second-level collapse" id="HistoriaComponentes">
                             <li>
-                                <a href="../../Views/Departamentos Admin/DepartamentosAdmin.aspx">Historia</a>
+                                <a href="../../Views/Tipo Historia Admin/TipoHistoriaAdmin.aspx">Tipo Historia</a>
                             </li>
                             <li>
-                                <a href="../../Views/Ciudades Principales Admin/CiudadesPrincipalesAdmin.aspx">Personajes Historicos</a>
+                                <a href="../../Views/HistoriaAdmin/HistoriaAdmin.aspx">Tipo Historia</a>
                             </li>
+                            <li>
+                                <a href="../../Views/PersonajesHistoricosAdmin/PersonajesHistoricosAdmin.aspx">Personajes Historicos</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/PersonajesxHistoriaAdmin/PersonajexHistoriaAdmin.aspx">Personajes por Historia</a>
+                            </li>
+
                         </ul>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Geografía">
@@ -82,35 +89,87 @@
 
 
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Personajes Publicos">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link nav-link-collapse collapsed" href="#PersonajesPublicosComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-male"></i>
                             <span class="nav-link-text">Personajes Publicos</span>
                         </a>
+                        <ul class="sidenav-second-level collapse" id="PersonajesPublicosComponentes">
+                            <li>
+                                <a href="../../Views/Tipo Artista Admin/TipoArtistaAdmin.aspx">Tipo de Artista</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/Artistas Admin/ArtistasAdmin.aspx">Artista</a>
+                            </li>
+                        </ul>
                     </li>
+
+
+
+
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Arte">
-                        <a class="nav-link" href="../../Views/Tipo Arquitectura Admin/TipoArquitecturaAdmin.aspx">
+                        <a class="nav-link nav-link-collapse collapsed" href="#ArteComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-paint-brush"></i>
                             <span class="nav-link-text">Arte</span>
                         </a>
+                        <ul class="sidenav-second-level collapse" id="ArteComponentes">
+                            <li>
+                                <a href="../../Views/Tipo Arquitectura Admin/TipoArquitecturaAdmin.aspx">Tipo de Arquitectura</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/Arquitectura Admin/Arquitectura Admin.aspx">Arquitectura</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gastronomía">
-                        <a class="nav-link" href="#">
+
+
+
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gastronomia">
+                        <a class="nav-link nav-link-collapse collapsed" href="#GastronomiaComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-spoon"></i>
-                            <span class="nav-link-text">Gastronomía</span>
+                            <span class="nav-link-text">Gastronomia</span>
                         </a>
+                        <ul class="sidenav-second-level collapse" id="GastronomiaComponentes">
+                            <li>
+                                <a href="../../Views/Tipo Gastronomia Admin/TipoGastronomiaAdmin.aspx">Tipo de Gastronomia</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/Gastronomia Admin/GastronomiaAdmin.aspx">Gastronomia</a>
+                            </li>
+                        </ul>
                     </li>
+
+
+
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Música">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link nav-link-collapse collapsed" href="#MusicaComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
                             <i class="fa fa-fw fa-music"></i>
                             <span class="nav-link-text">Música</span>
                         </a>
+                        <ul class="sidenav-second-level collapse" id="MusicaComponentes">              
+                            <li>
+                                <a href="../../Views/MusicaAdmin/MusicaAdmin.aspx">Música</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-users"></i>
-                            <span class="nav-link-text">Población</span>
+
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Deportes">
+                        <a class="nav-link nav-link-collapse collapsed" href="#DeportesComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
+                            <i class="fa fa-fw fa-futbol-o"></i>
+                            <span class="nav-link-text">Deportes</span>
                         </a>
+                        <ul class="sidenav-second-level collapse" id="DeportesComponentes">              
+                            <li>
+                                <a href="../../Views/Deportes Admin/DeportesAdmin.aspx">Deportes</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/EquipoAdmin/EquipoAdmin.aspx">Equipos</a>
+                            </li>
+                        </ul>
                     </li>
+
+                    
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
                         <a class="nav-link" href="../../Views/Mini Juego/Mini Juego.aspx">
                             <i class="fa fa-fw fa-gamepad"></i>
@@ -122,12 +181,15 @@
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
-
-
+                    <li class="nav-item">
+                        <asp:Label runat="server" ID="lblUsuario" CssClass="btn btn-primary"></asp:Label>
+                             
+                    </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../../Views/Login/Login.aspx">
-                            <i class="fa fa-fw fa-sign-out"></i>Salir</a>
+                        <asp:LinkButton Class="nav-link" ID="lbSalir" Text="Salir" runat="server" OnClick="lbSalir_Click">
+                             <i class="fa fa-fw fa-sign-out"></i>Salir
+                        </asp:LinkButton>
                     </li>
                 </ul>
             </div>

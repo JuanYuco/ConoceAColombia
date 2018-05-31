@@ -19,6 +19,17 @@ namespace ConoceAColombia.web.Views.EquipoAdmin
         {
             if (!IsPostBack)
             {
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+                if (Session["SessionEmailAdministrador"] != null)
+                    stLogin = Session["SessionEmailAdministrador"].ToString();
+                else
+                    Response.Redirect("../LoginAdministrador/LoginAdministrador.aspx");
+
                 logica.BL.clsEquipo clsEquipo = new logica.BL.clsEquipo();
                 List<logica.Models.clsDeportes> listDeportes = clsEquipo.getDeportes();
                 List<logica.Models.clsDepartamentos> listDepartamentos = clsEquipo.getDepartamentos();

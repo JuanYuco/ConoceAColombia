@@ -233,7 +233,7 @@
     <Content Include="Views\EquiposAdmin\EquiposAdmin.aspx" />
     <Content Include="Views\Gastronomia Admin\GastronomiaAdmin.aspx" />
     <Content Include="Views\HistoriaAdmin\HistoriaAdmin.aspx" />
-    <Content Include="Views\Login Administrador\LoginAdministrador.aspx" />
+    <Content Include="Views\LoginAdministrador\LoginAdministrador.aspx" />
     <Content Include="Views\MapaGastronomia\MapaGastronomia.aspx" />
     <Content Include="Views\MapaGeografia\MapaGeografia.aspx" />
     <Content Include="Views\MapaMusica\MapaMusica.aspx" />
@@ -244,7 +244,7 @@
     <Content Include="Views\PersonajesHistoricosAdmin\PersonajesHistoricosAdmin.aspx" />
     <Content Include="Views\PersonajesxHistoriaAdmin\PersonajexHistoriaAdmin.aspx" />
     <Content Include="Views\Tipo Artista Admin\TipoArtistaAdmin.aspx" />
-    <Content Include="Views\Index Admin\IndexAdmin.aspx" />
+    <Content Include="Views\IndexAdmin\IndexAdmin.aspx" />
     <Content Include="Views\Index\Index.aspx" />
     <Content Include="Views\Login\Login.aspx" />
     <Content Include="Views\Mini Juego\Mini Juego.aspx" />
@@ -353,11 +353,11 @@
     <Compile Include="Views\HistoriaAdmin\HistoriaAdmin.aspx.designer.cs">
       <DependentUpon>HistoriaAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login Administrador\LoginAdministrador.aspx.cs">
+    <Compile Include="Views\LoginAdministrador\LoginAdministrador.aspx.cs">
       <DependentUpon>LoginAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Login Administrador\LoginAdministrador.aspx.designer.cs">
+    <Compile Include="Views\LoginAdministrador\LoginAdministrador.aspx.designer.cs">
       <DependentUpon>LoginAdministrador.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MapaGastronomia\MapaGastronomia.aspx.cs">
@@ -430,11 +430,11 @@
     <Compile Include="Views\Tipo Artista Admin\TipoArtistaAdmin.aspx.designer.cs">
       <DependentUpon>TipoArtistaAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Index Admin\IndexAdmin.aspx.cs">
+    <Compile Include="Views\IndexAdmin\IndexAdmin.aspx.cs">
       <DependentUpon>IndexAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Index Admin\IndexAdmin.aspx.designer.cs">
+    <Compile Include="Views\IndexAdmin\IndexAdmin.aspx.designer.cs">
       <DependentUpon>IndexAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index\Index.aspx.cs">

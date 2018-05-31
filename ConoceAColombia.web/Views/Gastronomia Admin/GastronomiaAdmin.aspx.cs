@@ -34,6 +34,17 @@ namespace ConoceAColombia.web.Views.Gastronomia_Admin
             
             if (!IsPostBack)
             {
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+                if (Session["SessionEmailAdministrador"] != null)
+                    stLogin = Session["SessionEmailAdministrador"].ToString();
+                else
+                    Response.Redirect("../LoginAdministrador/LoginAdministrador.aspx");
+
                 logica.BL.clsGastronomia clsGastronomia = new logica.BL.clsGastronomia();
                 DataSet dsConsulta = clsGastronomia.getDepartamentoDatos(-1);
                 DataSet dsConsultaDos = clsGastronomia.getGastronomiaTipoDatos(-1);

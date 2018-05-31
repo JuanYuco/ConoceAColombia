@@ -25,6 +25,17 @@ namespace ConoceAColombia.web.Views.PersonajesxHistoriaAdmin
         {
             if (!IsPostBack)
             {
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+                if (Session["SessionEmailAdministrador"] != null)
+                    stLogin = Session["SessionEmailAdministrador"].ToString();
+                else
+                    Response.Redirect("../LoginAdministrador/LoginAdministrador.aspx");
+
                 getPersonajesxHistoria();
                 logica.BL.clsPersonajesxHistoria clsPersonajexHistoria = new logica.BL.clsPersonajesxHistoria();
                 DataSet dsConsulta = clsPersonajexHistoria.getPersonajesHistoricosDatos(-1);

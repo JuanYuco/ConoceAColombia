@@ -11,7 +11,21 @@ namespace ConoceAColombia.web.Resources.Template_Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string[] stEmail = null;
+                if (Session["SessionEmailAdministrador"] != null)
+                {
+                    stEmail = Session["SessionEmailAdministrador"].ToString().Split('@');
+                    lblUsuario.Text = stEmail[0];
+                }
+            }
+        }
 
+        protected void lbSalir_Click(object sender, EventArgs e)
+        {
+            Session.RemoveAll();
+            Response.Redirect("../../Views/LoginAdministrador/loginAdministrador.aspx");
         }
     }
 }

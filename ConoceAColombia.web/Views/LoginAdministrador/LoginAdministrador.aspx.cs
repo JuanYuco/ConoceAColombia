@@ -61,7 +61,7 @@ namespace ConoceAColombia.web.Views.Login_Administrador
                     Session["SessionEmailAdministrador"] = txtEmail.Text;
                     Session["sesionPasswordAdministrador"] = txtPassword.Text;
 
-                    Response.Redirect("../PersonajesHistoricosAdmin/PersonajesHistoricosAdmin.aspx");
+                    Response.Redirect("../IndexAdmin/IndexAdmin.aspx");
 
 
                     //Session.RemoveAll(); Remover todas

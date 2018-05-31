@@ -51,45 +51,9 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Historia">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="../../Views/MapaTerminado/MapaTerminado.aspx">
                             <i class="fa fa-fw fa-book"></i>
-                            <span class="nav-link-text">Historia</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Geografía">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-globe"></i>
-                            <span class="nav-link-text">Geografía</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Personajes Publicos">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-male"></i>
-                            <span class="nav-link-text">Personajes Publicos</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Arte">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-paint-brush"></i>
-                            <span class="nav-link-text">Arte</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gastronomía">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-spoon"></i>
-                            <span class="nav-link-text">Gastronomía</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Música">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-music"></i>
-                            <span class="nav-link-text">Música</span>
-                        </a>
-                    </li>
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-users"></i>
-                            <span class="nav-link-text">Deportes</span>
+                            <span class="nav-link-text">Mapa</span>
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
@@ -109,7 +73,7 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <asp:Label runat="server" ID="lblUsuario" CssClass="btn btn-primary"></asp:Label>>
+                        <asp:Label runat="server" ID="lblUsuario" CssClass="btn btn-primary"></asp:Label>
                              
                     </li>
 

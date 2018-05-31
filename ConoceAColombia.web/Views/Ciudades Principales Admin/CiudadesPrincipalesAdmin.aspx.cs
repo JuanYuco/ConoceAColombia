@@ -36,6 +36,17 @@ namespace ConoceAColombia.web.Views.Ciudades_Principales_Admin
             
             if (!IsPostBack)
             {
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+                if (Session["SessionEmailAdministrador"] != null)
+                    stLogin = Session["SessionEmailAdministrador"].ToString();
+                else
+                    Response.Redirect("../LoginAdministrador/LoginAdministrador.aspx");
+
                 logica.BL.clsCiudadesPrincipales clsCiudadesPrincipales = new logica.BL.clsCiudadesPrincipales();
                 DataSet dsConsulta = clsCiudadesPrincipales.getDepartamentoDatos(-1);
 

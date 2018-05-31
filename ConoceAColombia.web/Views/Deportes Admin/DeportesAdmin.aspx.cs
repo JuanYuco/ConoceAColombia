@@ -27,6 +27,17 @@ namespace ConoceAColombia.web.Views.Deportes_Admin
         {
             if (!IsPostBack)
             {
+                string stLogin = string.Empty;
+                string stPassword = string.Empty;
+                if (Request.QueryString["stLogin"] != null && Request.QueryString["stPassword"] != null)
+                    stLogin = Request.QueryString["stLogin"].ToString();
+
+
+                if (Session["SessionEmailAdministrador"] != null)
+                    stLogin = Session["SessionEmailAdministrador"].ToString();
+                else
+                    Response.Redirect("../LoginAdministrador/LoginAdministrador.aspx");
+
                 getDeportes();
             }
         }
