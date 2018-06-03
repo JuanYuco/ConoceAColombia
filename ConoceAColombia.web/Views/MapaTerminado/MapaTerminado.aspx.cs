@@ -132,6 +132,66 @@ namespace ConoceAColombia.web.Views.MapaTerminado
         }
 
 
+        void getHistoria()
+        {
+            try
+            {
+                Controllers.HistoriaControllers obHistoriaControllers = new Controllers.HistoriaControllers();
+                DataSet dsConsulta = obHistoriaControllers.getConsultarHistoriaController();
+                if (dsConsulta.Tables[0].Rows.Count > 0)
+                {
+                    rpHistoria.DataSource = dsConsulta;
+                }
+                else
+                {
+                    rpHistoria.DataSource = null;
+                }
+                rpHistoria.DataBind();
+            }
+            catch (Exception ex) { ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('ERROR!', '" + ex.Message + "!', 'error')</Script>"); }
+        }
+
+        void getPersonajesHistoricos()
+        {
+            try
+            {
+                Controllers.PersonajesHistoricosControllers obPersonajesHistoricosControllers = new Controllers.PersonajesHistoricosControllers();
+                DataSet dsConsulta = obPersonajesHistoricosControllers.getConsultarPersonajesHistoricosController();
+                if (dsConsulta.Tables[0].Rows.Count > 0)
+                {
+                    rpPersonajesHistoricos.DataSource = dsConsulta;
+                }
+                else
+                {
+                    rpPersonajesHistoricos.DataSource = null;
+                }
+                rpPersonajesHistoricos.DataBind();
+            }
+            catch (Exception ex) { ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('ERROR!', '" + ex.Message + "!', 'error')</Script>"); }
+        }
+
+        void getArquitectura()
+        {
+            try
+            {
+                Controllers.ArquitecturaControllers obArquitecturaControllers = new Controllers.ArquitecturaControllers();
+                DataSet dsConsulta = obArquitecturaControllers.getConsultarArquitecturaController();
+                if (dsConsulta.Tables[0].Rows.Count > 0)
+                {
+                    rpArquitectura.DataSource = dsConsulta;
+                }
+                else
+                {
+                    rpArquitectura.DataSource = null;
+                }
+                rpArquitectura.DataBind();
+            }
+            catch (Exception ex) { ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('ERROR!', '" + ex.Message + "!', 'error')</Script>"); }
+
+        }
+
+
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -181,6 +241,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpDeportes.DataBind();
             rpEstructurasDeportivas.DataSource = null;
             rpEstructurasDeportivas.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
 
         }
 
@@ -199,10 +265,33 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpDeportes.DataBind();
             rpEstructurasDeportivas.DataSource = null;
             rpEstructurasDeportivas.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
         }
 
         protected void LinkArte_Click(object sender, EventArgs e)
         {
+            getArquitectura();
+            rpGastronomia.DataSource = null;
+            rpGastronomia.DataBind();
+            rpMusica.DataSource = null;
+            rpMusica.DataBind();
+            rpDepartamentos.DataSource = null;
+            rpDepartamentos.DataBind();
+            rpCiudadesPricipales.DataSource = null;
+            rpCiudadesPricipales.DataBind();
+            rpDeportes.DataSource = null;
+            rpDeportes.DataBind();
+            rpEstructurasDeportivas.DataSource = null;
+            rpEstructurasDeportivas.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
 
         }
 
@@ -222,6 +311,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpDeportes.DataBind();
             rpEstructurasDeportivas.DataSource = null;
             rpEstructurasDeportivas.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
         }
 
         protected void LinkMusica_Click(object sender, EventArgs e)
@@ -239,6 +334,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpDeportes.DataBind();
             rpEstructurasDeportivas.DataSource = null;
             rpEstructurasDeportivas.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
         }
 
         protected void LinkDeportes_Click(object sender, EventArgs e)
@@ -255,6 +356,36 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpPersonajesPublicos.DataBind();
             rpMusica.DataSource = null;
             rpMusica.DataBind();
-        }        
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
+        }
+
+        protected void LinkHistoria_Click(object sender, EventArgs e)
+        {
+            getHistoria();
+            getPersonajesHistoricos();
+            getEstructurasDeportivas();
+            rpDepartamentos.DataSource = null;
+            rpDepartamentos.DataBind();
+            rpCiudadesPricipales.DataSource = null;
+            rpCiudadesPricipales.DataBind();
+            rpGastronomia.DataSource = null;
+            rpGastronomia.DataBind();
+            rpPersonajesPublicos.DataSource = null;
+            rpPersonajesPublicos.DataBind();
+            rpMusica.DataSource = null;
+            rpMusica.DataBind();
+            rpDeportes.DataSource = null;
+            rpDeportes.DataBind();
+            rpEstructurasDeportivas.DataSource = null;
+            rpEstructurasDeportivas.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
+
+        }
     }
 }

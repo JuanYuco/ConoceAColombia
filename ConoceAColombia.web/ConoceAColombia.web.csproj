@@ -236,7 +236,7 @@
     <Content Include="Views\LoginAdministrador\LoginAdministrador.aspx" />
     <Content Include="Views\MapaGastronomia\MapaGastronomia.aspx" />
     <Content Include="Views\MapaGeografia\MapaGeografia.aspx" />
-    <Content Include="Views\MapaMusica\MapaMusica.aspx" />
+    <Content Include="Views\MapaGastronomia\MapaMusica\MapaMusica.aspx" />
     <Content Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx" />
     <Content Include="Views\MapaTerminado\MapaTerminado.aspx" />
     <Content Include="Views\Mapa\WebForm1.aspx" />
@@ -374,11 +374,11 @@
     <Compile Include="Views\MapaGeografia\MapaGeografia.aspx.designer.cs">
       <DependentUpon>MapaGeografia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\MapaMusica\MapaMusica.aspx.cs">
+    <Compile Include="Views\MapaGastronomia\MapaMusica\MapaMusica.aspx.cs">
       <DependentUpon>MapaMusica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\MapaMusica\MapaMusica.aspx.designer.cs">
+    <Compile Include="Views\MapaGastronomia\MapaMusica\MapaMusica.aspx.designer.cs">
       <DependentUpon>MapaMusica.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx.cs">

@@ -13,6 +13,15 @@ namespace ConoceAColombia.web.Views.MapaTerminado {
     public partial class MapaTerminado {
         
         /// <summary>
+        /// Control LinkHistoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkHistoria;
+        
+        /// <summary>
         /// Control linkGeografia.
         /// </summary>
         /// <remarks>
@@ -146,5 +155,32 @@ namespace ConoceAColombia.web.Views.MapaTerminado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpEstructurasDeportivas;
+        
+        /// <summary>
+        /// Control rpArquitectura.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpArquitectura;
+        
+        /// <summary>
+        /// Control rpHistoria.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpHistoria;
+        
+        /// <summary>
+        /// Control rpPersonajesHistoricos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpPersonajesHistoricos;
     }
 }

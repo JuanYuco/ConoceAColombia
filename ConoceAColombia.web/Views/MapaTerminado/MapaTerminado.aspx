@@ -60,11 +60,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Historia">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-fw fa-book"></i>
-                            <span class="nav-link-text">Historia</span>
-                        </a>
+                    <li class="nav-item">
+                        <asp:LinkButton Class="nav-link" ID="LinkHistoria" runat="server" OnClick="LinkHistoria_Click">
+                        <i class="fa fa-fw fa-book"></i>Historia
+                        </asp:LinkButton>
                     </li>
                     <li class="nav-item">
                         <asp:LinkButton Class="nav-link" ID="linkGeografia" runat="server" OnClick="linkGeografia_Click">
@@ -284,8 +283,61 @@
 
 
                     <!-- Arte -->
+                    <asp:Repeater ID="rpArquitectura" runat="server">
+                        <ItemTemplate>
+                            <div
+                                data-id="<%# DataBinder.Eval(Container.DataItem,"arquCodigo") %>"
+                                data-lat="<%# DataBinder.Eval(Container.DataItem,"arquLatitud") %>"
+                                data-lng="<%# DataBinder.Eval(Container.DataItem,"arquLongitud") %>"
+                                class="marker">
+                                <div class="map-card">
+                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"arquCodigo")%>.jpg" />
+                                    <h1><%# DataBinder.Eval(Container.DataItem,"arquNombre") %></h1>
+                                    <p>Ciudad: <%# DataBinder.Eval(Container.DataItem,"arquCiudad") %></p>
+                                    <p>Deporte: <%# DataBinder.Eval(Container.DataItem,"depaNombre") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                    <!-- Historia-->
+                    <asp:Repeater ID="rpHistoria" runat="server">
+                        <ItemTemplate>
+                            <div
+                                data-id="<%# DataBinder.Eval(Container.DataItem,"histCodigo") %>"
+                                data-lat="<%# DataBinder.Eval(Container.DataItem,"histLatitud") %>"
+                                data-lng="<%# DataBinder.Eval(Container.DataItem,"histLongitud") %>"
+                                class="marker">
+                                <div class="map-card">
+                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"histCodigo")%>historia.jpg" />
+                                    <h1><%# DataBinder.Eval(Container.DataItem,"histNombre") %></h1>
+                                    <p>Fecha Inicio: <%# DataBinder.Eval(Container.DataItem,"histFechaInicio") %></p>
+                                    <p>Fecha Fin: <%# DataBinder.Eval(Container.DataItem,"histFechaFin") %></p>
+                                    <p>Descripción: <%# DataBinder.Eval(Container.DataItem,"histDescripcion") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
 
 
+
+                    <asp:Repeater ID="rpPersonajesHistoricos" runat="server">
+                        <ItemTemplate>
+                            <div
+                                data-id="<%# DataBinder.Eval(Container.DataItem,"pehiCodigo") %>"
+                                data-lat="<%# DataBinder.Eval(Container.DataItem,"pehiLatitud") %>"
+                                data-lng="<%# DataBinder.Eval(Container.DataItem,"pehiLongitud") %>"
+                                class="marker">
+                                <div class="map-card">
+                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"pehiCodigo")%>pehis.jpg" />
+                                    <h1><%# DataBinder.Eval(Container.DataItem,"pehiNombre") %></h1>
+                                    <p>Descripción: <%# DataBinder.Eval(Container.DataItem,"pehiDescripcion") %></p>
+                                    <p>Ciudad: <%# DataBinder.Eval(Container.DataItem,"pehiCiudad") %></p>
+                                    <p>Fecha de Nacimiento: <%# DataBinder.Eval(Container.DataItem,"pehiNacimiento") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
                 
 
