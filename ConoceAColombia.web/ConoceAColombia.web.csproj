@@ -107,24 +107,35 @@
     <Content Include="Resources\Images\10departamento.jpg" />
     <Content Include="Resources\Images\11departamento.jpg" />
     <Content Include="Resources\Images\12departamento.jpg" />
+    <Content Include="Resources\Images\1Arte.jpg" />
     <Content Include="Resources\Images\1departamento.jpg" />
     <Content Include="Resources\Images\1gastronomia.jpg" />
+    <Content Include="Resources\Images\1historia.jpg" />
     <Content Include="Resources\Images\1musica.jpg" />
+    <Content Include="Resources\Images\1pehis.jpg" />
     <Content Include="Resources\Images\1personaje.jpg" />
     <Content Include="Resources\Images\2departamento.jpg" />
     <Content Include="Resources\Images\2gastronomia.jpg" />
+    <Content Include="Resources\Images\2historia.jpg" />
     <Content Include="Resources\Images\2musica.jpg" />
+    <Content Include="Resources\Images\2pehis.jpg" />
     <Content Include="Resources\Images\2personaje.jpg" />
+    <Content Include="Resources\Images\3Arte.jpg" />
     <Content Include="Resources\Images\3departamento.jpg" />
     <Content Include="Resources\Images\3gastronomia.jpg" />
+    <Content Include="Resources\Images\3historia.jpg" />
     <Content Include="Resources\Images\3musica.jpg" />
     <Content Include="Resources\Images\3personaje.jpg" />
+    <Content Include="Resources\Images\4Arte.jpg" />
     <Content Include="Resources\Images\4departamento.jpg" />
     <Content Include="Resources\Images\4gastronomia.jpg" />
+    <Content Include="Resources\Images\4historia.jpeg" />
     <Content Include="Resources\Images\4musica.jpg" />
     <Content Include="Resources\Images\4personaje.jpg" />
+    <Content Include="Resources\Images\5Arte.jpg" />
     <Content Include="Resources\Images\5departamento.jpg" />
     <Content Include="Resources\Images\5gastronomia.jpg" />
+    <Content Include="Resources\Images\5historia.jpg" />
     <Content Include="Resources\Images\5musica.jpg" />
     <Content Include="Resources\Images\5personaje.jpg" />
     <Content Include="Resources\Images\61848.png" />
@@ -234,12 +245,7 @@
     <Content Include="Views\Gastronomia Admin\GastronomiaAdmin.aspx" />
     <Content Include="Views\HistoriaAdmin\HistoriaAdmin.aspx" />
     <Content Include="Views\LoginAdministrador\LoginAdministrador.aspx" />
-    <Content Include="Views\MapaGastronomia\MapaGastronomia.aspx" />
-    <Content Include="Views\MapaGeografia\MapaGeografia.aspx" />
-    <Content Include="Views\MapaGastronomia\MapaMusica\MapaMusica.aspx" />
-    <Content Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx" />
     <Content Include="Views\MapaTerminado\MapaTerminado.aspx" />
-    <Content Include="Views\Mapa\WebForm1.aspx" />
     <Content Include="Views\MusicaAdmin\MusicaAdmin.aspx" />
     <Content Include="Views\PersonajesHistoricosAdmin\PersonajesHistoricosAdmin.aspx" />
     <Content Include="Views\PersonajesxHistoriaAdmin\PersonajexHistoriaAdmin.aspx" />
@@ -360,47 +366,12 @@
     <Compile Include="Views\LoginAdministrador\LoginAdministrador.aspx.designer.cs">
       <DependentUpon>LoginAdministrador.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\MapaGastronomia\MapaGastronomia.aspx.cs">
-      <DependentUpon>MapaGastronomia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\MapaGastronomia\MapaGastronomia.aspx.designer.cs">
-      <DependentUpon>MapaGastronomia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MapaGeografia\MapaGeografia.aspx.cs">
-      <DependentUpon>MapaGeografia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\MapaGeografia\MapaGeografia.aspx.designer.cs">
-      <DependentUpon>MapaGeografia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MapaGastronomia\MapaMusica\MapaMusica.aspx.cs">
-      <DependentUpon>MapaMusica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\MapaGastronomia\MapaMusica\MapaMusica.aspx.designer.cs">
-      <DependentUpon>MapaMusica.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx.cs">
-      <DependentUpon>MapaPersonajesPublicos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\MapaPersonajesPublicos\MapaPersonajesPublicos.aspx.designer.cs">
-      <DependentUpon>MapaPersonajesPublicos.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\MapaTerminado\MapaTerminado.aspx.cs">
       <DependentUpon>MapaTerminado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\MapaTerminado\MapaTerminado.aspx.designer.cs">
       <DependentUpon>MapaTerminado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Mapa\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Mapa\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MusicaAdmin\MusicaAdmin.aspx.cs">
       <DependentUpon>MusicaAdmin.aspx</DependentUpon>
