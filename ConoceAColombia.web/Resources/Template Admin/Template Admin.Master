@@ -56,7 +56,7 @@
                                 <a href="../../Views/Tipo Historia Admin/TipoHistoriaAdmin.aspx">Tipo Historia</a>
                             </li>
                             <li>
-                                <a href="../../Views/HistoriaAdmin/HistoriaAdmin.aspx">Tipo Historia</a>
+                                <a href="../../Views/HistoriaAdmin/HistoriaAdmin.aspx">Historia</a>
                             </li>
                             <li>
                                 <a href="../../Views/PersonajesHistoricosAdmin/PersonajesHistoricosAdmin.aspx">Personajes Historicos</a>

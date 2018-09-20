@@ -252,7 +252,7 @@
                                 
                                 class="marker">
                                 <div class="map-card">
-                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"lgCodigo")%>Deportes.jpg" />
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"lgCodigo")%>Deportes.jpg" />
                                     <h1><%# DataBinder.Eval(Container.DataItem,"stNombre") %></h1>
                                     <p>Presidente: <%# DataBinder.Eval(Container.DataItem,"stPresidente") %></p>
                                     <p>Fundacion: <%# DataBinder.Eval(Container.DataItem,"stFundacion") %></p>
@@ -272,7 +272,7 @@
                                 data-lng="<%# DataBinder.Eval(Container.DataItem,"arquLongitud") %>"
                                 class="marker">
                                 <div class="map-card">
-                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"arquCodigo")%>Estructuras.jpg" />
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"arquCodigo")%>Estructuras.jpg" />
                                     <h1><%# DataBinder.Eval(Container.DataItem,"arquNombre") %></h1>
                                     <p>Ciudad: <%# DataBinder.Eval(Container.DataItem,"arquCiudad") %></p>
                                     <p>Deporte: <%# DataBinder.Eval(Container.DataItem,"depaNombre") %></p>
@@ -291,7 +291,7 @@
                                 data-lng="<%# DataBinder.Eval(Container.DataItem,"arquLongitud") %>"
                                 class="marker">
                                 <div class="map-card">
-                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"arquCodigo")%>.jpg" />
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"arquCodigo")%>Arte.jpg" />
                                     <h1><%# DataBinder.Eval(Container.DataItem,"arquNombre") %></h1>
                                     <p>Ciudad: <%# DataBinder.Eval(Container.DataItem,"arquCiudad") %></p>
                                     <p>Deporte: <%# DataBinder.Eval(Container.DataItem,"depaNombre") %></p>
@@ -309,7 +309,7 @@
                                 data-lng="<%# DataBinder.Eval(Container.DataItem,"histLongitud") %>"
                                 class="marker">
                                 <div class="map-card">
-                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"histCodigo")%>historia.jpg" />
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"histCodigo")%>historia.jpg"/>
                                     <h1><%# DataBinder.Eval(Container.DataItem,"histNombre") %></h1>
                                     <p>Fecha Inicio: <%# DataBinder.Eval(Container.DataItem,"histFechaInicio") %></p>
                                     <p>Fecha Fin: <%# DataBinder.Eval(Container.DataItem,"histFechaFin") %></p>
@@ -329,7 +329,7 @@
                                 data-lng="<%# DataBinder.Eval(Container.DataItem,"pehiLongitud") %>"
                                 class="marker">
                                 <div class="map-card">
-                                    <src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"pehiCodigo")%>pehis.jpg" />
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"pehiCodigo")%>pehis.jpg"/>
                                     <h1><%# DataBinder.Eval(Container.DataItem,"pehiNombre") %></h1>
                                     <p>Descripción: <%# DataBinder.Eval(Container.DataItem,"pehiDescripcion") %></p>
                                     <p>Ciudad: <%# DataBinder.Eval(Container.DataItem,"pehiCiudad") %></p>
