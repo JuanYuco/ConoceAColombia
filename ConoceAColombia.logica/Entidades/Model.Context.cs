@@ -25,17 +25,23 @@ namespace ConoceAColombia.logica.Entidades
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tbArquitectura> tbArquitectura { get; set; }
         public virtual DbSet<tbArtistas> tbArtistas { get; set; }
         public virtual DbSet<tbCiudadesPrincipales> tbCiudadesPrincipales { get; set; }
         public virtual DbSet<tbDepartamento> tbDepartamento { get; set; }
         public virtual DbSet<tbDeportes> tbDeportes { get; set; }
+        public virtual DbSet<tbEquipos> tbEquipos { get; set; }
+        public virtual DbSet<tbFlora> tbFlora { get; set; }
         public virtual DbSet<tbGastronomia> tbGastronomia { get; set; }
+        public virtual DbSet<tbHistoria> tbHistoria { get; set; }
+        public virtual DbSet<tbMusica> tbMusica { get; set; }
+        public virtual DbSet<tbPersonajesHistoricos> tbPersonajesHistoricos { get; set; }
         public virtual DbSet<tbTipodeArquitectura> tbTipodeArquitectura { get; set; }
         public virtual DbSet<tbTipodeArtista> tbTipodeArtista { get; set; }
         public virtual DbSet<tbTipodeGastronomia> tbTipodeGastronomia { get; set; }
+        public virtual DbSet<tbTipodeHistoria> tbTipodeHistoria { get; set; }
         public virtual DbSet<tbTipoUsuario> tbTipoUsuario { get; set; }
         public virtual DbSet<tbUsuarios> tbUsuarios { get; set; }
-        public virtual DbSet<tbMusica> tbMusica { get; set; }
     }
 }

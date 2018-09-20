@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -63,6 +66,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=5.1.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.1.2\lib\net461\NHibernate.dll</HintPath>
     </Reference>
@@ -143,6 +149,7 @@
     <Content Include="Resources\Images\edit26-300px.png" />
     <Content Include="Resources\Images\hqdefault.jpg" />
     <Content Include="Resources\Images\iconoGeografia.png" />
+    <Content Include="Services\wsConsulta.asmx" />
     <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="vendor\bootstrap\css\bootstrap.min.css.map" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
@@ -188,6 +195,17 @@
     <Content Include="vendor\jquery\jquery.slim.min.map" />
     <Content Include="Resources\Template\Template.Master" />
     <Content Include="Resources\Template Admin\Template Admin.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Empleados\Empleados.aspx" />
+    <Content Include="Views\FloraAdmin\FloraAdmin.aspx" />
+    <None Include="Web References\wsFlora\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsFlora\wsFlora.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -254,6 +272,7 @@
     <Content Include="Views\Tipo Arquitectura Admin\TipoArquitecturaAdmin.aspx" />
     <Content Include="Views\Tipo Gastronomia Admin\TipoGastronomiaAdmin.aspx" />
     <Content Include="Views\Tipo Historia Admin\TipoHistoriaAdmin.aspx" />
+    <None Include="Web References\wsFlora\wsFlora.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +283,7 @@
     <Compile Include="Controllers\DepartamentosControllers.cs" />
     <Compile Include="Controllers\DeportesControllers.cs" />
     <Compile Include="Controllers\EquipoControllers.cs" />
+    <Compile Include="Controllers\FloraControllers.cs" />
     <Compile Include="Controllers\GastronomiaControllers.cs" />
     <Compile Include="Controllers\HistoriaControllers.cs" />
     <Compile Include="Controllers\LoginControllers.cs" />
@@ -276,6 +296,11 @@
     <Compile Include="Controllers\TipodeGastronomiaControllers.cs" />
     <Compile Include="Controllers\TipodeHistoriaControllers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Template Admin\Template Admin.Master.cs">
       <DependentUpon>Template Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -289,6 +314,10 @@
     </Compile>
     <Compile Include="Resources\Template\Template.Master.designer.cs">
       <DependentUpon>Template.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Services\wsConsulta.asmx.cs">
+      <DependentUpon>wsConsulta.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\Arquitectura Admin\Arquitectura Admin.aspx.cs">
       <DependentUpon>Arquitectura Admin.aspx</DependentUpon>
@@ -325,6 +354,13 @@
     <Compile Include="Views\Deportes Admin\DeportesAdmin.aspx.designer.cs">
       <DependentUpon>DeportesAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Empleados\Empleados.aspx.cs">
+      <DependentUpon>Empleados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Empleados\Empleados.aspx.designer.cs">
+      <DependentUpon>Empleados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\EquipoAdmin\EquipoAdmin.aspx.cs">
       <DependentUpon>EquipoAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +374,13 @@
     </Compile>
     <Compile Include="Views\EquiposAdmin\EquiposAdmin.aspx.designer.cs">
       <DependentUpon>EquiposAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FloraAdmin\FloraAdmin.aspx.cs">
+      <DependentUpon>FloraAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FloraAdmin\FloraAdmin.aspx.designer.cs">
+      <DependentUpon>FloraAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Gastronomia Admin\GastronomiaAdmin.aspx.cs">
       <DependentUpon>GastronomiaAdmin.aspx</DependentUpon>
@@ -500,18 +543,42 @@
     <Compile Include="Views\Tipo Historia Admin\TipoHistoriaAdmin.aspx.designer.cs">
       <DependentUpon>TipoHistoriaAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\wsFlora\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="tmp\" />
-    <Folder Include="Views\NewFolder1\" />
+    <Folder Include="Views\NewFolder2\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConoceAColombia.logica\ConoceAColombia.logica.csproj">
       <Project>{b990894b-8c3c-455a-ba3d-ec56c9be2133}</Project>
       <Name>ConoceAColombia.logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/ConoceAColombia.ws/Servicios/wsFlora.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsFlora\</RelPath>
+      <UpdateFromURL>http://localhost/ConoceAColombia.ws/Servicios/wsFlora.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ConoceAColombia_web_wsFlora_wsFlora</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

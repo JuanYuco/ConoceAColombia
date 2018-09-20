@@ -4,28 +4,41 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ca15217155ac4b628362994c5dd92579" Name="Diagram1">
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArquitectura" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArtistas" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbCiudadesPrincipales" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDepartamento" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDeportes" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbGastronomia" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArquitectura" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArtista" Width="1.5" PointX="3.75" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeGastronomia" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoUsuario" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbUsuarios" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="6c26b7452fe240cf975e23aa820903f3" Name="Diagram1">
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArquitectura" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArtistas" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbCiudadesPrincipales" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDepartamento" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDeportes" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEquipos" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFlora" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbGastronomia" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbHistoria" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbMusica" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPersonajesHistoricos" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArquitectura" Width="1.5" PointX="0.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArtista" Width="1.5" PointX="3.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeGastronomia" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeHistoria" Width="1.5" PointX="3.75" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoUsuario" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbUsuarios" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_arquDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_arquTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_artiDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_artiGenero" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_ciprDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.depaCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_depaCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_equiDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_histDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_musiDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.depoCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_equiDeporte" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_histTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_usuaTipo" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbMusica" Width="1.5" PointX="1.25" PointY="0.5" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_musiDepartamento" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

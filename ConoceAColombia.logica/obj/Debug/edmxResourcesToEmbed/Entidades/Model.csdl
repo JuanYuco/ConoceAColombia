@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="bdConoceAColombiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="tbArquitectura">
     <Key>
       <PropertyRef Name="arquCodigo" />
@@ -59,8 +69,12 @@
     <NavigationProperty Name="tbArquitectura" Relationship="Self.FK_arquDepartamento" FromRole="tbDepartamento" ToRole="tbArquitectura" />
     <NavigationProperty Name="tbArtistas" Relationship="Self.FK_artiDepartamento" FromRole="tbDepartamento" ToRole="tbArtistas" />
     <NavigationProperty Name="tbCiudadesPrincipales" Relationship="Self.FK_ciprDepartamento" FromRole="tbDepartamento" ToRole="tbCiudadesPrincipales" />
+    <NavigationProperty Name="tbEquipos" Relationship="Self.depaCodigo" FromRole="tbDepartamento" ToRole="tbEquipos" />
+    <NavigationProperty Name="tbFlora" Relationship="Self.FK_depaCodigo" FromRole="tbDepartamento" ToRole="tbFlora" />
+    <NavigationProperty Name="tbEquipos1" Relationship="Self.FK_equiDepartamento" FromRole="tbDepartamento" ToRole="tbEquipos" />
     <NavigationProperty Name="tbGastronomia" Relationship="Self.FK_gastDepartamento" FromRole="tbDepartamento" ToRole="tbGastronomia" />
-    <NavigationProperty Name="tbMusica" Relationship="bdConoceAColombiaModel.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
+    <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histDepartamento" FromRole="tbDepartamento" ToRole="tbHistoria" />
+    <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
   </EntityType>
   <EntityType Name="tbDeportes">
     <Key>
@@ -68,6 +82,42 @@
     </Key>
     <Property Name="depoCodigo" Type="Int64" Nullable="false" />
     <Property Name="depoNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbEquipos" Relationship="Self.depoCodigo" FromRole="tbDeportes" ToRole="tbEquipos" />
+    <NavigationProperty Name="tbEquipos1" Relationship="Self.FK_equiDeporte" FromRole="tbDeportes" ToRole="tbEquipos" />
+  </EntityType>
+  <EntityType Name="tbEquipos">
+    <Key>
+      <PropertyRef Name="equiCodigo" />
+    </Key>
+    <Property Name="equiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="equiNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="equiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="equiPresidente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="equiFundacion" Type="DateTime" Precision="0" />
+    <Property Name="equiCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="equiDeporte" Type="Int64" />
+    <Property Name="equiDepartamento" Type="Int64" />
+    <Property Name="equiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="equiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.depaCodigo" FromRole="tbEquipos" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbDepartamento1" Relationship="Self.FK_equiDepartamento" FromRole="tbEquipos" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbDeportes" Relationship="Self.depoCodigo" FromRole="tbEquipos" ToRole="tbDeportes" />
+    <NavigationProperty Name="tbDeportes1" Relationship="Self.FK_equiDeporte" FromRole="tbEquipos" ToRole="tbDeportes" />
+  </EntityType>
+  <EntityType Name="tbFlora">
+    <Key>
+      <PropertyRef Name="florCodigo" />
+    </Key>
+    <Property Name="florCodigo" Type="Int64" Nullable="false" />
+    <Property Name="florNomCientifico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florNomComun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="florAbundancia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florPeriodoFloracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="depaCodigo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_depaCodigo" FromRole="tbFlora" ToRole="tbDepartamento" />
   </EntityType>
   <EntityType Name="tbGastronomia">
     <Key>
@@ -83,6 +133,46 @@
     <Property Name="gastTipo" Type="Int64" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_gastDepartamento" FromRole="tbGastronomia" ToRole="tbDepartamento" />
     <NavigationProperty Name="tbTipodeGastronomia" Relationship="Self.FK_gastTipo" FromRole="tbGastronomia" ToRole="tbTipodeGastronomia" />
+  </EntityType>
+  <EntityType Name="tbHistoria">
+    <Key>
+      <PropertyRef Name="histCodigo" />
+    </Key>
+    <Property Name="histCodigo" Type="Int64" Nullable="false" />
+    <Property Name="histDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="histTipo" Type="Int64" />
+    <Property Name="histFechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="histFechaFin" Type="DateTime" Precision="0" />
+    <Property Name="histDepartamento" Type="Int64" />
+    <Property Name="histLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="histLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="histNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_histDepartamento" FromRole="tbHistoria" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbTipodeHistoria" Relationship="Self.FK_histTipo" FromRole="tbHistoria" ToRole="tbTipodeHistoria" />
+  </EntityType>
+  <EntityType Name="tbMusica">
+    <Key>
+      <PropertyRef Name="musiCodigo" />
+    </Key>
+    <Property Name="musiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="musiNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="musiDescripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="musiDepartamento" Type="Int64" />
+    <Property Name="musiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="musiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_musiDepartamento" FromRole="tbMusica" ToRole="tbDepartamento" />
+  </EntityType>
+  <EntityType Name="tbPersonajesHistoricos">
+    <Key>
+      <PropertyRef Name="pehiCodigo" />
+    </Key>
+    <Property Name="pehiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="pehiNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pehiNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="pehiCiudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pehiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="pehiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pehiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbTipodeArquitectura">
     <Key>
@@ -107,6 +197,14 @@
     <Property Name="tigaCodigo" Type="Int64" Nullable="false" />
     <Property Name="tigaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tbGastronomia" Relationship="Self.FK_gastTipo" FromRole="tbTipodeGastronomia" ToRole="tbGastronomia" />
+  </EntityType>
+  <EntityType Name="tbTipodeHistoria">
+    <Key>
+      <PropertyRef Name="tihiCodigo" />
+    </Key>
+    <Property Name="tihiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tihiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histTipo" FromRole="tbTipodeHistoria" ToRole="tbHistoria" />
   </EntityType>
   <EntityType Name="tbTipoUsuario">
     <Key>
@@ -190,6 +288,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="depaCodigo">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_depaCodigo">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbFlora">
+        <PropertyRef Name="depaCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_equiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_gastDepartamento">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
     <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
@@ -202,6 +336,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_histDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbHistoria" Type="Self.tbHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbHistoria">
+        <PropertyRef Name="histDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_musiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbMusica" Type="Self.tbMusica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbMusica">
+        <PropertyRef Name="musiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="depoCodigo">
+    <End Role="tbDeportes" Type="Self.tbDeportes" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeportes">
+        <PropertyRef Name="depoCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDeporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_equiDeporte">
+    <End Role="tbDeportes" Type="Self.tbDeportes" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeportes">
+        <PropertyRef Name="depoCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDeporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_gastTipo">
     <End Role="tbTipodeGastronomia" Type="Self.tbTipodeGastronomia" Multiplicity="0..1" />
     <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
@@ -211,6 +393,18 @@
       </Principal>
       <Dependent Role="tbGastronomia">
         <PropertyRef Name="gastTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_histTipo">
+    <End Role="tbTipodeHistoria" Type="Self.tbTipodeHistoria" Multiplicity="0..1" />
+    <End Role="tbHistoria" Type="Self.tbHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeHistoria">
+        <PropertyRef Name="tihiCodigo" />
+      </Principal>
+      <Dependent Role="tbHistoria">
+        <PropertyRef Name="histTipo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -227,15 +421,22 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="bdConoceAColombiaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="tbArquitectura" EntityType="Self.tbArquitectura" />
     <EntitySet Name="tbArtistas" EntityType="Self.tbArtistas" />
     <EntitySet Name="tbCiudadesPrincipales" EntityType="Self.tbCiudadesPrincipales" />
     <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" />
     <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" />
+    <EntitySet Name="tbEquipos" EntityType="Self.tbEquipos" />
+    <EntitySet Name="tbFlora" EntityType="Self.tbFlora" />
     <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" />
+    <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" />
+    <EntitySet Name="tbMusica" EntityType="Self.tbMusica" />
+    <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" />
     <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" />
     <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" />
     <EntitySet Name="tbTipodeGastronomia" EntityType="Self.tbTipodeGastronomia" />
+    <EntitySet Name="tbTipodeHistoria" EntityType="Self.tbTipodeHistoria" />
     <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" />
     <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" />
     <AssociationSet Name="FK_arquDepartamento" Association="Self.FK_arquDepartamento">
@@ -258,46 +459,49 @@
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbCiudadesPrincipales" EntitySet="tbCiudadesPrincipales" />
     </AssociationSet>
+    <AssociationSet Name="depaCodigo" Association="Self.depaCodigo">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_depaCodigo" Association="Self.FK_depaCodigo">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbFlora" EntitySet="tbFlora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_equiDepartamento" Association="Self.FK_equiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
     <AssociationSet Name="FK_gastDepartamento" Association="Self.FK_gastDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbGastronomia" EntitySet="tbGastronomia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_histDepartamento" Association="Self.FK_histDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_musiDepartamento" Association="Self.FK_musiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbMusica" EntitySet="tbMusica" />
+    </AssociationSet>
+    <AssociationSet Name="depoCodigo" Association="Self.depoCodigo">
+      <End Role="tbDeportes" EntitySet="tbDeportes" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_equiDeporte" Association="Self.FK_equiDeporte">
+      <End Role="tbDeportes" EntitySet="tbDeportes" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
     </AssociationSet>
     <AssociationSet Name="FK_gastTipo" Association="Self.FK_gastTipo">
       <End Role="tbTipodeGastronomia" EntitySet="tbTipodeGastronomia" />
       <End Role="tbGastronomia" EntitySet="tbGastronomia" />
     </AssociationSet>
+    <AssociationSet Name="FK_histTipo" Association="Self.FK_histTipo">
+      <End Role="tbTipodeHistoria" EntitySet="tbTipodeHistoria" />
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+    </AssociationSet>
     <AssociationSet Name="FK_usuaTipo" Association="Self.FK_usuaTipo">
       <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />
       <End Role="tbUsuarios" EntitySet="tbUsuarios" />
     </AssociationSet>
-    <EntitySet Name="tbMusica" EntityType="bdConoceAColombiaModel.tbMusica" />
-    <AssociationSet Name="FK_musiDepartamento" Association="bdConoceAColombiaModel.FK_musiDepartamento">
-      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
-      <End Role="tbMusica" EntitySet="tbMusica" />
-    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="tbMusica">
-    <Key>
-      <PropertyRef Name="musiCodigo" />
-    </Key>
-    <Property Name="musiCodigo" Type="Int64" Nullable="false" />
-    <Property Name="musiNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="musiDescripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="musiDepartamento" Type="Int64" />
-    <Property Name="musiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="musiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_musiDepartamento" FromRole="tbMusica" ToRole="tbDepartamento" />
-  </EntityType>
-  <Association Name="FK_musiDepartamento">
-    <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="0..1" />
-    <End Type="bdConoceAColombiaModel.tbMusica" Role="tbMusica" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbDepartamento">
-        <PropertyRef Name="depaCodigo" />
-      </Principal>
-      <Dependent Role="tbMusica">
-        <PropertyRef Name="musiDepartamento" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

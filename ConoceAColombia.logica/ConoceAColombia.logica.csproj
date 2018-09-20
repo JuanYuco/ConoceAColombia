@@ -45,6 +45,9 @@
     <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=5.1.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.5.1.2\lib\net461\NHibernate.dll</HintPath>
     </Reference>
@@ -77,7 +80,9 @@
     <Compile Include="BL\clsConexion.cs" />
     <Compile Include="BL\clsDepartamentos.cs" />
     <Compile Include="BL\clsDeportes.cs" />
+    <Compile Include="BL\clsEmpleados.cs" />
     <Compile Include="BL\clsEquipo.cs" />
+    <Compile Include="BL\clsFlora.cs" />
     <Compile Include="BL\clsGastronomia.cs" />
     <Compile Include="BL\clsGeneral.cs" />
     <Compile Include="BL\clsHistoria.cs" />
@@ -106,6 +111,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbArquitectura.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -121,10 +129,22 @@
     <Compile Include="Entidades\tbDeportes.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbEquipos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbFlora.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbGastronomia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbHistoria.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbMusica.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbPersonajesHistoricos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipodeArquitectura.cs">
@@ -134,6 +154,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipodeGastronomia.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipodeHistoria.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipoUsuario.cs">
@@ -152,6 +175,7 @@
     <Compile Include="Models\clsDepartamentos.cs" />
     <Compile Include="Models\clsDeportes.cs" />
     <Compile Include="Models\clsEquipo.cs" />
+    <Compile Include="Models\clsFlora.cs" />
     <Compile Include="Models\clsGastronomia.cs" />
     <Compile Include="Models\clsHistoria.cs" />
     <Compile Include="Models\clsMusica.cs" />
@@ -164,18 +188,6 @@
     <Compile Include="Models\clsPersonajesxHistoria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="Entidades\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Entidades\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
   <ItemGroup>
     <Content Include="Entidades\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -187,6 +199,17 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Entidades\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entidades\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

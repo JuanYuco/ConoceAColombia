@@ -20,7 +20,11 @@ namespace ConoceAColombia.logica.Entidades
             this.tbArquitectura = new HashSet<tbArquitectura>();
             this.tbArtistas = new HashSet<tbArtistas>();
             this.tbCiudadesPrincipales = new HashSet<tbCiudadesPrincipales>();
+            this.tbEquipos = new HashSet<tbEquipos>();
+            this.tbFlora = new HashSet<tbFlora>();
+            this.tbEquipos1 = new HashSet<tbEquipos>();
             this.tbGastronomia = new HashSet<tbGastronomia>();
+            this.tbHistoria = new HashSet<tbHistoria>();
             this.tbMusica = new HashSet<tbMusica>();
         }
     
@@ -44,7 +48,15 @@ namespace ConoceAColombia.logica.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbCiudadesPrincipales> tbCiudadesPrincipales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEquipos> tbEquipos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbFlora> tbFlora { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEquipos> tbEquipos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbGastronomia> tbGastronomia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbHistoria> tbHistoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbMusica> tbMusica { get; set; }
     }

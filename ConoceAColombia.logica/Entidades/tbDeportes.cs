@@ -14,7 +14,19 @@ namespace ConoceAColombia.logica.Entidades
     
     public partial class tbDeportes
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbDeportes()
+        {
+            this.tbEquipos = new HashSet<tbEquipos>();
+            this.tbEquipos1 = new HashSet<tbEquipos>();
+        }
+    
         public long depoCodigo { get; set; }
         public string depoNombre { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEquipos> tbEquipos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEquipos> tbEquipos1 { get; set; }
     }
 }

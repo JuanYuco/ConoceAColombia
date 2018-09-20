@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Newtonsoft.Json;
 namespace ConoceAColombia.Test
 {
     [TestClass]
@@ -54,6 +54,36 @@ namespace ConoceAColombia.Test
             string mensaje = obclsArquitectura.setAdministrarArquitectura(obclsArquitecturaModels, 1);
             //Assert
             Assert.AreEqual("Se realizo proceso con exito", mensaje);
+        }
+
+
+        [TestMethod]
+        public void insertFloraTest()
+        {
+            //ARRANGE
+            ws.Servicios.wsFlora obwsFlora = new ws.Servicios.wsFlora();
+
+            //ACT
+            logica.Models.clsFlora clsFlora = new logica.Models.clsFlora
+            {
+                lgCodigo = 2,
+                stNombre = "Rosas",
+                stNombreCientifico = "No se Cual es",
+                stDescripcion = "Es una flor",
+                stAbundancia = "En cada esquina",
+                stLatitud = "ICKKCK",
+                stLongitud = "ICKKCK",
+                stPeriodoFloracion = "No se",
+                obclsDepartamentos = new logica.Models.clsDepartamentos
+                {
+                    inCodigo = 1
+                }
+            };
+
+            
+            string json = JsonConvert.SerializeObject(clsFlora);
+            //ASSERT
+            obwsFlora.InsertFlora(json);
         }
     }
 }
