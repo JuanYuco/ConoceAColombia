@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ConoceAColombia.mvc.DAL.Tipo_Incidencia>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/views/TipoIncidencia.js"></script>
+<h2>Tipo Incidencia</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary btn-sm" })
+</p>
+<input type="text" id="myInput" onkeyup="filtroBusqueda()" placeholder="Filtro de busqueda"
+class="form-control"/>
+
+<table id="myTable" class="table table-bordered" >
+    <tr class="header">
+        <th style="width:70%">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th style="width:30%">Opciones</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Detalle", "Details", new { id = item.id }, new { @class = "btn btn-primary btn-sm" }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "btn btn-primary btn-sm" })
+        </td>
+    </tr>
+}
+
+</table>
