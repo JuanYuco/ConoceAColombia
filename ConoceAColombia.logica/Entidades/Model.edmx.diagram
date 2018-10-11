@@ -39,6 +39,10 @@
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_histTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_usuaTipo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFauna" Width="1.5" PointX="8.625" PointY="5" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoFauna" Width="1.5" PointX="6.375" PointY="5.375" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoIncidente" Width="1.5" PointX="3.375" PointY="4.75" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_faunTipo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

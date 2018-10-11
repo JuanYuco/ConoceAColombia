@@ -5,5 +5,8 @@
     <Setting Name="ConoceAColombia_web_wsFlora_wsFlora" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost/ConoceAColombia.ws/Servicios/wsFlora.asmx</Value>
     </Setting>
+    <Setting Name="ConoceAColombia_web_wsTipoFauna_wsTipoFauna" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/ConoceAColombia.ws/Servicios/wsTipoFauna.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

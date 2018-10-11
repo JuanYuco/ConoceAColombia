@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdConoceAColombiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bdConoceAColombiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -88,6 +88,17 @@
           <Property Name="equiDepartamento" Type="bigint" />
           <Property Name="equiLatitud" Type="varchar" MaxLength="50" />
           <Property Name="equiLongitud" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbFauna">
+          <Key>
+            <PropertyRef Name="faunCodigo" />
+          </Key>
+          <Property Name="faunCodigo" Type="bigint" Nullable="false" />
+          <Property Name="faunNombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="faunDescripcion" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="faunTipo" Type="bigint" Nullable="false" />
+          <Property Name="faunLatitud" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="faunLongitud" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="tbFlora">
           <Key>
@@ -186,6 +197,20 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
           </Key>
           <Property Name="tihiCodigo" Type="bigint" Nullable="false" />
           <Property Name="tihiDescripcion" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tbTipoFauna">
+          <Key>
+            <PropertyRef Name="tifaCodigo" />
+          </Key>
+          <Property Name="tifaCodigo" Type="bigint" Nullable="false" />
+          <Property Name="tifaDescripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbTipoIncidente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbTipoUsuario">
           <Key>
@@ -327,6 +352,18 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_faunTipo">
+          <End Role="tbTipoFauna" Type="Self.tbTipoFauna" Multiplicity="1" />
+          <End Role="tbFauna" Type="Self.tbFauna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoFauna">
+              <PropertyRef Name="tifaCodigo" />
+            </Principal>
+            <Dependent Role="tbFauna">
+              <PropertyRef Name="faunTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_gastDepartamento">
           <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
           <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
@@ -413,6 +450,7 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
           <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbEquipos" EntityType="Self.tbEquipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbFauna" EntityType="Self.tbFauna" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbFlora" EntityType="Self.tbFlora" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" Schema="dbo" store:Type="Tables" />
@@ -422,6 +460,8 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
           <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbTipodeGastronomia" EntityType="Self.tbTipodeGastronomia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbTipodeHistoria" EntityType="Self.tbTipodeHistoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTipoFauna" EntityType="Self.tbTipoFauna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTipoIncidente" EntityType="Self.tbTipoIncidente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="depaCodigo" Association="Self.depaCodigo">
@@ -464,6 +504,10 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
             <End Role="tbDeportes" EntitySet="tbDeportes" />
             <End Role="tbEquipos" EntitySet="tbEquipos" />
           </AssociationSet>
+          <AssociationSet Name="FK_faunTipo" Association="Self.FK_faunTipo">
+            <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
+            <End Role="tbFauna" EntitySet="tbFauna" />
+          </AssociationSet>
           <AssociationSet Name="FK_gastDepartamento" Association="Self.FK_gastDepartamento">
             <End Role="tbDepartamento" EntitySet="tbDepartamento" />
             <End Role="tbGastronomia" EntitySet="tbGastronomia" />
@@ -489,8 +533,7 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bdConoceAColombiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -997,7 +1040,53 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
             <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
           </AssociationSet>
+          <EntitySet Name="tbFauna" EntityType="bdConoceAColombiaModel.tbFauna" />
+          <EntitySet Name="tbTipoFauna" EntityType="bdConoceAColombiaModel.tbTipoFauna" />
+          <EntitySet Name="tbTipoIncidente" EntityType="bdConoceAColombiaModel.tbTipoIncidente" />
+          <AssociationSet Name="FK_faunTipo" Association="bdConoceAColombiaModel.FK_faunTipo">
+            <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
+            <End Role="tbFauna" EntitySet="tbFauna" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbFauna">
+          <Key>
+            <PropertyRef Name="faunCodigo" />
+          </Key>
+          <Property Name="faunCodigo" Type="Int64" Nullable="false" />
+          <Property Name="faunNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="faunDescripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="faunTipo" Type="Int64" Nullable="false" />
+          <Property Name="faunLatitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="faunLongitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbTipoFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbFauna" ToRole="tbTipoFauna" />
+        </EntityType>
+        <EntityType Name="tbTipoFauna">
+          <Key>
+            <PropertyRef Name="tifaCodigo" />
+          </Key>
+          <Property Name="tifaCodigo" Type="Int64" Nullable="false" />
+          <Property Name="tifaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbTipoFauna" ToRole="tbFauna" />
+        </EntityType>
+        <EntityType Name="tbTipoIncidente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_faunTipo">
+          <End Type="bdConoceAColombiaModel.tbTipoFauna" Role="tbTipoFauna" Multiplicity="1" />
+          <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoFauna">
+              <PropertyRef Name="tifaCodigo" />
+            </Principal>
+            <Dependent Role="tbFauna">
+              <PropertyRef Name="faunTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1215,6 +1304,34 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
                 <ScalarProperty Name="usuaPuntuacionMaxima" ColumnName="usuaPuntuacionMaxima" />
                 <ScalarProperty Name="usuaTipo" ColumnName="usuaTipo" />
                 <ScalarProperty Name="usuaImagen" ColumnName="usuaImagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFauna">
+            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
+              <MappingFragment StoreEntitySet="tbFauna">
+                <ScalarProperty Name="faunLongitud" ColumnName="faunLongitud" />
+                <ScalarProperty Name="faunLatitud" ColumnName="faunLatitud" />
+                <ScalarProperty Name="faunTipo" ColumnName="faunTipo" />
+                <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
+                <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
+                <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTipoFauna">
+            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoFauna">
+              <MappingFragment StoreEntitySet="tbTipoFauna">
+                <ScalarProperty Name="tifaDescripcion" ColumnName="tifaDescripcion" />
+                <ScalarProperty Name="tifaCodigo" ColumnName="tifaCodigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTipoIncidente">
+            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoIncidente">
+              <MappingFragment StoreEntitySet="tbTipoIncidente">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

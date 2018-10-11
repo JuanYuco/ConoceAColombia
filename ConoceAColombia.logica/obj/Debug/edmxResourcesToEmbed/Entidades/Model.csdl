@@ -503,5 +503,51 @@
       <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />
       <End Role="tbUsuarios" EntitySet="tbUsuarios" />
     </AssociationSet>
+    <EntitySet Name="tbFauna" EntityType="bdConoceAColombiaModel.tbFauna" />
+    <EntitySet Name="tbTipoFauna" EntityType="bdConoceAColombiaModel.tbTipoFauna" />
+    <EntitySet Name="tbTipoIncidente" EntityType="bdConoceAColombiaModel.tbTipoIncidente" />
+    <AssociationSet Name="FK_faunTipo" Association="bdConoceAColombiaModel.FK_faunTipo">
+      <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
+      <End Role="tbFauna" EntitySet="tbFauna" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="tbFauna">
+    <Key>
+      <PropertyRef Name="faunCodigo" />
+    </Key>
+    <Property Name="faunCodigo" Type="Int64" Nullable="false" />
+    <Property Name="faunNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="faunDescripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="faunTipo" Type="Int64" Nullable="false" />
+    <Property Name="faunLatitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="faunLongitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbTipoFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbFauna" ToRole="tbTipoFauna" />
+  </EntityType>
+  <EntityType Name="tbTipoFauna">
+    <Key>
+      <PropertyRef Name="tifaCodigo" />
+    </Key>
+    <Property Name="tifaCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tifaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbTipoFauna" ToRole="tbFauna" />
+  </EntityType>
+  <EntityType Name="tbTipoIncidente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_faunTipo">
+    <End Type="bdConoceAColombiaModel.tbTipoFauna" Role="tbTipoFauna" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoFauna">
+        <PropertyRef Name="tifaCodigo" />
+      </Principal>
+      <Dependent Role="tbFauna">
+        <PropertyRef Name="faunTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

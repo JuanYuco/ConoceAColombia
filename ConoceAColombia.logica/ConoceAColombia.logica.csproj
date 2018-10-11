@@ -95,6 +95,7 @@
     <Compile Include="BL\clsTipodeArtista.cs" />
     <Compile Include="BL\clsTipodeGastronomia.cs" />
     <Compile Include="BL\clsTipodeHistoria.cs" />
+    <Compile Include="BL\clsTipoFauna.cs" />
     <Compile Include="BL\clsUsuarios.cs" />
     <Compile Include="Entidades\Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -132,6 +133,9 @@
     <Compile Include="Entidades\tbEquipos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbFauna.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbFlora.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -157,6 +161,12 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipodeHistoria.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipoFauna.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipoIncidente.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipoUsuario.cs">
@@ -186,6 +196,7 @@
     <Compile Include="Models\clsTipoHistoria.cs" />
     <Compile Include="Models\clsUsuarios.cs" />
     <Compile Include="Models\clsPersonajesxHistoria.cs" />
+    <Compile Include="Models\clsTipoFauna.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

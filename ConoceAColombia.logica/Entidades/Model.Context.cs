@@ -43,5 +43,8 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<tbTipodeHistoria> tbTipodeHistoria { get; set; }
         public virtual DbSet<tbTipoUsuario> tbTipoUsuario { get; set; }
         public virtual DbSet<tbUsuarios> tbUsuarios { get; set; }
+        public virtual DbSet<tbFauna> tbFauna { get; set; }
+        public virtual DbSet<tbTipoFauna> tbTipoFauna { get; set; }
+        public virtual DbSet<tbTipoIncidente> tbTipoIncidente { get; set; }
     }
 }

@@ -215,5 +215,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbFauna">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
+        <MappingFragment StoreEntitySet="tbFauna">
+          <ScalarProperty Name="faunLongitud" ColumnName="faunLongitud" />
+          <ScalarProperty Name="faunLatitud" ColumnName="faunLatitud" />
+          <ScalarProperty Name="faunTipo" ColumnName="faunTipo" />
+          <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
+          <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
+          <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoFauna">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoFauna">
+        <MappingFragment StoreEntitySet="tbTipoFauna">
+          <ScalarProperty Name="tifaDescripcion" ColumnName="tifaDescripcion" />
+          <ScalarProperty Name="tifaCodigo" ColumnName="tifaCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoIncidente">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoIncidente">
+        <MappingFragment StoreEntitySet="tbTipoIncidente">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

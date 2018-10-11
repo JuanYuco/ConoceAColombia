@@ -32,5 +32,15 @@ namespace ConoceAColombia.web.Properties {
                 return ((string)(this["ConoceAColombia_web_wsFlora_wsFlora"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/ConoceAColombia.ws/Servicios/wsTipoFauna.asmx")]
+        public string ConoceAColombia_web_wsTipoFauna_wsTipoFauna {
+            get {
+                return ((string)(this["ConoceAColombia_web_wsTipoFauna_wsTipoFauna"]));
+            }
+        }
     }
 }

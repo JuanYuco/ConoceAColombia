@@ -85,5 +85,25 @@ namespace ConoceAColombia.Test
             //ASSERT
             obwsFlora.InsertFlora(json);
         }
+
+
+
+        [TestMethod]
+        public void insertTipoFaunaTest()
+        {
+            //ARRANGE
+            ws.Servicios.wsTipoFauna obwsTipoFauna = new ws.Servicios.wsTipoFauna();
+
+            //ACT
+            logica.Models.clsTipoFauna clsTipoFauna = new logica.Models.clsTipoFauna
+            {
+                lgCodigo = 2,
+                stDescripcion = "Mamifero"
+                
+            };
+            string json = JsonConvert.SerializeObject(clsTipoFauna);
+            //ASSERT
+            obwsTipoFauna.InsertTipoFauna(json);
+        }
     }
 }

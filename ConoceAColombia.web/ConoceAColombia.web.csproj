@@ -279,6 +279,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\wsFlora\wsFlora.wsdl" />
+    <Content Include="Web References\wsTipoFauna\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\wsTipoFauna\wsTipoFauna.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -341,6 +346,7 @@
     <Content Include="Views\Tipo Gastronomia Admin\TipoGastronomiaAdmin.aspx" />
     <Content Include="Views\Tipo Historia Admin\TipoHistoriaAdmin.aspx" />
     <None Include="Web References\wsFlora\wsFlora.disco" />
+    <None Include="Web References\wsTipoFauna\wsTipoFauna.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -581,6 +587,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\wsTipoFauna\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
@@ -611,6 +622,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>ConoceAColombia_web_wsFlora_wsFlora</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/ConoceAColombia.ws/Servicios/wsTipoFauna.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsTipoFauna\</RelPath>
+      <UpdateFromURL>http://localhost/ConoceAColombia.ws/Servicios/wsTipoFauna.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ConoceAColombia_web_wsTipoFauna_wsTipoFauna</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
