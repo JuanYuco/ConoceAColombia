@@ -510,6 +510,42 @@
       <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
       <End Role="tbFauna" EntitySet="tbFauna" />
     </AssociationSet>
+    <EntitySet Name="tbDificultadJuego" EntityType="bdConoceAColombiaModel.tbDificultadJuego" />
+    <EntitySet Name="tbPreguntasJuego" EntityType="bdConoceAColombiaModel.tbPreguntasJuego" />
+    <EntitySet Name="tbTematicaJuego" EntityType="bdConoceAColombiaModel.tbTematicaJuego" />
+    <EntitySet Name="tbTipoJuego" EntityType="bdConoceAColombiaModel.tbTipoJuego" />
+    <AssociationSet Name="FK_prjuDificultad" Association="bdConoceAColombiaModel.FK_prjuDificultad">
+      <End Role="tbDificultadJuego" EntitySet="tbDificultadJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuTematica" Association="bdConoceAColombiaModel.FK_prjuTematica">
+      <End Role="tbTematicaJuego" EntitySet="tbTematicaJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuTipoJuego" Association="bdConoceAColombiaModel.FK_prjuTipoJuego">
+      <End Role="tbTipoJuego" EntitySet="tbTipoJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <EntitySet Name="incidencia" EntityType="bdConoceAColombiaModel.incidencia" />
+    <EntitySet Name="incidencia_comentarios" EntityType="bdConoceAColombiaModel.incidencia_comentarios" />
+    <EntitySet Name="tbEstadoIncidente" EntityType="bdConoceAColombiaModel.tbEstadoIncidente" />
+    <EntitySet Name="Tipo_Incidencia" EntityType="bdConoceAColombiaModel.Tipo_Incidencia" />
+    <AssociationSet Name="FK_incidencia_comentarios_incidencia" Association="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia">
+      <End Role="incidencia" EntitySet="incidencia" />
+      <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_tbEstadoIncidente" Association="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente">
+      <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
+      <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_Tipo_Incidencia" Association="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia">
+      <End Role="Tipo_Incidencia" EntitySet="Tipo_Incidencia" />
+      <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_comentarios_tbEstadoIncidente" Association="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente">
+      <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
+      <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbFauna">
     <Key>
@@ -547,6 +583,180 @@
       </Principal>
       <Dependent Role="tbFauna">
         <PropertyRef Name="faunTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbDificultadJuego">
+    <Key>
+      <PropertyRef Name="dijuCodigo" />
+    </Key>
+    <Property Name="dijuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="dijuDescripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPreguntasJuego" Relationship="bdConoceAColombiaModel.FK_prjuDificultad" FromRole="tbDificultadJuego" ToRole="tbPreguntasJuego" />
+  </EntityType>
+  <EntityType Name="tbPreguntasJuego">
+    <Key>
+      <PropertyRef Name="prjuCodigo" />
+    </Key>
+    <Property Name="prjuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="prjuPregunta" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaCorrecta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaUno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaDos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaTres" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaCuatro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaCinco" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuTematica" Type="Int64" Nullable="false" />
+    <Property Name="prjuTipoJuego" Type="Int64" Nullable="false" />
+    <Property Name="prjuDificultad" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDificultadJuego" Relationship="bdConoceAColombiaModel.FK_prjuDificultad" FromRole="tbPreguntasJuego" ToRole="tbDificultadJuego" />
+    <NavigationProperty Name="tbTematicaJuego" Relationship="bdConoceAColombiaModel.FK_prjuTematica" FromRole="tbPreguntasJuego" ToRole="tbTematicaJuego" />
+    <NavigationProperty Name="tbTipoJuego" Relationship="bdConoceAColombiaModel.FK_prjuTipoJuego" FromRole="tbPreguntasJuego" ToRole="tbTipoJuego" />
+  </EntityType>
+  <EntityType Name="tbTematicaJuego">
+    <Key>
+      <PropertyRef Name="tejuCodigo" />
+    </Key>
+    <Property Name="tejuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tejuDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPreguntasJuego" Relationship="bdConoceAColombiaModel.FK_prjuTematica" FromRole="tbTematicaJuego" ToRole="tbPreguntasJuego" />
+  </EntityType>
+  <EntityType Name="tbTipoJuego">
+    <Key>
+      <PropertyRef Name="tijuCodigo" />
+    </Key>
+    <Property Name="tijuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tijuDescripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPreguntasJuego" Relationship="bdConoceAColombiaModel.FK_prjuTipoJuego" FromRole="tbTipoJuego" ToRole="tbPreguntasJuego" />
+  </EntityType>
+  <Association Name="FK_prjuDificultad">
+    <End Type="bdConoceAColombiaModel.tbDificultadJuego" Role="tbDificultadJuego" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbPreguntasJuego" Role="tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDificultadJuego">
+        <PropertyRef Name="dijuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuDificultad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuTematica">
+    <End Type="bdConoceAColombiaModel.tbTematicaJuego" Role="tbTematicaJuego" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbPreguntasJuego" Role="tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTematicaJuego">
+        <PropertyRef Name="tejuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuTematica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuTipoJuego">
+    <End Type="bdConoceAColombiaModel.tbTipoJuego" Role="tbTipoJuego" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbPreguntasJuego" Role="tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoJuego">
+        <PropertyRef Name="tijuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuTipoJuego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="incidencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="identificacion" Type="Int64" />
+    <Property Name="primer_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundo_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estado_incidente" Type="Int32" Nullable="false" />
+    <Property Name="tipo_incidencia_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="incidencia_comentarios" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia" FromRole="incidencia" ToRole="incidencia_comentarios" />
+    <NavigationProperty Name="tbEstadoIncidente" Relationship="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" FromRole="incidencia" ToRole="tbEstadoIncidente" />
+    <NavigationProperty Name="Tipo_Incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" FromRole="incidencia" ToRole="Tipo_Incidencia" />
+  </EntityType>
+  <EntityType Name="incidencia_comentarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="incidencia_id" Type="Int32" Nullable="false" />
+    <Property Name="comentarios" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estado_incidencia_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia" FromRole="incidencia_comentarios" ToRole="incidencia" />
+    <NavigationProperty Name="tbEstadoIncidente" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" FromRole="incidencia_comentarios" ToRole="tbEstadoIncidente" />
+  </EntityType>
+  <EntityType Name="tbEstadoIncidente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" FromRole="tbEstadoIncidente" ToRole="incidencia" />
+    <NavigationProperty Name="incidencia_comentarios" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" FromRole="tbEstadoIncidente" ToRole="incidencia_comentarios" />
+  </EntityType>
+  <EntityType Name="Tipo_Incidencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" FromRole="Tipo_Incidencia" ToRole="incidencia" />
+  </EntityType>
+  <Association Name="FK_incidencia_comentarios_incidencia">
+    <End Type="bdConoceAColombiaModel.incidencia" Role="incidencia" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia_comentarios" Role="incidencia_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="incidencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="incidencia_comentarios">
+        <PropertyRef Name="incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_tbEstadoIncidente">
+    <End Type="bdConoceAColombiaModel.tbEstadoIncidente" Role="tbEstadoIncidente" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia" Role="incidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadoIncidente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="incidencia">
+        <PropertyRef Name="estado_incidente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_Tipo_Incidencia">
+    <End Type="bdConoceAColombiaModel.Tipo_Incidencia" Role="Tipo_Incidencia" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia" Role="incidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Incidencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="incidencia">
+        <PropertyRef Name="tipo_incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_comentarios_tbEstadoIncidente">
+    <End Type="bdConoceAColombiaModel.tbEstadoIncidente" Role="tbEstadoIncidente" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia_comentarios" Role="incidencia_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadoIncidente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="incidencia_comentarios">
+        <PropertyRef Name="estado_incidencia_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

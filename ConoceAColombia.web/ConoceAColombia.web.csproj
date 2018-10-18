@@ -198,6 +198,7 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Resources\Template Admin Juego\TemplateJuego.Master" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -279,6 +280,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\wsFlora\wsFlora.wsdl" />
+    <Content Include="Views\TematicasJuego\TematicasJuego.aspx" />
     <Content Include="Web References\wsTipoFauna\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -365,6 +367,7 @@
     <Compile Include="Controllers\PersoanesxHistoriaControllers.cs" />
     <Compile Include="Controllers\PersonajesHistoricosControllers.cs" />
     <Compile Include="Controllers\RecuperarPasswordControllers.cs" />
+    <Compile Include="Controllers\TematicasControllers.cs" />
     <Compile Include="Controllers\TipodeArquitecturaControllers.cs" />
     <Compile Include="Controllers\TipodeArtistaControllers.cs" />
     <Compile Include="Controllers\TipodeGastronomiaControllers.cs" />
@@ -374,6 +377,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Template Admin Juego\TemplateJuego.Master.cs">
+      <DependentUpon>TemplateJuego.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Resources\Template Admin Juego\TemplateJuego.Master.designer.cs">
+      <DependentUpon>TemplateJuego.Master</DependentUpon>
     </Compile>
     <Compile Include="Resources\Template Admin\Template Admin.Master.cs">
       <DependentUpon>Template Admin.Master</DependentUpon>
@@ -504,6 +514,13 @@
     </Compile>
     <Compile Include="Views\PersonajesxHistoriaAdmin\PersonajexHistoriaAdmin.aspx.designer.cs">
       <DependentUpon>PersonajexHistoriaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TematicasJuego\TematicasJuego.aspx.cs">
+      <DependentUpon>TematicasJuego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TematicasJuego\TematicasJuego.aspx.designer.cs">
+      <DependentUpon>TematicasJuego.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Tipo Artista Admin\TipoArtistaAdmin.aspx.cs">
       <DependentUpon>TipoArtistaAdmin.aspx</DependentUpon>

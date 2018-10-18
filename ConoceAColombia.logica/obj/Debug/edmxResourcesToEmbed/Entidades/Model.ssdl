@@ -69,6 +69,13 @@
     <Property Name="depoCodigo" Type="bigint" Nullable="false" />
     <Property Name="depoNombre" Type="varchar" MaxLength="100" />
   </EntityType>
+  <EntityType Name="tbDificultadJuego">
+    <Key>
+      <PropertyRef Name="dijuCodigo" />
+    </Key>
+    <Property Name="dijuCodigo" Type="bigint" Nullable="false" />
+    <Property Name="dijuDescripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbEquipos">
     <Key>
       <PropertyRef Name="equiCodigo" />
@@ -165,6 +172,29 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
           <Property Name="pxhPersonaje" Type="bigint" />
           <Property Name="pxhHistoria" Type="bigint" />
         </EntityType>-->
+  <EntityType Name="tbPreguntasJuego">
+    <Key>
+      <PropertyRef Name="prjuCodigo" />
+    </Key>
+    <Property Name="prjuCodigo" Type="bigint" Nullable="false" />
+    <Property Name="prjuPregunta" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="prjuRespuestaCorrecta" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prjuRespuestaIncorrectaUno" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prjuRespuestaIncorrectaDos" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prjuRespuestaIncorrectaTres" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prjuRespuestaIncorrectaCuatro" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prjuRespuestaIncorrectaCinco" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="prjuTematica" Type="bigint" Nullable="false" />
+    <Property Name="prjuTipoJuego" Type="bigint" Nullable="false" />
+    <Property Name="prjuDificultad" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbTematicaJuego">
+    <Key>
+      <PropertyRef Name="tejuCodigo" />
+    </Key>
+    <Property Name="tejuCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tejuDescripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="tbTipodeArquitectura">
     <Key>
       <PropertyRef Name="tiarCodigo" />
@@ -207,6 +237,13 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="200" />
   </EntityType>
+  <EntityType Name="tbTipoJuego">
+    <Key>
+      <PropertyRef Name="tijuCodigo" />
+    </Key>
+    <Property Name="tijuCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tijuDescripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbTipoUsuario">
     <Key>
       <PropertyRef Name="tiusCodigo" />
@@ -226,6 +263,45 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
     <Property Name="usuaPuntuacionMaxima" Type="int" />
     <Property Name="usuaTipo" Type="int" Nullable="false" />
     <Property Name="usuaImagen" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="incidencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="identificacion" Type="bigint" />
+    <Property Name="primer_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="segundo_nombre" Type="varchar" MaxLength="50" />
+    <Property Name="primer_apellido" Type="varchar" MaxLength="50" />
+    <Property Name="segundo_apellido" Type="varchar" MaxLength="50" />
+    <Property Name="direccion" Type="varchar" MaxLength="50" />
+    <Property Name="telefono" Type="varchar" MaxLength="50" />
+    <Property Name="correo" Type="varchar" MaxLength="50" />
+    <Property Name="estado_incidente" Type="int" Nullable="false" />
+    <Property Name="tipo_incidencia_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="incidencia_comentarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="incidencia_id" Type="int" Nullable="false" />
+    <Property Name="comentarios" Type="varchar" MaxLength="100" />
+    <Property Name="estado_incidencia_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbEstadoIncidente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Tipo_Incidencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
   </EntityType>
   <Association Name="depaCodigo">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
@@ -407,6 +483,54 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_incidencia_comentarios_incidencia">
+    <End Role="incidencia" Type="Self.incidencia" Multiplicity="1" />
+    <End Role="incidencia_comentarios" Type="Self.incidencia_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="incidencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="incidencia_comentarios">
+        <PropertyRef Name="incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_comentarios_tbEstadoIncidente">
+    <End Role="tbEstadoIncidente" Type="Self.tbEstadoIncidente" Multiplicity="1" />
+    <End Role="incidencia_comentarios" Type="Self.incidencia_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadoIncidente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="incidencia_comentarios">
+        <PropertyRef Name="estado_incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_tbEstadoIncidente">
+    <End Role="tbEstadoIncidente" Type="Self.tbEstadoIncidente" Multiplicity="1" />
+    <End Role="incidencia" Type="Self.incidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadoIncidente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="incidencia">
+        <PropertyRef Name="estado_incidente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_Tipo_Incidencia">
+    <End Role="Tipo_Incidencia" Type="Self.Tipo_Incidencia" Multiplicity="1" />
+    <End Role="incidencia" Type="Self.incidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Incidencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="incidencia">
+        <PropertyRef Name="tipo_incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_musiDepartamento">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
     <End Role="tbMusica" Type="Self.tbMusica" Multiplicity="*" />
@@ -416,6 +540,42 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
       </Principal>
       <Dependent Role="tbMusica">
         <PropertyRef Name="musiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuDificultad">
+    <End Role="tbDificultadJuego" Type="Self.tbDificultadJuego" Multiplicity="1" />
+    <End Role="tbPreguntasJuego" Type="Self.tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDificultadJuego">
+        <PropertyRef Name="dijuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuDificultad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuTematica">
+    <End Role="tbTematicaJuego" Type="Self.tbTematicaJuego" Multiplicity="1" />
+    <End Role="tbPreguntasJuego" Type="Self.tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTematicaJuego">
+        <PropertyRef Name="tejuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuTematica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuTipoJuego">
+    <End Role="tbTipoJuego" Type="Self.tbTipoJuego" Multiplicity="1" />
+    <End Role="tbPreguntasJuego" Type="Self.tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoJuego">
+        <PropertyRef Name="tijuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuTipoJuego" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -444,6 +604,7 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
     <EntitySet Name="tbCiudadesPrincipales" EntityType="Self.tbCiudadesPrincipales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbDificultadJuego" EntityType="Self.tbDificultadJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbEquipos" EntityType="Self.tbEquipos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFauna" EntityType="Self.tbFauna" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFlora" EntityType="Self.tbFlora" Schema="dbo" store:Type="Tables" />
@@ -451,14 +612,21 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
     <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbMusica" EntityType="Self.tbMusica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPreguntasJuego" EntityType="Self.tbPreguntasJuego" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTematicaJuego" EntityType="Self.tbTematicaJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeGastronomia" EntityType="Self.tbTipodeGastronomia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeHistoria" EntityType="Self.tbTipodeHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoFauna" EntityType="Self.tbTipoFauna" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoIncidente" EntityType="Self.tbTipoIncidente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoJuego" EntityType="Self.tbTipoJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="incidencia" EntityType="Self.incidencia" Schema="PQRS" store:Type="Tables" />
+    <EntitySet Name="incidencia_comentarios" EntityType="Self.incidencia_comentarios" Schema="PQRS" store:Type="Tables" />
+    <EntitySet Name="tbEstadoIncidente" EntityType="Self.tbEstadoIncidente" Schema="PQRS" store:Type="Tables" />
+    <EntitySet Name="Tipo_Incidencia" EntityType="Self.Tipo_Incidencia" Schema="PQRS" store:Type="Tables" />
     <AssociationSet Name="depaCodigo" Association="Self.depaCodigo">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbEquipos" EntitySet="tbEquipos" />
@@ -519,9 +687,37 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
       <End Role="tbTipodeHistoria" EntitySet="tbTipodeHistoria" />
       <End Role="tbHistoria" EntitySet="tbHistoria" />
     </AssociationSet>
+    <AssociationSet Name="FK_incidencia_comentarios_incidencia" Association="Self.FK_incidencia_comentarios_incidencia">
+      <End Role="incidencia" EntitySet="incidencia" />
+      <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_comentarios_tbEstadoIncidente" Association="Self.FK_incidencia_comentarios_tbEstadoIncidente">
+      <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
+      <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_tbEstadoIncidente" Association="Self.FK_incidencia_tbEstadoIncidente">
+      <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
+      <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_Tipo_Incidencia" Association="Self.FK_incidencia_Tipo_Incidencia">
+      <End Role="Tipo_Incidencia" EntitySet="Tipo_Incidencia" />
+      <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
     <AssociationSet Name="FK_musiDepartamento" Association="Self.FK_musiDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbMusica" EntitySet="tbMusica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuDificultad" Association="Self.FK_prjuDificultad">
+      <End Role="tbDificultadJuego" EntitySet="tbDificultadJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuTematica" Association="Self.FK_prjuTematica">
+      <End Role="tbTematicaJuego" EntitySet="tbTematicaJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuTipoJuego" Association="Self.FK_prjuTipoJuego">
+      <End Role="tbTipoJuego" EntitySet="tbTipoJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
     </AssociationSet>
     <AssociationSet Name="FK_usuaTipo" Association="Self.FK_usuaTipo">
       <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />

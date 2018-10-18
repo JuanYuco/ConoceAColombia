@@ -80,6 +80,7 @@
     <Compile Include="BL\clsConexion.cs" />
     <Compile Include="BL\clsDepartamentos.cs" />
     <Compile Include="BL\clsDeportes.cs" />
+    <Compile Include="BL\clsDificultadJuego.cs" />
     <Compile Include="BL\clsEmpleados.cs" />
     <Compile Include="BL\clsEquipo.cs" />
     <Compile Include="BL\clsFlora.cs" />
@@ -89,14 +90,23 @@
     <Compile Include="BL\clsMusica.cs" />
     <Compile Include="BL\clsPersonajesHistoricos.cs" />
     <Compile Include="BL\clsPersonajesxHistoria.cs" />
+    <Compile Include="BL\clsPreguntasJuego.cs" />
     <Compile Include="BL\clsRecuperarPassword.cs" />
     <Compile Include="BL\clsSuma.cs" />
+    <Compile Include="BL\clsTematicasJuego.cs" />
     <Compile Include="BL\clsTipodeArquitectura.cs" />
     <Compile Include="BL\clsTipodeArtista.cs" />
     <Compile Include="BL\clsTipodeGastronomia.cs" />
     <Compile Include="BL\clsTipodeHistoria.cs" />
     <Compile Include="BL\clsTipoFauna.cs" />
+    <Compile Include="BL\clsTipoJuego.cs" />
     <Compile Include="BL\clsUsuarios.cs" />
+    <Compile Include="Entidades\incidencia.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\incidencia_comentarios.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,7 +140,13 @@
     <Compile Include="Entidades\tbDeportes.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbDificultadJuego.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbEquipos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbEstadoIncidente.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbFauna.cs">
@@ -151,6 +167,12 @@
     <Compile Include="Entidades\tbPersonajesHistoricos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbPreguntasJuego.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTematicaJuego.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbTipodeArquitectura.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -169,10 +191,16 @@
     <Compile Include="Entidades\tbTipoIncidente.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbTipoJuego.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbTipoUsuario.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbUsuarios.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Tipo_Incidencia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Mapping\DepartamentosMap.cs" />
@@ -184,16 +212,20 @@
     <Compile Include="Models\clsCorreo.cs" />
     <Compile Include="Models\clsDepartamentos.cs" />
     <Compile Include="Models\clsDeportes.cs" />
+    <Compile Include="Models\clsDicultadJuego.cs" />
     <Compile Include="Models\clsEquipo.cs" />
     <Compile Include="Models\clsFlora.cs" />
     <Compile Include="Models\clsGastronomia.cs" />
     <Compile Include="Models\clsHistoria.cs" />
     <Compile Include="Models\clsMusica.cs" />
     <Compile Include="Models\clsPersonajesHistoricos.cs" />
+    <Compile Include="Models\clsPreguntasJuego.cs" />
+    <Compile Include="Models\clsTematicasJuego.cs" />
     <Compile Include="Models\clsTipodeArquitectura.cs" />
     <Compile Include="Models\clsTipodeArtista.cs" />
     <Compile Include="Models\clsTipodeGastronomia.cs" />
     <Compile Include="Models\clsTipoHistoria.cs" />
+    <Compile Include="Models\clsTipoJuego.cs" />
     <Compile Include="Models\clsUsuarios.cs" />
     <Compile Include="Models\clsPersonajesxHistoria.cs" />
     <Compile Include="Models\clsTipoFauna.cs" />

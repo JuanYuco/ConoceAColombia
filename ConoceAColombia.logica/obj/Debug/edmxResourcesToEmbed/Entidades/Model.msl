@@ -243,5 +243,89 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbDificultadJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDificultadJuego">
+        <MappingFragment StoreEntitySet="tbDificultadJuego">
+          <ScalarProperty Name="dijuDescripcion" ColumnName="dijuDescripcion" />
+          <ScalarProperty Name="dijuCodigo" ColumnName="dijuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPreguntasJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPreguntasJuego">
+        <MappingFragment StoreEntitySet="tbPreguntasJuego">
+          <ScalarProperty Name="prjuDificultad" ColumnName="prjuDificultad" />
+          <ScalarProperty Name="prjuTipoJuego" ColumnName="prjuTipoJuego" />
+          <ScalarProperty Name="prjuTematica" ColumnName="prjuTematica" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaCinco" ColumnName="prjuRespuestaIncorrectaCinco" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaCuatro" ColumnName="prjuRespuestaIncorrectaCuatro" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaTres" ColumnName="prjuRespuestaIncorrectaTres" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaDos" ColumnName="prjuRespuestaIncorrectaDos" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaUno" ColumnName="prjuRespuestaIncorrectaUno" />
+          <ScalarProperty Name="prjuRespuestaCorrecta" ColumnName="prjuRespuestaCorrecta" />
+          <ScalarProperty Name="prjuPregunta" ColumnName="prjuPregunta" />
+          <ScalarProperty Name="prjuCodigo" ColumnName="prjuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTematicaJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTematicaJuego">
+        <MappingFragment StoreEntitySet="tbTematicaJuego">
+          <ScalarProperty Name="tejuDescripcion" ColumnName="tejuDescripcion" />
+          <ScalarProperty Name="tejuCodigo" ColumnName="tejuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoJuego">
+        <MappingFragment StoreEntitySet="tbTipoJuego">
+          <ScalarProperty Name="tijuDescripcion" ColumnName="tijuDescripcion" />
+          <ScalarProperty Name="tijuCodigo" ColumnName="tijuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="incidencia">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.incidencia">
+        <MappingFragment StoreEntitySet="incidencia">
+          <ScalarProperty Name="tipo_incidencia_id" ColumnName="tipo_incidencia_id" />
+          <ScalarProperty Name="estado_incidente" ColumnName="estado_incidente" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+          <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+          <ScalarProperty Name="segundo_nombre" ColumnName="segundo_nombre" />
+          <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="incidencia_comentarios">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.incidencia_comentarios">
+        <MappingFragment StoreEntitySet="incidencia_comentarios">
+          <ScalarProperty Name="estado_incidencia_id" ColumnName="estado_incidencia_id" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="incidencia_id" ColumnName="incidencia_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstadoIncidente">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEstadoIncidente">
+        <MappingFragment StoreEntitySet="tbEstadoIncidente">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Incidencia">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.Tipo_Incidencia">
+        <MappingFragment StoreEntitySet="Tipo_Incidencia">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
