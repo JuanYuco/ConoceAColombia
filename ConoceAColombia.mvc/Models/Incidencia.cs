@@ -5,8 +5,17 @@ using System.Web;
 
 namespace ConoceAColombia.mvc.Models
 {
+    
+
     public class Incidencia
     {
+        public class IndexLoad
+        {
+            public List<Incidencia> Incidencias { get; set; }
+            public List<EstadoIncidencia> EstadoIncidencias { get; set; }
+            public List<TipoIncidencia> TipoIncidencias { get; set; }
+        }
+
         public int Id { get; set; }
         public long Identificacion { get; set; }
         public string PrimerNombre { get; set; }
