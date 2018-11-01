@@ -114,6 +114,7 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="css\myStyle.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -179,9 +180,21 @@
     <Content Include="Resources\Images\8musica.jpg" />
     <Content Include="Resources\Images\8personaje.jpg" />
     <Content Include="Resources\Images\9departamento.jpg" />
+    <Content Include="Resources\Images\aguila.png" />
+    <Content Include="Resources\Images\balon-en-variante-de-futbol.png" />
+    <Content Include="Resources\Images\barajar.png" />
     <Content Include="Resources\Images\edit26-300px.png" />
+    <Content Include="Resources\Images\el-planeta-tierra.png" />
+    <Content Include="Resources\Images\enojado.png" />
+    <Content Include="Resources\Images\happy.png" />
+    <Content Include="Resources\Images\historia.png" />
     <Content Include="Resources\Images\hqdefault.jpg" />
     <Content Include="Resources\Images\iconoGeografia.png" />
+    <Content Include="Resources\Images\jamon.png" />
+    <Content Include="Resources\Images\lotus-flower.png" />
+    <Content Include="Resources\Images\mundial.png" />
+    <Content Include="Resources\Images\nota-musical.png" />
+    <Content Include="Resources\Images\serio.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -281,6 +294,9 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\wsFlora\wsFlora.wsdl" />
+    <Content Include="Views\Juego\Juego.aspx" />
+    <Content Include="Views\MenuDificultad\MenuDificultad.aspx" />
+    <Content Include="Views\MenuJuego\MenuJuego.aspx" />
     <Content Include="Views\PreguntasJuego\PreguntasJuego.aspx" />
     <Content Include="Views\TematicasJuego\TematicasJuego.aspx" />
     <Content Include="Views\TipoJuego\TipoJuego.aspx" />
@@ -366,6 +382,7 @@
     <Compile Include="Controllers\FloraControllers.cs" />
     <Compile Include="Controllers\GastronomiaControllers.cs" />
     <Compile Include="Controllers\HistoriaControllers.cs" />
+    <Compile Include="Controllers\JuegoControllers.cs" />
     <Compile Include="Controllers\LoginControllers.cs" />
     <Compile Include="Controllers\MusicaControllers.cs" />
     <Compile Include="Controllers\PersoanesxHistoriaControllers.cs" />
@@ -493,6 +510,13 @@
     <Compile Include="Views\HistoriaAdmin\HistoriaAdmin.aspx.designer.cs">
       <DependentUpon>HistoriaAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Juego\Juego.aspx.cs">
+      <DependentUpon>Juego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Juego\Juego.aspx.designer.cs">
+      <DependentUpon>Juego.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginAdministrador\LoginAdministrador.aspx.cs">
       <DependentUpon>LoginAdministrador.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -506,6 +530,20 @@
     </Compile>
     <Compile Include="Views\MapaTerminado\MapaTerminado.aspx.designer.cs">
       <DependentUpon>MapaTerminado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuDificultad\MenuDificultad.aspx.cs">
+      <DependentUpon>MenuDificultad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MenuDificultad\MenuDificultad.aspx.designer.cs">
+      <DependentUpon>MenuDificultad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuJuego\MenuJuego.aspx.cs">
+      <DependentUpon>MenuJuego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MenuJuego\MenuJuego.aspx.designer.cs">
+      <DependentUpon>MenuJuego.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MusicaAdmin\MusicaAdmin.aspx.cs">
       <DependentUpon>MusicaAdmin.aspx</DependentUpon>

@@ -52,8 +52,8 @@ namespace ConoceAColombia.logica.BL
                     new Entidades.bdConoceAColombiaEntities())
                 {
                     Entidades.tbPreguntasJuego obtbPreguntasJuego = (from q in obbdConoceAColombiaEntities.tbPreguntasJuego
-                                                         where q.prjuCodigo == ob.lgCodigo
-                                                         select q).FirstOrDefault();
+                                                                     where q.prjuCodigo == ob.lgCodigo
+                                                                     select q).FirstOrDefault();
                     obtbPreguntasJuego.prjuPregunta = ob.stPregunta;
                     obtbPreguntasJuego.prjuRespuestaCorrecta = ob.stRespuestaCorrecta;
                     obtbPreguntasJuego.prjuRespuestaIncorrectaUno = ob.stRespuestaIncorrectaUno;
@@ -86,8 +86,8 @@ namespace ConoceAColombia.logica.BL
                     new Entidades.bdConoceAColombiaEntities())
                 {
                     Entidades.tbPreguntasJuego obtbPreguntasJuego = (from q in obbdConoceAColombiaEntities.tbPreguntasJuego
-                                                         where q.prjuCodigo == ob.lgCodigo
-                                                         select q).FirstOrDefault();
+                                                                     where q.prjuCodigo == ob.lgCodigo
+                                                                     select q).FirstOrDefault();
                     obbdConoceAColombiaEntities.tbPreguntasJuego.Remove(obtbPreguntasJuego);
                     obbdConoceAColombiaEntities.SaveChanges();
 
@@ -138,7 +138,7 @@ namespace ConoceAColombia.logica.BL
                                    lgCodigo = q.prjuDificultad,
                                    stDescripcion = tbDif.dijuDescripcion
                                }
-                              
+
                            }).ToList();
 
                     return lstclsPreguntasJuego;
@@ -267,6 +267,55 @@ namespace ConoceAColombia.logica.BL
 
                 ddlControl.Items.Insert(0, new ListItem(stTextoEmcabezado, stValorEmcabezado));
 
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
+
+
+
+        public Models.clsPreguntasJuego getPreguntaRamdon(List<Models.clsPreguntasJuego> lstPreguntasJuego)
+        {
+            try
+            {
+                Models.clsPreguntasJuego obPregunta = new Models.clsPreguntasJuego();
+                Random rnd = new Random();
+                int numero = rnd.Next(1, lstPreguntasJuego.Count);
+                foreach (Models.clsPreguntasJuego preguntas in lstPreguntasJuego)
+                {
+                    if (preguntas.lgCodigo == numero)
+                    {
+                        obPregunta = new Models.clsPreguntasJuego
+                        {
+                            lgCodigo = preguntas.lgCodigo,
+                            stPregunta = preguntas.stPregunta,
+                            stRespuestaCorrecta = preguntas.stRespuestaCorrecta,
+                            stRespuestaIncorrectaUno = preguntas.stRespuestaIncorrectaUno,
+                            stRespuestaIncorrectaDos = preguntas.stRespuestaIncorrectaDos,
+                            stRespuestaIncorrectaTres = preguntas.stRespuestaIncorrectaTres,
+                            stRespuestaIncorrectaCuatro = preguntas.stRespuestaIncorrectaCuatro,
+                            stRespuestaIncorrectaCinco = preguntas.stRespuestaIncorrectaCinco,
+                            obclsTematicasJuego = new Models.clsTematicasJuego
+                            {
+                                stDescripcion = preguntas.obclsTematicasJuego.stDescripcion
+                            },
+                            obclsTipoJuego = new Models.clsTipoJuego
+                            {
+                                stDescripcion = preguntas.obclsTipoJuego.stDescripcion
+                            },
+                            obclsDicultadJuego = new Models.clsDicultadJuego
+                            {
+                                stDescripcion = preguntas.obclsDicultadJuego.stDescripcion
+                            }
+                        };
+                        
+                    }
+                }
+                return obPregunta;
             }
             catch (Exception ew)
             {
