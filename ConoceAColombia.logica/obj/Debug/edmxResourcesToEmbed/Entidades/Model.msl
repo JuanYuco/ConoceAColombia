@@ -215,18 +215,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbFauna">
-      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
-        <MappingFragment StoreEntitySet="tbFauna">
-          <ScalarProperty Name="faunLongitud" ColumnName="faunLongitud" />
-          <ScalarProperty Name="faunLatitud" ColumnName="faunLatitud" />
-          <ScalarProperty Name="faunTipo" ColumnName="faunTipo" />
-          <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
-          <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
-          <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tbTipoFauna">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoFauna">
         <MappingFragment StoreEntitySet="tbTipoFauna">
@@ -324,6 +312,49 @@
         <MappingFragment StoreEntitySet="Tipo_Incidencia">
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPersonajesxHistoria">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajesxHistoria">
+        <MappingFragment StoreEntitySet="tbPersonajesxHistoria">
+          <ScalarProperty Name="pxhCodigo" ColumnName="pxhCodigo" />
+          <ScalarProperty Name="pxhHistoria" ColumnName="pxhHistoria" />
+          <ScalarProperty Name="pxhPersonaje" ColumnName="pxhPersonaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCulturas">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCulturas">
+        <MappingFragment StoreEntitySet="tbCulturas">
+          <ScalarProperty Name="cultDepartamento" ColumnName="cultDepartamento" />
+          <ScalarProperty Name="cultLongitud" ColumnName="cultLongitud" />
+          <ScalarProperty Name="cultLatitud" ColumnName="cultLatitud" />
+          <ScalarProperty Name="cultDescripcion" ColumnName="cultDescripcion" />
+          <ScalarProperty Name="cultNombre" ColumnName="cultNombre" />
+          <ScalarProperty Name="cultCodigo" ColumnName="cultCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFauna">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
+        <MappingFragment StoreEntitySet="tbFauna">
+          <ScalarProperty Name="faunTipo" ColumnName="faunTipo" />
+          <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
+          <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
+          <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFaunaxDepartamento">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFaunaxDepartamento">
+        <MappingFragment StoreEntitySet="tbFaunaxDepartamento">
+          <ScalarProperty Name="fxdLongitud" ColumnName="fxdLongitud" />
+          <ScalarProperty Name="fxdLatitud" ColumnName="fxdLatitud" />
+          <ScalarProperty Name="fxdDepartamento" ColumnName="fxdDepartamento" />
+          <ScalarProperty Name="fxdFauna" ColumnName="fxdFauna" />
+          <ScalarProperty Name="fxdDescripcion" ColumnName="fxdDescripcion" />
+          <ScalarProperty Name="fxdCodigo" ColumnName="fxdCodigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

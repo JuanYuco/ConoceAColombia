@@ -14,13 +14,19 @@ namespace ConoceAColombia.logica.Entidades
     
     public partial class tbFauna
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbFauna()
+        {
+            this.tbFaunaxDepartamento = new HashSet<tbFaunaxDepartamento>();
+        }
+    
         public long faunCodigo { get; set; }
         public string faunNombre { get; set; }
         public string faunDescripcion { get; set; }
         public long faunTipo { get; set; }
-        public string faunLatitud { get; set; }
-        public string faunLongitud { get; set; }
     
         public virtual tbTipoFauna tbTipoFauna { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
     }
 }

@@ -75,6 +75,8 @@
     <NavigationProperty Name="tbGastronomia" Relationship="Self.FK_gastDepartamento" FromRole="tbDepartamento" ToRole="tbGastronomia" />
     <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histDepartamento" FromRole="tbDepartamento" ToRole="tbHistoria" />
     <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
+    <NavigationProperty Name="tbCulturas" Relationship="bdConoceAColombiaModel.FK_cultDepartamento" FromRole="tbDepartamento" ToRole="tbCulturas" />
+    <NavigationProperty Name="tbFaunaxDepartamento" Relationship="bdConoceAColombiaModel.FK_fxdDepartamento" FromRole="tbDepartamento" ToRole="tbFaunaxDepartamento" />
   </EntityType>
   <EntityType Name="tbDeportes">
     <Key>
@@ -149,6 +151,7 @@
     <Property Name="histNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_histDepartamento" FromRole="tbHistoria" ToRole="tbDepartamento" />
     <NavigationProperty Name="tbTipodeHistoria" Relationship="Self.FK_histTipo" FromRole="tbHistoria" ToRole="tbTipodeHistoria" />
+    <NavigationProperty Name="tbPersonajesxHistoria" Relationship="bdConoceAColombiaModel.FK_pxhHistoria" FromRole="tbHistoria" ToRole="tbPersonajesxHistoria" />
   </EntityType>
   <EntityType Name="tbMusica">
     <Key>
@@ -173,6 +176,7 @@
     <Property Name="pehiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
     <Property Name="pehiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="pehiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPersonajesxHistoria" Relationship="bdConoceAColombiaModel.FK_pxhPersonaje" FromRole="tbPersonajesHistoricos" ToRole="tbPersonajesxHistoria" />
   </EntityType>
   <EntityType Name="tbTipodeArquitectura">
     <Key>
@@ -503,13 +507,8 @@
       <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />
       <End Role="tbUsuarios" EntitySet="tbUsuarios" />
     </AssociationSet>
-    <EntitySet Name="tbFauna" EntityType="bdConoceAColombiaModel.tbFauna" />
     <EntitySet Name="tbTipoFauna" EntityType="bdConoceAColombiaModel.tbTipoFauna" />
     <EntitySet Name="tbTipoIncidente" EntityType="bdConoceAColombiaModel.tbTipoIncidente" />
-    <AssociationSet Name="FK_faunTipo" Association="bdConoceAColombiaModel.FK_faunTipo">
-      <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
-      <End Role="tbFauna" EntitySet="tbFauna" />
-    </AssociationSet>
     <EntitySet Name="tbDificultadJuego" EntityType="bdConoceAColombiaModel.tbDificultadJuego" />
     <EntitySet Name="tbPreguntasJuego" EntityType="bdConoceAColombiaModel.tbPreguntasJuego" />
     <EntitySet Name="tbTematicaJuego" EntityType="bdConoceAColombiaModel.tbTematicaJuego" />
@@ -546,19 +545,35 @@
       <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
       <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
     </AssociationSet>
+    <EntitySet Name="tbPersonajesxHistoria" EntityType="bdConoceAColombiaModel.tbPersonajesxHistoria" />
+    <AssociationSet Name="FK_pxhHistoria" Association="bdConoceAColombiaModel.FK_pxhHistoria">
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+      <End Role="tbPersonajesxHistoria" EntitySet="tbPersonajesxHistoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pxhPersonaje" Association="bdConoceAColombiaModel.FK_pxhPersonaje">
+      <End Role="tbPersonajesHistoricos" EntitySet="tbPersonajesHistoricos" />
+      <End Role="tbPersonajesxHistoria" EntitySet="tbPersonajesxHistoria" />
+    </AssociationSet>
+    <EntitySet Name="tbCulturas" EntityType="bdConoceAColombiaModel.tbCulturas" />
+    <AssociationSet Name="FK_cultDepartamento" Association="bdConoceAColombiaModel.FK_cultDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbCulturas" EntitySet="tbCulturas" />
+    </AssociationSet>
+    <EntitySet Name="tbFauna" EntityType="bdConoceAColombiaModel.tbFauna" />
+    <EntitySet Name="tbFaunaxDepartamento" EntityType="bdConoceAColombiaModel.tbFaunaxDepartamento" />
+    <AssociationSet Name="FK_fxdDepartamento" Association="bdConoceAColombiaModel.FK_fxdDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faunTipo" Association="bdConoceAColombiaModel.FK_faunTipo">
+      <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
+      <End Role="tbFauna" EntitySet="tbFauna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fxdFauna" Association="bdConoceAColombiaModel.FK_fxdFauna">
+      <End Role="tbFauna" EntitySet="tbFauna" />
+      <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="tbFauna">
-    <Key>
-      <PropertyRef Name="faunCodigo" />
-    </Key>
-    <Property Name="faunCodigo" Type="Int64" Nullable="false" />
-    <Property Name="faunNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="faunDescripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="faunTipo" Type="Int64" Nullable="false" />
-    <Property Name="faunLatitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="faunLongitud" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tbTipoFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbFauna" ToRole="tbTipoFauna" />
-  </EntityType>
   <EntityType Name="tbTipoFauna">
     <Key>
       <PropertyRef Name="tifaCodigo" />
@@ -574,18 +589,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
-  <Association Name="FK_faunTipo">
-    <End Type="bdConoceAColombiaModel.tbTipoFauna" Role="tbTipoFauna" Multiplicity="1" />
-    <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tbTipoFauna">
-        <PropertyRef Name="tifaCodigo" />
-      </Principal>
-      <Dependent Role="tbFauna">
-        <PropertyRef Name="faunTipo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="tbDificultadJuego">
     <Key>
       <PropertyRef Name="dijuCodigo" />
@@ -757,6 +760,124 @@
       </Principal>
       <Dependent Role="incidencia_comentarios">
         <PropertyRef Name="estado_incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbPersonajesxHistoria">
+    <Key>
+      <PropertyRef Name="pxhCodigo" />
+    </Key>
+    <Property Name="pxhPersonaje" Type="Int64" />
+    <Property Name="pxhHistoria" Type="Int64" />
+    <Property Name="pxhCodigo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbHistoria" Relationship="bdConoceAColombiaModel.FK_pxhHistoria" FromRole="tbPersonajesxHistoria" ToRole="tbHistoria" />
+    <NavigationProperty Name="tbPersonajesHistoricos" Relationship="bdConoceAColombiaModel.FK_pxhPersonaje" FromRole="tbPersonajesxHistoria" ToRole="tbPersonajesHistoricos" />
+  </EntityType>
+  <Association Name="FK_pxhHistoria">
+    <End Type="bdConoceAColombiaModel.tbHistoria" Role="tbHistoria" Multiplicity="0..1" />
+    <End Type="bdConoceAColombiaModel.tbPersonajesxHistoria" Role="tbPersonajesxHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHistoria">
+        <PropertyRef Name="histCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajesxHistoria">
+        <PropertyRef Name="pxhHistoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pxhPersonaje">
+    <End Type="bdConoceAColombiaModel.tbPersonajesHistoricos" Role="tbPersonajesHistoricos" Multiplicity="0..1" />
+    <End Type="bdConoceAColombiaModel.tbPersonajesxHistoria" Role="tbPersonajesxHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPersonajesHistoricos">
+        <PropertyRef Name="pehiCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajesxHistoria">
+        <PropertyRef Name="pxhPersonaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbCulturas">
+    <Key>
+      <PropertyRef Name="cultCodigo" />
+    </Key>
+    <Property Name="cultCodigo" Type="Int64" Nullable="false" />
+    <Property Name="cultNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cultDescripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="cultLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cultLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cultDepartamento" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_cultDepartamento" FromRole="tbCulturas" ToRole="tbDepartamento" />
+  </EntityType>
+  <Association Name="FK_cultDepartamento">
+    <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbCulturas" Role="tbCulturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbCulturas">
+        <PropertyRef Name="cultDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbFauna">
+    <Key>
+      <PropertyRef Name="faunCodigo" />
+    </Key>
+    <Property Name="faunCodigo" Type="Int64" Nullable="false" />
+    <Property Name="faunNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="faunDescripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="faunTipo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbTipoFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbFauna" ToRole="tbTipoFauna" />
+    <NavigationProperty Name="tbFaunaxDepartamento" Relationship="bdConoceAColombiaModel.FK_fxdFauna" FromRole="tbFauna" ToRole="tbFaunaxDepartamento" />
+  </EntityType>
+  <EntityType Name="tbFaunaxDepartamento">
+    <Key>
+      <PropertyRef Name="fxdCodigo" />
+    </Key>
+    <Property Name="fxdCodigo" Type="Int64" Nullable="false" />
+    <Property Name="fxdDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fxdFauna" Type="Int64" Nullable="false" />
+    <Property Name="fxdDepartamento" Type="Int64" Nullable="false" />
+    <Property Name="fxdLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fxdLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_fxdDepartamento" FromRole="tbFaunaxDepartamento" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbFauna" Relationship="bdConoceAColombiaModel.FK_fxdFauna" FromRole="tbFaunaxDepartamento" ToRole="tbFauna" />
+  </EntityType>
+  <Association Name="FK_fxdDepartamento">
+    <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFaunaxDepartamento" Role="tbFaunaxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbFaunaxDepartamento">
+        <PropertyRef Name="fxdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faunTipo">
+    <End Type="bdConoceAColombiaModel.tbTipoFauna" Role="tbTipoFauna" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoFauna">
+        <PropertyRef Name="tifaCodigo" />
+      </Principal>
+      <Dependent Role="tbFauna">
+        <PropertyRef Name="faunTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fxdFauna">
+    <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFaunaxDepartamento" Role="tbFaunaxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbFauna">
+        <PropertyRef Name="faunCodigo" />
+      </Principal>
+      <Dependent Role="tbFaunaxDepartamento">
+        <PropertyRef Name="fxdFauna" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

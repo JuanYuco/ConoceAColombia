@@ -14,6 +14,12 @@ namespace ConoceAColombia.logica.Entidades
     
     public partial class tbHistoria
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbHistoria()
+        {
+            this.tbPersonajesxHistoria = new HashSet<tbPersonajesxHistoria>();
+        }
+    
         public long histCodigo { get; set; }
         public string histDescripcion { get; set; }
         public Nullable<long> histTipo { get; set; }
@@ -26,5 +32,7 @@ namespace ConoceAColombia.logica.Entidades
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbTipodeHistoria tbTipodeHistoria { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }
     }
 }

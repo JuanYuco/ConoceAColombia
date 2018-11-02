@@ -277,6 +277,8 @@
     </None>
     <Content Include="Views\DificultadJuego\DificultadJuego.aspx" />
     <Content Include="Views\Empleados\Empleados.aspx" />
+    <Content Include="Views\FaunaAdmin\FaunaAdmin.aspx" />
+    <Content Include="Views\FaunaxDepartamentoAdmin\FaunaxDepartamentoAdmin.aspx" />
     <Content Include="Views\FloraAdmin\FloraAdmin.aspx" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
@@ -299,6 +301,7 @@
     <Content Include="Views\MenuJuego\MenuJuego.aspx" />
     <Content Include="Views\PreguntasJuego\PreguntasJuego.aspx" />
     <Content Include="Views\TematicasJuego\TematicasJuego.aspx" />
+    <Content Include="Views\TipoFaunaAdmin\TipoFaunaAdmin.aspx" />
     <Content Include="Views\TipoJuego\TipoJuego.aspx" />
     <Content Include="Web References\wsTipoFauna\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -379,6 +382,8 @@
     <Compile Include="Controllers\DeportesControllers.cs" />
     <Compile Include="Controllers\DificultadJuegoControllers.cs" />
     <Compile Include="Controllers\EquipoControllers.cs" />
+    <Compile Include="Controllers\FaunaControllers.cs" />
+    <Compile Include="Controllers\FaunaxDepartamentoControllers.cs" />
     <Compile Include="Controllers\FloraControllers.cs" />
     <Compile Include="Controllers\GastronomiaControllers.cs" />
     <Compile Include="Controllers\HistoriaControllers.cs" />
@@ -394,6 +399,7 @@
     <Compile Include="Controllers\TipodeArtistaControllers.cs" />
     <Compile Include="Controllers\TipodeGastronomiaControllers.cs" />
     <Compile Include="Controllers\TipodeHistoriaControllers.cs" />
+    <Compile Include="Controllers\TipoFaunaControllers.cs" />
     <Compile Include="Controllers\TipoJuegoControllers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -488,6 +494,20 @@
     </Compile>
     <Compile Include="Views\EquiposAdmin\EquiposAdmin.aspx.designer.cs">
       <DependentUpon>EquiposAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FaunaAdmin\FaunaAdmin.aspx.cs">
+      <DependentUpon>FaunaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FaunaAdmin\FaunaAdmin.aspx.designer.cs">
+      <DependentUpon>FaunaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FaunaxDepartamentoAdmin\FaunaxDepartamentoAdmin.aspx.cs">
+      <DependentUpon>FaunaxDepartamentoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FaunaxDepartamentoAdmin\FaunaxDepartamentoAdmin.aspx.designer.cs">
+      <DependentUpon>FaunaxDepartamentoAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\FloraAdmin\FloraAdmin.aspx.cs">
       <DependentUpon>FloraAdmin.aspx</DependentUpon>
@@ -657,6 +677,13 @@
     <Compile Include="Views\Tipo Historia Admin\TipoHistoriaAdmin.aspx.designer.cs">
       <DependentUpon>TipoHistoriaAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\TipoFaunaAdmin\TipoFaunaAdmin.aspx.cs">
+      <DependentUpon>TipoFaunaAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TipoFaunaAdmin\TipoFaunaAdmin.aspx.designer.cs">
+      <DependentUpon>TipoFaunaAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\TipoJuego\TipoJuego.aspx.cs">
       <DependentUpon>TipoJuego.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -679,7 +706,6 @@
     <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="tmp\" />
-    <Folder Include="Views\NewFolder2\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConoceAColombia.logica\ConoceAColombia.logica.csproj">

@@ -43,7 +43,6 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<tbTipodeHistoria> tbTipodeHistoria { get; set; }
         public virtual DbSet<tbTipoUsuario> tbTipoUsuario { get; set; }
         public virtual DbSet<tbUsuarios> tbUsuarios { get; set; }
-        public virtual DbSet<tbFauna> tbFauna { get; set; }
         public virtual DbSet<tbTipoFauna> tbTipoFauna { get; set; }
         public virtual DbSet<tbTipoIncidente> tbTipoIncidente { get; set; }
         public virtual DbSet<tbDificultadJuego> tbDificultadJuego { get; set; }
@@ -54,5 +53,9 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<incidencia_comentarios> incidencia_comentarios { get; set; }
         public virtual DbSet<tbEstadoIncidente> tbEstadoIncidente { get; set; }
         public virtual DbSet<Tipo_Incidencia> Tipo_Incidencia { get; set; }
+        public virtual DbSet<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }
+        public virtual DbSet<tbCulturas> tbCulturas { get; set; }
+        public virtual DbSet<tbFauna> tbFauna { get; set; }
+        public virtual DbSet<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
     }
 }

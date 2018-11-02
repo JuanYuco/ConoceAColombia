@@ -30,7 +30,7 @@ namespace ConoceAColombia.logica.BL
             }
         }
 
-        public void InsertTipoFauna(Models.clsTipoFauna obclsTipoFauna)
+        public string InsertTipoFauna(Models.clsTipoFauna obclsTipoFauna)
         {
             try
             {
@@ -42,11 +42,60 @@ namespace ConoceAColombia.logica.BL
                         tifaDescripcion = obclsTipoFauna.stDescripcion
                     });
                     obDatos.SaveChanges();
+                    return "Se realizo con exito";
                 }
             }
             catch (Exception ew)
             {
                 throw ew;
+            }
+        }
+
+
+        public string updateTipoFauna(Models.clsTipoFauna ob)
+        {
+            try
+            {
+                using (Entidades.bdConoceAColombiaEntities obbdConoceAColombiaEntities =
+                    new Entidades.bdConoceAColombiaEntities())
+                {
+                    Entidades.tbTipoFauna obtbTipoFauna = (from q in obbdConoceAColombiaEntities.tbTipoFauna
+                                                           where q.tifaCodigo == ob.lgCodigo
+                                                           select q).FirstOrDefault();
+                    obtbTipoFauna.tifaDescripcion = ob.stDescripcion;
+                    obbdConoceAColombiaEntities.SaveChanges();
+
+                    return "Se realizo proceso con exito";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public string deleteTipoFauna(Models.clsTipoFauna ob)
+        {
+            try
+            {
+                using (Entidades.bdConoceAColombiaEntities obbdConoceAColombiaEntities =
+                    new Entidades.bdConoceAColombiaEntities())
+                {
+                    Entidades.tbTipoFauna obtbTipoFauna = (from q in obbdConoceAColombiaEntities.tbTipoFauna
+                                                           where q.tifaCodigo == ob.lgCodigo
+                                                           select q).FirstOrDefault();
+                    obbdConoceAColombiaEntities.tbTipoFauna.Remove(obtbTipoFauna);
+                    obbdConoceAColombiaEntities.SaveChanges();
+
+                    return "Se realizo proceso con exito";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }

@@ -45,6 +45,17 @@
     <Property Name="ciprLongitud" Type="varchar" MaxLength="30" />
     <Property Name="ciprDepartamento" Type="bigint" />
   </EntityType>
+  <EntityType Name="tbCulturas">
+    <Key>
+      <PropertyRef Name="cultCodigo" />
+    </Key>
+    <Property Name="cultCodigo" Type="bigint" Nullable="false" />
+    <Property Name="cultNombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cultDescripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="cultLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="cultLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="cultDepartamento" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbDepartamento">
     <Key>
       <PropertyRef Name="depaCodigo" />
@@ -99,8 +110,17 @@
     <Property Name="faunNombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="faunDescripcion" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="faunTipo" Type="bigint" Nullable="false" />
-    <Property Name="faunLatitud" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="faunLongitud" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbFaunaxDepartamento">
+    <Key>
+      <PropertyRef Name="fxdCodigo" />
+    </Key>
+    <Property Name="fxdCodigo" Type="bigint" Nullable="false" />
+    <Property Name="fxdDescripcion" Type="varchar" MaxLength="100" />
+    <Property Name="fxdFauna" Type="bigint" Nullable="false" />
+    <Property Name="fxdDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="fxdLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="fxdLongitud" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tbFlora">
     <Key>
@@ -166,12 +186,14 @@
     <Property Name="pehiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="pehiLongitud" Type="varchar" MaxLength="50" />
   </EntityType>
-  <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="tbPersonajesxHistoria">
-          <Property Name="pxhPersonaje" Type="bigint" />
-          <Property Name="pxhHistoria" Type="bigint" />
-        </EntityType>-->
+  <EntityType Name="tbPersonajesxHistoria">
+    <Key>
+      <PropertyRef Name="pxhCodigo" />
+    </Key>
+    <Property Name="pxhPersonaje" Type="bigint" />
+    <Property Name="pxhHistoria" Type="bigint" />
+    <Property Name="pxhCodigo" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbPreguntasJuego">
     <Key>
       <PropertyRef Name="prjuCodigo" />
@@ -387,6 +409,18 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_cultDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbCulturas" Type="Self.tbCulturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbCulturas">
+        <PropertyRef Name="cultDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_depaCodigo">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
     <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="*" />
@@ -432,6 +466,30 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
       </Principal>
       <Dependent Role="tbFauna">
         <PropertyRef Name="faunTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fxdDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbFaunaxDepartamento" Type="Self.tbFaunaxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbFaunaxDepartamento">
+        <PropertyRef Name="fxdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fxdFauna">
+    <End Role="tbFauna" Type="Self.tbFauna" Multiplicity="1" />
+    <End Role="tbFaunaxDepartamento" Type="Self.tbFaunaxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbFauna">
+        <PropertyRef Name="faunCodigo" />
+      </Principal>
+      <Dependent Role="tbFaunaxDepartamento">
+        <PropertyRef Name="fxdFauna" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -579,12 +637,30 @@ advertencia 6013: La tabla o vista 'bdConoceAColombia.dbo.tbPersonajesxHistoria'
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errores durante la generación:
-error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPersonajesxHistoria', pero no se encuentra la tabla.
-        <Association Name="FK_pxhHistoria" />-->
-  <!--Errores durante la generación:
-error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPersonajesxHistoria', pero no se encuentra la tabla.
-        <Association Name="FK_pxhPersonaje" />-->
+  <Association Name="FK_pxhHistoria">
+    <End Role="tbHistoria" Type="Self.tbHistoria" Multiplicity="0..1" />
+    <End Role="tbPersonajesxHistoria" Type="Self.tbPersonajesxHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHistoria">
+        <PropertyRef Name="histCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajesxHistoria">
+        <PropertyRef Name="pxhHistoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pxhPersonaje">
+    <End Role="tbPersonajesHistoricos" Type="Self.tbPersonajesHistoricos" Multiplicity="0..1" />
+    <End Role="tbPersonajesxHistoria" Type="Self.tbPersonajesxHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPersonajesHistoricos">
+        <PropertyRef Name="pehiCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajesxHistoria">
+        <PropertyRef Name="pxhPersonaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_usuaTipo">
     <End Role="tbTipoUsuario" Type="Self.tbTipoUsuario" Multiplicity="1" />
     <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
@@ -602,16 +678,19 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
     <EntitySet Name="tbArquitectura" EntityType="Self.tbArquitectura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbArtistas" EntityType="Self.tbArtistas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbCiudadesPrincipales" EntityType="Self.tbCiudadesPrincipales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCulturas" EntityType="Self.tbCulturas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDificultadJuego" EntityType="Self.tbDificultadJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbEquipos" EntityType="Self.tbEquipos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFauna" EntityType="Self.tbFauna" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbFaunaxDepartamento" EntityType="Self.tbFaunaxDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFlora" EntityType="Self.tbFlora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbMusica" EntityType="Self.tbMusica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPersonajesxHistoria" EntityType="Self.tbPersonajesxHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPreguntasJuego" EntityType="Self.tbPreguntasJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTematicaJuego" EntityType="Self.tbTematicaJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" Schema="dbo" store:Type="Tables" />
@@ -655,6 +734,10 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbCiudadesPrincipales" EntitySet="tbCiudadesPrincipales" />
     </AssociationSet>
+    <AssociationSet Name="FK_cultDepartamento" Association="Self.FK_cultDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbCulturas" EntitySet="tbCulturas" />
+    </AssociationSet>
     <AssociationSet Name="FK_depaCodigo" Association="Self.FK_depaCodigo">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbFlora" EntitySet="tbFlora" />
@@ -670,6 +753,14 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
     <AssociationSet Name="FK_faunTipo" Association="Self.FK_faunTipo">
       <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
       <End Role="tbFauna" EntitySet="tbFauna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fxdDepartamento" Association="Self.FK_fxdDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fxdFauna" Association="Self.FK_fxdFauna">
+      <End Role="tbFauna" EntitySet="tbFauna" />
+      <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
     </AssociationSet>
     <AssociationSet Name="FK_gastDepartamento" Association="Self.FK_gastDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
@@ -718,6 +809,14 @@ error 6004: Una relación hace referencia a la tabla 'bdConoceAColombia.dbo.tbPe
     <AssociationSet Name="FK_prjuTipoJuego" Association="Self.FK_prjuTipoJuego">
       <End Role="tbTipoJuego" EntitySet="tbTipoJuego" />
       <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pxhHistoria" Association="Self.FK_pxhHistoria">
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+      <End Role="tbPersonajesxHistoria" EntitySet="tbPersonajesxHistoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pxhPersonaje" Association="Self.FK_pxhPersonaje">
+      <End Role="tbPersonajesHistoricos" EntitySet="tbPersonajesHistoricos" />
+      <End Role="tbPersonajesxHistoria" EntitySet="tbPersonajesxHistoria" />
     </AssociationSet>
     <AssociationSet Name="FK_usuaTipo" Association="Self.FK_usuaTipo">
       <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />

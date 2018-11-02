@@ -83,6 +83,8 @@
     <Compile Include="BL\clsDificultadJuego.cs" />
     <Compile Include="BL\clsEmpleados.cs" />
     <Compile Include="BL\clsEquipo.cs" />
+    <Compile Include="BL\clsFauna.cs" />
+    <Compile Include="BL\clsFaunaxDepartamento.cs" />
     <Compile Include="BL\clsFlora.cs" />
     <Compile Include="BL\clsGastronomia.cs" />
     <Compile Include="BL\clsGeneral.cs" />
@@ -134,6 +136,9 @@
     <Compile Include="Entidades\tbCiudadesPrincipales.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbCulturas.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbDepartamento.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -152,6 +157,9 @@
     <Compile Include="Entidades\tbFauna.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbFaunaxDepartamento.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbFlora.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -165,6 +173,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbPersonajesHistoricos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbPersonajesxHistoria.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbPreguntasJuego.cs">
@@ -214,6 +225,8 @@
     <Compile Include="Models\clsDeportes.cs" />
     <Compile Include="Models\clsDicultadJuego.cs" />
     <Compile Include="Models\clsEquipo.cs" />
+    <Compile Include="Models\clsFauna.cs" />
+    <Compile Include="Models\clsFaunaxDepartamento.cs" />
     <Compile Include="Models\clsFlora.cs" />
     <Compile Include="Models\clsGastronomia.cs" />
     <Compile Include="Models\clsHistoria.cs" />

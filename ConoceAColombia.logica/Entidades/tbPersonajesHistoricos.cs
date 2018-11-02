@@ -14,6 +14,12 @@ namespace ConoceAColombia.logica.Entidades
     
     public partial class tbPersonajesHistoricos
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbPersonajesHistoricos()
+        {
+            this.tbPersonajesxHistoria = new HashSet<tbPersonajesxHistoria>();
+        }
+    
         public long pehiCodigo { get; set; }
         public string pehiNombre { get; set; }
         public Nullable<System.DateTime> pehiNacimiento { get; set; }
@@ -21,5 +27,8 @@ namespace ConoceAColombia.logica.Entidades
         public string pehiDescripcion { get; set; }
         public string pehiLatitud { get; set; }
         public string pehiLongitud { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }
     }
 }
