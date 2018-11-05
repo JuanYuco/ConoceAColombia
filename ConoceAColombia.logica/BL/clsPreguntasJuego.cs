@@ -284,10 +284,12 @@ namespace ConoceAColombia.logica.BL
             {
                 Models.clsPreguntasJuego obPregunta = new Models.clsPreguntasJuego();
                 Random rnd = new Random();
-                int numero = rnd.Next(1, lstPreguntasJuego.Count);
+                int numero = rnd.Next(1, lstPreguntasJuego.Count+1);
+                int Contador = 0;
                 foreach (Models.clsPreguntasJuego preguntas in lstPreguntasJuego)
                 {
-                    if (preguntas.lgCodigo == numero)
+                    Contador++;   
+                    if (Contador == numero)
                     {
                         obPregunta = new Models.clsPreguntasJuego
                         {
@@ -322,6 +324,58 @@ namespace ConoceAColombia.logica.BL
                 throw ew;
             }
         }
+
+
+
+        public List<Models.clsPreguntasJuego> getPreguntasJuego(string tematica, string dificultad)
+        {
+            try
+            {
+                using (Entidades.bdConoceAColombiaEntities obbdConoceAColombiaEntities =
+                    new Entidades.bdConoceAColombiaEntities())
+                {
+                    List<Models.clsPreguntasJuego> lstclsPreguntasJuego
+                        = (from q in obbdConoceAColombiaEntities.tbPreguntasJuego
+                           join tbTem in obbdConoceAColombiaEntities.tbTematicaJuego on q.prjuTematica equals tbTem.tejuCodigo
+                           join tbTip in obbdConoceAColombiaEntities.tbTipoJuego on q.prjuTipoJuego equals tbTip.tijuCodigo
+                           join tbDif in obbdConoceAColombiaEntities.tbDificultadJuego on q.prjuDificultad equals tbDif.dijuCodigo
+                           where tbTem.tejuDescripcion == tematica
+                           where tbDif.dijuDescripcion == dificultad
+                           select new Models.clsPreguntasJuego
+                           {
+                               lgCodigo = q.prjuCodigo,
+                               stPregunta = q.prjuPregunta,
+                               stRespuestaCorrecta = q.prjuRespuestaCorrecta,
+                               stRespuestaIncorrectaUno = q.prjuRespuestaIncorrectaUno,
+                               stRespuestaIncorrectaDos = q.prjuRespuestaIncorrectaDos,
+                               stRespuestaIncorrectaTres = q.prjuRespuestaIncorrectaTres,
+                               stRespuestaIncorrectaCuatro = q.prjuRespuestaIncorrectaCuatro,
+                               stRespuestaIncorrectaCinco = q.prjuRespuestaIncorrectaCinco,
+                               obclsTematicasJuego = new Models.clsTematicasJuego
+                               {
+                                   lgCodigo = q.prjuTematica,
+                                   stDescripcion = tbTem.tejuDescripcion
+                               },
+                               obclsTipoJuego = new Models.clsTipoJuego
+                               {
+                                   lgCodigo = q.prjuTipoJuego,
+                                   stDescripcion = tbTip.tijuDescripcion
+                               },
+                               obclsDicultadJuego = new Models.clsDicultadJuego
+                               {
+                                   lgCodigo = q.prjuDificultad,
+                                   stDescripcion = tbDif.dijuDescripcion
+                               }
+
+                           }).ToList();
+
+                    return lstclsPreguntasJuego;
+                }
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
 
 
     }

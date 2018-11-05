@@ -296,6 +296,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\wsFlora\wsFlora.wsdl" />
+    <Content Include="Views\JuegoPorTematicas\JuegoPorTematicas.aspx" />
     <Content Include="Views\Juego\Juego.aspx" />
     <Content Include="Views\MenuDificultad\MenuDificultad.aspx" />
     <Content Include="Views\MenuJuego\MenuJuego.aspx" />
@@ -529,6 +530,13 @@
     </Compile>
     <Compile Include="Views\HistoriaAdmin\HistoriaAdmin.aspx.designer.cs">
       <DependentUpon>HistoriaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JuegoPorTematicas\JuegoPorTematicas.aspx.cs">
+      <DependentUpon>JuegoPorTematicas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\JuegoPorTematicas\JuegoPorTematicas.aspx.designer.cs">
+      <DependentUpon>JuegoPorTematicas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Juego\Juego.aspx.cs">
       <DependentUpon>Juego.aspx</DependentUpon>

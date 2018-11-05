@@ -22,6 +22,24 @@ namespace ConoceAColombia.web.Views.Juego {
         protected global::System.Web.UI.WebControls.Label lblPregunta;
         
         /// <summary>
+        /// Control lblRespuestaCorrecta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRespuestaCorrecta;
+        
+        /// <summary>
+        /// Control lblPuntaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPuntaje;
+        
+        /// <summary>
         /// Control divRespuestas.
         /// </summary>
         /// <remarks>

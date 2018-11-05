@@ -33,7 +33,7 @@ namespace ConoceAColombia.web.Views.MenuJuego
 
         protected void btnHistoria_Click(object sender, EventArgs e)
         {
-            Session["Tematica"] = "Historia";
+            Session["Tematica"] = "Historía";
             Response.Redirect("../MenuDificultad/MenuDificultad.aspx");
         }
 

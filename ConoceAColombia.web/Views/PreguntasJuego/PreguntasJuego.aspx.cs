@@ -132,7 +132,7 @@ namespace ConoceAColombia.web.Views.PreguntasJuego
 
                     Controllers.PreguntasJuegoControllers obPreguntasJuegoControllers = new Controllers.PreguntasJuegoControllers();
 
-                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('MENSAJE!', '" + obPreguntasJuegoControllers.deletePreguntasJuego(obclsPreguntasJuego) + "!','Success')</Script>");
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('MENSAJE!', '" + obPreguntasJuegoControllers.deletePreguntasJuego(obclsPreguntasJuego) + "!','success')</Script>");
 
                     lblOpcion.Text = txtCodigo.Text = txtPregunta.Text = txtRespuestaCorrecta.Text = txtRespuestaIncorrectaUno.Text = txtRespuestaIncorrectaDos.Text = txtRespuestaIncorrectaTres.Text = txtRespuestaIncorrectaCuatro.Text = txtRespuestaIncorrectaCinco.Text = String.Empty;
                     getPreguntasJuego();

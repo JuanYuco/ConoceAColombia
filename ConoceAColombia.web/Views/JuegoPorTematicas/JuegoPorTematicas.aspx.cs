@@ -1,0 +1,195 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace ConoceAColombia.web.Views.JuegoPorTematicas
+{
+    public partial class JuegoPorTematicas : System.Web.UI.Page
+    {
+        public void getPregunta(string tematica, string dificultad)
+        {
+            Random rnd = new Random();
+            int numero = rnd.Next(1, 4);
+            Controllers.JuegoControllers obJuegoControllers = new Controllers.JuegoControllers();
+            logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas(tematica,dificultad));
+            lblPregunta.Text = clsPreguntasJuego.stPregunta;
+            lblRespuestaCorrecta.Text = clsPreguntasJuego.stRespuestaCorrecta;
+            if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Preguntas y Respuestas"))
+            {
+                string[] preguntasmalas = { clsPreguntasJuego.stRespuestaIncorrectaUno,
+                clsPreguntasJuego.stRespuestaIncorrectaDos,
+                clsPreguntasJuego.stRespuestaIncorrectaTres,
+                clsPreguntasJuego.stRespuestaIncorrectaCuatro,
+                clsPreguntasJuego.stRespuestaIncorrectaCinco};
+                int valor = 1;
+
+                while (valor == 1)
+                {
+                    if (numero == 1)
+                    {
+                        btnRespuestaUno.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                        valor = 0;
+                    }
+                    else if (numero == 2)
+                    {
+                        btnRespuestaDos.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                        valor = 0;
+                    }
+                    else if (numero == 3)
+                    {
+                        btnRespuestaTres.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                        valor = 0;
+                    }
+                    else if (numero == 4)
+                    {
+                        btnRespuestaCuatro.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                        valor = 0;
+                    }
+
+                }
+                int valor2 = 1;
+                while (valor2 == 1)
+                {
+                    int seleccion = rnd.Next(0, 4);
+                    if (btnRespuestaUno.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
+                        && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
+                    {
+                        btnRespuestaUno.Text = preguntasmalas[seleccion];
+                    }
+
+                    else if (btnRespuestaDos.Text.Equals("") && btnRespuestaUno.Text != preguntasmalas[seleccion]
+                        && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
+                    {
+                        btnRespuestaDos.Text = preguntasmalas[seleccion];
+                    }
+
+                    else if (btnRespuestaTres.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
+                        && btnRespuestaUno.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
+                    {
+                        btnRespuestaTres.Text = preguntasmalas[seleccion];
+                    }
+
+                    else if (btnRespuestaCuatro.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
+                        && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaUno.Text != preguntasmalas[seleccion])
+                    {
+                        btnRespuestaCuatro.Text = preguntasmalas[seleccion];
+                    }
+
+                    if (!btnRespuestaUno.Text.Equals("") && !btnRespuestaDos.Text.Equals("") && !btnRespuestaTres.Text.Equals("") && !btnRespuestaCuatro.Text.Equals(""))
+                    {
+                        valor2 = 0;
+                    }
+                }
+            }
+
+
+
+
+
+        }
+
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+            }
+        }
+
+        protected void btnRespuestaUno_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaUno.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        
+
+    }
+
+        protected void btnRespuestaDos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaDos.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+
+        }
+
+        protected void btnRespuestaTres_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaTres.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+        protected void btnRespuestaCuatro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaCuatro.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+    }
+}

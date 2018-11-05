@@ -16,6 +16,7 @@ namespace ConoceAColombia.web.Views.Juego
             Controllers.JuegoControllers obJuegoControllers = new Controllers.JuegoControllers();
             logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas());
             lblPregunta.Text = clsPreguntasJuego.stPregunta;
+            lblRespuestaCorrecta.Text = clsPreguntasJuego.stRespuestaCorrecta;
             if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Preguntas y Respuestas"))
             {
                 string[] preguntasmalas = { clsPreguntasJuego.stRespuestaIncorrectaUno,
@@ -85,53 +86,12 @@ namespace ConoceAColombia.web.Views.Juego
             }
 
 
-            else if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Anagrama"))
-            {
-
-                divRespuestas.Visible = false;
-                string[] letras = clsPreguntasJuego.stRespuestaCorrecta.Split(' ');
-                int valor3 = 1;
-
-                while (valor3 == 1)
-                {
-
-                    Button botones = new Button();
-                    int contador = 0;
-                    int numeroDos = rnd.Next(0, letras.Length);
-                    if (!letras[numeroDos].Equals(""))
-                    {
-                        botones.ID = numeroDos.ToString();
-                        botones.Text = letras[numeroDos];
-                        botones.CssClass = "btn btn-primary";
-                        botones.Click += new EventHandler(Botones_Click);
-                        
-                        divLetras.Controls.Add(botones);
-
-                        letras[numeroDos] = "";
-                    }
-                    for (int i = 0; i < letras.Length; i++)
-                    {
-                        if (letras[i].Equals(""))
-                        {
-                            contador = contador + 1;
-                        }
-                    }
-                    if (contador == letras.Length)
-                    {
-                        valor3 = 0;
-                    }
-
-                }
-
-            }
+            
 
 
         }
 
-        private void Botones_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -142,6 +102,92 @@ namespace ConoceAColombia.web.Views.Juego
 
         }
 
+        protected void btnRespuestaUno_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaUno.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es "+lblPuntaje.Text+ "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                }
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
 
+        protected void btnRespuestaDos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaDos.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+        protected void btnRespuestaTres_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaTres.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                    
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+        protected void btnRespuestaCuatro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btnRespuestaCuatro.Text.Equals(lblRespuestaCorrecta.Text))
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
+                    lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getPregunta();
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    lblPuntaje.Text = "0";
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
     }
 }

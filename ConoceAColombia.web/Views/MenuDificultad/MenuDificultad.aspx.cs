@@ -28,6 +28,7 @@ namespace ConoceAColombia.web.Views.MenuDificultad
         protected void btnDificultadFacil_Click(object sender, EventArgs e)
         {
             Session["Dificultad"] = "Fácil";
+            Response.Redirect("../JuegoPorTematicas/JuegoPorTematicas.aspx");
 
         }
 

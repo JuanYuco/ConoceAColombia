@@ -22,6 +22,20 @@ namespace ConoceAColombia.web.Controllers
         }
 
 
+        public List<logica.Models.clsPreguntasJuego> getPreguntas(string tematica, string dificultad)
+        {
+            try
+            {
+                logica.BL.clsPreguntasJuego obclsPreguntasJuego = new logica.BL.clsPreguntasJuego();
+                return obclsPreguntasJuego.getPreguntasJuego(tematica, dificultad);
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
         public logica.Models.clsPreguntasJuego getPregunta(List<logica.Models.clsPreguntasJuego> lstPreguntasJuego)
         {
             try

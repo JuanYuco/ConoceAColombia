@@ -22,6 +22,9 @@ namespace ConoceAColombia.web.Controllers
         }
 
 
+       
+
+
         public String insertarPreguntasJuego(logica.Models.clsPreguntasJuego obclPreguntasJuegoModels)
         {
             try
