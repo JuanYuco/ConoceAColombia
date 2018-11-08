@@ -242,6 +242,7 @@
     <EntitySetMapping Name="tbPreguntasJuego">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPreguntasJuego">
         <MappingFragment StoreEntitySet="tbPreguntasJuego">
+          <ScalarProperty Name="prjuSalio" ColumnName="prjuSalio" />
           <ScalarProperty Name="prjuDificultad" ColumnName="prjuDificultad" />
           <ScalarProperty Name="prjuTipoJuego" ColumnName="prjuTipoJuego" />
           <ScalarProperty Name="prjuTematica" ColumnName="prjuTematica" />
@@ -355,6 +356,17 @@
           <ScalarProperty Name="fxdFauna" ColumnName="fxdFauna" />
           <ScalarProperty Name="fxdDescripcion" ColumnName="fxdDescripcion" />
           <ScalarProperty Name="fxdCodigo" ColumnName="fxdCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPuntajePorPersona">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPuntajePorPersona">
+        <MappingFragment StoreEntitySet="tbPuntajePorPersona">
+          <ScalarProperty Name="pupeDificultad" ColumnName="pupeDificultad" />
+          <ScalarProperty Name="pupeTipoJuego" ColumnName="pupeTipoJuego" />
+          <ScalarProperty Name="pupePuntaje" ColumnName="pupePuntaje" />
+          <ScalarProperty Name="pupeNombreCompleto" ColumnName="pupeNombreCompleto" />
+          <ScalarProperty Name="pupeCodigo" ColumnName="pupeCodigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

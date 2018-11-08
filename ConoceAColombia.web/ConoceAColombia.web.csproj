@@ -301,6 +301,7 @@
     <Content Include="Views\MenuDificultad\MenuDificultad.aspx" />
     <Content Include="Views\MenuJuego\MenuJuego.aspx" />
     <Content Include="Views\PreguntasJuego\PreguntasJuego.aspx" />
+    <Content Include="Views\Puntajes\Puntajes.aspx" />
     <Content Include="Views\TematicasJuego\TematicasJuego.aspx" />
     <Content Include="Views\TipoFaunaAdmin\TipoFaunaAdmin.aspx" />
     <Content Include="Views\TipoJuego\TipoJuego.aspx" />
@@ -394,6 +395,7 @@
     <Compile Include="Controllers\PersoanesxHistoriaControllers.cs" />
     <Compile Include="Controllers\PersonajesHistoricosControllers.cs" />
     <Compile Include="Controllers\PreguntasJuegoControllers.cs" />
+    <Compile Include="Controllers\PuntajePorPersonasControllers.cs" />
     <Compile Include="Controllers\RecuperarPasswordControllers.cs" />
     <Compile Include="Controllers\TematicasControllers.cs" />
     <Compile Include="Controllers\TipodeArquitecturaControllers.cs" />
@@ -600,6 +602,13 @@
     </Compile>
     <Compile Include="Views\PreguntasJuego\PreguntasJuego.aspx.designer.cs">
       <DependentUpon>PreguntasJuego.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Puntajes\Puntajes.aspx.cs">
+      <DependentUpon>Puntajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Puntajes\Puntajes.aspx.designer.cs">
+      <DependentUpon>Puntajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TematicasJuego\TematicasJuego.aspx.cs">
       <DependentUpon>TematicasJuego.aspx</DependentUpon>

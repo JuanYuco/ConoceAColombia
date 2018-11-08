@@ -66,6 +66,7 @@
         <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdDepartamento" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_faunTipo" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdFauna" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPuntajePorPersona" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

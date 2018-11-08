@@ -573,6 +573,7 @@
       <End Role="tbFauna" EntitySet="tbFauna" />
       <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
     </AssociationSet>
+    <EntitySet Name="tbPuntajePorPersona" EntityType="bdConoceAColombiaModel.tbPuntajePorPersona" />
   </EntityContainer>
   <EntityType Name="tbTipoFauna">
     <Key>
@@ -615,6 +616,7 @@
     <NavigationProperty Name="tbDificultadJuego" Relationship="bdConoceAColombiaModel.FK_prjuDificultad" FromRole="tbPreguntasJuego" ToRole="tbDificultadJuego" />
     <NavigationProperty Name="tbTematicaJuego" Relationship="bdConoceAColombiaModel.FK_prjuTematica" FromRole="tbPreguntasJuego" ToRole="tbTematicaJuego" />
     <NavigationProperty Name="tbTipoJuego" Relationship="bdConoceAColombiaModel.FK_prjuTipoJuego" FromRole="tbPreguntasJuego" ToRole="tbTipoJuego" />
+    <Property Name="prjuSalio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbTematicaJuego">
     <Key>
@@ -881,4 +883,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="tbPuntajePorPersona">
+    <Key>
+      <PropertyRef Name="pupeCodigo" />
+    </Key>
+    <Property Name="pupeCodigo" Type="Int64" Nullable="false" />
+    <Property Name="pupeNombreCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pupePuntaje" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pupeTipoJuego" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pupeDificultad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

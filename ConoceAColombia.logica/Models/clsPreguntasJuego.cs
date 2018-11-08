@@ -16,6 +16,7 @@ namespace ConoceAColombia.logica.Models
         public string stRespuestaIncorrectaTres { get; set; }
         public string stRespuestaIncorrectaCuatro { get; set; }
         public string stRespuestaIncorrectaCinco { get; set; }
+        public string stSalio { get; set; }
         public clsTematicasJuego obclsTematicasJuego { get; set; }
         public clsTipoJuego obclsTipoJuego { get; set; }
         public clsDicultadJuego obclsDicultadJuego { get; set; }

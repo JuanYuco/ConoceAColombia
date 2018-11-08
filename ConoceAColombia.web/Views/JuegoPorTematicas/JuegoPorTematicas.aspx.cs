@@ -9,12 +9,13 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
 {
     public partial class JuegoPorTematicas : System.Web.UI.Page
     {
+       
         public void getPregunta(string tematica, string dificultad)
         {
             Random rnd = new Random();
             int numero = rnd.Next(1, 4);
             Controllers.JuegoControllers obJuegoControllers = new Controllers.JuegoControllers();
-            logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas(tematica,dificultad));
+            logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas(tematica, dificultad));
             lblPregunta.Text = clsPreguntasJuego.stPregunta;
             lblRespuestaCorrecta.Text = clsPreguntasJuego.stRespuestaCorrecta;
             if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Preguntas y Respuestas"))
@@ -106,14 +107,21 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
             {
                 if (btnRespuestaUno.Text.Equals(lblRespuestaCorrecta.Text))
                 {
+                    btnRespuestaUno.Text = "";
+                    btnRespuestaDos.Text = "";
+                    btnRespuestaTres.Text = "";
+                    btnRespuestaCuatro.Text = "";
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                    
                 }
                 else
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    Response.Redirect("../Puntajes/Puntajes.aspx");
                 }
             }
             catch (Exception ew)
@@ -130,14 +138,21 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
             {
                 if (btnRespuestaDos.Text.Equals(lblRespuestaCorrecta.Text))
                 {
+                    btnRespuestaUno.Text = "";
+                    btnRespuestaDos.Text = "";
+                    btnRespuestaTres.Text = "";
+                    btnRespuestaCuatro.Text = "";
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                    
                 }
                 else
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    Response.Redirect("../Puntajes/Puntajes.aspx");
                 }
             }
             catch (Exception ew)
@@ -153,14 +168,21 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
             {
                 if (btnRespuestaTres.Text.Equals(lblRespuestaCorrecta.Text))
                 {
+                    btnRespuestaUno.Text = "";
+                    btnRespuestaDos.Text = "";
+                    btnRespuestaTres.Text = "";
+                    btnRespuestaCuatro.Text = "";
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                   
                 }
                 else
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    Response.Redirect("../Puntajes/Puntajes.aspx");
 
                 }
             }
@@ -176,14 +198,21 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
             {
                 if (btnRespuestaCuatro.Text.Equals(lblRespuestaCorrecta.Text))
                 {
+                    btnRespuestaUno.Text = "";
+                    btnRespuestaDos.Text = "";
+                    btnRespuestaTres.Text = "";
+                    btnRespuestaCuatro.Text = "";
+                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                    getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                    
                 }
                 else
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                    Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    Response.Redirect("../Puntajes/Puntajes.aspx");
                 }
             }
             catch (Exception ew)

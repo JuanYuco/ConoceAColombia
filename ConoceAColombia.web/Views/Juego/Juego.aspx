@@ -10,6 +10,7 @@
             <asp:Label runat="server" ID="lblPregunta" Text="Aqui va una pregunta?"></asp:Label>
             <asp:Label runat="server" ID="lblRespuestaCorrecta" Visible="false" Text=""></asp:Label>
             <asp:Label runat="server" ID="lblPuntaje" Visible="false" Text="0"></asp:Label>
+            
         </div>
     </div>
     <div id="divRespuestas" runat="server" class="mt-xl-auto">

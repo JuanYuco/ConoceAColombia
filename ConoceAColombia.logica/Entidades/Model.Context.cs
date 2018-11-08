@@ -57,5 +57,6 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<tbCulturas> tbCulturas { get; set; }
         public virtual DbSet<tbFauna> tbFauna { get; set; }
         public virtual DbSet<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
+        public virtual DbSet<tbPuntajePorPersona> tbPuntajePorPersona { get; set; }
     }
 }

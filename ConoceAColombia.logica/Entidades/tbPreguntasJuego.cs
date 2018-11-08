@@ -25,6 +25,7 @@ namespace ConoceAColombia.logica.Entidades
         public long prjuTematica { get; set; }
         public long prjuTipoJuego { get; set; }
         public long prjuDificultad { get; set; }
+        public string prjuSalio { get; set; }
     
         public virtual tbDificultadJuego tbDificultadJuego { get; set; }
         public virtual tbTematicaJuego tbTematicaJuego { get; set; }

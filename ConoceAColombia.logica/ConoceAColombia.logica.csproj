@@ -93,6 +93,7 @@
     <Compile Include="BL\clsPersonajesHistoricos.cs" />
     <Compile Include="BL\clsPersonajesxHistoria.cs" />
     <Compile Include="BL\clsPreguntasJuego.cs" />
+    <Compile Include="BL\clsPuntajePorPersona.cs" />
     <Compile Include="BL\clsRecuperarPassword.cs" />
     <Compile Include="BL\clsSuma.cs" />
     <Compile Include="BL\clsTematicasJuego.cs" />
@@ -181,6 +182,9 @@
     <Compile Include="Entidades\tbPreguntasJuego.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbPuntajePorPersona.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbTematicaJuego.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -233,6 +237,7 @@
     <Compile Include="Models\clsMusica.cs" />
     <Compile Include="Models\clsPersonajesHistoricos.cs" />
     <Compile Include="Models\clsPreguntasJuego.cs" />
+    <Compile Include="Models\clsPuntajePorPersona.cs" />
     <Compile Include="Models\clsTematicasJuego.cs" />
     <Compile Include="Models\clsTipodeArquitectura.cs" />
     <Compile Include="Models\clsTipodeArtista.cs" />

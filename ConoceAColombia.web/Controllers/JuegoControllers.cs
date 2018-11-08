@@ -49,5 +49,12 @@ namespace ConoceAColombia.web.Controllers
                 throw ew;
             }
         }
+
+
+        public void updateEstadoPregunta(logica.Models.clsPreguntasJuego obclsPreguntasJuegoModels)
+        {
+            logica.BL.clsPreguntasJuego obclsPreguntasJuego = new logica.BL.clsPreguntasJuego();
+            obclsPreguntasJuego.updateEstadoPregunta(obclsPreguntasJuegoModels);
+        }
     }
 }

@@ -209,6 +209,17 @@
     <Property Name="prjuTematica" Type="bigint" Nullable="false" />
     <Property Name="prjuTipoJuego" Type="bigint" Nullable="false" />
     <Property Name="prjuDificultad" Type="bigint" Nullable="false" />
+    <Property Name="prjuSalio" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbPuntajePorPersona">
+    <Key>
+      <PropertyRef Name="pupeCodigo" />
+    </Key>
+    <Property Name="pupeCodigo" Type="bigint" Nullable="false" />
+    <Property Name="pupeNombreCompleto" Type="varchar" MaxLength="100" />
+    <Property Name="pupePuntaje" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="pupeTipoJuego" Type="varchar" MaxLength="50" />
+    <Property Name="pupeDificultad" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tbTematicaJuego">
     <Key>
@@ -692,6 +703,7 @@
     <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersonajesxHistoria" EntityType="Self.tbPersonajesxHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPreguntasJuego" EntityType="Self.tbPreguntasJuego" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPuntajePorPersona" EntityType="Self.tbPuntajePorPersona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTematicaJuego" EntityType="Self.tbTematicaJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" Schema="dbo" store:Type="Tables" />

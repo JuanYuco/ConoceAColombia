@@ -16,7 +16,9 @@ namespace ConoceAColombia.web.Views.MenuJuego
 
         protected void btnJuegoRandom_Click(object sender, EventArgs e)
         {
-            
+            Session["Tematica"] = "Random";
+            Session["Dificultad"] = "Random";
+            Response.Redirect("../Juego/Juego.aspx");
         }
 
         protected void btnJuegoGeografia_Click(object sender, EventArgs e)

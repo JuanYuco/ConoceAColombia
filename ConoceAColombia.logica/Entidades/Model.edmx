@@ -214,6 +214,17 @@
           <Property Name="prjuTematica" Type="bigint" Nullable="false" />
           <Property Name="prjuTipoJuego" Type="bigint" Nullable="false" />
           <Property Name="prjuDificultad" Type="bigint" Nullable="false" />
+          <Property Name="prjuSalio" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbPuntajePorPersona">
+          <Key>
+            <PropertyRef Name="pupeCodigo" />
+          </Key>
+          <Property Name="pupeCodigo" Type="bigint" Nullable="false" />
+          <Property Name="pupeNombreCompleto" Type="varchar" MaxLength="100" />
+          <Property Name="pupePuntaje" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="pupeTipoJuego" Type="varchar" MaxLength="50" />
+          <Property Name="pupeDificultad" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tbTematicaJuego">
           <Key>
@@ -697,6 +708,7 @@
           <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPersonajesxHistoria" EntityType="Self.tbPersonajesxHistoria" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbPreguntasJuego" EntityType="Self.tbPreguntasJuego" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPuntajePorPersona" EntityType="Self.tbPuntajePorPersona" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbTematicaJuego" EntityType="Self.tbTematicaJuego" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" Schema="dbo" store:Type="Tables" />
@@ -1405,6 +1417,7 @@
             <End Role="tbFauna" EntitySet="tbFauna" />
             <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
           </AssociationSet>
+          <EntitySet Name="tbPuntajePorPersona" EntityType="bdConoceAColombiaModel.tbPuntajePorPersona" />
           </EntityContainer>
         <EntityType Name="tbTipoFauna">
           <Key>
@@ -1447,6 +1460,7 @@
           <NavigationProperty Name="tbDificultadJuego" Relationship="bdConoceAColombiaModel.FK_prjuDificultad" FromRole="tbPreguntasJuego" ToRole="tbDificultadJuego" />
           <NavigationProperty Name="tbTematicaJuego" Relationship="bdConoceAColombiaModel.FK_prjuTematica" FromRole="tbPreguntasJuego" ToRole="tbTematicaJuego" />
           <NavigationProperty Name="tbTipoJuego" Relationship="bdConoceAColombiaModel.FK_prjuTipoJuego" FromRole="tbPreguntasJuego" ToRole="tbTipoJuego" />
+          <Property Name="prjuSalio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbTematicaJuego">
           <Key>
@@ -1713,6 +1727,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbPuntajePorPersona">
+          <Key>
+            <PropertyRef Name="pupeCodigo" />
+          </Key>
+          <Property Name="pupeCodigo" Type="Int64" Nullable="false" />
+          <Property Name="pupeNombreCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="pupePuntaje" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="pupeTipoJuego" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pupeDificultad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1960,6 +1984,7 @@
           <EntitySetMapping Name="tbPreguntasJuego">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPreguntasJuego">
               <MappingFragment StoreEntitySet="tbPreguntasJuego">
+                <ScalarProperty Name="prjuSalio" ColumnName="prjuSalio" />
                 <ScalarProperty Name="prjuDificultad" ColumnName="prjuDificultad" />
                 <ScalarProperty Name="prjuTipoJuego" ColumnName="prjuTipoJuego" />
                 <ScalarProperty Name="prjuTematica" ColumnName="prjuTematica" />
@@ -2073,6 +2098,17 @@
                 <ScalarProperty Name="fxdFauna" ColumnName="fxdFauna" />
                 <ScalarProperty Name="fxdDescripcion" ColumnName="fxdDescripcion" />
                 <ScalarProperty Name="fxdCodigo" ColumnName="fxdCodigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPuntajePorPersona">
+            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPuntajePorPersona">
+              <MappingFragment StoreEntitySet="tbPuntajePorPersona">
+                <ScalarProperty Name="pupeDificultad" ColumnName="pupeDificultad" />
+                <ScalarProperty Name="pupeTipoJuego" ColumnName="pupeTipoJuego" />
+                <ScalarProperty Name="pupePuntaje" ColumnName="pupePuntaje" />
+                <ScalarProperty Name="pupeNombreCompleto" ColumnName="pupeNombreCompleto" />
+                <ScalarProperty Name="pupeCodigo" ColumnName="pupeCodigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
