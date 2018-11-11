@@ -25,5 +25,57 @@ namespace ConoceAColombia.web.Controllers
             }
      
         }
+
+
+        public string addFlora(logica.Models.clsFlora obclsFloraModels)
+        {
+            try
+            {
+                logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
+                return obclsFlora.addFlora(obclsFloraModels);
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+        public string updateFlora(logica.Models.clsFlora obclsFloraModels)
+        {
+            try
+            {
+                logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
+                return obclsFlora.updateFlora(obclsFloraModels);
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
+        public string deleteFlora(logica.Models.clsFlora obclsFloraModels)
+        {
+            try
+            {
+                logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
+                return obclsFlora.deleteFlora(obclsFloraModels);
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
+        public List<logica.Models.clsDepartamentos> getDepartamentos()
+        {
+            try
+            {
+                logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
+                return obclsFlora.getDepartamentos();
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        } 
+
     }
 }

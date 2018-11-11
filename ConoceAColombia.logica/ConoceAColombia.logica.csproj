@@ -78,6 +78,7 @@
     <Compile Include="BL\clsArtistas.cs" />
     <Compile Include="BL\clsCiudadesPrincipales.cs" />
     <Compile Include="BL\clsConexion.cs" />
+    <Compile Include="BL\clsCulturas.cs" />
     <Compile Include="BL\clsDepartamentos.cs" />
     <Compile Include="BL\clsDeportes.cs" />
     <Compile Include="BL\clsDificultadJuego.cs" />
@@ -225,6 +226,7 @@
     <Compile Include="Models\clsArtistas.cs" />
     <Compile Include="Models\clsCiudadesPrincipales.cs" />
     <Compile Include="Models\clsCorreo.cs" />
+    <Compile Include="Models\clsCulturas.cs" />
     <Compile Include="Models\clsDepartamentos.cs" />
     <Compile Include="Models\clsDeportes.cs" />
     <Compile Include="Models\clsDicultadJuego.cs" />

@@ -52,6 +52,7 @@ namespace ConoceAColombia.web.Views.PersonajesxHistoriaAdmin
             {
                 logica.Models.clsPersonajesxHistoria clsPersonajexHistoria = new logica.Models.clsPersonajesxHistoria
                 {
+                    lgCodigo = Convert.ToInt64(txtCodigo.Text),
                     obclsPersonajesHistoricos = new logica.Models.clsPersonajesHistoricos { lgCodigo = Convert.ToInt64(ddlPersonajeHistorico.SelectedValue) },
                     obclsHistoria = new logica.Models.clsHistoria { lgCodigo = Convert.ToInt64(ddlHistoriaPersonaje.SelectedValue) }
                 };
@@ -60,14 +61,15 @@ namespace ConoceAColombia.web.Views.PersonajesxHistoriaAdmin
                 if (String.IsNullOrEmpty(lblOpcion.Text)) lblOpcion.Text = "1";
 
                 ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obPersonajesxHistoriaControllers.setAdministarPersonajexHistoriaController(clsPersonajexHistoria, Convert.ToInt32(lblOpcion.Text)) + "')</Script>");
-                getPersonajesxHistoria();
+                lblOpcion.Text = txtCodigo.Text = String.Empty;
+               getPersonajesxHistoria();
             }
             catch (Exception ex) { ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> Swal('" + ex.Message + "')</Script>"); }
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            lblOpcion.Text = txtCodigo.Text = String.Empty;
         }
 
         protected void gvwDatos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -75,14 +77,21 @@ namespace ConoceAColombia.web.Views.PersonajesxHistoriaAdmin
             try
             {
                 int inIndice = Convert.ToInt16(e.CommandArgument);
+                if (e.CommandName.Equals("Editar"))
+                {
+                    lblOpcion.Text = "2";
+                    txtCodigo.Text = ((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text;
+
+                }
+                
                 if (e.CommandName.Equals("Eliminar"))
                 {
                     lblOpcion.Text = "3";
                     logica.Models.clsPersonajesxHistoria obclsPersonajesxHistoria = new logica.Models.clsPersonajesxHistoria
                     {
-
-                        obclsPersonajesHistoricos = new logica.Models.clsPersonajesHistoricos { lgCodigo = Convert.ToInt64(((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text) },
-                        obclsHistoria = new logica.Models.clsHistoria { lgCodigo = Convert.ToInt64(gvwDatos.Rows[inIndice].Cells[2].Text) }
+                        lgCodigo = Convert.ToInt64(((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text),
+                        obclsPersonajesHistoricos = new logica.Models.clsPersonajesHistoricos { lgCodigo = 0 },
+                        obclsHistoria = new logica.Models.clsHistoria { lgCodigo = 0 }
 
 
                     };

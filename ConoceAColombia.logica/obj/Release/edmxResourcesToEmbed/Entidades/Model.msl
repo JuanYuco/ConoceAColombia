@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdConoceAColombiaModelStoreContainer" CdmEntityContainer="bdConoceAColombiaEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbArquitectura">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbArquitectura">
+        <MappingFragment StoreEntitySet="tbArquitectura">
+          <ScalarProperty Name="arquCodigo" ColumnName="arquCodigo" />
+          <ScalarProperty Name="arquDepartamento" ColumnName="arquDepartamento" />
+          <ScalarProperty Name="arquNombre" ColumnName="arquNombre" />
+          <ScalarProperty Name="arquCiudad" ColumnName="arquCiudad" />
+          <ScalarProperty Name="arquLatitud" ColumnName="arquLatitud" />
+          <ScalarProperty Name="arquLongitud" ColumnName="arquLongitud" />
+          <ScalarProperty Name="arquTipo" ColumnName="arquTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbArtistas">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbArtistas">
+        <MappingFragment StoreEntitySet="tbArtistas">
+          <ScalarProperty Name="artiCodigo" ColumnName="artiCodigo" />
+          <ScalarProperty Name="artiNombre" ColumnName="artiNombre" />
+          <ScalarProperty Name="artiGenero" ColumnName="artiGenero" />
+          <ScalarProperty Name="artiCiudad" ColumnName="artiCiudad" />
+          <ScalarProperty Name="artiLatitud" ColumnName="artiLatitud" />
+          <ScalarProperty Name="artiLongitud" ColumnName="artiLongitud" />
+          <ScalarProperty Name="artiDepartamento" ColumnName="artiDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCiudadesPrincipales">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCiudadesPrincipales">
+        <MappingFragment StoreEntitySet="tbCiudadesPrincipales">
+          <ScalarProperty Name="ciprCodigo" ColumnName="ciprCodigo" />
+          <ScalarProperty Name="ciprNombre" ColumnName="ciprNombre" />
+          <ScalarProperty Name="ciprReseña" ColumnName="ciprReseña" />
+          <ScalarProperty Name="ciprLatitud" ColumnName="ciprLatitud" />
+          <ScalarProperty Name="ciprLongitud" ColumnName="ciprLongitud" />
+          <ScalarProperty Name="ciprDepartamento" ColumnName="ciprDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDepartamento">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDepartamento">
+        <MappingFragment StoreEntitySet="tbDepartamento">
+          <ScalarProperty Name="depaCodigo" ColumnName="depaCodigo" />
+          <ScalarProperty Name="depaNombre" ColumnName="depaNombre" />
+          <ScalarProperty Name="depaCapital" ColumnName="depaCapital" />
+          <ScalarProperty Name="depaGobernador" ColumnName="depaGobernador" />
+          <ScalarProperty Name="depaMunicipios" ColumnName="depaMunicipios" />
+          <ScalarProperty Name="depaFundacion" ColumnName="depaFundacion" />
+          <ScalarProperty Name="depaGentilicio" ColumnName="depaGentilicio" />
+          <ScalarProperty Name="depaPoblacion" ColumnName="depaPoblacion" />
+          <ScalarProperty Name="depaSuperficie" ColumnName="depaSuperficie" />
+          <ScalarProperty Name="depaDemografia" ColumnName="depaDemografia" />
+          <ScalarProperty Name="depaLatitud" ColumnName="depaLatitud" />
+          <ScalarProperty Name="depaLongitud" ColumnName="depaLongitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDeportes">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDeportes">
+        <MappingFragment StoreEntitySet="tbDeportes">
+          <ScalarProperty Name="depoCodigo" ColumnName="depoCodigo" />
+          <ScalarProperty Name="depoNombre" ColumnName="depoNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEquipos">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEquipos">
+        <MappingFragment StoreEntitySet="tbEquipos">
+          <ScalarProperty Name="equiCodigo" ColumnName="equiCodigo" />
+          <ScalarProperty Name="equiNombre" ColumnName="equiNombre" />
+          <ScalarProperty Name="equiDescripcion" ColumnName="equiDescripcion" />
+          <ScalarProperty Name="equiPresidente" ColumnName="equiPresidente" />
+          <ScalarProperty Name="equiFundacion" ColumnName="equiFundacion" />
+          <ScalarProperty Name="equiCiudad" ColumnName="equiCiudad" />
+          <ScalarProperty Name="equiDeporte" ColumnName="equiDeporte" />
+          <ScalarProperty Name="equiDepartamento" ColumnName="equiDepartamento" />
+          <ScalarProperty Name="equiLatitud" ColumnName="equiLatitud" />
+          <ScalarProperty Name="equiLongitud" ColumnName="equiLongitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFlora">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
+        <MappingFragment StoreEntitySet="tbFlora">
+          <ScalarProperty Name="florCodigo" ColumnName="florCodigo" />
+          <ScalarProperty Name="florNomCientifico" ColumnName="florNomCientifico" />
+          <ScalarProperty Name="florNomComun" ColumnName="florNomComun" />
+          <ScalarProperty Name="florDescripcion" ColumnName="florDescripcion" />
+          <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />
+          <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
+          <ScalarProperty Name="florLatitud" ColumnName="florLatitud" />
+          <ScalarProperty Name="florLongitud" ColumnName="florLongitud" />
+          <ScalarProperty Name="depaCodigo" ColumnName="depaCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbGastronomia">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbGastronomia">
+        <MappingFragment StoreEntitySet="tbGastronomia">
+          <ScalarProperty Name="gastCodigo" ColumnName="gastCodigo" />
+          <ScalarProperty Name="gastNombre" ColumnName="gastNombre" />
+          <ScalarProperty Name="gastDescripcion" ColumnName="gastDescripcion" />
+          <ScalarProperty Name="gastCiudad" ColumnName="gastCiudad" />
+          <ScalarProperty Name="gastLatitud" ColumnName="gastLatitud" />
+          <ScalarProperty Name="gastLongitud" ColumnName="gastLongitud" />
+          <ScalarProperty Name="gastDepartamento" ColumnName="gastDepartamento" />
+          <ScalarProperty Name="gastTipo" ColumnName="gastTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbHistoria">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbHistoria">
+        <MappingFragment StoreEntitySet="tbHistoria">
+          <ScalarProperty Name="histCodigo" ColumnName="histCodigo" />
+          <ScalarProperty Name="histDescripcion" ColumnName="histDescripcion" />
+          <ScalarProperty Name="histTipo" ColumnName="histTipo" />
+          <ScalarProperty Name="histFechaInicio" ColumnName="histFechaInicio" />
+          <ScalarProperty Name="histFechaFin" ColumnName="histFechaFin" />
+          <ScalarProperty Name="histDepartamento" ColumnName="histDepartamento" />
+          <ScalarProperty Name="histLatitud" ColumnName="histLatitud" />
+          <ScalarProperty Name="histLongitud" ColumnName="histLongitud" />
+          <ScalarProperty Name="histNombre" ColumnName="histNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbMusica">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbMusica">
+        <MappingFragment StoreEntitySet="tbMusica">
+          <ScalarProperty Name="musiCodigo" ColumnName="musiCodigo" />
+          <ScalarProperty Name="musiNombre" ColumnName="musiNombre" />
+          <ScalarProperty Name="musiDescripcion" ColumnName="musiDescripcion" />
+          <ScalarProperty Name="musiDepartamento" ColumnName="musiDepartamento" />
+          <ScalarProperty Name="musiLatitud" ColumnName="musiLatitud" />
+          <ScalarProperty Name="musiLongitud" ColumnName="musiLongitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPersonajesHistoricos">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajesHistoricos">
+        <MappingFragment StoreEntitySet="tbPersonajesHistoricos">
+          <ScalarProperty Name="pehiCodigo" ColumnName="pehiCodigo" />
+          <ScalarProperty Name="pehiNombre" ColumnName="pehiNombre" />
+          <ScalarProperty Name="pehiNacimiento" ColumnName="pehiNacimiento" />
+          <ScalarProperty Name="pehiCiudad" ColumnName="pehiCiudad" />
+          <ScalarProperty Name="pehiDescripcion" ColumnName="pehiDescripcion" />
+          <ScalarProperty Name="pehiLatitud" ColumnName="pehiLatitud" />
+          <ScalarProperty Name="pehiLongitud" ColumnName="pehiLongitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipodeArquitectura">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipodeArquitectura">
+        <MappingFragment StoreEntitySet="tbTipodeArquitectura">
+          <ScalarProperty Name="tiarCodigo" ColumnName="tiarCodigo" />
+          <ScalarProperty Name="tiarDescripcion" ColumnName="tiarDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipodeArtista">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipodeArtista">
+        <MappingFragment StoreEntitySet="tbTipodeArtista">
+          <ScalarProperty Name="tiatCodigo" ColumnName="tiatCodigo" />
+          <ScalarProperty Name="tiatGenero" ColumnName="tiatGenero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipodeGastronomia">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipodeGastronomia">
+        <MappingFragment StoreEntitySet="tbTipodeGastronomia">
+          <ScalarProperty Name="tigaCodigo" ColumnName="tigaCodigo" />
+          <ScalarProperty Name="tigaDescripcion" ColumnName="tigaDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipodeHistoria">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipodeHistoria">
+        <MappingFragment StoreEntitySet="tbTipodeHistoria">
+          <ScalarProperty Name="tihiCodigo" ColumnName="tihiCodigo" />
+          <ScalarProperty Name="tihiDescripcion" ColumnName="tihiDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoUsuario">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoUsuario">
+        <MappingFragment StoreEntitySet="tbTipoUsuario">
+          <ScalarProperty Name="tiusCodigo" ColumnName="tiusCodigo" />
+          <ScalarProperty Name="tiusDescripcion" ColumnName="tiusDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUsuarios">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbUsuarios">
+        <MappingFragment StoreEntitySet="tbUsuarios">
+          <ScalarProperty Name="usuaCodigo" ColumnName="usuaCodigo" />
+          <ScalarProperty Name="usuaNombre" ColumnName="usuaNombre" />
+          <ScalarProperty Name="usuaApellido" ColumnName="usuaApellido" />
+          <ScalarProperty Name="usuaCorreo" ColumnName="usuaCorreo" />
+          <ScalarProperty Name="usuaPassword" ColumnName="usuaPassword" />
+          <ScalarProperty Name="usuaPuntuacionMaxima" ColumnName="usuaPuntuacionMaxima" />
+          <ScalarProperty Name="usuaTipo" ColumnName="usuaTipo" />
+          <ScalarProperty Name="usuaImagen" ColumnName="usuaImagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoFauna">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoFauna">
+        <MappingFragment StoreEntitySet="tbTipoFauna">
+          <ScalarProperty Name="tifaDescripcion" ColumnName="tifaDescripcion" />
+          <ScalarProperty Name="tifaCodigo" ColumnName="tifaCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoIncidente">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoIncidente">
+        <MappingFragment StoreEntitySet="tbTipoIncidente">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDificultadJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDificultadJuego">
+        <MappingFragment StoreEntitySet="tbDificultadJuego">
+          <ScalarProperty Name="dijuDescripcion" ColumnName="dijuDescripcion" />
+          <ScalarProperty Name="dijuCodigo" ColumnName="dijuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPreguntasJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPreguntasJuego">
+        <MappingFragment StoreEntitySet="tbPreguntasJuego">
+          <ScalarProperty Name="prjuSalio" ColumnName="prjuSalio" />
+          <ScalarProperty Name="prjuDificultad" ColumnName="prjuDificultad" />
+          <ScalarProperty Name="prjuTipoJuego" ColumnName="prjuTipoJuego" />
+          <ScalarProperty Name="prjuTematica" ColumnName="prjuTematica" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaCinco" ColumnName="prjuRespuestaIncorrectaCinco" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaCuatro" ColumnName="prjuRespuestaIncorrectaCuatro" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaTres" ColumnName="prjuRespuestaIncorrectaTres" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaDos" ColumnName="prjuRespuestaIncorrectaDos" />
+          <ScalarProperty Name="prjuRespuestaIncorrectaUno" ColumnName="prjuRespuestaIncorrectaUno" />
+          <ScalarProperty Name="prjuRespuestaCorrecta" ColumnName="prjuRespuestaCorrecta" />
+          <ScalarProperty Name="prjuPregunta" ColumnName="prjuPregunta" />
+          <ScalarProperty Name="prjuCodigo" ColumnName="prjuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTematicaJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTematicaJuego">
+        <MappingFragment StoreEntitySet="tbTematicaJuego">
+          <ScalarProperty Name="tejuDescripcion" ColumnName="tejuDescripcion" />
+          <ScalarProperty Name="tejuCodigo" ColumnName="tejuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoJuego">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoJuego">
+        <MappingFragment StoreEntitySet="tbTipoJuego">
+          <ScalarProperty Name="tijuDescripcion" ColumnName="tijuDescripcion" />
+          <ScalarProperty Name="tijuCodigo" ColumnName="tijuCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="incidencia">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.incidencia">
+        <MappingFragment StoreEntitySet="incidencia">
+          <ScalarProperty Name="tipo_incidencia_id" ColumnName="tipo_incidencia_id" />
+          <ScalarProperty Name="estado_incidente" ColumnName="estado_incidente" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+          <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+          <ScalarProperty Name="segundo_nombre" ColumnName="segundo_nombre" />
+          <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="incidencia_comentarios">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.incidencia_comentarios">
+        <MappingFragment StoreEntitySet="incidencia_comentarios">
+          <ScalarProperty Name="estado_incidencia_id" ColumnName="estado_incidencia_id" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="incidencia_id" ColumnName="incidencia_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstadoIncidente">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEstadoIncidente">
+        <MappingFragment StoreEntitySet="tbEstadoIncidente">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Incidencia">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.Tipo_Incidencia">
+        <MappingFragment StoreEntitySet="Tipo_Incidencia">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPersonajesxHistoria">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajesxHistoria">
+        <MappingFragment StoreEntitySet="tbPersonajesxHistoria">
+          <ScalarProperty Name="pxhCodigo" ColumnName="pxhCodigo" />
+          <ScalarProperty Name="pxhHistoria" ColumnName="pxhHistoria" />
+          <ScalarProperty Name="pxhPersonaje" ColumnName="pxhPersonaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCulturas">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCulturas">
+        <MappingFragment StoreEntitySet="tbCulturas">
+          <ScalarProperty Name="cultDepartamento" ColumnName="cultDepartamento" />
+          <ScalarProperty Name="cultLongitud" ColumnName="cultLongitud" />
+          <ScalarProperty Name="cultLatitud" ColumnName="cultLatitud" />
+          <ScalarProperty Name="cultDescripcion" ColumnName="cultDescripcion" />
+          <ScalarProperty Name="cultNombre" ColumnName="cultNombre" />
+          <ScalarProperty Name="cultCodigo" ColumnName="cultCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFauna">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
+        <MappingFragment StoreEntitySet="tbFauna">
+          <ScalarProperty Name="faunTipo" ColumnName="faunTipo" />
+          <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
+          <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
+          <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFaunaxDepartamento">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFaunaxDepartamento">
+        <MappingFragment StoreEntitySet="tbFaunaxDepartamento">
+          <ScalarProperty Name="fxdLongitud" ColumnName="fxdLongitud" />
+          <ScalarProperty Name="fxdLatitud" ColumnName="fxdLatitud" />
+          <ScalarProperty Name="fxdDepartamento" ColumnName="fxdDepartamento" />
+          <ScalarProperty Name="fxdFauna" ColumnName="fxdFauna" />
+          <ScalarProperty Name="fxdDescripcion" ColumnName="fxdDescripcion" />
+          <ScalarProperty Name="fxdCodigo" ColumnName="fxdCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPuntajePorPersona">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPuntajePorPersona">
+        <MappingFragment StoreEntitySet="tbPuntajePorPersona">
+          <ScalarProperty Name="pupeDificultad" ColumnName="pupeDificultad" />
+          <ScalarProperty Name="pupeTipoJuego" ColumnName="pupeTipoJuego" />
+          <ScalarProperty Name="pupePuntaje" ColumnName="pupePuntaje" />
+          <ScalarProperty Name="pupeNombreCompleto" ColumnName="pupeNombreCompleto" />
+          <ScalarProperty Name="pupeCodigo" ColumnName="pupeCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

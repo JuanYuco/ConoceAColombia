@@ -8,6 +8,7 @@ namespace ConoceAColombia.logica.Models
 {
     public class clsPersonajesxHistoria
     {
+        public long lgCodigo { get; set; }
         public clsPersonajesHistoricos obclsPersonajesHistoricos { get; set; }
         public clsHistoria obclsHistoria { get; set; }
     }

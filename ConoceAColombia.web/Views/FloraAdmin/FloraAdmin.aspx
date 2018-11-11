@@ -102,7 +102,7 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo">
                                 <ItemTemplate>
-                                    <asp:Label runat="server" ID="lbCodigo" Text='<%# Bind("lgCodigo")%>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("lgCodigo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="Nombre Cientifico" DataField="stNombreCientifico" />

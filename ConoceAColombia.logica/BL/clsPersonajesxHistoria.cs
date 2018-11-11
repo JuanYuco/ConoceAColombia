@@ -137,6 +137,7 @@ namespace ConoceAColombia.logica.BL
                 _SqlCommand = new SqlCommand("spAdministrarPersonajexHistoria", _SqlConnection);
                 _SqlCommand.CommandType = CommandType.StoredProcedure;
 
+                _SqlCommand.Parameters.Add(new SqlParameter("@dCod", obclsPersonajesxHistoria.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dPer", obclsPersonajesxHistoria.obclsPersonajesHistoricos.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dHis", obclsPersonajesxHistoria.obclsHistoria.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@nOpcion", inOpcion));

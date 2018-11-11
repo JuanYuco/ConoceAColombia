@@ -212,6 +212,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Resources\Template Admin Juego\TemplateJuego.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -275,6 +276,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Views\CulturasAdmin\CulturasAdmin.aspx" />
     <Content Include="Views\DificultadJuego\DificultadJuego.aspx" />
     <Content Include="Views\Empleados\Empleados.aspx" />
     <Content Include="Views\FaunaAdmin\FaunaAdmin.aspx" />
@@ -373,13 +375,16 @@
     <Content Include="Views\Tipo Historia Admin\TipoHistoriaAdmin.aspx" />
     <None Include="Web References\wsFlora\wsFlora.disco" />
     <None Include="Web References\wsTipoFauna\wsTipoFauna.disco" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ArquitecturaControllers.cs" />
     <Compile Include="Controllers\ArtistasControllers.cs" />
     <Compile Include="Controllers\CiudadesPrincipalesControllers.cs" />
     <Compile Include="Controllers\CrearCuentaControllers.cs" />
+    <Compile Include="Controllers\CulturasControllers.cs" />
     <Compile Include="Controllers\DepartamentosControllers.cs" />
     <Compile Include="Controllers\DeportesControllers.cs" />
     <Compile Include="Controllers\DificultadJuegoControllers.cs" />
@@ -455,6 +460,13 @@
     </Compile>
     <Compile Include="Views\Ciudades Principales Admin\CiudadesPrincipalesAdmin.aspx.designer.cs">
       <DependentUpon>CiudadesPrincipalesAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CulturasAdmin\CulturasAdmin.aspx.cs">
+      <DependentUpon>CulturasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\CulturasAdmin\CulturasAdmin.aspx.designer.cs">
+      <DependentUpon>CulturasAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Departamentos Admin\DepartamentosAdmin.aspx.cs">
       <DependentUpon>DepartamentosAdmin.aspx</DependentUpon>

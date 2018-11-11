@@ -171,6 +171,30 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fauna">
+                        <a class="nav-link nav-link-collapse collapsed" href="#FaunaComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
+                            <i class="fa fa-fw fa-futbol-o"></i>
+                            <span class="nav-link-text">Fauna</span>
+                        </a>
+                        <ul class="sidenav-second-level collapse" id="FaunaComponentes">              
+                            <li>
+                                <a href="../../Views/TipoFaunaAdmin/TipoFaunaAdmin.aspx">Tipo Fauna</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/FaunaAdmin/FaunaAdmin.aspx">Fauna</a>
+                            </li>
+                            <li>
+                                <a href="../../Views/FaunaxDepartamentoAdmin/FaunaxDepartamentoAdmin.aspx">Fauna por Departamento</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Culturas">
+                        <a class="nav-link" href="../../Views/CulturasAdmin/CulturasAdmin.aspx">
+                            <i class="fa fa-fw fa-gamepad"></i>
+                            <span class="nav-link-text">Culturas</span>
+                        </a>
+                    </li>
                     
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
                         <a class="nav-link" href="../../Views/Mini Juego/Mini Juego.aspx">

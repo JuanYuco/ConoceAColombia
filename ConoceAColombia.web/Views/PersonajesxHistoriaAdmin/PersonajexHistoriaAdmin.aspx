@@ -15,6 +15,10 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblCodigo" Text="Código"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-3">
                     <asp:Label runat="server" ID="lblPersonajeHistorico" Text="Personaje Historico"></asp:Label>
                     <asp:DropDownList ID="ddlPersonajeHistorico" runat="server" CssClass="form-control">
 
@@ -53,12 +57,20 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo Personaje">
                                 <ItemTemplate>
-                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("pxhPersonaje")%>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("pxhCodigo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:BoundField HeaderText="Codigo personaje" DataField="pxhPersonaje" />
                             <asp:BoundField HeaderText="Nombre Personaje" DataField="PehiNombre" />
                             <asp:BoundField HeaderText="Codigo Historia" DataField="pxhHistoria" />
                             <asp:BoundField HeaderText="Nombre Historia" DataField="histNombre" />
+                            <asp:TemplateField HeaderText="Editar">
+                                <ItemTemplate>
+                                    <asp:ImageButton ID="ibEditar" runat="server" ImageUrl="~/Resources/Images/edit26-300px.png" Width="50px" Height="50px" CommandName="Editar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                            </asp:TemplateField>
+
                             <asp:TemplateField HeaderText="Eliminar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ibEliminar" runat="server" ImageUrl="~/Resources/Images/61848.png" Width="50px" Height="50px" CommandName="Eliminar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />

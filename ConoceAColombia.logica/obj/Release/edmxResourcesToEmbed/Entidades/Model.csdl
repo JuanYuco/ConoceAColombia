@@ -1,0 +1,896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdConoceAColombiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tbArquitectura">
+    <Key>
+      <PropertyRef Name="arquCodigo" />
+    </Key>
+    <Property Name="arquCodigo" Type="Int64" Nullable="false" />
+    <Property Name="arquDepartamento" Type="Int64" />
+    <Property Name="arquNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="arquCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="arquLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="arquLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="arquTipo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_arquDepartamento" FromRole="tbArquitectura" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbTipodeArquitectura" Relationship="Self.FK_arquTipo" FromRole="tbArquitectura" ToRole="tbTipodeArquitectura" />
+  </EntityType>
+  <EntityType Name="tbArtistas">
+    <Key>
+      <PropertyRef Name="artiCodigo" />
+    </Key>
+    <Property Name="artiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="artiNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="artiGenero" Type="Int64" Nullable="false" />
+    <Property Name="artiCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="artiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="artiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="artiDepartamento" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_artiDepartamento" FromRole="tbArtistas" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbTipodeArtista" Relationship="Self.FK_artiGenero" FromRole="tbArtistas" ToRole="tbTipodeArtista" />
+  </EntityType>
+  <EntityType Name="tbCiudadesPrincipales">
+    <Key>
+      <PropertyRef Name="ciprCodigo" />
+    </Key>
+    <Property Name="ciprCodigo" Type="Int64" Nullable="false" />
+    <Property Name="ciprNombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ciprReseña" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ciprLatitud" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ciprLongitud" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ciprDepartamento" Type="Int64" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_ciprDepartamento" FromRole="tbCiudadesPrincipales" ToRole="tbDepartamento" />
+  </EntityType>
+  <EntityType Name="tbDepartamento">
+    <Key>
+      <PropertyRef Name="depaCodigo" />
+    </Key>
+    <Property Name="depaCodigo" Type="Int64" Nullable="false" />
+    <Property Name="depaNombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaCapital" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaGobernador" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaMunicipios" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaFundacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="depaGentilicio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaPoblacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaSuperficie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaDemografia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaLatitud" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="depaLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbArquitectura" Relationship="Self.FK_arquDepartamento" FromRole="tbDepartamento" ToRole="tbArquitectura" />
+    <NavigationProperty Name="tbArtistas" Relationship="Self.FK_artiDepartamento" FromRole="tbDepartamento" ToRole="tbArtistas" />
+    <NavigationProperty Name="tbCiudadesPrincipales" Relationship="Self.FK_ciprDepartamento" FromRole="tbDepartamento" ToRole="tbCiudadesPrincipales" />
+    <NavigationProperty Name="tbEquipos" Relationship="Self.depaCodigo" FromRole="tbDepartamento" ToRole="tbEquipos" />
+    <NavigationProperty Name="tbFlora" Relationship="Self.FK_depaCodigo" FromRole="tbDepartamento" ToRole="tbFlora" />
+    <NavigationProperty Name="tbEquipos1" Relationship="Self.FK_equiDepartamento" FromRole="tbDepartamento" ToRole="tbEquipos" />
+    <NavigationProperty Name="tbGastronomia" Relationship="Self.FK_gastDepartamento" FromRole="tbDepartamento" ToRole="tbGastronomia" />
+    <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histDepartamento" FromRole="tbDepartamento" ToRole="tbHistoria" />
+    <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
+    <NavigationProperty Name="tbCulturas" Relationship="bdConoceAColombiaModel.FK_cultDepartamento" FromRole="tbDepartamento" ToRole="tbCulturas" />
+    <NavigationProperty Name="tbFaunaxDepartamento" Relationship="bdConoceAColombiaModel.FK_fxdDepartamento" FromRole="tbDepartamento" ToRole="tbFaunaxDepartamento" />
+  </EntityType>
+  <EntityType Name="tbDeportes">
+    <Key>
+      <PropertyRef Name="depoCodigo" />
+    </Key>
+    <Property Name="depoCodigo" Type="Int64" Nullable="false" />
+    <Property Name="depoNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbEquipos" Relationship="Self.depoCodigo" FromRole="tbDeportes" ToRole="tbEquipos" />
+    <NavigationProperty Name="tbEquipos1" Relationship="Self.FK_equiDeporte" FromRole="tbDeportes" ToRole="tbEquipos" />
+  </EntityType>
+  <EntityType Name="tbEquipos">
+    <Key>
+      <PropertyRef Name="equiCodigo" />
+    </Key>
+    <Property Name="equiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="equiNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="equiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="equiPresidente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="equiFundacion" Type="DateTime" Precision="0" />
+    <Property Name="equiCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="equiDeporte" Type="Int64" />
+    <Property Name="equiDepartamento" Type="Int64" />
+    <Property Name="equiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="equiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.depaCodigo" FromRole="tbEquipos" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbDepartamento1" Relationship="Self.FK_equiDepartamento" FromRole="tbEquipos" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbDeportes" Relationship="Self.depoCodigo" FromRole="tbEquipos" ToRole="tbDeportes" />
+    <NavigationProperty Name="tbDeportes1" Relationship="Self.FK_equiDeporte" FromRole="tbEquipos" ToRole="tbDeportes" />
+  </EntityType>
+  <EntityType Name="tbFlora">
+    <Key>
+      <PropertyRef Name="florCodigo" />
+    </Key>
+    <Property Name="florCodigo" Type="Int64" Nullable="false" />
+    <Property Name="florNomCientifico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florNomComun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="florAbundancia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florPeriodoFloracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="florLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="depaCodigo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_depaCodigo" FromRole="tbFlora" ToRole="tbDepartamento" />
+  </EntityType>
+  <EntityType Name="tbGastronomia">
+    <Key>
+      <PropertyRef Name="gastCodigo" />
+    </Key>
+    <Property Name="gastCodigo" Type="Int64" Nullable="false" />
+    <Property Name="gastNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gastDescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="gastCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gastLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gastLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gastDepartamento" Type="Int64" />
+    <Property Name="gastTipo" Type="Int64" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_gastDepartamento" FromRole="tbGastronomia" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbTipodeGastronomia" Relationship="Self.FK_gastTipo" FromRole="tbGastronomia" ToRole="tbTipodeGastronomia" />
+  </EntityType>
+  <EntityType Name="tbHistoria">
+    <Key>
+      <PropertyRef Name="histCodigo" />
+    </Key>
+    <Property Name="histCodigo" Type="Int64" Nullable="false" />
+    <Property Name="histDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="histTipo" Type="Int64" />
+    <Property Name="histFechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="histFechaFin" Type="DateTime" Precision="0" />
+    <Property Name="histDepartamento" Type="Int64" />
+    <Property Name="histLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="histLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="histNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_histDepartamento" FromRole="tbHistoria" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbTipodeHistoria" Relationship="Self.FK_histTipo" FromRole="tbHistoria" ToRole="tbTipodeHistoria" />
+    <NavigationProperty Name="tbPersonajesxHistoria" Relationship="bdConoceAColombiaModel.FK_pxhHistoria" FromRole="tbHistoria" ToRole="tbPersonajesxHistoria" />
+  </EntityType>
+  <EntityType Name="tbMusica">
+    <Key>
+      <PropertyRef Name="musiCodigo" />
+    </Key>
+    <Property Name="musiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="musiNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="musiDescripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="musiDepartamento" Type="Int64" />
+    <Property Name="musiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="musiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_musiDepartamento" FromRole="tbMusica" ToRole="tbDepartamento" />
+  </EntityType>
+  <EntityType Name="tbPersonajesHistoricos">
+    <Key>
+      <PropertyRef Name="pehiCodigo" />
+    </Key>
+    <Property Name="pehiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="pehiNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pehiNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="pehiCiudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pehiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="pehiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pehiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPersonajesxHistoria" Relationship="bdConoceAColombiaModel.FK_pxhPersonaje" FromRole="tbPersonajesHistoricos" ToRole="tbPersonajesxHistoria" />
+  </EntityType>
+  <EntityType Name="tbTipodeArquitectura">
+    <Key>
+      <PropertyRef Name="tiarCodigo" />
+    </Key>
+    <Property Name="tiarCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tiarDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbArquitectura" Relationship="Self.FK_arquTipo" FromRole="tbTipodeArquitectura" ToRole="tbArquitectura" />
+  </EntityType>
+  <EntityType Name="tbTipodeArtista">
+    <Key>
+      <PropertyRef Name="tiatCodigo" />
+    </Key>
+    <Property Name="tiatCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tiatGenero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbArtistas" Relationship="Self.FK_artiGenero" FromRole="tbTipodeArtista" ToRole="tbArtistas" />
+  </EntityType>
+  <EntityType Name="tbTipodeGastronomia">
+    <Key>
+      <PropertyRef Name="tigaCodigo" />
+    </Key>
+    <Property Name="tigaCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tigaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbGastronomia" Relationship="Self.FK_gastTipo" FromRole="tbTipodeGastronomia" ToRole="tbGastronomia" />
+  </EntityType>
+  <EntityType Name="tbTipodeHistoria">
+    <Key>
+      <PropertyRef Name="tihiCodigo" />
+    </Key>
+    <Property Name="tihiCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tihiDescripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histTipo" FromRole="tbTipodeHistoria" ToRole="tbHistoria" />
+  </EntityType>
+  <EntityType Name="tbTipoUsuario">
+    <Key>
+      <PropertyRef Name="tiusCodigo" />
+    </Key>
+    <Property Name="tiusCodigo" Type="Int32" Nullable="false" />
+    <Property Name="tiusDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_usuaTipo" FromRole="tbTipoUsuario" ToRole="tbUsuarios" />
+  </EntityType>
+  <EntityType Name="tbUsuarios">
+    <Key>
+      <PropertyRef Name="usuaCodigo" />
+    </Key>
+    <Property Name="usuaCodigo" Type="Int32" Nullable="false" />
+    <Property Name="usuaNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuaApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuaCorreo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuaPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuaPuntuacionMaxima" Type="Int32" />
+    <Property Name="usuaTipo" Type="Int32" Nullable="false" />
+    <Property Name="usuaImagen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbTipoUsuario" Relationship="Self.FK_usuaTipo" FromRole="tbUsuarios" ToRole="tbTipoUsuario" />
+  </EntityType>
+  <Association Name="FK_arquDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbArquitectura" Type="Self.tbArquitectura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbArquitectura">
+        <PropertyRef Name="arquDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_arquTipo">
+    <End Role="tbTipodeArquitectura" Type="Self.tbTipodeArquitectura" Multiplicity="1" />
+    <End Role="tbArquitectura" Type="Self.tbArquitectura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeArquitectura">
+        <PropertyRef Name="tiarCodigo" />
+      </Principal>
+      <Dependent Role="tbArquitectura">
+        <PropertyRef Name="arquTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_artiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbArtistas" Type="Self.tbArtistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbArtistas">
+        <PropertyRef Name="artiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_artiGenero">
+    <End Role="tbTipodeArtista" Type="Self.tbTipodeArtista" Multiplicity="1" />
+    <End Role="tbArtistas" Type="Self.tbArtistas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeArtista">
+        <PropertyRef Name="tiatCodigo" />
+      </Principal>
+      <Dependent Role="tbArtistas">
+        <PropertyRef Name="artiGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ciprDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbCiudadesPrincipales" Type="Self.tbCiudadesPrincipales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbCiudadesPrincipales">
+        <PropertyRef Name="ciprDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="depaCodigo">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_depaCodigo">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbFlora">
+        <PropertyRef Name="depaCodigo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_equiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gastDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbGastronomia">
+        <PropertyRef Name="gastDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_histDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbHistoria" Type="Self.tbHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbHistoria">
+        <PropertyRef Name="histDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_musiDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
+    <End Role="tbMusica" Type="Self.tbMusica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbMusica">
+        <PropertyRef Name="musiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="depoCodigo">
+    <End Role="tbDeportes" Type="Self.tbDeportes" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeportes">
+        <PropertyRef Name="depoCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDeporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_equiDeporte">
+    <End Role="tbDeportes" Type="Self.tbDeportes" Multiplicity="0..1" />
+    <End Role="tbEquipos" Type="Self.tbEquipos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeportes">
+        <PropertyRef Name="depoCodigo" />
+      </Principal>
+      <Dependent Role="tbEquipos">
+        <PropertyRef Name="equiDeporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gastTipo">
+    <End Role="tbTipodeGastronomia" Type="Self.tbTipodeGastronomia" Multiplicity="0..1" />
+    <End Role="tbGastronomia" Type="Self.tbGastronomia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeGastronomia">
+        <PropertyRef Name="tigaCodigo" />
+      </Principal>
+      <Dependent Role="tbGastronomia">
+        <PropertyRef Name="gastTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_histTipo">
+    <End Role="tbTipodeHistoria" Type="Self.tbTipodeHistoria" Multiplicity="0..1" />
+    <End Role="tbHistoria" Type="Self.tbHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipodeHistoria">
+        <PropertyRef Name="tihiCodigo" />
+      </Principal>
+      <Dependent Role="tbHistoria">
+        <PropertyRef Name="histTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuaTipo">
+    <End Role="tbTipoUsuario" Type="Self.tbTipoUsuario" Multiplicity="1" />
+    <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoUsuario">
+        <PropertyRef Name="tiusCodigo" />
+      </Principal>
+      <Dependent Role="tbUsuarios">
+        <PropertyRef Name="usuaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="bdConoceAColombiaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="tbArquitectura" EntityType="Self.tbArquitectura" />
+    <EntitySet Name="tbArtistas" EntityType="Self.tbArtistas" />
+    <EntitySet Name="tbCiudadesPrincipales" EntityType="Self.tbCiudadesPrincipales" />
+    <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" />
+    <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" />
+    <EntitySet Name="tbEquipos" EntityType="Self.tbEquipos" />
+    <EntitySet Name="tbFlora" EntityType="Self.tbFlora" />
+    <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" />
+    <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" />
+    <EntitySet Name="tbMusica" EntityType="Self.tbMusica" />
+    <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" />
+    <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" />
+    <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" />
+    <EntitySet Name="tbTipodeGastronomia" EntityType="Self.tbTipodeGastronomia" />
+    <EntitySet Name="tbTipodeHistoria" EntityType="Self.tbTipodeHistoria" />
+    <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" />
+    <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" />
+    <AssociationSet Name="FK_arquDepartamento" Association="Self.FK_arquDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbArquitectura" EntitySet="tbArquitectura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_arquTipo" Association="Self.FK_arquTipo">
+      <End Role="tbTipodeArquitectura" EntitySet="tbTipodeArquitectura" />
+      <End Role="tbArquitectura" EntitySet="tbArquitectura" />
+    </AssociationSet>
+    <AssociationSet Name="FK_artiDepartamento" Association="Self.FK_artiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbArtistas" EntitySet="tbArtistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_artiGenero" Association="Self.FK_artiGenero">
+      <End Role="tbTipodeArtista" EntitySet="tbTipodeArtista" />
+      <End Role="tbArtistas" EntitySet="tbArtistas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ciprDepartamento" Association="Self.FK_ciprDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbCiudadesPrincipales" EntitySet="tbCiudadesPrincipales" />
+    </AssociationSet>
+    <AssociationSet Name="depaCodigo" Association="Self.depaCodigo">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_depaCodigo" Association="Self.FK_depaCodigo">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbFlora" EntitySet="tbFlora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_equiDepartamento" Association="Self.FK_equiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gastDepartamento" Association="Self.FK_gastDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbGastronomia" EntitySet="tbGastronomia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_histDepartamento" Association="Self.FK_histDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_musiDepartamento" Association="Self.FK_musiDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbMusica" EntitySet="tbMusica" />
+    </AssociationSet>
+    <AssociationSet Name="depoCodigo" Association="Self.depoCodigo">
+      <End Role="tbDeportes" EntitySet="tbDeportes" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_equiDeporte" Association="Self.FK_equiDeporte">
+      <End Role="tbDeportes" EntitySet="tbDeportes" />
+      <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gastTipo" Association="Self.FK_gastTipo">
+      <End Role="tbTipodeGastronomia" EntitySet="tbTipodeGastronomia" />
+      <End Role="tbGastronomia" EntitySet="tbGastronomia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_histTipo" Association="Self.FK_histTipo">
+      <End Role="tbTipodeHistoria" EntitySet="tbTipodeHistoria" />
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuaTipo" Association="Self.FK_usuaTipo">
+      <End Role="tbTipoUsuario" EntitySet="tbTipoUsuario" />
+      <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+    </AssociationSet>
+    <EntitySet Name="tbTipoFauna" EntityType="bdConoceAColombiaModel.tbTipoFauna" />
+    <EntitySet Name="tbTipoIncidente" EntityType="bdConoceAColombiaModel.tbTipoIncidente" />
+    <EntitySet Name="tbDificultadJuego" EntityType="bdConoceAColombiaModel.tbDificultadJuego" />
+    <EntitySet Name="tbPreguntasJuego" EntityType="bdConoceAColombiaModel.tbPreguntasJuego" />
+    <EntitySet Name="tbTematicaJuego" EntityType="bdConoceAColombiaModel.tbTematicaJuego" />
+    <EntitySet Name="tbTipoJuego" EntityType="bdConoceAColombiaModel.tbTipoJuego" />
+    <AssociationSet Name="FK_prjuDificultad" Association="bdConoceAColombiaModel.FK_prjuDificultad">
+      <End Role="tbDificultadJuego" EntitySet="tbDificultadJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuTematica" Association="bdConoceAColombiaModel.FK_prjuTematica">
+      <End Role="tbTematicaJuego" EntitySet="tbTematicaJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <AssociationSet Name="FK_prjuTipoJuego" Association="bdConoceAColombiaModel.FK_prjuTipoJuego">
+      <End Role="tbTipoJuego" EntitySet="tbTipoJuego" />
+      <End Role="tbPreguntasJuego" EntitySet="tbPreguntasJuego" />
+    </AssociationSet>
+    <EntitySet Name="incidencia" EntityType="bdConoceAColombiaModel.incidencia" />
+    <EntitySet Name="incidencia_comentarios" EntityType="bdConoceAColombiaModel.incidencia_comentarios" />
+    <EntitySet Name="tbEstadoIncidente" EntityType="bdConoceAColombiaModel.tbEstadoIncidente" />
+    <EntitySet Name="Tipo_Incidencia" EntityType="bdConoceAColombiaModel.Tipo_Incidencia" />
+    <AssociationSet Name="FK_incidencia_comentarios_incidencia" Association="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia">
+      <End Role="incidencia" EntitySet="incidencia" />
+      <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_tbEstadoIncidente" Association="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente">
+      <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
+      <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_Tipo_Incidencia" Association="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia">
+      <End Role="Tipo_Incidencia" EntitySet="Tipo_Incidencia" />
+      <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_incidencia_comentarios_tbEstadoIncidente" Association="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente">
+      <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
+      <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
+    </AssociationSet>
+    <EntitySet Name="tbPersonajesxHistoria" EntityType="bdConoceAColombiaModel.tbPersonajesxHistoria" />
+    <AssociationSet Name="FK_pxhHistoria" Association="bdConoceAColombiaModel.FK_pxhHistoria">
+      <End Role="tbHistoria" EntitySet="tbHistoria" />
+      <End Role="tbPersonajesxHistoria" EntitySet="tbPersonajesxHistoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_pxhPersonaje" Association="bdConoceAColombiaModel.FK_pxhPersonaje">
+      <End Role="tbPersonajesHistoricos" EntitySet="tbPersonajesHistoricos" />
+      <End Role="tbPersonajesxHistoria" EntitySet="tbPersonajesxHistoria" />
+    </AssociationSet>
+    <EntitySet Name="tbCulturas" EntityType="bdConoceAColombiaModel.tbCulturas" />
+    <AssociationSet Name="FK_cultDepartamento" Association="bdConoceAColombiaModel.FK_cultDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbCulturas" EntitySet="tbCulturas" />
+    </AssociationSet>
+    <EntitySet Name="tbFauna" EntityType="bdConoceAColombiaModel.tbFauna" />
+    <EntitySet Name="tbFaunaxDepartamento" EntityType="bdConoceAColombiaModel.tbFaunaxDepartamento" />
+    <AssociationSet Name="FK_fxdDepartamento" Association="bdConoceAColombiaModel.FK_fxdDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_faunTipo" Association="bdConoceAColombiaModel.FK_faunTipo">
+      <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
+      <End Role="tbFauna" EntitySet="tbFauna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fxdFauna" Association="bdConoceAColombiaModel.FK_fxdFauna">
+      <End Role="tbFauna" EntitySet="tbFauna" />
+      <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
+    </AssociationSet>
+    <EntitySet Name="tbPuntajePorPersona" EntityType="bdConoceAColombiaModel.tbPuntajePorPersona" />
+  </EntityContainer>
+  <EntityType Name="tbTipoFauna">
+    <Key>
+      <PropertyRef Name="tifaCodigo" />
+    </Key>
+    <Property Name="tifaCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tifaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbTipoFauna" ToRole="tbFauna" />
+  </EntityType>
+  <EntityType Name="tbTipoIncidente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbDificultadJuego">
+    <Key>
+      <PropertyRef Name="dijuCodigo" />
+    </Key>
+    <Property Name="dijuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="dijuDescripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPreguntasJuego" Relationship="bdConoceAColombiaModel.FK_prjuDificultad" FromRole="tbDificultadJuego" ToRole="tbPreguntasJuego" />
+  </EntityType>
+  <EntityType Name="tbPreguntasJuego">
+    <Key>
+      <PropertyRef Name="prjuCodigo" />
+    </Key>
+    <Property Name="prjuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="prjuPregunta" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaCorrecta" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaUno" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaDos" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaTres" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaCuatro" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuRespuestaIncorrectaCinco" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="prjuTematica" Type="Int64" Nullable="false" />
+    <Property Name="prjuTipoJuego" Type="Int64" Nullable="false" />
+    <Property Name="prjuDificultad" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDificultadJuego" Relationship="bdConoceAColombiaModel.FK_prjuDificultad" FromRole="tbPreguntasJuego" ToRole="tbDificultadJuego" />
+    <NavigationProperty Name="tbTematicaJuego" Relationship="bdConoceAColombiaModel.FK_prjuTematica" FromRole="tbPreguntasJuego" ToRole="tbTematicaJuego" />
+    <NavigationProperty Name="tbTipoJuego" Relationship="bdConoceAColombiaModel.FK_prjuTipoJuego" FromRole="tbPreguntasJuego" ToRole="tbTipoJuego" />
+    <Property Name="prjuSalio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbTematicaJuego">
+    <Key>
+      <PropertyRef Name="tejuCodigo" />
+    </Key>
+    <Property Name="tejuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tejuDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPreguntasJuego" Relationship="bdConoceAColombiaModel.FK_prjuTematica" FromRole="tbTematicaJuego" ToRole="tbPreguntasJuego" />
+  </EntityType>
+  <EntityType Name="tbTipoJuego">
+    <Key>
+      <PropertyRef Name="tijuCodigo" />
+    </Key>
+    <Property Name="tijuCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tijuDescripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbPreguntasJuego" Relationship="bdConoceAColombiaModel.FK_prjuTipoJuego" FromRole="tbTipoJuego" ToRole="tbPreguntasJuego" />
+  </EntityType>
+  <Association Name="FK_prjuDificultad">
+    <End Type="bdConoceAColombiaModel.tbDificultadJuego" Role="tbDificultadJuego" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbPreguntasJuego" Role="tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDificultadJuego">
+        <PropertyRef Name="dijuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuDificultad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuTematica">
+    <End Type="bdConoceAColombiaModel.tbTematicaJuego" Role="tbTematicaJuego" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbPreguntasJuego" Role="tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTematicaJuego">
+        <PropertyRef Name="tejuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuTematica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_prjuTipoJuego">
+    <End Type="bdConoceAColombiaModel.tbTipoJuego" Role="tbTipoJuego" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbPreguntasJuego" Role="tbPreguntasJuego" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoJuego">
+        <PropertyRef Name="tijuCodigo" />
+      </Principal>
+      <Dependent Role="tbPreguntasJuego">
+        <PropertyRef Name="prjuTipoJuego" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="incidencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="identificacion" Type="Int64" />
+    <Property Name="primer_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundo_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="estado_incidente" Type="Int32" Nullable="false" />
+    <Property Name="tipo_incidencia_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="incidencia_comentarios" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia" FromRole="incidencia" ToRole="incidencia_comentarios" />
+    <NavigationProperty Name="tbEstadoIncidente" Relationship="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" FromRole="incidencia" ToRole="tbEstadoIncidente" />
+    <NavigationProperty Name="Tipo_Incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" FromRole="incidencia" ToRole="Tipo_Incidencia" />
+  </EntityType>
+  <EntityType Name="incidencia_comentarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="incidencia_id" Type="Int32" Nullable="false" />
+    <Property Name="comentarios" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="estado_incidencia_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia" FromRole="incidencia_comentarios" ToRole="incidencia" />
+    <NavigationProperty Name="tbEstadoIncidente" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" FromRole="incidencia_comentarios" ToRole="tbEstadoIncidente" />
+  </EntityType>
+  <EntityType Name="tbEstadoIncidente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" FromRole="tbEstadoIncidente" ToRole="incidencia" />
+    <NavigationProperty Name="incidencia_comentarios" Relationship="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" FromRole="tbEstadoIncidente" ToRole="incidencia_comentarios" />
+  </EntityType>
+  <EntityType Name="Tipo_Incidencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="incidencia" Relationship="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" FromRole="Tipo_Incidencia" ToRole="incidencia" />
+  </EntityType>
+  <Association Name="FK_incidencia_comentarios_incidencia">
+    <End Type="bdConoceAColombiaModel.incidencia" Role="incidencia" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia_comentarios" Role="incidencia_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="incidencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="incidencia_comentarios">
+        <PropertyRef Name="incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_tbEstadoIncidente">
+    <End Type="bdConoceAColombiaModel.tbEstadoIncidente" Role="tbEstadoIncidente" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia" Role="incidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadoIncidente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="incidencia">
+        <PropertyRef Name="estado_incidente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_Tipo_Incidencia">
+    <End Type="bdConoceAColombiaModel.Tipo_Incidencia" Role="Tipo_Incidencia" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia" Role="incidencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Incidencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="incidencia">
+        <PropertyRef Name="tipo_incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_incidencia_comentarios_tbEstadoIncidente">
+    <End Type="bdConoceAColombiaModel.tbEstadoIncidente" Role="tbEstadoIncidente" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.incidencia_comentarios" Role="incidencia_comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadoIncidente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="incidencia_comentarios">
+        <PropertyRef Name="estado_incidencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbPersonajesxHistoria">
+    <Key>
+      <PropertyRef Name="pxhCodigo" />
+    </Key>
+    <Property Name="pxhPersonaje" Type="Int64" />
+    <Property Name="pxhHistoria" Type="Int64" />
+    <Property Name="pxhCodigo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbHistoria" Relationship="bdConoceAColombiaModel.FK_pxhHistoria" FromRole="tbPersonajesxHistoria" ToRole="tbHistoria" />
+    <NavigationProperty Name="tbPersonajesHistoricos" Relationship="bdConoceAColombiaModel.FK_pxhPersonaje" FromRole="tbPersonajesxHistoria" ToRole="tbPersonajesHistoricos" />
+  </EntityType>
+  <Association Name="FK_pxhHistoria">
+    <End Type="bdConoceAColombiaModel.tbHistoria" Role="tbHistoria" Multiplicity="0..1" />
+    <End Type="bdConoceAColombiaModel.tbPersonajesxHistoria" Role="tbPersonajesxHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbHistoria">
+        <PropertyRef Name="histCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajesxHistoria">
+        <PropertyRef Name="pxhHistoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_pxhPersonaje">
+    <End Type="bdConoceAColombiaModel.tbPersonajesHistoricos" Role="tbPersonajesHistoricos" Multiplicity="0..1" />
+    <End Type="bdConoceAColombiaModel.tbPersonajesxHistoria" Role="tbPersonajesxHistoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPersonajesHistoricos">
+        <PropertyRef Name="pehiCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajesxHistoria">
+        <PropertyRef Name="pxhPersonaje" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbCulturas">
+    <Key>
+      <PropertyRef Name="cultCodigo" />
+    </Key>
+    <Property Name="cultCodigo" Type="Int64" Nullable="false" />
+    <Property Name="cultNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cultDescripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="cultLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cultLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cultDepartamento" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_cultDepartamento" FromRole="tbCulturas" ToRole="tbDepartamento" />
+  </EntityType>
+  <Association Name="FK_cultDepartamento">
+    <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbCulturas" Role="tbCulturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbCulturas">
+        <PropertyRef Name="cultDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbFauna">
+    <Key>
+      <PropertyRef Name="faunCodigo" />
+    </Key>
+    <Property Name="faunCodigo" Type="Int64" Nullable="false" />
+    <Property Name="faunNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="faunDescripcion" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="faunTipo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbTipoFauna" Relationship="bdConoceAColombiaModel.FK_faunTipo" FromRole="tbFauna" ToRole="tbTipoFauna" />
+    <NavigationProperty Name="tbFaunaxDepartamento" Relationship="bdConoceAColombiaModel.FK_fxdFauna" FromRole="tbFauna" ToRole="tbFaunaxDepartamento" />
+  </EntityType>
+  <EntityType Name="tbFaunaxDepartamento">
+    <Key>
+      <PropertyRef Name="fxdCodigo" />
+    </Key>
+    <Property Name="fxdCodigo" Type="Int64" Nullable="false" />
+    <Property Name="fxdDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fxdFauna" Type="Int64" Nullable="false" />
+    <Property Name="fxdDepartamento" Type="Int64" Nullable="false" />
+    <Property Name="fxdLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fxdLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_fxdDepartamento" FromRole="tbFaunaxDepartamento" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbFauna" Relationship="bdConoceAColombiaModel.FK_fxdFauna" FromRole="tbFaunaxDepartamento" ToRole="tbFauna" />
+  </EntityType>
+  <Association Name="FK_fxdDepartamento">
+    <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFaunaxDepartamento" Role="tbFaunaxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbFaunaxDepartamento">
+        <PropertyRef Name="fxdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_faunTipo">
+    <End Type="bdConoceAColombiaModel.tbTipoFauna" Role="tbTipoFauna" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoFauna">
+        <PropertyRef Name="tifaCodigo" />
+      </Principal>
+      <Dependent Role="tbFauna">
+        <PropertyRef Name="faunTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fxdFauna">
+    <End Type="bdConoceAColombiaModel.tbFauna" Role="tbFauna" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbFaunaxDepartamento" Role="tbFaunaxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbFauna">
+        <PropertyRef Name="faunCodigo" />
+      </Principal>
+      <Dependent Role="tbFaunaxDepartamento">
+        <PropertyRef Name="fxdFauna" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbPuntajePorPersona">
+    <Key>
+      <PropertyRef Name="pupeCodigo" />
+    </Key>
+    <Property Name="pupeCodigo" Type="Int64" Nullable="false" />
+    <Property Name="pupeNombreCompleto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pupePuntaje" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="pupeTipoJuego" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pupeDificultad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
