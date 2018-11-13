@@ -40,6 +40,42 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas {
         protected global::System.Web.UI.WebControls.Label lblPuntaje;
         
         /// <summary>
+        /// Control smTiempo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager smTiempo;
+        
+        /// <summary>
+        /// Control tmTiempo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.Timer tmTiempo;
+        
+        /// <summary>
+        /// Control upTiempo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upTiempo;
+        
+        /// <summary>
+        /// Control ltMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltMsg;
+        
+        /// <summary>
         /// Control divRespuestas.
         /// </summary>
         /// <remarks>

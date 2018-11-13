@@ -805,7 +805,7 @@
     </Key>
     <Property Name="cultCodigo" Type="Int64" Nullable="false" />
     <Property Name="cultNombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="cultDescripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="cultDescripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="cultLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="cultLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="cultDepartamento" Type="Int64" Nullable="false" />

@@ -76,6 +76,33 @@ namespace ConoceAColombia.web.Views.MapaTerminado {
         protected global::System.Web.UI.WebControls.LinkButton LinkDeportes;
         
         /// <summary>
+        /// Control LinkFlora.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkFlora;
+        
+        /// <summary>
+        /// Control LinkFauna.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkFauna;
+        
+        /// <summary>
+        /// Control linkCulturas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkCulturas;
+        
+        /// <summary>
         /// Control lblUsuario.
         /// </summary>
         /// <remarks>
@@ -182,5 +209,32 @@ namespace ConoceAColombia.web.Views.MapaTerminado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rpPersonajesHistoricos;
+        
+        /// <summary>
+        /// Control rpFlora.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpFlora;
+        
+        /// <summary>
+        /// Control rpFauna.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpFauna;
+        
+        /// <summary>
+        /// Control rpCulturas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpCulturas;
     }
 }

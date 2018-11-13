@@ -283,54 +283,45 @@ namespace ConoceAColombia.logica.BL
         {
             try
             {
-               
+
                 Models.clsPreguntasJuego obPregunta = new Models.clsPreguntasJuego();
                 Random rnd = new Random();
-                int valor = 0;
-                while (valor == 0)
+                int numero = rnd.Next(1, lstPreguntasJuego.Count + 1);
+                int Contador = 0;
+                foreach (Models.clsPreguntasJuego preguntas in lstPreguntasJuego)
                 {
-                    int numero = rnd.Next(1, lstPreguntasJuego.Count + 1);
-                    int Contador = 0;
-                    foreach (Models.clsPreguntasJuego preguntas in lstPreguntasJuego)
+                    Contador++;
+
+
+                    if (Contador == numero)
                     {
-                        Contador++;
-
-
-                        if (Contador == numero && preguntas.stSalio.Equals("no salio"))
+                        obPregunta = new Models.clsPreguntasJuego
                         {
-                            obPregunta = new Models.clsPreguntasJuego
+                            lgCodigo = preguntas.lgCodigo,
+                            stPregunta = preguntas.stPregunta,
+                            stRespuestaCorrecta = preguntas.stRespuestaCorrecta,
+                            stRespuestaIncorrectaUno = preguntas.stRespuestaIncorrectaUno,
+                            stRespuestaIncorrectaDos = preguntas.stRespuestaIncorrectaDos,
+                            stRespuestaIncorrectaTres = preguntas.stRespuestaIncorrectaTres,
+                            stRespuestaIncorrectaCuatro = preguntas.stRespuestaIncorrectaCuatro,
+                            stRespuestaIncorrectaCinco = preguntas.stRespuestaIncorrectaCinco,
+                            obclsTematicasJuego = new Models.clsTematicasJuego
                             {
-                                lgCodigo = preguntas.lgCodigo,
-                                stPregunta = preguntas.stPregunta,
-                                stRespuestaCorrecta = preguntas.stRespuestaCorrecta,
-                                stRespuestaIncorrectaUno = preguntas.stRespuestaIncorrectaUno,
-                                stRespuestaIncorrectaDos = preguntas.stRespuestaIncorrectaDos,
-                                stRespuestaIncorrectaTres = preguntas.stRespuestaIncorrectaTres,
-                                stRespuestaIncorrectaCuatro = preguntas.stRespuestaIncorrectaCuatro,
-                                stRespuestaIncorrectaCinco = preguntas.stRespuestaIncorrectaCinco,
-                                obclsTematicasJuego = new Models.clsTematicasJuego
-                                {
-                                    stDescripcion = preguntas.obclsTematicasJuego.stDescripcion
-                                },
-                                obclsTipoJuego = new Models.clsTipoJuego
-                                {
-                                    stDescripcion = preguntas.obclsTipoJuego.stDescripcion
-                                },
-                                obclsDicultadJuego = new Models.clsDicultadJuego
-                                {
-                                    stDescripcion = preguntas.obclsDicultadJuego.stDescripcion
-                                }
-                            };
-
-                        }
-
+                                stDescripcion = preguntas.obclsTematicasJuego.stDescripcion
+                            },
+                            obclsTipoJuego = new Models.clsTipoJuego
+                            {
+                                stDescripcion = preguntas.obclsTipoJuego.stDescripcion
+                            },
+                            obclsDicultadJuego = new Models.clsDicultadJuego
+                            {
+                                stDescripcion = preguntas.obclsDicultadJuego.stDescripcion
+                            }
+                        };
 
                     }
 
-                    if(obPregunta.lgCodigo !=0)
-                    {
-                        valor = 1;
-                    }
+
                 }
                 return obPregunta;
             }
@@ -406,7 +397,7 @@ namespace ConoceAColombia.logica.BL
                     obtbPreguntasJuego.prjuSalio = ob.stSalio;
                     obbdConoceAColombiaEntities.SaveChanges();
 
-                    
+
                 }
 
             }
@@ -425,9 +416,9 @@ namespace ConoceAColombia.logica.BL
                     new Entidades.bdConoceAColombiaEntities())
                 {
                     Entidades.tbPreguntasJuego obtbPreguntasJuego = (from q in obbdConoceAColombiaEntities.tbPreguntasJuego
-                                                                     
+
                                                                      select q).FirstOrDefault();
-                    obtbPreguntasJuego.prjuSalio ="no salio";
+                    obtbPreguntasJuego.prjuSalio = "no salio";
                     obbdConoceAColombiaEntities.SaveChanges();
 
 

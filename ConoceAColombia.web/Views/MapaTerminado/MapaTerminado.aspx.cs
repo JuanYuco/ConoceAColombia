@@ -190,6 +190,51 @@ namespace ConoceAColombia.web.Views.MapaTerminado
 
         }
 
+        void getFlora()
+        {
+            try
+            {
+                Controllers.FloraControllers obFloraControllers = new Controllers.FloraControllers();
+                rpFlora.DataSource = obFloraControllers.getFloraController();
+                rpFlora.DataBind();
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+        void getFauna()
+        {
+            try
+            {
+                Controllers.FaunaxDepartamentoControllers obFaunaxDepartamentoControllers = new Controllers.FaunaxDepartamentoControllers();
+                rpFauna.DataSource = obFaunaxDepartamentoControllers.getTodoFauna();
+                rpFauna.DataBind();
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
+        void getCulturas()
+        {
+            try
+            {
+                Controllers.CulturasControllers obCulturasControllers = new Controllers.CulturasControllers();
+                rpCulturas.DataSource = obCulturasControllers.getCulturas();
+                rpCulturas.DataBind();
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
+
+        
+
 
 
 
@@ -247,7 +292,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpPersonajesHistoricos.DataBind();
             rpArquitectura.DataSource = null;
             rpArquitectura.DataBind();
-
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
         }
 
         protected void LinkPersonajesPublicos_Click(object sender, EventArgs e)
@@ -271,6 +321,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpPersonajesHistoricos.DataBind();
             rpArquitectura.DataSource = null;
             rpArquitectura.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
         }
 
         protected void LinkArte_Click(object sender, EventArgs e)
@@ -292,6 +348,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpHistoria.DataBind();
             rpPersonajesHistoricos.DataSource = null;
             rpPersonajesHistoricos.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
 
         }
 
@@ -317,6 +379,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpPersonajesHistoricos.DataBind();
             rpArquitectura.DataSource = null;
             rpArquitectura.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
         }
 
         protected void LinkMusica_Click(object sender, EventArgs e)
@@ -340,6 +408,12 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpPersonajesHistoricos.DataBind();
             rpArquitectura.DataSource = null;
             rpArquitectura.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
         }
 
         protected void LinkDeportes_Click(object sender, EventArgs e)
@@ -362,13 +436,18 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpPersonajesHistoricos.DataBind();
             rpArquitectura.DataSource = null;
             rpArquitectura.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
         }
 
         protected void LinkHistoria_Click(object sender, EventArgs e)
         {
             getHistoria();
             getPersonajesHistoricos();
-            getEstructurasDeportivas();
             rpDepartamentos.DataSource = null;
             rpDepartamentos.DataBind();
             rpCiudadesPricipales.DataSource = null;
@@ -385,7 +464,101 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             rpEstructurasDeportivas.DataBind();
             rpArquitectura.DataSource = null;
             rpArquitectura.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
 
+        }
+
+        protected void LinkFlora_Click(object sender, EventArgs e)
+        {
+            getFlora();
+            rpDepartamentos.DataSource = null;
+            rpDepartamentos.DataBind();
+            rpCiudadesPricipales.DataSource = null;
+            rpCiudadesPricipales.DataBind();
+            rpGastronomia.DataSource = null;
+            rpGastronomia.DataBind();
+            rpPersonajesPublicos.DataSource = null;
+            rpPersonajesPublicos.DataBind();
+            rpMusica.DataSource = null;
+            rpMusica.DataBind();
+            rpDeportes.DataSource = null;
+            rpDeportes.DataBind();
+            rpEstructurasDeportivas.DataSource = null;
+            rpEstructurasDeportivas.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
+
+        }
+
+        protected void LinkFauna_Click(object sender, EventArgs e)
+        {
+            getFauna();
+            rpDepartamentos.DataSource = null;
+            rpDepartamentos.DataBind();
+            rpCiudadesPricipales.DataSource = null;
+            rpCiudadesPricipales.DataBind();
+            rpGastronomia.DataSource = null;
+            rpGastronomia.DataBind();
+            rpPersonajesPublicos.DataSource = null;
+            rpPersonajesPublicos.DataBind();
+            rpMusica.DataSource = null;
+            rpMusica.DataBind();
+            rpDeportes.DataSource = null;
+            rpDeportes.DataBind();
+            rpEstructurasDeportivas.DataSource = null;
+            rpEstructurasDeportivas.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
+            rpCulturas.DataSource = null;
+            rpCulturas.DataBind();
+        }
+
+        protected void linkCulturas_Click(object sender, EventArgs e)
+        {
+            getCulturas();
+            rpDepartamentos.DataSource = null;
+            rpDepartamentos.DataBind();
+            rpCiudadesPricipales.DataSource = null;
+            rpCiudadesPricipales.DataBind();
+            rpGastronomia.DataSource = null;
+            rpGastronomia.DataBind();
+            rpPersonajesPublicos.DataSource = null;
+            rpPersonajesPublicos.DataBind();
+            rpMusica.DataSource = null;
+            rpMusica.DataBind();
+            rpDeportes.DataSource = null;
+            rpDeportes.DataBind();
+            rpEstructurasDeportivas.DataSource = null;
+            rpEstructurasDeportivas.DataBind();
+            rpArquitectura.DataSource = null;
+            rpArquitectura.DataBind();
+            rpHistoria.DataSource = null;
+            rpHistoria.DataBind();
+            rpPersonajesHistoricos.DataSource = null;
+            rpPersonajesHistoricos.DataBind();
+            rpFauna.DataSource = null;
+            rpFauna.DataBind();
+            rpFlora.DataSource = null;
+            rpFlora.DataBind();
         }
     }
 }

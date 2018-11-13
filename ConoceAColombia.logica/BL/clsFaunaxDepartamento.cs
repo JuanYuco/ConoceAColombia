@@ -219,5 +219,53 @@ namespace ConoceAColombia.logica.BL
         }
 
 
+
+
+
+        public List<Models.clsFaunaxDepartamento> getTodoFauna()
+        {
+            try
+            {
+                using (Entidades.bdConoceAColombiaEntities obDatos = new Entidades.bdConoceAColombiaEntities())
+                {
+                    List<Models.clsFaunaxDepartamento> lstclsTodoFauna = (from q in obDatos.tbFaunaxDepartamento
+                                                                                   join tbFa in obDatos.tbFauna on q.fxdFauna equals tbFa.faunCodigo
+                                                                                   join tbDe in obDatos.tbDepartamento on q.fxdDepartamento equals tbDe.depaCodigo
+                                                                                   join tbTF in obDatos.tbTipoFauna on tbFa.faunTipo equals tbTF.tifaCodigo
+                                                                                   select new Models.clsFaunaxDepartamento
+                                                                                   {
+                                                                                       lgCodigo = q.fxdCodigo,
+                                                                                       stDescripcion = q.fxdDescripcion,
+                                                                                       stLatitud = q.fxdLatitud,
+                                                                                       stLongitud = q.fxdLongitud,
+                                                                                       obclsFauna = new Models.clsFauna
+                                                                                       {
+                                                                                           lgCodigo = q.fxdFauna,
+                                                                                           stNombre = tbFa.faunNombre,
+                                                                                           obclsTipoFauna = new Models.clsTipoFauna
+                                                                                           {
+                                                                                               lgCodigo = tbFa.faunTipo,
+                                                                                               stDescripcion = tbTF.tifaDescripcion
+                                                                                           }
+                                                                                           
+                                                                                       },
+                                                                                       obclsDepartamentos = new Models.clsDepartamentos
+                                                                                       {
+                                                                                           inCodigo = q.fxdDepartamento,
+                                                                                           stNombre = tbDe.depaNombre
+                                                                                       }
+
+                                                                                   }).ToList();
+                    return lstclsTodoFauna;
+
+                }
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
     }
 }

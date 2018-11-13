@@ -90,5 +90,19 @@ namespace ConoceAColombia.web.Controllers
                 throw ew;
             }
         }
+
+
+        public List<logica.Models.clsFaunaxDepartamento> getTodoFauna()
+        {
+            try
+            {
+                logica.BL.clsFaunaxDepartamento clsFaunaxDepartamento = new logica.BL.clsFaunaxDepartamento();
+                return clsFaunaxDepartamento.getTodoFauna();
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
     }
 }

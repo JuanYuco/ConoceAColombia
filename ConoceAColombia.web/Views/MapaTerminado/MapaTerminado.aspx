@@ -95,8 +95,23 @@
                         <i class="fa fa-fw fa-futbol-o"></i>Deportes
                         </asp:LinkButton>
                     </li>
+                    <li class="nav-item">
+                        <asp:LinkButton Class="nav-link" ID="LinkFlora" runat="server" OnClick="LinkFlora_Click">
+                        <i class="fa fa-fw fa-leaf"></i>Flora
+                        </asp:LinkButton>
+                    </li>
+                    <li class="nav-item">
+                        <asp:LinkButton Class="nav-link" ID="LinkFauna" runat="server" OnClick="LinkFauna_Click">
+                        <i class="fa fa-fw fa-paw"></i>Fauna
+                        </asp:LinkButton>
+                    </li>
+                    <li class="nav-item">
+                        <asp:LinkButton Class="nav-link" ID="linkCulturas" runat="server" OnClick="linkCulturas_Click">
+                        <i class="fa fa-fw fa-handshake-o"></i>Culturas
+                        </asp:LinkButton>
+                    </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
-                        <a class="nav-link" href="../../Views/Mini Juego/Mini Juego.aspx">
+                        <a class="nav-link" href="../../Views/MenuJuego/MenuJuego.aspx">
                             <i class="fa fa-fw fa-gamepad"></i>
                             <span class="nav-link-text">Mini Juego</span>
                         </a>
@@ -338,8 +353,79 @@
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
+
+
+                    <!-- Flora-->
+                <asp:Repeater ID="rpFlora" runat="server">
+                        <ItemTemplate>
+                            <div
+                                data-id="<%# DataBinder.Eval(Container.DataItem,"lgCodigo") %>"
+                                data-lat="<%# DataBinder.Eval(Container.DataItem,"stLatitud") %>"
+                                data-lng="<%# DataBinder.Eval(Container.DataItem,"stLongitud") %>"
+                                
+                                class="marker">
+                                <div class="map-card">
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"lgCodigo")%>Flora.jpg" />
+                                    <h1><%# DataBinder.Eval(Container.DataItem,"stNombreNombre") %></h1>
+                                    <p>Nombre Cientifico: <%# DataBinder.Eval(Container.DataItem,"stPresidente") %></p>
+                                    <p>Descripción: <%# DataBinder.Eval(Container.DataItem,"stDescripcion") %></p>
+                                    <p>Abundancia: <%# DataBinder.Eval(Container.DataItem,"stAbundancia") %></p>
+                                    <p>Periodo de floración: <%# DataBinder.Eval(Container.DataItem,"stPeriodoFloracion") %></p>
+                                    <p>Departamento Común: <%# DataBinder.Eval(Container.DataItem,"obclsDepartamentos.stNombre") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+
+                <!-- Fauna -->
+
+                <asp:Repeater ID="rpFauna" runat="server">
+                        <ItemTemplate>
+                            <div
+                                data-id="<%# DataBinder.Eval(Container.DataItem,"lgCodigo") %>"
+                                data-lat="<%# DataBinder.Eval(Container.DataItem,"stLatitud") %>"
+                                data-lng="<%# DataBinder.Eval(Container.DataItem,"stLongitud") %>"
+                                
+                                class="marker">
+                                <div class="map-card">
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"lgCodigo")%>Fauna.jpg" />
+                                    <h1><%# DataBinder.Eval(Container.DataItem,"obclsFauna.stNombre") %></h1>
+                                    <p>Descripción: <%# DataBinder.Eval(Container.DataItem,"stDescripcion") %></p>
+                                    <p>Tipo Fauna: <%# DataBinder.Eval(Container.DataItem,"obclsFauna.obclsTipoFauna.stDescripcion") %></p>
+                                    <p>Departamento: <%# DataBinder.Eval(Container.DataItem,"obclsDepartamentos.stNombre") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+
+
+                <!-- Culturas -->
+
+                <asp:Repeater ID="rpCulturas" runat="server">
+                        <ItemTemplate>
+                            <div
+                                data-id="<%# DataBinder.Eval(Container.DataItem,"lgCodigo") %>"
+                                data-lat="<%# DataBinder.Eval(Container.DataItem,"stLatitud") %>"
+                                data-lng="<%# DataBinder.Eval(Container.DataItem,"stLongitud") %>"
+                                
+                                class="marker">
+                                <div class="map-card">
+                                    <img src="../../Resources/Images/<%# DataBinder.Eval(Container.DataItem,"lgCodigo")%>Culturas.jpg" />
+                                    <h1><%# DataBinder.Eval(Container.DataItem,"stNombre") %></h1>
+                                    <p>Descripción: <%# DataBinder.Eval(Container.DataItem,"stDescripcion") %></p>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+
                 </div>
                 
+
+                
+
 
                 <script>
                     $(document).ready(function () {

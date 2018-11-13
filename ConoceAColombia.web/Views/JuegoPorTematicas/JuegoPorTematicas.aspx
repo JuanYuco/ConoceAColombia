@@ -7,6 +7,17 @@
             <asp:Label runat="server" ID="lblPregunta" Text="Aqui va una pregunta?"></asp:Label>
             <asp:Label runat="server" ID="lblRespuestaCorrecta" Visible="false" Text=""></asp:Label>
             <asp:Label runat="server" ID="lblPuntaje" Visible="false" Text="0"></asp:Label>
+            <asp:ScriptManager ID="smTiempo" runat="server"></asp:ScriptManager>
+            <asp:Timer ID="tmTiempo" runat="server" Interval="1000" OnTick="tmTiempo_Tick"></asp:Timer>
+            <asp:UpdatePanel ID="upTiempo" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:Literal ID="ltMsg" runat="server"></asp:Literal>
+                </ContentTemplate>
+
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="tmTiempo" Eventname="tick" />
+                </Triggers>
+            </asp:UpdatePanel>
         </div>
     </div>
     <div id="divRespuestas" runat="server" class="mt-xl-auto">

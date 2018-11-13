@@ -51,7 +51,7 @@
     </Key>
     <Property Name="cultCodigo" Type="bigint" Nullable="false" />
     <Property Name="cultNombre" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="cultDescripcion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="cultDescripcion" Type="varchar" MaxLength="1000" />
     <Property Name="cultLatitud" Type="varchar" MaxLength="50" />
     <Property Name="cultLongitud" Type="varchar" MaxLength="50" />
     <Property Name="cultDepartamento" Type="bigint" Nullable="false" />

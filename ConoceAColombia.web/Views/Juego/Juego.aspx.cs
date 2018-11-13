@@ -21,7 +21,6 @@ namespace ConoceAColombia.web.Views.Juego
             logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas());
             lblPregunta.Text = clsPreguntasJuego.stPregunta;
             clsPreguntasJuego.stSalio = "Salio";
-            obJuegoControllers.updateEstadoPregunta(clsPreguntasJuego);
             lblRespuestaCorrecta.Text = clsPreguntasJuego.stRespuestaCorrecta;
             if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Preguntas y Respuestas"))
             {
@@ -98,7 +97,10 @@ namespace ConoceAColombia.web.Views.Juego
         }
 
 
-        
+        public void getTime()
+        {
+            Session["Timer"] = DateTime.Now.AddSeconds(20).ToString();
+        }
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -123,6 +125,7 @@ namespace ConoceAColombia.web.Views.Juego
                     getPregunta();
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                    getTime();
                     
 
                 }
@@ -153,7 +156,7 @@ namespace ConoceAColombia.web.Views.Juego
                     getPregunta();
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                    
+                    getTime();
 
                 }
                 else
@@ -183,7 +186,7 @@ namespace ConoceAColombia.web.Views.Juego
                     getPregunta();
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                   
+                    getTime();
                 }
                 else
                 {
@@ -213,7 +216,8 @@ namespace ConoceAColombia.web.Views.Juego
                     getPregunta();
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Correcta" + "!', 'success')</Script>");
                     lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
-                    
+                    getTime();
+
                 }
                 else
                 {
@@ -229,7 +233,24 @@ namespace ConoceAColombia.web.Views.Juego
             }
         }
 
-        
+
+        protected void tmTiempo_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Compare(DateTime.Now, DateTime.Parse(Session["Timer"].ToString())) < 0)
+            {
+                ltMsg.Text = "Tiempo " + (((Int32)DateTime.Parse(Session["Timer"].ToString()).Subtract(DateTime.Now).TotalSeconds) % 60).ToString();
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Que mal!', '" + "El tiempo ah terminado, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
+                Session["Puntaje"] = lblPuntaje.Text;
+                lblPuntaje.Text = "0";
+                Response.Redirect("../Puntajes/Puntajes.aspx");
+            }
+        }
+
+
+
 
     }
 }
