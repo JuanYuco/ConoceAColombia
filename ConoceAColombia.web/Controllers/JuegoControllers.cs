@@ -36,12 +36,12 @@ namespace ConoceAColombia.web.Controllers
         }
 
 
-        public logica.Models.clsPreguntasJuego getPregunta(List<logica.Models.clsPreguntasJuego> lstPreguntasJuego)
+        public logica.Models.clsPreguntasJuego getPregunta(List<logica.Models.clsPreguntasJuego> lstPreguntasJuego, List<int>Codigos)
         {
             try
             {
                 logica.BL.clsPreguntasJuego obclsPreguntasJuego = new logica.BL.clsPreguntasJuego();
-                logica.Models.clsPreguntasJuego obPregunta = obclsPreguntasJuego.getPreguntaRamdon(lstPreguntasJuego);
+                logica.Models.clsPreguntasJuego obPregunta = obclsPreguntasJuego.getPreguntaRamdon(lstPreguntasJuego,Codigos);
                 return obPregunta;
             }
             catch (Exception ew)

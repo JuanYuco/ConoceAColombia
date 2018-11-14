@@ -279,49 +279,85 @@ namespace ConoceAColombia.logica.BL
 
 
 
-        public Models.clsPreguntasJuego getPreguntaRamdon(List<Models.clsPreguntasJuego> lstPreguntasJuego)
+        public Models.clsPreguntasJuego getPreguntaRamdon(List<Models.clsPreguntasJuego> lstPreguntasJuego, List<int>Codigos)
         {
             try
             {
 
                 Models.clsPreguntasJuego obPregunta = new Models.clsPreguntasJuego();
                 Random rnd = new Random();
-                int numero = rnd.Next(1, lstPreguntasJuego.Count + 1);
+                
                 int Contador = 0;
-                foreach (Models.clsPreguntasJuego preguntas in lstPreguntasJuego)
+                int valor = 0;
+                int valor2 = 0;
+                if (lstPreguntasJuego.Count == Codigos.Count)
                 {
-                    Contador++;
-
-
-                    if (Contador == numero)
+                    obPregunta = new Models.clsPreguntasJuego
                     {
-                        obPregunta = new Models.clsPreguntasJuego
+                        lgCodigo = 1000,
+                        stPregunta = "Ya se acabaron las preguntas"
+
+                    };
+                }
+                else
+                {
+                    while (valor2 == 0)
+                    {
+                        int numero = rnd.Next(1, lstPreguntasJuego.Count + 1);
+                        Contador = 0; 
+                        foreach (Models.clsPreguntasJuego preguntas in lstPreguntasJuego)
                         {
-                            lgCodigo = preguntas.lgCodigo,
-                            stPregunta = preguntas.stPregunta,
-                            stRespuestaCorrecta = preguntas.stRespuestaCorrecta,
-                            stRespuestaIncorrectaUno = preguntas.stRespuestaIncorrectaUno,
-                            stRespuestaIncorrectaDos = preguntas.stRespuestaIncorrectaDos,
-                            stRespuestaIncorrectaTres = preguntas.stRespuestaIncorrectaTres,
-                            stRespuestaIncorrectaCuatro = preguntas.stRespuestaIncorrectaCuatro,
-                            stRespuestaIncorrectaCinco = preguntas.stRespuestaIncorrectaCinco,
-                            obclsTematicasJuego = new Models.clsTematicasJuego
+                            valor = 0;
+                            Contador++;
+
+                            if (Codigos != null)
                             {
-                                stDescripcion = preguntas.obclsTematicasJuego.stDescripcion
-                            },
-                            obclsTipoJuego = new Models.clsTipoJuego
-                            {
-                                stDescripcion = preguntas.obclsTipoJuego.stDescripcion
-                            },
-                            obclsDicultadJuego = new Models.clsDicultadJuego
-                            {
-                                stDescripcion = preguntas.obclsDicultadJuego.stDescripcion
+                                foreach (int Codigo in Codigos)
+                                {
+                                    if (Contador == Codigo)
+                                    {
+                                        valor = 1;
+                                    }
+                                }
                             }
-                        };
 
+
+                            if (Contador == numero && valor == 0)
+                            {
+                                obPregunta = new Models.clsPreguntasJuego
+                                {
+                                    lgCodigo = preguntas.lgCodigo,
+                                    stPregunta = preguntas.stPregunta,
+                                    stRespuestaCorrecta = preguntas.stRespuestaCorrecta,
+                                    stRespuestaIncorrectaUno = preguntas.stRespuestaIncorrectaUno,
+                                    stRespuestaIncorrectaDos = preguntas.stRespuestaIncorrectaDos,
+                                    stRespuestaIncorrectaTres = preguntas.stRespuestaIncorrectaTres,
+                                    stRespuestaIncorrectaCuatro = preguntas.stRespuestaIncorrectaCuatro,
+                                    stRespuestaIncorrectaCinco = preguntas.stRespuestaIncorrectaCinco,
+                                    obclsTematicasJuego = new Models.clsTematicasJuego
+                                    {
+                                        stDescripcion = preguntas.obclsTematicasJuego.stDescripcion
+                                    },
+                                    obclsTipoJuego = new Models.clsTipoJuego
+                                    {
+                                        stDescripcion = preguntas.obclsTipoJuego.stDescripcion
+                                    },
+                                    obclsDicultadJuego = new Models.clsDicultadJuego
+                                    {
+                                        stDescripcion = preguntas.obclsDicultadJuego.stDescripcion
+                                    }
+                                };
+
+                            }
+
+
+                        }
+
+                        if (obPregunta.lgCodigo != 0)
+                        {
+                            valor2 = 1;
+                        }
                     }
-
-
                 }
                 return obPregunta;
             }

@@ -9,84 +9,95 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
 {
     public partial class JuegoPorTematicas : System.Web.UI.Page
     {
-       
+        public static List<int> lstCodigos = new List<int>();
         public void getPregunta(string tematica, string dificultad)
         {
             Random rnd = new Random();
             int numero = rnd.Next(1, 4);
             Controllers.JuegoControllers obJuegoControllers = new Controllers.JuegoControllers();
-            logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas(tematica, dificultad));
-            lblPregunta.Text = clsPreguntasJuego.stPregunta;
-            lblRespuestaCorrecta.Text = clsPreguntasJuego.stRespuestaCorrecta;
-            if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Preguntas y Respuestas"))
+            logica.Models.clsPreguntasJuego clsPreguntasJuego = obJuegoControllers.getPregunta(obJuegoControllers.getPreguntas(tematica, dificultad),lstCodigos);
+            if (clsPreguntasJuego.stPregunta.Equals("Ya se acabaron las preguntas"))
             {
-                string[] preguntasmalas = { clsPreguntasJuego.stRespuestaIncorrectaUno,
+                lblPuntaje.Text = (Convert.ToInt32(lblPuntaje.Text) + 1).ToString();
+                Session["Puntaje"] = lblPuntaje.Text;
+                lblPuntaje.Text = "0";
+                lstCodigos.Clear();
+                Response.Redirect("../Puntajes/Puntajes.aspx");
+            }
+            else
+            {
+                lstCodigos.Add((int)clsPreguntasJuego.lgCodigo);
+                lblPregunta.Text = clsPreguntasJuego.stPregunta;
+                lblRespuestaCorrecta.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                if (clsPreguntasJuego.obclsTipoJuego.stDescripcion.Equals("Preguntas y Respuestas"))
+                {
+                    string[] preguntasmalas = { clsPreguntasJuego.stRespuestaIncorrectaUno,
                 clsPreguntasJuego.stRespuestaIncorrectaDos,
                 clsPreguntasJuego.stRespuestaIncorrectaTres,
                 clsPreguntasJuego.stRespuestaIncorrectaCuatro,
                 clsPreguntasJuego.stRespuestaIncorrectaCinco};
-                int valor = 1;
+                    int valor = 1;
 
-                while (valor == 1)
-                {
-                    if (numero == 1)
+                    while (valor == 1)
                     {
-                        btnRespuestaUno.Text = clsPreguntasJuego.stRespuestaCorrecta;
-                        valor = 0;
-                    }
-                    else if (numero == 2)
-                    {
-                        btnRespuestaDos.Text = clsPreguntasJuego.stRespuestaCorrecta;
-                        valor = 0;
-                    }
-                    else if (numero == 3)
-                    {
-                        btnRespuestaTres.Text = clsPreguntasJuego.stRespuestaCorrecta;
-                        valor = 0;
-                    }
-                    else if (numero == 4)
-                    {
-                        btnRespuestaCuatro.Text = clsPreguntasJuego.stRespuestaCorrecta;
-                        valor = 0;
-                    }
+                        if (numero == 1)
+                        {
+                            btnRespuestaUno.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                            valor = 0;
+                        }
+                        else if (numero == 2)
+                        {
+                            btnRespuestaDos.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                            valor = 0;
+                        }
+                        else if (numero == 3)
+                        {
+                            btnRespuestaTres.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                            valor = 0;
+                        }
+                        else if (numero == 4)
+                        {
+                            btnRespuestaCuatro.Text = clsPreguntasJuego.stRespuestaCorrecta;
+                            valor = 0;
+                        }
 
+                    }
+                    int valor2 = 1;
+                    while (valor2 == 1)
+                    {
+                        int seleccion = rnd.Next(0, 4);
+                        if (btnRespuestaUno.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
+                            && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
+                        {
+                            btnRespuestaUno.Text = preguntasmalas[seleccion];
+                        }
+
+                        else if (btnRespuestaDos.Text.Equals("") && btnRespuestaUno.Text != preguntasmalas[seleccion]
+                            && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
+                        {
+                            btnRespuestaDos.Text = preguntasmalas[seleccion];
+                        }
+
+                        else if (btnRespuestaTres.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
+                            && btnRespuestaUno.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
+                        {
+                            btnRespuestaTres.Text = preguntasmalas[seleccion];
+                        }
+
+                        else if (btnRespuestaCuatro.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
+                            && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaUno.Text != preguntasmalas[seleccion])
+                        {
+                            btnRespuestaCuatro.Text = preguntasmalas[seleccion];
+                        }
+
+                        if (!btnRespuestaUno.Text.Equals("") && !btnRespuestaDos.Text.Equals("") && !btnRespuestaTres.Text.Equals("") && !btnRespuestaCuatro.Text.Equals(""))
+                        {
+                            valor2 = 0;
+                        }
+                    }
                 }
-                int valor2 = 1;
-                while (valor2 == 1)
-                {
-                    int seleccion = rnd.Next(0, 4);
-                    if (btnRespuestaUno.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
-                        && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
-                    {
-                        btnRespuestaUno.Text = preguntasmalas[seleccion];
-                    }
 
-                    else if (btnRespuestaDos.Text.Equals("") && btnRespuestaUno.Text != preguntasmalas[seleccion]
-                        && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
-                    {
-                        btnRespuestaDos.Text = preguntasmalas[seleccion];
-                    }
-
-                    else if (btnRespuestaTres.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
-                        && btnRespuestaUno.Text != preguntasmalas[seleccion] && btnRespuestaCuatro.Text != preguntasmalas[seleccion])
-                    {
-                        btnRespuestaTres.Text = preguntasmalas[seleccion];
-                    }
-
-                    else if (btnRespuestaCuatro.Text.Equals("") && btnRespuestaDos.Text != preguntasmalas[seleccion]
-                        && btnRespuestaTres.Text != preguntasmalas[seleccion] && btnRespuestaUno.Text != preguntasmalas[seleccion])
-                    {
-                        btnRespuestaCuatro.Text = preguntasmalas[seleccion];
-                    }
-
-                    if (!btnRespuestaUno.Text.Equals("") && !btnRespuestaDos.Text.Equals("") && !btnRespuestaTres.Text.Equals("") && !btnRespuestaCuatro.Text.Equals(""))
-                    {
-                        valor2 = 0;
-                    }
-                }
             }
-
-
 
 
 
@@ -103,7 +114,9 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
         {
             if (!IsPostBack)
             {
+                
                 getPregunta(Session["Tematica"].ToString(), Session["Dificultad"].ToString());
+                getTime();
             }
         }
 
@@ -128,6 +141,7 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
                     Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    lstCodigos.Clear();
                     Response.Redirect("../Puntajes/Puntajes.aspx");
                 }
             }
@@ -159,6 +173,7 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
                     Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    lstCodigos.Clear();
                     Response.Redirect("../Puntajes/Puntajes.aspx");
                 }
             }
@@ -189,6 +204,7 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
                     Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    lstCodigos.Clear();
                     Response.Redirect("../Puntajes/Puntajes.aspx");
 
                 }
@@ -219,6 +235,7 @@ namespace ConoceAColombia.web.Views.JuegoPorTematicas
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Perfecto!', '" + "La respuesta es Incorrecta, tu puntaje final es " + lblPuntaje.Text + "!', 'error')</Script>");
                     Session["Puntaje"] = lblPuntaje.Text;
                     lblPuntaje.Text = "0";
+                    lstCodigos.Clear();
                     Response.Redirect("../Puntajes/Puntajes.aspx");
                 }
             }
