@@ -27,22 +27,22 @@
     <div id="divRespuestas" runat="server" class="mt-xl-auto">
         <div class="form-group">
             <div class="form-row">
-                <div class="col-md-3">
-                    <asp:Button runat="server" ID="btnRespuestaUno" CssClass="btn btn-primary" Text="" style="width:200px; height:100px" OnClick="btnRespuestaUno_Click"/>
+                <div class="col-md-6">
+                    <asp:Button runat="server" ID="btnRespuestaUno" CssClass="btn btn-primary" Text="" style="width:400px; height:100px" OnClick="btnRespuestaUno_Click"/>
                 </div>
-                <div class="col-md-3">
-                    <asp:Button runat="server" ID="btnRespuestaDos" CssClass="btn btn-primary" Text="" style="width:200px; height:100px" OnClick="btnRespuestaDos_Click"/>
+                <div class="col-md-6">
+                    <asp:Button runat="server" ID="btnRespuestaDos" CssClass="btn btn-primary" Text="" style="width:400px; height:100px" OnClick="btnRespuestaDos_Click"/>
                 </div>
             </div>
         </div>
 
         <div class="form-group">
             <div class="form-row">
-                <div class="col-md-3">
-                    <asp:Button runat="server" ID="btnRespuestaTres" CssClass="btn btn-primary" Text="" style="width:200px; height:100px" OnClick="btnRespuestaTres_Click"/>
+                <div class="col-md-6">
+                    <asp:Button runat="server" ID="btnRespuestaTres" CssClass="btn btn-primary" Text="" style="width:400px; height:100px" OnClick="btnRespuestaTres_Click"/>
                 </div>
-                <div class="col-md-3">
-                    <asp:Button runat="server" ID="btnRespuestaCuatro" CssClass="btn btn-primary" Text="" style="width:200px; height:100px" OnClick="btnRespuestaCuatro_Click"/>
+                <div class="col-md-6">
+                    <asp:Button runat="server" ID="btnRespuestaCuatro" CssClass="btn btn-primary" Text="" style="width:400px; height:100px" OnClick="btnRespuestaCuatro_Click"/>
                 </div>
             </div>
         </div>
