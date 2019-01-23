@@ -14,6 +14,12 @@ namespace ConoceAColombia.logica.Entidades
     
     public partial class tbFlora
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbFlora()
+        {
+            this.tbFloraxDepartamento = new HashSet<tbFloraxDepartamento>();
+        }
+    
         public long florCodigo { get; set; }
         public string florNomCientifico { get; set; }
         public string florNomComun { get; set; }
@@ -22,8 +28,10 @@ namespace ConoceAColombia.logica.Entidades
         public string florPeriodoFloracion { get; set; }
         public string florLatitud { get; set; }
         public string florLongitud { get; set; }
-        public long depaCodigo { get; set; }
+        public long florTipo { get; set; }
     
-        public virtual tbDepartamento tbDepartamento { get; set; }
+        public virtual tbTipoFlora tbTipoFlora { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
     }
 }

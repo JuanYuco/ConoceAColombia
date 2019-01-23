@@ -22,7 +22,6 @@ namespace ConoceAColombia.logica.BL
                                                          select new Models.clsFaunaxDepartamento
                                                          {
                                                              lgCodigo = q.fxdCodigo,
-                                                             stDescripcion = q.fxdDescripcion,
                                                              stLatitud = q.fxdLatitud,
                                                              stLongitud = q.fxdLongitud,
                                                              obclsFauna = new Models.clsFauna
@@ -57,7 +56,6 @@ namespace ConoceAColombia.logica.BL
                     obDatos.tbFaunaxDepartamento.Add(new Entidades.tbFaunaxDepartamento
                     {
                         fxdCodigo = obclsFaunaxDepartamento.lgCodigo,
-                        fxdDescripcion = obclsFaunaxDepartamento.stDescripcion,
                         fxdLatitud = obclsFaunaxDepartamento.stLatitud,
                         fxdLongitud = obclsFaunaxDepartamento.stLongitud,
                         fxdFauna = obclsFaunaxDepartamento.obclsFauna.lgCodigo,
@@ -86,7 +84,6 @@ namespace ConoceAColombia.logica.BL
                                                    where q.fxdCodigo == ob.lgCodigo
                                                    select q).FirstOrDefault();
                     
-                    obtbFaunaxDepartamento.fxdDescripcion = ob.stDescripcion;
                     obtbFaunaxDepartamento.fxdLatitud = ob.stLatitud;
                     obtbFaunaxDepartamento.fxdLongitud = ob.stLongitud;
                     obtbFaunaxDepartamento.fxdFauna = ob.obclsFauna.lgCodigo;
@@ -235,7 +232,7 @@ namespace ConoceAColombia.logica.BL
                                                                                    select new Models.clsFaunaxDepartamento
                                                                                    {
                                                                                        lgCodigo = q.fxdCodigo,
-                                                                                       stDescripcion = q.fxdDescripcion,
+                                                                                       
                                                                                        stLatitud = q.fxdLatitud,
                                                                                        stLongitud = q.fxdLongitud,
                                                                                        obclsFauna = new Models.clsFauna

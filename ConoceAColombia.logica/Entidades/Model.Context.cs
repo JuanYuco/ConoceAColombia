@@ -29,34 +29,45 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<tbArquitectura> tbArquitectura { get; set; }
         public virtual DbSet<tbArtistas> tbArtistas { get; set; }
         public virtual DbSet<tbCiudadesPrincipales> tbCiudadesPrincipales { get; set; }
+        public virtual DbSet<tbCulturas> tbCulturas { get; set; }
         public virtual DbSet<tbDepartamento> tbDepartamento { get; set; }
         public virtual DbSet<tbDeportes> tbDeportes { get; set; }
+        public virtual DbSet<tbDeportista> tbDeportista { get; set; }
+        public virtual DbSet<tbDificultadJuego> tbDificultadJuego { get; set; }
         public virtual DbSet<tbEquipos> tbEquipos { get; set; }
+        public virtual DbSet<tbEstadios> tbEstadios { get; set; }
+        public virtual DbSet<tbFauna> tbFauna { get; set; }
+        public virtual DbSet<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
         public virtual DbSet<tbFlora> tbFlora { get; set; }
+        public virtual DbSet<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
         public virtual DbSet<tbGastronomia> tbGastronomia { get; set; }
         public virtual DbSet<tbHistoria> tbHistoria { get; set; }
         public virtual DbSet<tbMusica> tbMusica { get; set; }
+        public virtual DbSet<tbPeriodoHistoria> tbPeriodoHistoria { get; set; }
+        public virtual DbSet<tbPersonajeAprendizaje> tbPersonajeAprendizaje { get; set; }
         public virtual DbSet<tbPersonajesHistoricos> tbPersonajesHistoricos { get; set; }
+        public virtual DbSet<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }
+        public virtual DbSet<tbPolitico> tbPolitico { get; set; }
+        public virtual DbSet<tbPreguntasJuego> tbPreguntasJuego { get; set; }
+        public virtual DbSet<tbPuntajePorPersona> tbPuntajePorPersona { get; set; }
+        public virtual DbSet<tbTematicaJuego> tbTematicaJuego { get; set; }
+        public virtual DbSet<tbTipoCultura> tbTipoCultura { get; set; }
         public virtual DbSet<tbTipodeArquitectura> tbTipodeArquitectura { get; set; }
         public virtual DbSet<tbTipodeArtista> tbTipodeArtista { get; set; }
         public virtual DbSet<tbTipodeGastronomia> tbTipodeGastronomia { get; set; }
         public virtual DbSet<tbTipodeHistoria> tbTipodeHistoria { get; set; }
+        public virtual DbSet<tbTipoDeportista> tbTipoDeportista { get; set; }
+        public virtual DbSet<tbTipoFauna> tbTipoFauna { get; set; }
+        public virtual DbSet<tbTipoFlora> tbTipoFlora { get; set; }
+        public virtual DbSet<tbTipoIncidente> tbTipoIncidente { get; set; }
+        public virtual DbSet<tbTipoJuego> tbTipoJuego { get; set; }
+        public virtual DbSet<tbTipoPersonajeAprendizaje> tbTipoPersonajeAprendizaje { get; set; }
+        public virtual DbSet<tbTipoPolitico> tbTipoPolitico { get; set; }
         public virtual DbSet<tbTipoUsuario> tbTipoUsuario { get; set; }
         public virtual DbSet<tbUsuarios> tbUsuarios { get; set; }
-        public virtual DbSet<tbTipoFauna> tbTipoFauna { get; set; }
-        public virtual DbSet<tbTipoIncidente> tbTipoIncidente { get; set; }
-        public virtual DbSet<tbDificultadJuego> tbDificultadJuego { get; set; }
-        public virtual DbSet<tbPreguntasJuego> tbPreguntasJuego { get; set; }
-        public virtual DbSet<tbTematicaJuego> tbTematicaJuego { get; set; }
-        public virtual DbSet<tbTipoJuego> tbTipoJuego { get; set; }
         public virtual DbSet<incidencia> incidencia { get; set; }
         public virtual DbSet<incidencia_comentarios> incidencia_comentarios { get; set; }
         public virtual DbSet<tbEstadoIncidente> tbEstadoIncidente { get; set; }
         public virtual DbSet<Tipo_Incidencia> Tipo_Incidencia { get; set; }
-        public virtual DbSet<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }
-        public virtual DbSet<tbCulturas> tbCulturas { get; set; }
-        public virtual DbSet<tbFauna> tbFauna { get; set; }
-        public virtual DbSet<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
-        public virtual DbSet<tbPuntajePorPersona> tbPuntajePorPersona { get; set; }
     }
 }

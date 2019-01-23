@@ -20,14 +20,17 @@ namespace ConoceAColombia.logica.Entidades
             this.tbArquitectura = new HashSet<tbArquitectura>();
             this.tbArtistas = new HashSet<tbArtistas>();
             this.tbCiudadesPrincipales = new HashSet<tbCiudadesPrincipales>();
+            this.tbCulturas = new HashSet<tbCulturas>();
             this.tbEquipos = new HashSet<tbEquipos>();
-            this.tbFlora = new HashSet<tbFlora>();
+            this.tbPersonajeAprendizaje = new HashSet<tbPersonajeAprendizaje>();
+            this.tbDeportista = new HashSet<tbDeportista>();
             this.tbEquipos1 = new HashSet<tbEquipos>();
+            this.tbEstadios = new HashSet<tbEstadios>();
+            this.tbFloraxDepartamento = new HashSet<tbFloraxDepartamento>();
+            this.tbFaunaxDepartamento = new HashSet<tbFaunaxDepartamento>();
             this.tbGastronomia = new HashSet<tbGastronomia>();
             this.tbHistoria = new HashSet<tbHistoria>();
             this.tbMusica = new HashSet<tbMusica>();
-            this.tbCulturas = new HashSet<tbCulturas>();
-            this.tbFaunaxDepartamento = new HashSet<tbFaunaxDepartamento>();
         }
     
         public long depaCodigo { get; set; }
@@ -50,20 +53,26 @@ namespace ConoceAColombia.logica.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbCiudadesPrincipales> tbCiudadesPrincipales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbCulturas> tbCulturas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbEquipos> tbEquipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbFlora> tbFlora { get; set; }
+        public virtual ICollection<tbPersonajeAprendizaje> tbPersonajeAprendizaje { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbDeportista> tbDeportista { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbEquipos> tbEquipos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEstadios> tbEstadios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbGastronomia> tbGastronomia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbHistoria> tbHistoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbMusica> tbMusica { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbCulturas> tbCulturas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
     }
 }

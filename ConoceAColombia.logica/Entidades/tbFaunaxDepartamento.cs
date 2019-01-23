@@ -15,7 +15,6 @@ namespace ConoceAColombia.logica.Entidades
     public partial class tbFaunaxDepartamento
     {
         public long fxdCodigo { get; set; }
-        public string fxdDescripcion { get; set; }
         public long fxdFauna { get; set; }
         public long fxdDepartamento { get; set; }
         public string fxdLatitud { get; set; }

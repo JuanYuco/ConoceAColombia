@@ -19,6 +19,7 @@ namespace ConoceAColombia.logica.Entidades
         {
             this.tbEquipos = new HashSet<tbEquipos>();
             this.tbEquipos1 = new HashSet<tbEquipos>();
+            this.tbEstadios = new HashSet<tbEstadios>();
         }
     
         public long depoCodigo { get; set; }
@@ -28,5 +29,7 @@ namespace ConoceAColombia.logica.Entidades
         public virtual ICollection<tbEquipos> tbEquipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbEquipos> tbEquipos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbEstadios> tbEstadios { get; set; }
     }
 }

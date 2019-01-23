@@ -33,6 +33,8 @@
     <Property Name="artiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="artiLongitud" Type="varchar" MaxLength="50" />
     <Property Name="artiDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="artiDescripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="artiFechaNacimiento" Type="date" />
   </EntityType>
   <EntityType Name="tbCiudadesPrincipales">
     <Key>
@@ -55,6 +57,9 @@
     <Property Name="cultLatitud" Type="varchar" MaxLength="50" />
     <Property Name="cultLongitud" Type="varchar" MaxLength="50" />
     <Property Name="cultDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="cultFechaInicio" Type="varchar" MaxLength="50" />
+    <Property Name="cultFechaFinal" Type="varchar" MaxLength="50" />
+    <Property Name="cultTipo" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="tbDepartamento">
     <Key>
@@ -63,7 +68,7 @@
     <Property Name="depaCodigo" Type="bigint" Nullable="false" />
     <Property Name="depaNombre" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="depaCapital" Type="varchar" MaxLength="30" Nullable="false" />
-    <Property Name="depaGobernador" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="depaGobernador" Type="varchar" MaxLength="100" />
     <Property Name="depaMunicipios" Type="varchar" MaxLength="3" Nullable="false" />
     <Property Name="depaFundacion" Type="date" Nullable="false" />
     <Property Name="depaGentilicio" Type="varchar" MaxLength="30" Nullable="false" />
@@ -79,6 +84,20 @@
     </Key>
     <Property Name="depoCodigo" Type="bigint" Nullable="false" />
     <Property Name="depoNombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbDeportista">
+    <Key>
+      <PropertyRef Name="depoCodigo" />
+    </Key>
+    <Property Name="depoCodigo" Type="bigint" Nullable="false" />
+    <Property Name="depoNombre" Type="varchar" MaxLength="100" />
+    <Property Name="depoDescripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="depoTipo" Type="bigint" Nullable="false" />
+    <Property Name="depoCiudad" Type="varchar" MaxLength="100" />
+    <Property Name="depoLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="depoLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="depoDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="depoFechaNacimiento" Type="date" />
   </EntityType>
   <EntityType Name="tbDificultadJuego">
     <Key>
@@ -102,6 +121,21 @@
     <Property Name="equiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="equiLongitud" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="tbEstadios">
+    <Key>
+      <PropertyRef Name="estaCodigo" />
+    </Key>
+    <Property Name="estaCodigo" Type="bigint" Nullable="false" />
+    <Property Name="estaNombre" Type="varchar" MaxLength="100" />
+    <Property Name="estaDescripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="estaFundacion" Type="varchar" MaxLength="50" />
+    <Property Name="estaCapacidad" Type="varchar" MaxLength="50" />
+    <Property Name="estaCiudad" Type="varchar" MaxLength="100" />
+    <Property Name="estaLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="estaLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="estaDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="estaDeporte" Type="bigint" Nullable="false" />
+  </EntityType>
   <EntityType Name="tbFauna">
     <Key>
       <PropertyRef Name="faunCodigo" />
@@ -116,7 +150,6 @@
       <PropertyRef Name="fxdCodigo" />
     </Key>
     <Property Name="fxdCodigo" Type="bigint" Nullable="false" />
-    <Property Name="fxdDescripcion" Type="varchar" MaxLength="100" />
     <Property Name="fxdFauna" Type="bigint" Nullable="false" />
     <Property Name="fxdDepartamento" Type="bigint" Nullable="false" />
     <Property Name="fxdLatitud" Type="varchar" MaxLength="50" />
@@ -129,12 +162,22 @@
     <Property Name="florCodigo" Type="bigint" Nullable="false" />
     <Property Name="florNomCientifico" Type="varchar" MaxLength="50" />
     <Property Name="florNomComun" Type="varchar" MaxLength="50" />
-    <Property Name="florDescripcion" Type="varchar" MaxLength="200" />
+    <Property Name="florDescripcion" Type="varchar" MaxLength="2000" />
     <Property Name="florAbundancia" Type="varchar" MaxLength="50" />
     <Property Name="florPeriodoFloracion" Type="varchar" MaxLength="50" />
     <Property Name="florLatitud" Type="varchar" MaxLength="50" />
     <Property Name="florLongitud" Type="varchar" MaxLength="50" />
-    <Property Name="depaCodigo" Type="bigint" Nullable="false" />
+    <Property Name="florTipo" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbFloraxDepartamento">
+    <Key>
+      <PropertyRef Name="foxdCodigo" />
+    </Key>
+    <Property Name="foxdCodigo" Type="bigint" Nullable="false" />
+    <Property Name="foxdFlora" Type="bigint" Nullable="false" />
+    <Property Name="foxdDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="foxdLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="foxdLongitud" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tbGastronomia">
     <Key>
@@ -155,13 +198,13 @@
     </Key>
     <Property Name="histCodigo" Type="bigint" Nullable="false" />
     <Property Name="histDescripcion" Type="varchar" MaxLength="500" />
-    <Property Name="histTipo" Type="bigint" />
     <Property Name="histFechaInicio" Type="date" />
     <Property Name="histFechaFin" Type="date" />
     <Property Name="histDepartamento" Type="bigint" />
     <Property Name="histLatitud" Type="varchar" MaxLength="50" />
     <Property Name="histLongitud" Type="varchar" MaxLength="50" />
     <Property Name="histNombre" Type="varchar" MaxLength="100" />
+    <Property Name="histPeriodo" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="tbMusica">
     <Key>
@@ -174,6 +217,27 @@
     <Property Name="musiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="musiLongitud" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="tbPeriodoHistoria">
+    <Key>
+      <PropertyRef Name="pehiCodigo" />
+    </Key>
+    <Property Name="pehiCodigo" Type="bigint" Nullable="false" />
+    <Property Name="pehiDescripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbPersonajeAprendizaje">
+    <Key>
+      <PropertyRef Name="apreCodigo" />
+    </Key>
+    <Property Name="apreCodigo" Type="bigint" Nullable="false" />
+    <Property Name="apreNombre" Type="varchar" MaxLength="100" />
+    <Property Name="apreDescripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="apreTipo" Type="bigint" Nullable="false" />
+    <Property Name="apreCiudad" Type="varchar" MaxLength="100" />
+    <Property Name="apreLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="apreLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="apreDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="apreFechaNacimiento" Type="date" />
+  </EntityType>
   <EntityType Name="tbPersonajesHistoricos">
     <Key>
       <PropertyRef Name="pehiCodigo" />
@@ -182,7 +246,7 @@
     <Property Name="pehiNombre" Type="varchar" MaxLength="100" />
     <Property Name="pehiNacimiento" Type="date" />
     <Property Name="pehiCiudad" Type="varchar" MaxLength="100" />
-    <Property Name="pehiDescripcion" Type="varchar" MaxLength="500" />
+    <Property Name="pehiDescripcion" Type="varchar" MaxLength="5000" />
     <Property Name="pehiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="pehiLongitud" Type="varchar" MaxLength="50" />
   </EntityType>
@@ -193,6 +257,20 @@
     <Property Name="pxhPersonaje" Type="bigint" />
     <Property Name="pxhHistoria" Type="bigint" />
     <Property Name="pxhCodigo" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbPolitico">
+    <Key>
+      <PropertyRef Name="poliCodigo" />
+    </Key>
+    <Property Name="poliCodigo" Type="bigint" Nullable="false" />
+    <Property Name="poliNombre" Type="varchar" MaxLength="100" />
+    <Property Name="poliDescripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="poliTipo" Type="bigint" Nullable="false" />
+    <Property Name="poliCiudad" Type="varchar" MaxLength="100" />
+    <Property Name="poliLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="poliLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="poliDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="poliFechaNacimiento" Type="date" />
   </EntityType>
   <EntityType Name="tbPreguntasJuego">
     <Key>
@@ -228,6 +306,13 @@
     <Property Name="tejuCodigo" Type="bigint" Nullable="false" />
     <Property Name="tejuDescripcion" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="tbTipoCultura">
+    <Key>
+      <PropertyRef Name="ticuCodigo" />
+    </Key>
+    <Property Name="ticuCodigo" Type="bigint" Nullable="false" />
+    <Property Name="ticuDescripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="tbTipodeArquitectura">
     <Key>
       <PropertyRef Name="tiarCodigo" />
@@ -256,12 +341,26 @@
     <Property Name="tihiCodigo" Type="bigint" Nullable="false" />
     <Property Name="tihiDescripcion" Type="varchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="tbTipoDeportista">
+    <Key>
+      <PropertyRef Name="tideCodigo" />
+    </Key>
+    <Property Name="tideCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tideDescripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="tbTipoFauna">
     <Key>
       <PropertyRef Name="tifaCodigo" />
     </Key>
     <Property Name="tifaCodigo" Type="bigint" Nullable="false" />
     <Property Name="tifaDescripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbTipoFlora">
+    <Key>
+      <PropertyRef Name="tiflCodigo" />
+    </Key>
+    <Property Name="tiflCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tiflDescripcion" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbTipoIncidente">
     <Key>
@@ -276,6 +375,20 @@
     </Key>
     <Property Name="tijuCodigo" Type="bigint" Nullable="false" />
     <Property Name="tijuDescripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbTipoPersonajeAprendizaje">
+    <Key>
+      <PropertyRef Name="tiapCodigo" />
+    </Key>
+    <Property Name="tiapCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tiapDescripcion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbTipoPolitico">
+    <Key>
+      <PropertyRef Name="tipoCodigo" />
+    </Key>
+    <Property Name="tipoCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tipoDescripcion" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbTipoUsuario">
     <Key>
@@ -360,6 +473,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_apreDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbPersonajeAprendizaje" Type="Self.tbPersonajeAprendizaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajeAprendizaje">
+        <PropertyRef Name="apreDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_apreTipo">
+    <End Role="tbTipoPersonajeAprendizaje" Type="Self.tbTipoPersonajeAprendizaje" Multiplicity="1" />
+    <End Role="tbPersonajeAprendizaje" Type="Self.tbPersonajeAprendizaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoPersonajeAprendizaje">
+        <PropertyRef Name="tiapCodigo" />
+      </Principal>
+      <Dependent Role="tbPersonajeAprendizaje">
+        <PropertyRef Name="apreTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_arquDepartamento">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
     <End Role="tbArquitectura" Type="Self.tbArquitectura" Multiplicity="*" />
@@ -432,15 +569,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_depaCodigo">
+  <Association Name="FK_culTipo">
+    <End Role="tbTipoCultura" Type="Self.tbTipoCultura" Multiplicity="1" />
+    <End Role="tbCulturas" Type="Self.tbCulturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoCultura">
+        <PropertyRef Name="ticuCodigo" />
+      </Principal>
+      <Dependent Role="tbCulturas">
+        <PropertyRef Name="cultTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deporDepartamento">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
-    <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="*" />
+    <End Role="tbDeportista" Type="Self.tbDeportista" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tbDepartamento">
         <PropertyRef Name="depaCodigo" />
       </Principal>
-      <Dependent Role="tbFlora">
-        <PropertyRef Name="depaCodigo" />
+      <Dependent Role="tbDeportista">
+        <PropertyRef Name="depoDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_deporTipo">
+    <End Role="tbTipoDeportista" Type="Self.tbTipoDeportista" Multiplicity="1" />
+    <End Role="tbDeportista" Type="Self.tbDeportista" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoDeportista">
+        <PropertyRef Name="tideCodigo" />
+      </Principal>
+      <Dependent Role="tbDeportista">
+        <PropertyRef Name="depoTipo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -468,6 +629,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_estaDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbEstadios" Type="Self.tbEstadios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbEstadios">
+        <PropertyRef Name="estaDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_estaDeporte">
+    <End Role="tbDeportes" Type="Self.tbDeportes" Multiplicity="1" />
+    <End Role="tbEstadios" Type="Self.tbEstadios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDeportes">
+        <PropertyRef Name="depoCodigo" />
+      </Principal>
+      <Dependent Role="tbEstadios">
+        <PropertyRef Name="estaDeporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_faunTipo">
     <End Role="tbTipoFauna" Type="Self.tbTipoFauna" Multiplicity="1" />
     <End Role="tbFauna" Type="Self.tbFauna" Multiplicity="*" />
@@ -477,6 +662,42 @@
       </Principal>
       <Dependent Role="tbFauna">
         <PropertyRef Name="faunTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_florTipo">
+    <End Role="tbTipoFlora" Type="Self.tbTipoFlora" Multiplicity="1" />
+    <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoFlora">
+        <PropertyRef Name="tiflCodigo" />
+      </Principal>
+      <Dependent Role="tbFlora">
+        <PropertyRef Name="florTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_foxdDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbFloraxDepartamento" Type="Self.tbFloraxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbFloraxDepartamento">
+        <PropertyRef Name="foxdDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_foxdFlora">
+    <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="1" />
+    <End Role="tbFloraxDepartamento" Type="Self.tbFloraxDepartamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbFlora">
+        <PropertyRef Name="florCodigo" />
+      </Principal>
+      <Dependent Role="tbFloraxDepartamento">
+        <PropertyRef Name="foxdFlora" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -540,15 +761,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_histTipo">
-    <End Role="tbTipodeHistoria" Type="Self.tbTipodeHistoria" Multiplicity="0..1" />
+  <Association Name="FK_histPeriodo">
+    <End Role="tbPeriodoHistoria" Type="Self.tbPeriodoHistoria" Multiplicity="1" />
     <End Role="tbHistoria" Type="Self.tbHistoria" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tbTipodeHistoria">
-        <PropertyRef Name="tihiCodigo" />
+      <Principal Role="tbPeriodoHistoria">
+        <PropertyRef Name="pehiCodigo" />
       </Principal>
       <Dependent Role="tbHistoria">
-        <PropertyRef Name="histTipo" />
+        <PropertyRef Name="histPeriodo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -609,6 +830,18 @@
       </Principal>
       <Dependent Role="tbMusica">
         <PropertyRef Name="musiDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_poliTipo">
+    <End Role="tbTipoPolitico" Type="Self.tbTipoPolitico" Multiplicity="1" />
+    <End Role="tbPolitico" Type="Self.tbPolitico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoPolitico">
+        <PropertyRef Name="tipoCodigo" />
+      </Principal>
+      <Dependent Role="tbPolitico">
+        <PropertyRef Name="poliTipo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -692,26 +925,37 @@
     <EntitySet Name="tbCulturas" EntityType="Self.tbCulturas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDepartamento" EntityType="Self.tbDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDeportes" EntityType="Self.tbDeportes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbDeportista" EntityType="Self.tbDeportista" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbDificultadJuego" EntityType="Self.tbDificultadJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbEquipos" EntityType="Self.tbEquipos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbEstadios" EntityType="Self.tbEstadios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFauna" EntityType="Self.tbFauna" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFaunaxDepartamento" EntityType="Self.tbFaunaxDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbFlora" EntityType="Self.tbFlora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbFloraxDepartamento" EntityType="Self.tbFloraxDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbMusica" EntityType="Self.tbMusica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPeriodoHistoria" EntityType="Self.tbPeriodoHistoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPersonajeAprendizaje" EntityType="Self.tbPersonajeAprendizaje" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersonajesHistoricos" EntityType="Self.tbPersonajesHistoricos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersonajesxHistoria" EntityType="Self.tbPersonajesxHistoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPolitico" EntityType="Self.tbPolitico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPreguntasJuego" EntityType="Self.tbPreguntasJuego" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPuntajePorPersona" EntityType="Self.tbPuntajePorPersona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTematicaJuego" EntityType="Self.tbTematicaJuego" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoCultura" EntityType="Self.tbTipoCultura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArquitectura" EntityType="Self.tbTipodeArquitectura" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeArtista" EntityType="Self.tbTipodeArtista" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeGastronomia" EntityType="Self.tbTipodeGastronomia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipodeHistoria" EntityType="Self.tbTipodeHistoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoDeportista" EntityType="Self.tbTipoDeportista" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoFauna" EntityType="Self.tbTipoFauna" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoFlora" EntityType="Self.tbTipoFlora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoIncidente" EntityType="Self.tbTipoIncidente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoJuego" EntityType="Self.tbTipoJuego" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoPersonajeAprendizaje" EntityType="Self.tbTipoPersonajeAprendizaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoPolitico" EntityType="Self.tbTipoPolitico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="incidencia" EntityType="Self.incidencia" Schema="PQRS" store:Type="Tables" />
@@ -725,6 +969,14 @@
     <AssociationSet Name="depoCodigo" Association="Self.depoCodigo">
       <End Role="tbDeportes" EntitySet="tbDeportes" />
       <End Role="tbEquipos" EntitySet="tbEquipos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_apreDepartamento" Association="Self.FK_apreDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbPersonajeAprendizaje" EntitySet="tbPersonajeAprendizaje" />
+    </AssociationSet>
+    <AssociationSet Name="FK_apreTipo" Association="Self.FK_apreTipo">
+      <End Role="tbTipoPersonajeAprendizaje" EntitySet="tbTipoPersonajeAprendizaje" />
+      <End Role="tbPersonajeAprendizaje" EntitySet="tbPersonajeAprendizaje" />
     </AssociationSet>
     <AssociationSet Name="FK_arquDepartamento" Association="Self.FK_arquDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
@@ -750,9 +1002,17 @@
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbCulturas" EntitySet="tbCulturas" />
     </AssociationSet>
-    <AssociationSet Name="FK_depaCodigo" Association="Self.FK_depaCodigo">
+    <AssociationSet Name="FK_culTipo" Association="Self.FK_culTipo">
+      <End Role="tbTipoCultura" EntitySet="tbTipoCultura" />
+      <End Role="tbCulturas" EntitySet="tbCulturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deporDepartamento" Association="Self.FK_deporDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
-      <End Role="tbFlora" EntitySet="tbFlora" />
+      <End Role="tbDeportista" EntitySet="tbDeportista" />
+    </AssociationSet>
+    <AssociationSet Name="FK_deporTipo" Association="Self.FK_deporTipo">
+      <End Role="tbTipoDeportista" EntitySet="tbTipoDeportista" />
+      <End Role="tbDeportista" EntitySet="tbDeportista" />
     </AssociationSet>
     <AssociationSet Name="FK_equiDepartamento" Association="Self.FK_equiDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
@@ -762,9 +1022,29 @@
       <End Role="tbDeportes" EntitySet="tbDeportes" />
       <End Role="tbEquipos" EntitySet="tbEquipos" />
     </AssociationSet>
+    <AssociationSet Name="FK_estaDepartamento" Association="Self.FK_estaDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbEstadios" EntitySet="tbEstadios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_estaDeporte" Association="Self.FK_estaDeporte">
+      <End Role="tbDeportes" EntitySet="tbDeportes" />
+      <End Role="tbEstadios" EntitySet="tbEstadios" />
+    </AssociationSet>
     <AssociationSet Name="FK_faunTipo" Association="Self.FK_faunTipo">
       <End Role="tbTipoFauna" EntitySet="tbTipoFauna" />
       <End Role="tbFauna" EntitySet="tbFauna" />
+    </AssociationSet>
+    <AssociationSet Name="FK_florTipo" Association="Self.FK_florTipo">
+      <End Role="tbTipoFlora" EntitySet="tbTipoFlora" />
+      <End Role="tbFlora" EntitySet="tbFlora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_foxdDepartamento" Association="Self.FK_foxdDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_foxdFlora" Association="Self.FK_foxdFlora">
+      <End Role="tbFlora" EntitySet="tbFlora" />
+      <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
     </AssociationSet>
     <AssociationSet Name="FK_fxdDepartamento" Association="Self.FK_fxdDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
@@ -786,8 +1066,8 @@
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbHistoria" EntitySet="tbHistoria" />
     </AssociationSet>
-    <AssociationSet Name="FK_histTipo" Association="Self.FK_histTipo">
-      <End Role="tbTipodeHistoria" EntitySet="tbTipodeHistoria" />
+    <AssociationSet Name="FK_histPeriodo" Association="Self.FK_histPeriodo">
+      <End Role="tbPeriodoHistoria" EntitySet="tbPeriodoHistoria" />
       <End Role="tbHistoria" EntitySet="tbHistoria" />
     </AssociationSet>
     <AssociationSet Name="FK_incidencia_comentarios_incidencia" Association="Self.FK_incidencia_comentarios_incidencia">
@@ -809,6 +1089,10 @@
     <AssociationSet Name="FK_musiDepartamento" Association="Self.FK_musiDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />
       <End Role="tbMusica" EntitySet="tbMusica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_poliTipo" Association="Self.FK_poliTipo">
+      <End Role="tbTipoPolitico" EntitySet="tbTipoPolitico" />
+      <End Role="tbPolitico" EntitySet="tbPolitico" />
     </AssociationSet>
     <AssociationSet Name="FK_prjuDificultad" Association="Self.FK_prjuDificultad">
       <End Role="tbDificultadJuego" EntitySet="tbDificultadJuego" />

@@ -66,6 +66,8 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                 String stMensaje = String.Empty;
                 if (String.IsNullOrEmpty(txtCodigo.Text)) stMensaje += "Ingrese Codigo, ";
                 if (String.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese Nombre, ";
+                if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
+                if (String.IsNullOrEmpty(txtFechaNacimiento.Text)) stMensaje += "Ingrese Fecha de Nacimiento, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
@@ -77,6 +79,8 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                     lgCodigo = Convert.ToInt64(txtCodigo.Text),
                     clsDepartamentos = new logica.Models.clsDepartamentos { inCodigo = Convert.ToInt64(ddlDepartamento.SelectedValue) },
                     stNombre = txtNombre.Text,
+                    stDescripcion = txtDescripcion.Text,
+                    stFechaNacimiento = txtFechaNacimiento.Text,
                     stCiudad = txtCiudad.Text,
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
@@ -87,7 +91,7 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                 if (String.IsNullOrEmpty(lblOpcion.Text)) lblOpcion.Text = "1";
 
                 ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obArtistasControllers.setAdministarArtistasController(clsArtistas, Convert.ToInt32(lblOpcion.Text)) + "')</Script>");
-                lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtDescripcion.Text = txtFechaNacimiento.Text= txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
                 getArtistas();
             }
             catch (Exception ex) { ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> Swal('" + ex.Message + "')</Script>"); }
@@ -96,7 +100,7 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+            lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtDescripcion.Text = txtFechaNacimiento.Text = txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
         }
 
         protected void gvwDatos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -109,9 +113,11 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                     lblOpcion.Text = "2";
                     txtCodigo.Text = ((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text;
                     txtNombre.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[1].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[1].Text;
-                    txtCiudad.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[3].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[3].Text;
-                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[4].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[4].Text;
-                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[5].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[5].Text;
+                    txtDescripcion.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[2].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[2].Text;
+                    txtFechaNacimiento.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[3].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[3].Text;
+                    txtCiudad.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[5].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[5].Text;
+                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[6].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[6].Text;
+                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[7].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[7].Text;
 
 
 
@@ -124,6 +130,8 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                         lgCodigo = Convert.ToInt32(((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text),
                         clsDepartamentos = new logica.Models.clsDepartamentos { inCodigo = 0 },
                         stNombre = String.Empty,
+                        stDescripcion = String.Empty,
+                        stFechaNacimiento = String.Empty,
                         stCiudad = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
@@ -136,7 +144,7 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
 
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('MENSAJE!', '" + obArtistasControllers.setAdministarArtistasController(obclsArtistas, Convert.ToInt32(lblOpcion.Text)) + "!', 'success')</Script>");
 
-                    lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                    lblOpcion.Text = txtCodigo.Text = txtNombre.Text = txtDescripcion.Text = txtFechaNacimiento.Text = txtCiudad.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
                     getArtistas();
 
                 }

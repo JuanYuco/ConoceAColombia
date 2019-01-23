@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Población">
-                        <a class="nav-link" href="../../Views/Mini Juego/Mini Juego.aspx">
+                        <a class="nav-link" href="../../Views/MenuJuego/MenuJuego.aspx">
                             <i class="fa fa-fw fa-gamepad"></i>
                             <span class="nav-link-text">Mini Juego</span>
                         </a>

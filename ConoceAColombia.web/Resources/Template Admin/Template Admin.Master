@@ -173,7 +173,7 @@
 
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Fauna">
                         <a class="nav-link nav-link-collapse collapsed" href="#FaunaComponentes" data-toggle="collapse" data-parent="#exampleAccordion">
-                            <i class="fa fa-fw fa-futbol-o"></i>
+                            <i class="fa fa-fw fa-paw"></i>
                             <span class="nav-link-text">Fauna</span>
                         </a>
                         <ul class="sidenav-second-level collapse" id="FaunaComponentes">              
@@ -191,7 +191,7 @@
 
                     <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Culturas">
                         <a class="nav-link" href="../../Views/CulturasAdmin/CulturasAdmin.aspx">
-                            <i class="fa fa-fw fa-gamepad"></i>
+                            <i class="fa fa-fw fa-handshake-o"></i>
                             <span class="nav-link-text">Culturas</span>
                         </a>
                     </li>

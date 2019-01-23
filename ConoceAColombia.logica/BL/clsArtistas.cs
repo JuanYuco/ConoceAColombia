@@ -135,6 +135,7 @@ namespace ConoceAColombia.logica.BL
 
                 _SqlCommand.Parameters.Add(new SqlParameter("@dCodigo", obclsArtistas.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dNombre", obclsArtistas.stNombre));
+                _SqlCommand.Parameters.Add(new SqlParameter("@dDescripcion", obclsArtistas.stDescripcion));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dTipo", obclsArtistas.clsTipodeArtista.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dCiudad", obclsArtistas.stCiudad));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLatitud", obclsArtistas.stLatitud));

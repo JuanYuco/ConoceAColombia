@@ -10,6 +10,8 @@ namespace ConoceAColombia.logica.Models
     {
         public long lgCodigo { get; set; }
         public  String stNombre { get; set; }
+        public String stDescripcion { get; set; }
+        public String stFechaNacimiento { get; set; }
         public clsTipodeArtista clsTipodeArtista { get; set; }
         public String stCiudad { get; set; }
         public String stLatitud { get; set; }

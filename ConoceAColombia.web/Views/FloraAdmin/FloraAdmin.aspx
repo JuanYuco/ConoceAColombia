@@ -110,8 +110,8 @@
                             <asp:BoundField HeaderText="Descripcion" DataField="stDescripcion" />
 							<asp:BoundField HeaderText="Abundancia" DataField="stAbundancia" />
                             <asp:BoundField HeaderText="Periodo de Floracion" DataField="stPeriodoFloracion" />
-                            <asp:BoundField HeaderText="Latitud" DataField="stLongitud" />
-                            <asp:BoundField HeaderText="Longitud" DataField="stLatitud"/>
+                            <asp:BoundField HeaderText="Latitud" DataField="stLatitud" />
+                            <asp:BoundField HeaderText="Longitud" DataField="stLongitud"/>
                             <asp:BoundField HeaderText="Codigo Departamento" DataField="obclsDepartamentos.inCodigo"/>
                             <asp:BoundField HeaderText="Nombre Departamento" DataField="obclsDepartamentos.stNombre"/>
 

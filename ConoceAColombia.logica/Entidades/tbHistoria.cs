@@ -22,16 +22,16 @@ namespace ConoceAColombia.logica.Entidades
     
         public long histCodigo { get; set; }
         public string histDescripcion { get; set; }
-        public Nullable<long> histTipo { get; set; }
         public Nullable<System.DateTime> histFechaInicio { get; set; }
         public Nullable<System.DateTime> histFechaFin { get; set; }
         public Nullable<long> histDepartamento { get; set; }
         public string histLatitud { get; set; }
         public string histLongitud { get; set; }
         public string histNombre { get; set; }
+        public long histPeriodo { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
-        public virtual tbTipodeHistoria tbTipodeHistoria { get; set; }
+        public virtual tbPeriodoHistoria tbPeriodoHistoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }
     }

@@ -4,69 +4,90 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6c26b7452fe240cf975e23aa820903f3" Name="Diagram1">
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArquitectura" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArtistas" Width="1.5" PointX="6" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbCiudadesPrincipales" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDepartamento" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDeportes" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEquipos" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFlora" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbGastronomia" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbHistoria" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbMusica" Width="1.5" PointX="3" PointY="37.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPersonajesHistoricos" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArquitectura" Width="1.5" PointX="0.75" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArtista" Width="1.5" PointX="3.75" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeGastronomia" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeHistoria" Width="1.5" PointX="3.75" PointY="30.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoUsuario" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbUsuarios" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+      <Diagram DiagramId="e25ba8e6830d452d8230884476bdabad" Name="Diagram1">
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArquitectura" Width="1.5" PointX="3" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbArtistas" Width="1.5" PointX="6" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbCiudadesPrincipales" Width="1.5" PointX="3" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbCulturas" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDepartamento" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDeportes" Width="1.5" PointX="6.75" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDeportista" Width="1.5" PointX="6" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDificultadJuego" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEquipos" Width="1.5" PointX="6" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEstadios" Width="1.5" PointX="9" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFauna" Width="1.5" PointX="6.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFaunaxDepartamento" Width="1.5" PointX="9" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFlora" Width="1.5" PointX="6.75" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFloraxDepartamento" Width="1.5" PointX="9" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbGastronomia" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbHistoria" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbMusica" Width="1.5" PointX="3" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPeriodoHistoria" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPersonajeAprendizaje" Width="1.5" PointX="9" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPersonajesHistoricos" Width="1.5" PointX="9" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPersonajesxHistoria" Width="1.5" PointX="11.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPolitico" Width="1.5" PointX="13" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPreguntasJuego" Width="1.5" PointX="8" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPuntajePorPersona" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTematicaJuego" Width="1.5" PointX="5.75" PointY="44.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoCultura" Width="1.5" PointX="0.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArquitectura" Width="1.5" PointX="0.75" PointY="32.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeArtista" Width="1.5" PointX="3.75" PointY="36.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeGastronomia" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipodeHistoria" Width="1.5" PointX="2.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoDeportista" Width="1.5" PointX="3.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoFauna" Width="1.5" PointX="4.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoFlora" Width="1.5" PointX="4.5" PointY="40.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoIncidente" Width="1.5" PointX="8.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoJuego" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoPersonajeAprendizaje" Width="1.5" PointX="6.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoPolitico" Width="1.5" PointX="10.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoUsuario" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbUsuarios" Width="1.5" PointX="10" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.incidencia" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.incidencia_comentarios" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEstadoIncidente" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.Tipo_Incidencia" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_arquDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_arquTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_artiDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_artiGenero" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_ciprDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_cultDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_culTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.depaCodigo" ManuallyRouted="false" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_depaCodigo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_apreDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_deporDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_equiDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_estaDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdDepartamento" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_histDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_musiDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.depoCodigo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_equiDeporte" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_estaDeporte" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_deporTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuDificultad" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_faunTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdFauna" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_florTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdFlora" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastTipo" ManuallyRouted="false" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_histTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_histPeriodo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_pxhHistoria" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_apreTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_pxhPersonaje" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_poliTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuTematica" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuTipoJuego" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_usuaTipo" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoFauna" Width="1.5" PointX="6.375" PointY="5.375" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoIncidente" Width="1.5" PointX="3.375" PointY="4.75" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbDificultadJuego" Width="1.5" PointX="8.375" PointY="12.875" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPreguntasJuego" Width="1.5" PointX="10.625" PointY="9" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTematicaJuego" Width="1.5" PointX="8.375" PointY="10.125" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoJuego" Width="1.5" PointX="8.375" PointY="15.25" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuDificultad" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuTematica" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuTipoJuego" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.incidencia" Width="1.5" PointX="13.625" PointY="1" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.incidencia_comentarios" Width="1.5" PointX="15.875" PointY="1.75" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEstadoIncidente" Width="1.5" PointX="11.375" PointY="2" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.Tipo_Incidencia" Width="1.5" PointX="11.375" PointY="6.125" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPersonajesxHistoria" Width="1.5" PointX="11.25" PointY="14.375" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_pxhHistoria" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_pxhPersonaje" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbCulturas" Width="1.5" PointX="3" PointY="33.625" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_cultDepartamento" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFauna" Width="1.5" PointX="6.75" PointY="23.375" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFaunaxDepartamento" Width="1.5" PointX="9" PointY="18.25" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdDepartamento" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_faunTipo" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdFauna" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbPuntajePorPersona" Width="1.5" PointX="0.75" PointY="7.75" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_comentarios_incidencia" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" ManuallyRouted="false" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

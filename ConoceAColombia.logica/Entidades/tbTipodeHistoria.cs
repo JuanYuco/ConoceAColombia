@@ -14,16 +14,7 @@ namespace ConoceAColombia.logica.Entidades
     
     public partial class tbTipodeHistoria
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbTipodeHistoria()
-        {
-            this.tbHistoria = new HashSet<tbHistoria>();
-        }
-    
         public long tihiCodigo { get; set; }
         public string tihiDescripcion { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbHistoria> tbHistoria { get; set; }
     }
 }

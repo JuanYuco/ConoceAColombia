@@ -81,6 +81,7 @@
     <Compile Include="BL\clsCulturas.cs" />
     <Compile Include="BL\clsDepartamentos.cs" />
     <Compile Include="BL\clsDeportes.cs" />
+    <Compile Include="BL\clsDeportista.cs" />
     <Compile Include="BL\clsDificultadJuego.cs" />
     <Compile Include="BL\clsEmpleados.cs" />
     <Compile Include="BL\clsEquipo.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="BL\clsMusica.cs" />
     <Compile Include="BL\clsPersonajesHistoricos.cs" />
     <Compile Include="BL\clsPersonajesxHistoria.cs" />
+    <Compile Include="BL\clsPolitico.cs" />
     <Compile Include="BL\clsPreguntasJuego.cs" />
     <Compile Include="BL\clsPuntajePorPersona.cs" />
     <Compile Include="BL\clsRecuperarPassword.cs" />
@@ -102,8 +104,10 @@
     <Compile Include="BL\clsTipodeArtista.cs" />
     <Compile Include="BL\clsTipodeGastronomia.cs" />
     <Compile Include="BL\clsTipodeHistoria.cs" />
+    <Compile Include="BL\clsTipoDeportista.cs" />
     <Compile Include="BL\clsTipoFauna.cs" />
     <Compile Include="BL\clsTipoJuego.cs" />
+    <Compile Include="BL\clsTipoPolitico.cs" />
     <Compile Include="BL\clsUsuarios.cs" />
     <Compile Include="Entidades\incidencia.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -147,10 +151,16 @@
     <Compile Include="Entidades\tbDeportes.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbDeportista.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbDificultadJuego.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbEquipos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbEstadios.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbEstadoIncidente.cs">
@@ -165,6 +175,9 @@
     <Compile Include="Entidades\tbFlora.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbFloraxDepartamento.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbGastronomia.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -174,10 +187,19 @@
     <Compile Include="Entidades\tbMusica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbPeriodoHistoria.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbPersonajeAprendizaje.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbPersonajesHistoricos.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbPersonajesxHistoria.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbPolitico.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbPreguntasJuego.cs">
@@ -187,6 +209,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTematicaJuego.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipoCultura.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipodeArquitectura.cs">
@@ -201,13 +226,25 @@
     <Compile Include="Entidades\tbTipodeHistoria.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbTipoDeportista.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbTipoFauna.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipoFlora.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipoIncidente.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipoJuego.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipoPersonajeAprendizaje.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\tbTipoPolitico.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Entidades\tbTipoUsuario.cs">
@@ -229,6 +266,7 @@
     <Compile Include="Models\clsCulturas.cs" />
     <Compile Include="Models\clsDepartamentos.cs" />
     <Compile Include="Models\clsDeportes.cs" />
+    <Compile Include="Models\clsDeportista.cs" />
     <Compile Include="Models\clsDicultadJuego.cs" />
     <Compile Include="Models\clsEquipo.cs" />
     <Compile Include="Models\clsFauna.cs" />
@@ -238,14 +276,17 @@
     <Compile Include="Models\clsHistoria.cs" />
     <Compile Include="Models\clsMusica.cs" />
     <Compile Include="Models\clsPersonajesHistoricos.cs" />
+    <Compile Include="Models\clsPolitico.cs" />
     <Compile Include="Models\clsPreguntasJuego.cs" />
     <Compile Include="Models\clsPuntajePorPersona.cs" />
     <Compile Include="Models\clsTematicasJuego.cs" />
     <Compile Include="Models\clsTipodeArquitectura.cs" />
     <Compile Include="Models\clsTipodeArtista.cs" />
     <Compile Include="Models\clsTipodeGastronomia.cs" />
+    <Compile Include="Models\clsTipoDeportista.cs" />
     <Compile Include="Models\clsTipoHistoria.cs" />
     <Compile Include="Models\clsTipoJuego.cs" />
+    <Compile Include="Models\clsTipoPolitico.cs" />
     <Compile Include="Models\clsUsuarios.cs" />
     <Compile Include="Models\clsPersonajesxHistoria.cs" />
     <Compile Include="Models\clsTipoFauna.cs" />
@@ -295,24 +336,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Entidades\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Content\bootstrap-grid.css.map" />
     <None Include="Content\bootstrap-grid.min.css.map" />
     <None Include="Content\bootstrap-reboot.css.map" />
     <None Include="Content\bootstrap-reboot.min.css.map" />
     <None Include="Content\bootstrap.css.map" />
     <None Include="Content\bootstrap.min.css.map" />
-    <None Include="Entidades\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </None>
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Entidades\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entidades\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Scripts\bootstrap.bundle.js.map" />
     <None Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -340,5 +381,6 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
