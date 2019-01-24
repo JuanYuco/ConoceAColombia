@@ -321,9 +321,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Views\AprendizajeAdmin\AprendizajeAdmin.aspx" />
     <Content Include="Views\CulturasAdmin\CulturasAdmin.aspx" />
     <Content Include="Views\DeportistaAdmin\DeportistaAdmin.aspx" />
     <Content Include="Views\PoliticoAdmin\PoliticoAdmin.aspx" />
+    <Content Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx" />
     <Content Include="Views\TipoDeportistaAdmin\TipoDeportistaAdmin.aspx" />
     <Content Include="Views\DificultadJuego\DificultadJuego.aspx" />
     <Content Include="Views\Empleados\Empleados.aspx" />
@@ -429,6 +431,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AprendizajeControllers.cs" />
     <Compile Include="Controllers\ArquitecturaControllers.cs" />
     <Compile Include="Controllers\ArtistasControllers.cs" />
     <Compile Include="Controllers\CiudadesPrincipalesControllers.cs" />
@@ -454,6 +457,7 @@
     <Compile Include="Controllers\PuntajePorPersonasControllers.cs" />
     <Compile Include="Controllers\RecuperarPasswordControllers.cs" />
     <Compile Include="Controllers\TematicasControllers.cs" />
+    <Compile Include="Controllers\TipoAprendizajeControllers.cs" />
     <Compile Include="Controllers\TipodeArquitecturaControllers.cs" />
     <Compile Include="Controllers\TipodeArtistaControllers.cs" />
     <Compile Include="Controllers\TipodeGastronomiaControllers.cs" />
@@ -492,6 +496,13 @@
     <Compile Include="Services\wsConsulta.asmx.cs">
       <DependentUpon>wsConsulta.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\AprendizajeAdmin\AprendizajeAdmin.aspx.cs">
+      <DependentUpon>AprendizajeAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AprendizajeAdmin\AprendizajeAdmin.aspx.designer.cs">
+      <DependentUpon>AprendizajeAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Arquitectura Admin\Arquitectura Admin.aspx.cs">
       <DependentUpon>Arquitectura Admin.aspx</DependentUpon>
@@ -548,6 +559,13 @@
     </Compile>
     <Compile Include="Views\PoliticoAdmin\PoliticoAdmin.aspx.designer.cs">
       <DependentUpon>PoliticoAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx.cs">
+      <DependentUpon>TipoAprendizajeAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx.designer.cs">
+      <DependentUpon>TipoAprendizajeAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TipoDeportistaAdmin\TipoDeportistaAdmin.aspx.cs">
       <DependentUpon>TipoDeportistaAdmin.aspx</DependentUpon>

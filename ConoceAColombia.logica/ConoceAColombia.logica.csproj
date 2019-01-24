@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\clsAprendizaje.cs" />
     <Compile Include="BL\clsArquitectura.cs" />
     <Compile Include="BL\clsArtistas.cs" />
     <Compile Include="BL\clsCiudadesPrincipales.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="BL\clsRecuperarPassword.cs" />
     <Compile Include="BL\clsSuma.cs" />
     <Compile Include="BL\clsTematicasJuego.cs" />
+    <Compile Include="BL\clsTipoAprendizaje.cs" />
     <Compile Include="BL\clsTipodeArquitectura.cs" />
     <Compile Include="BL\clsTipodeArtista.cs" />
     <Compile Include="BL\clsTipodeGastronomia.cs" />
@@ -259,6 +261,7 @@
     <Compile Include="Mapping\DepartamentosMap.cs" />
     <Compile Include="Mapping\DeportesMap.cs" />
     <Compile Include="Mapping\EquipoMap.cs" />
+    <Compile Include="Models\clsAprendizaje.cs" />
     <Compile Include="Models\clsArquitectura.cs" />
     <Compile Include="Models\clsArtistas.cs" />
     <Compile Include="Models\clsCiudadesPrincipales.cs" />
@@ -280,6 +283,7 @@
     <Compile Include="Models\clsPreguntasJuego.cs" />
     <Compile Include="Models\clsPuntajePorPersona.cs" />
     <Compile Include="Models\clsTematicasJuego.cs" />
+    <Compile Include="Models\clsTipoAprendizaje.cs" />
     <Compile Include="Models\clsTipodeArquitectura.cs" />
     <Compile Include="Models\clsTipodeArtista.cs" />
     <Compile Include="Models\clsTipodeGastronomia.cs" />
