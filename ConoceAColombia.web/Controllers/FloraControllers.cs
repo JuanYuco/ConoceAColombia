@@ -8,7 +8,7 @@ namespace ConoceAColombia.web.Controllers
 {
     public class FloraControllers
     {
-        public List<logica.Models.clsFlora> getFloraController()
+        public List<logica.Models.clsFlora> getFloraWsController()
         {
             try
             {
@@ -27,12 +27,25 @@ namespace ConoceAColombia.web.Controllers
         }
 
 
-        public string addFlora(logica.Models.clsFlora obclsFloraModels)
+        public List<logica.Models.clsFlora> getFlora()
         {
             try
             {
                 logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
-                return obclsFlora.addFlora(obclsFloraModels);
+                return obclsFlora.getFlora();
+            }catch(Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
+        public string insertFlora(logica.Models.clsFlora obclsFloraModels)
+        {
+            try
+            {
+                logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
+                return obclsFlora.insertFlora(obclsFloraModels);
             }catch(Exception ew)
             {
                 throw ew;
@@ -65,12 +78,12 @@ namespace ConoceAColombia.web.Controllers
         }
 
 
-        public List<logica.Models.clsDepartamentos> getDepartamentos()
+        public List<logica.Models.clsTipoFlora> getTipoFlora()
         {
             try
             {
                 logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
-                return obclsFlora.getDepartamentos();
+                return obclsFlora.getTipoFlora();
             }catch(Exception ew)
             {
                 throw ew;

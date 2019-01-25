@@ -16,6 +16,7 @@ namespace ConoceAColombia.logica.BL
                 using(Entidades.bdConoceAColombiaEntities obDatos = new Entidades.bdConoceAColombiaEntities())
                 {
                     List<Models.clsFlora> lstclFlora = (from q in obDatos.tbFlora
+                                                        join tbTF in obDatos.tbTipoFlora on q.florTipo equals tbTF.tiflCodigo
                                                         select new Models.clsFlora
                                                         {
                                                             lgCodigo = q.florCodigo,
@@ -24,9 +25,12 @@ namespace ConoceAColombia.logica.BL
                                                             stAbundancia = q.florAbundancia,
                                                             stDescripcion = q.florDescripcion,
                                                             stPeriodoFloracion = q.florPeriodoFloracion,
-                                                            stLatitud = q.florLatitud,
-                                                            stLongitud = q.florLongitud,
-                                                            
+                                                            obclsTipoFlora = new Models.clsTipoFlora
+                                                            {
+                                                                lgCodigo = q.florTipo,
+                                                                stDescripcion = tbTF.tiflDescripcion
+                                                            }
+
                                                         }).ToList();
                     return lstclFlora;
                                                         
@@ -40,7 +44,7 @@ namespace ConoceAColombia.logica.BL
 
 
 
-        public void InsertFlora(Models.clsFlora obclsFlora)
+        public string insertFlora(Models.clsFlora obclsFlora)
         {
             try
             {
@@ -54,11 +58,10 @@ namespace ConoceAColombia.logica.BL
                         florDescripcion = obclsFlora.stDescripcion,
                         florAbundancia = obclsFlora.stAbundancia,
                         florPeriodoFloracion = obclsFlora.stPeriodoFloracion,
-                        florLatitud = obclsFlora.stLatitud,
-                        florLongitud = obclsFlora.stLongitud,
-                        
+                        florTipo = obclsFlora.obclsTipoFlora.lgCodigo
                     });
                     obDatos.SaveChanges();
+                    return "Se realizo con exito";
                 }
             }catch(Exception ew)
             {
@@ -106,8 +109,7 @@ namespace ConoceAColombia.logica.BL
                         florDescripcion = obclsFlora.stDescripcion,
                         florAbundancia = obclsFlora.stAbundancia,
                         florPeriodoFloracion = obclsFlora.stPeriodoFloracion,
-                        florLatitud = obclsFlora.stLatitud,
-                        florLongitud = obclsFlora.stLongitud,
+                        
                        
                     });
                     obDatos.SaveChanges();
@@ -136,8 +138,7 @@ namespace ConoceAColombia.logica.BL
                     obtbFlora.florDescripcion = ob.stDescripcion;
                     obtbFlora.florAbundancia = ob.stAbundancia;
                     obtbFlora.florPeriodoFloracion = ob.stPeriodoFloracion;
-                    obtbFlora.florLatitud = ob.stLatitud;
-                    obtbFlora.florLongitud = ob.stLongitud;
+                    obtbFlora.florTipo = ob.obclsTipoFlora.lgCodigo;
                     
                     obbdConoceAColombiaEntities.SaveChanges();
 
@@ -176,19 +177,19 @@ namespace ConoceAColombia.logica.BL
 
 
 
-        public List<Models.clsDepartamentos> getDepartamentos()
+        public List<Models.clsTipoFlora> getTipoFlora()
         {
             try
             {
                 using (Entidades.bdConoceAColombiaEntities obDatos = new Entidades.bdConoceAColombiaEntities())
                 {
-                    List<Models.clsDepartamentos> lstclsDepartamentos = (from q in obDatos.tbDepartamento
-                                                                         select new Models.clsDepartamentos
+                    List<Models.clsTipoFlora> lstclsTipoFlora = (from q in obDatos.tbTipoFlora
+                                                                         select new Models.clsTipoFlora
                                                                          {
-                                                                             inCodigo = q.depaCodigo,
-                                                                             stNombre = q.depaNombre
+                                                                             lgCodigo = q.tiflCodigo,
+                                                                             stDescripcion = q.tiflDescripcion
                                                                          }).ToList();
-                    return lstclsDepartamentos;
+                    return lstclsTipoFlora;
                 }
 
             }
@@ -199,7 +200,7 @@ namespace ConoceAColombia.logica.BL
         }
 
 
-        public void CargarControlDepartamento(ref DropDownList ddlControl, List<Models.clsDepartamentos> dsConsulta, String stValor, String stTexto, String stValorEmcabezado, String stTextoEmcabezado)
+        public void CargarControlTipoFlora(ref DropDownList ddlControl, List<Models.clsTipoFlora> dsConsulta, String stValor, String stTexto, String stValorEmcabezado, String stTextoEmcabezado)
         {
             try
             {

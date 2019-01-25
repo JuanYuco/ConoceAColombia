@@ -324,6 +324,7 @@
     <Content Include="Views\AprendizajeAdmin\AprendizajeAdmin.aspx" />
     <Content Include="Views\CulturasAdmin\CulturasAdmin.aspx" />
     <Content Include="Views\DeportistaAdmin\DeportistaAdmin.aspx" />
+    <Content Include="Views\FloraxDepartamentoAdmin\FloraxDepartamentoAdmin.aspx" />
     <Content Include="Views\PoliticoAdmin\PoliticoAdmin.aspx" />
     <Content Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx" />
     <Content Include="Views\TipoDeportistaAdmin\TipoDeportistaAdmin.aspx" />
@@ -356,6 +357,7 @@
     <Content Include="Views\Puntajes\Puntajes.aspx" />
     <Content Include="Views\TematicasJuego\TematicasJuego.aspx" />
     <Content Include="Views\TipoFaunaAdmin\TipoFaunaAdmin.aspx" />
+    <Content Include="Views\TipoFloraAdmin\TipoFloraAdmin.aspx" />
     <Content Include="Views\TipoJuego\TipoJuego.aspx" />
     <Content Include="Views\TipoPoliticoAdmin\TipoPolitico.aspx" />
     <Content Include="Web References\wsTipoFauna\Reference.map">
@@ -445,6 +447,7 @@
     <Compile Include="Controllers\FaunaControllers.cs" />
     <Compile Include="Controllers\FaunaxDepartamentoControllers.cs" />
     <Compile Include="Controllers\FloraControllers.cs" />
+    <Compile Include="Controllers\FloraxDepartamentoControllers.cs" />
     <Compile Include="Controllers\GastronomiaControllers.cs" />
     <Compile Include="Controllers\HistoriaControllers.cs" />
     <Compile Include="Controllers\JuegoControllers.cs" />
@@ -464,6 +467,7 @@
     <Compile Include="Controllers\TipodeHistoriaControllers.cs" />
     <Compile Include="Controllers\TipoDeportistaControllers.cs" />
     <Compile Include="Controllers\TipoFaunaControllers.cs" />
+    <Compile Include="Controllers\TipoFloraControllers.cs" />
     <Compile Include="Controllers\TipoJuegoControllers.cs" />
     <Compile Include="Controllers\TipoPoliticoControllers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -552,6 +556,13 @@
     </Compile>
     <Compile Include="Views\DeportistaAdmin\DeportistaAdmin.aspx.designer.cs">
       <DependentUpon>DeportistaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FloraxDepartamentoAdmin\FloraxDepartamentoAdmin.aspx.cs">
+      <DependentUpon>FloraxDepartamentoAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FloraxDepartamentoAdmin\FloraxDepartamentoAdmin.aspx.designer.cs">
+      <DependentUpon>FloraxDepartamentoAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\PoliticoAdmin\PoliticoAdmin.aspx.cs">
       <DependentUpon>PoliticoAdmin.aspx</DependentUpon>
@@ -804,6 +815,13 @@
     </Compile>
     <Compile Include="Views\TipoFaunaAdmin\TipoFaunaAdmin.aspx.designer.cs">
       <DependentUpon>TipoFaunaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TipoFloraAdmin\TipoFloraAdmin.aspx.cs">
+      <DependentUpon>TipoFloraAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TipoFloraAdmin\TipoFloraAdmin.aspx.designer.cs">
+      <DependentUpon>TipoFloraAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TipoJuego\TipoJuego.aspx.cs">
       <DependentUpon>TipoJuego.aspx</DependentUpon>

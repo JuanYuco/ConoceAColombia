@@ -169,32 +169,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tbFlora">
-      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
-        <MappingFragment StoreEntitySet="tbFlora">
-          <ScalarProperty Name="florCodigo" ColumnName="florCodigo" />
-          <ScalarProperty Name="florNomCientifico" ColumnName="florNomCientifico" />
-          <ScalarProperty Name="florNomComun" ColumnName="florNomComun" />
-          <ScalarProperty Name="florDescripcion" ColumnName="florDescripcion" />
-          <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />
-          <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
-          <ScalarProperty Name="florLatitud" ColumnName="florLatitud" />
-          <ScalarProperty Name="florLongitud" ColumnName="florLongitud" />
-          <ScalarProperty Name="florTipo" ColumnName="florTipo" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tbFloraxDepartamento">
-      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFloraxDepartamento">
-        <MappingFragment StoreEntitySet="tbFloraxDepartamento">
-          <ScalarProperty Name="foxdCodigo" ColumnName="foxdCodigo" />
-          <ScalarProperty Name="foxdFlora" ColumnName="foxdFlora" />
-          <ScalarProperty Name="foxdDepartamento" ColumnName="foxdDepartamento" />
-          <ScalarProperty Name="foxdLatitud" ColumnName="foxdLatitud" />
-          <ScalarProperty Name="foxdLongitud" ColumnName="foxdLongitud" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tbGastronomia">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbGastronomia">
         <MappingFragment StoreEntitySet="tbGastronomia">
@@ -491,6 +465,30 @@
         <MappingFragment StoreEntitySet="Tipo_Incidencia">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFlora">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
+        <MappingFragment StoreEntitySet="tbFlora">
+          <ScalarProperty Name="florTipo" ColumnName="florTipo" />
+          <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
+          <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />
+          <ScalarProperty Name="florDescripcion" ColumnName="florDescripcion" />
+          <ScalarProperty Name="florNomComun" ColumnName="florNomComun" />
+          <ScalarProperty Name="florNomCientifico" ColumnName="florNomCientifico" />
+          <ScalarProperty Name="florCodigo" ColumnName="florCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbFloraxDepartamento">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFloraxDepartamento">
+        <MappingFragment StoreEntitySet="tbFloraxDepartamento">
+          <ScalarProperty Name="foxdLongitud" ColumnName="foxdLongitud" />
+          <ScalarProperty Name="foxdLatitud" ColumnName="foxdLatitud" />
+          <ScalarProperty Name="foxdDepartamento" ColumnName="foxdDepartamento" />
+          <ScalarProperty Name="foxdFlora" ColumnName="foxdFlora" />
+          <ScalarProperty Name="foxdCodigo" ColumnName="foxdCodigo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

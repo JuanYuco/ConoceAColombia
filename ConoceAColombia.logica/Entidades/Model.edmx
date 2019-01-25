@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bdConoceAColombiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bdConoceAColombiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -170,8 +170,6 @@
           <Property Name="florDescripcion" Type="varchar" MaxLength="2000" />
           <Property Name="florAbundancia" Type="varchar" MaxLength="50" />
           <Property Name="florPeriodoFloracion" Type="varchar" MaxLength="50" />
-          <Property Name="florLatitud" Type="varchar" MaxLength="50" />
-          <Property Name="florLongitud" Type="varchar" MaxLength="50" />
           <Property Name="florTipo" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="tbFloraxDepartamento">
@@ -1124,8 +1122,7 @@
             <End Role="tbUsuarios" EntitySet="tbUsuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bdConoceAColombiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1222,11 +1219,11 @@
           <NavigationProperty Name="tbDeportista" Relationship="Self.FK_deporDepartamento" FromRole="tbDepartamento" ToRole="tbDeportista" />
           <NavigationProperty Name="tbEquipos1" Relationship="Self.FK_equiDepartamento" FromRole="tbDepartamento" ToRole="tbEquipos" />
           <NavigationProperty Name="tbEstadios" Relationship="Self.FK_estaDepartamento" FromRole="tbDepartamento" ToRole="tbEstadios" />
-          <NavigationProperty Name="tbFloraxDepartamento" Relationship="Self.FK_foxdDepartamento" FromRole="tbDepartamento" ToRole="tbFloraxDepartamento" />
           <NavigationProperty Name="tbFaunaxDepartamento" Relationship="Self.FK_fxdDepartamento" FromRole="tbDepartamento" ToRole="tbFaunaxDepartamento" />
           <NavigationProperty Name="tbGastronomia" Relationship="Self.FK_gastDepartamento" FromRole="tbDepartamento" ToRole="tbGastronomia" />
           <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histDepartamento" FromRole="tbDepartamento" ToRole="tbHistoria" />
           <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
+          <NavigationProperty Name="tbFloraxDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdDepartamento" FromRole="tbDepartamento" ToRole="tbFloraxDepartamento" />
         </EntityType>
         <EntityType Name="tbDeportes">
           <Key>
@@ -1320,34 +1317,6 @@
           <Property Name="fxdLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_fxdDepartamento" FromRole="tbFaunaxDepartamento" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbFauna" Relationship="Self.FK_fxdFauna" FromRole="tbFaunaxDepartamento" ToRole="tbFauna" />
-        </EntityType>
-        <EntityType Name="tbFlora">
-          <Key>
-            <PropertyRef Name="florCodigo" />
-          </Key>
-          <Property Name="florCodigo" Type="Int64" Nullable="false" />
-          <Property Name="florNomCientifico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="florNomComun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="florDescripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
-          <Property Name="florAbundancia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="florPeriodoFloracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="florLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="florLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="florTipo" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="tbTipoFlora" Relationship="Self.FK_florTipo" FromRole="tbFlora" ToRole="tbTipoFlora" />
-          <NavigationProperty Name="tbFloraxDepartamento" Relationship="Self.FK_foxdFlora" FromRole="tbFlora" ToRole="tbFloraxDepartamento" />
-        </EntityType>
-        <EntityType Name="tbFloraxDepartamento">
-          <Key>
-            <PropertyRef Name="foxdCodigo" />
-          </Key>
-          <Property Name="foxdCodigo" Type="Int64" Nullable="false" />
-          <Property Name="foxdFlora" Type="Int64" Nullable="false" />
-          <Property Name="foxdDepartamento" Type="Int64" Nullable="false" />
-          <Property Name="foxdLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="foxdLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_foxdDepartamento" FromRole="tbFloraxDepartamento" ToRole="tbDepartamento" />
-          <NavigationProperty Name="tbFlora" Relationship="Self.FK_foxdFlora" FromRole="tbFloraxDepartamento" ToRole="tbFlora" />
         </EntityType>
         <EntityType Name="tbGastronomia">
           <Key>
@@ -1554,7 +1523,7 @@
           </Key>
           <Property Name="tiflCodigo" Type="Int64" Nullable="false" />
           <Property Name="tiflDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tbFlora" Relationship="Self.FK_florTipo" FromRole="tbTipoFlora" ToRole="tbFlora" />
+          <NavigationProperty Name="tbFlora" Relationship="bdConoceAColombiaModel.FK_florTipo" FromRole="tbTipoFlora" ToRole="tbFlora" />
         </EntityType>
         <EntityType Name="tbTipoIncidente">
           <Key>
@@ -1800,18 +1769,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_foxdDepartamento">
-          <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
-          <End Role="tbFloraxDepartamento" Type="Self.tbFloraxDepartamento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbDepartamento">
-              <PropertyRef Name="depaCodigo" />
-            </Principal>
-            <Dependent Role="tbFloraxDepartamento">
-              <PropertyRef Name="foxdDepartamento" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_fxdDepartamento">
           <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
           <End Role="tbFaunaxDepartamento" Type="Self.tbFaunaxDepartamento" Multiplicity="*" />
@@ -1941,30 +1898,6 @@
             </Principal>
             <Dependent Role="tbFaunaxDepartamento">
               <PropertyRef Name="fxdFauna" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_florTipo">
-          <End Role="tbTipoFlora" Type="Self.tbTipoFlora" Multiplicity="1" />
-          <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbTipoFlora">
-              <PropertyRef Name="tiflCodigo" />
-            </Principal>
-            <Dependent Role="tbFlora">
-              <PropertyRef Name="florTipo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_foxdFlora">
-          <End Role="tbFlora" Type="Self.tbFlora" Multiplicity="1" />
-          <End Role="tbFloraxDepartamento" Type="Self.tbFloraxDepartamento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbFlora">
-              <PropertyRef Name="florCodigo" />
-            </Principal>
-            <Dependent Role="tbFloraxDepartamento">
-              <PropertyRef Name="foxdFlora" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2138,8 +2071,6 @@
           <EntitySet Name="tbEstadios" EntityType="Self.tbEstadios" />
           <EntitySet Name="tbFauna" EntityType="Self.tbFauna" />
           <EntitySet Name="tbFaunaxDepartamento" EntityType="Self.tbFaunaxDepartamento" />
-          <EntitySet Name="tbFlora" EntityType="Self.tbFlora" />
-          <EntitySet Name="tbFloraxDepartamento" EntityType="Self.tbFloraxDepartamento" />
           <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" />
           <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" />
           <EntitySet Name="tbMusica" EntityType="Self.tbMusica" />
@@ -2217,10 +2148,6 @@
             <End Role="tbDepartamento" EntitySet="tbDepartamento" />
             <End Role="tbEstadios" EntitySet="tbEstadios" />
           </AssociationSet>
-          <AssociationSet Name="FK_foxdDepartamento" Association="Self.FK_foxdDepartamento">
-            <End Role="tbDepartamento" EntitySet="tbDepartamento" />
-            <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
-          </AssociationSet>
           <AssociationSet Name="FK_fxdDepartamento" Association="Self.FK_fxdDepartamento">
             <End Role="tbDepartamento" EntitySet="tbDepartamento" />
             <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
@@ -2264,14 +2191,6 @@
           <AssociationSet Name="FK_fxdFauna" Association="Self.FK_fxdFauna">
             <End Role="tbFauna" EntitySet="tbFauna" />
             <End Role="tbFaunaxDepartamento" EntitySet="tbFaunaxDepartamento" />
-          </AssociationSet>
-          <AssociationSet Name="FK_florTipo" Association="Self.FK_florTipo">
-            <End Role="tbTipoFlora" EntitySet="tbTipoFlora" />
-            <End Role="tbFlora" EntitySet="tbFlora" />
-          </AssociationSet>
-          <AssociationSet Name="FK_foxdFlora" Association="Self.FK_foxdFlora">
-            <End Role="tbFlora" EntitySet="tbFlora" />
-            <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
           </AssociationSet>
           <AssociationSet Name="FK_gastTipo" Association="Self.FK_gastTipo">
             <End Role="tbTipodeGastronomia" EntitySet="tbTipodeGastronomia" />
@@ -2325,7 +2244,83 @@
             <End Role="tbEstadoIncidente" EntitySet="tbEstadoIncidente" />
             <End Role="incidencia_comentarios" EntitySet="incidencia_comentarios" />
           </AssociationSet>
+          <EntitySet Name="tbFlora" EntityType="bdConoceAColombiaModel.tbFlora" />
+          <EntitySet Name="tbFloraxDepartamento" EntityType="bdConoceAColombiaModel.tbFloraxDepartamento" />
+          <AssociationSet Name="FK_foxdDepartamento" Association="bdConoceAColombiaModel.FK_foxdDepartamento">
+            <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+            <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_florTipo" Association="bdConoceAColombiaModel.FK_florTipo">
+            <End Role="tbTipoFlora" EntitySet="tbTipoFlora" />
+            <End Role="tbFlora" EntitySet="tbFlora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_foxdFlora" Association="bdConoceAColombiaModel.FK_foxdFlora">
+            <End Role="tbFlora" EntitySet="tbFlora" />
+            <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbFlora">
+          <Key>
+            <PropertyRef Name="florCodigo" />
+          </Key>
+          <Property Name="florCodigo" Type="Int64" Nullable="false" />
+          <Property Name="florNomCientifico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="florNomComun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="florDescripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="florAbundancia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="florPeriodoFloracion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="florTipo" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="tbTipoFlora" Relationship="bdConoceAColombiaModel.FK_florTipo" FromRole="tbFlora" ToRole="tbTipoFlora" />
+          <NavigationProperty Name="tbFloraxDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdFlora" FromRole="tbFlora" ToRole="tbFloraxDepartamento" />
+        </EntityType>
+        <EntityType Name="tbFloraxDepartamento">
+          <Key>
+            <PropertyRef Name="foxdCodigo" />
+          </Key>
+          <Property Name="foxdCodigo" Type="Int64" Nullable="false" />
+          <Property Name="foxdFlora" Type="Int64" Nullable="false" />
+          <Property Name="foxdDepartamento" Type="Int64" Nullable="false" />
+          <Property Name="foxdLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="foxdLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdDepartamento" FromRole="tbFloraxDepartamento" ToRole="tbDepartamento" />
+          <NavigationProperty Name="tbFlora" Relationship="bdConoceAColombiaModel.FK_foxdFlora" FromRole="tbFloraxDepartamento" ToRole="tbFlora" />
+        </EntityType>
+        <Association Name="FK_foxdDepartamento">
+          <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="1" />
+          <End Type="bdConoceAColombiaModel.tbFloraxDepartamento" Role="tbFloraxDepartamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamento">
+              <PropertyRef Name="depaCodigo" />
+            </Principal>
+            <Dependent Role="tbFloraxDepartamento">
+              <PropertyRef Name="foxdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_florTipo">
+          <End Type="bdConoceAColombiaModel.tbTipoFlora" Role="tbTipoFlora" Multiplicity="1" />
+          <End Type="bdConoceAColombiaModel.tbFlora" Role="tbFlora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoFlora">
+              <PropertyRef Name="tiflCodigo" />
+            </Principal>
+            <Dependent Role="tbFlora">
+              <PropertyRef Name="florTipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_foxdFlora">
+          <End Type="bdConoceAColombiaModel.tbFlora" Role="tbFlora" Multiplicity="1" />
+          <End Type="bdConoceAColombiaModel.tbFloraxDepartamento" Role="tbFloraxDepartamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbFlora">
+              <PropertyRef Name="florCodigo" />
+            </Principal>
+            <Dependent Role="tbFloraxDepartamento">
+              <PropertyRef Name="foxdFlora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2497,32 +2492,6 @@
                 <ScalarProperty Name="fxdDepartamento" ColumnName="fxdDepartamento" />
                 <ScalarProperty Name="fxdLatitud" ColumnName="fxdLatitud" />
                 <ScalarProperty Name="fxdLongitud" ColumnName="fxdLongitud" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbFlora">
-            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
-              <MappingFragment StoreEntitySet="tbFlora">
-                <ScalarProperty Name="florCodigo" ColumnName="florCodigo" />
-                <ScalarProperty Name="florNomCientifico" ColumnName="florNomCientifico" />
-                <ScalarProperty Name="florNomComun" ColumnName="florNomComun" />
-                <ScalarProperty Name="florDescripcion" ColumnName="florDescripcion" />
-                <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />
-                <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
-                <ScalarProperty Name="florLatitud" ColumnName="florLatitud" />
-                <ScalarProperty Name="florLongitud" ColumnName="florLongitud" />
-                <ScalarProperty Name="florTipo" ColumnName="florTipo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbFloraxDepartamento">
-            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFloraxDepartamento">
-              <MappingFragment StoreEntitySet="tbFloraxDepartamento">
-                <ScalarProperty Name="foxdCodigo" ColumnName="foxdCodigo" />
-                <ScalarProperty Name="foxdFlora" ColumnName="foxdFlora" />
-                <ScalarProperty Name="foxdDepartamento" ColumnName="foxdDepartamento" />
-                <ScalarProperty Name="foxdLatitud" ColumnName="foxdLatitud" />
-                <ScalarProperty Name="foxdLongitud" ColumnName="foxdLongitud" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2822,6 +2791,30 @@
               <MappingFragment StoreEntitySet="Tipo_Incidencia">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFlora">
+            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
+              <MappingFragment StoreEntitySet="tbFlora">
+                <ScalarProperty Name="florTipo" ColumnName="florTipo" />
+                <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
+                <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />
+                <ScalarProperty Name="florDescripcion" ColumnName="florDescripcion" />
+                <ScalarProperty Name="florNomComun" ColumnName="florNomComun" />
+                <ScalarProperty Name="florNomCientifico" ColumnName="florNomCientifico" />
+                <ScalarProperty Name="florCodigo" ColumnName="florCodigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbFloraxDepartamento">
+            <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFloraxDepartamento">
+              <MappingFragment StoreEntitySet="tbFloraxDepartamento">
+                <ScalarProperty Name="foxdLongitud" ColumnName="foxdLongitud" />
+                <ScalarProperty Name="foxdLatitud" ColumnName="foxdLatitud" />
+                <ScalarProperty Name="foxdDepartamento" ColumnName="foxdDepartamento" />
+                <ScalarProperty Name="foxdFlora" ColumnName="foxdFlora" />
+                <ScalarProperty Name="foxdCodigo" ColumnName="foxdCodigo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

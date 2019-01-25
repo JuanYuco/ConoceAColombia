@@ -195,7 +195,7 @@ namespace ConoceAColombia.web.Views.MapaTerminado
             try
             {
                 Controllers.FloraControllers obFloraControllers = new Controllers.FloraControllers();
-                rpFlora.DataSource = obFloraControllers.getFloraController();
+                rpFlora.DataSource = obFloraControllers.getFlora();
                 rpFlora.DataBind();
             }
             catch (Exception ew)

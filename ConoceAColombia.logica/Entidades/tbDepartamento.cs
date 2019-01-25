@@ -26,11 +26,11 @@ namespace ConoceAColombia.logica.Entidades
             this.tbDeportista = new HashSet<tbDeportista>();
             this.tbEquipos1 = new HashSet<tbEquipos>();
             this.tbEstadios = new HashSet<tbEstadios>();
-            this.tbFloraxDepartamento = new HashSet<tbFloraxDepartamento>();
             this.tbFaunaxDepartamento = new HashSet<tbFaunaxDepartamento>();
             this.tbGastronomia = new HashSet<tbGastronomia>();
             this.tbHistoria = new HashSet<tbHistoria>();
             this.tbMusica = new HashSet<tbMusica>();
+            this.tbFloraxDepartamento = new HashSet<tbFloraxDepartamento>();
         }
     
         public long depaCodigo { get; set; }
@@ -65,8 +65,6 @@ namespace ConoceAColombia.logica.Entidades
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbEstadios> tbEstadios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbGastronomia> tbGastronomia { get; set; }
@@ -74,5 +72,7 @@ namespace ConoceAColombia.logica.Entidades
         public virtual ICollection<tbHistoria> tbHistoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbMusica> tbMusica { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
     }
 }

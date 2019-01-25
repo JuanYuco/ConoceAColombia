@@ -42,7 +42,6 @@ namespace ConoceAColombia.web.Views.FaunaxDepartamentoAdmin
             {
                 String stMensaje = String.Empty;
                 if (String.IsNullOrEmpty(txtCodigo.Text)) stMensaje += "Ingrese Codigo, ";
-                if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
@@ -50,7 +49,6 @@ namespace ConoceAColombia.web.Views.FaunaxDepartamentoAdmin
                 logica.Models.clsFaunaxDepartamento clsFaunaxDepartamento = new logica.Models.clsFaunaxDepartamento
                 {
                     lgCodigo = Convert.ToInt64(txtCodigo.Text),
-                    stDescripcion = txtDescripcion.Text,
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
                     obclsFauna = new logica.Models.clsFauna
@@ -70,13 +68,13 @@ namespace ConoceAColombia.web.Views.FaunaxDepartamentoAdmin
                 if (lblOpcion.Text.Equals("1"))
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obFaunaxDepartamentoControllers.insertarFaunaxDepartamento(clsFaunaxDepartamento) + "!','success')</Script>");
-                    lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtLatitud.Text=txtLongitud.Text = String.Empty;
+                    lblOpcion.Text = txtCodigo.Text = txtLatitud.Text=txtLongitud.Text = String.Empty;
                     getFaunaxDepartamento();
                 }
                 else if (lblOpcion.Text.Equals("2"))
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obFaunaxDepartamentoControllers.updateFaunaxDepartamento(clsFaunaxDepartamento) + "!','success')</Script>");
-                    lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                    lblOpcion.Text = txtCodigo.Text =  txtLatitud.Text = txtLongitud.Text = String.Empty;
                     getFaunaxDepartamento();
                 }
 
@@ -88,7 +86,7 @@ namespace ConoceAColombia.web.Views.FaunaxDepartamentoAdmin
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+            lblOpcion.Text = txtCodigo.Text =  txtLatitud.Text = txtLongitud.Text = String.Empty;
         }
 
         protected void gvwDatos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -100,16 +98,14 @@ namespace ConoceAColombia.web.Views.FaunaxDepartamentoAdmin
                 {
                     lblOpcion.Text = "2";
                     txtCodigo.Text = ((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text;
-                    txtDescripcion.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[1].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[1].Text;
-                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[2].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[2].Text;
-                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[3].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[3].Text;
+                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[1].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[1].Text;
+                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[2].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[2].Text;
                 }
                 else if (e.CommandName.Equals("Eliminar"))
                 {
                     logica.Models.clsFaunaxDepartamento obclsFaunaxDepartamento = new logica.Models.clsFaunaxDepartamento
                     {
                         lgCodigo = Convert.ToInt32(((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text),
-                        stDescripcion = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty
                     };
@@ -118,7 +114,7 @@ namespace ConoceAColombia.web.Views.FaunaxDepartamentoAdmin
 
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('MENSAJE!', '" + obFaunaxDepartamentoControllers.deleteFaunaxDepartamento(obclsFaunaxDepartamento) + "!','Success')</Script>");
 
-                    lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                    lblOpcion.Text = txtCodigo.Text =  txtLatitud.Text = txtLongitud.Text = String.Empty;
                     getFaunaxDepartamento();
 
                 }

@@ -14,9 +14,7 @@ namespace ConoceAColombia.logica.Models
         public string stDescripcion { get; set; }
         public string stAbundancia  { get; set; }
         public string stPeriodoFloracion { get; set; }
-        public string stLatitud { get; set; }
-        public string stLongitud { get; set; }
-        public clsDepartamentos obclsDepartamentos { get; set; }
+        public clsTipoFlora obclsTipoFlora { get; set; }
 
     }
 }

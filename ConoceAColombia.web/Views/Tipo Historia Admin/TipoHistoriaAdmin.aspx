@@ -7,7 +7,7 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-12">
-                    <asp:Label runat="server" ID="lblTiposhistoria" Text="Tipos de Historia"></asp:Label>
+                    <asp:Label runat="server" ID="lblTiposhistoria" Text="Periodos de Historia"></asp:Label>
                     <asp:Label runat="server" ID="lblOpcion" Visible="false"></asp:Label>
                 </div>
             </div>
@@ -50,10 +50,10 @@
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo">
                                 <ItemTemplate>
-                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("tihiCodigo")%>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("pehiCodigo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="Descripción" DataField="tihiDescripcion" />
+                            <asp:BoundField HeaderText="Descripción" DataField="pehiDescripcion" />
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ibEditar" runat="server" ImageUrl="~/Resources/Images/edit26-300px.png" Width="50px" Height="50px" CommandName="Editar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />

@@ -18,10 +18,6 @@
                     <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:Label runat="server" ID="lblDescripcion" Text="Descripción"></asp:Label>
-                    <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control"></asp:TextBox>
-                </div>
-                <div class="col-md-3">
                     <asp:Label runat="server" ID="lblLatitud" Text="Latitud"></asp:Label>
                     <asp:TextBox runat="server" ID="txtLatitud" CssClass="form-control"></asp:TextBox>
                 </div>
@@ -29,7 +25,11 @@
                     <asp:Label runat="server" ID="lblLongitud" Text="Longitud"></asp:Label>
                     <asp:TextBox runat="server" ID="txtLongitud" CssClass="form-control"></asp:TextBox>
                 </div>
-                
+                <div class="col-md-3">
+                    <asp:label runat="server" id="lblFauna" text="Fauna"></asp:label>
+                    <asp:DropDownList ID="ddlFauna" runat="server" CssClass="form-control">
+                    </asp:DropDownList>
+                </div>
             </div>
         </div>
 
@@ -37,11 +37,6 @@
 
     <div class="form-group">
             <div class="form-row">
-                <div class="col-md-3">
-                    <asp:label runat="server" id="lblFauna" text="Fauna"></asp:label>
-                    <asp:DropDownList ID="ddlFauna" runat="server" CssClass="form-control">
-                    </asp:DropDownList>
-                </div>
                 <div class="col-md-3">
                     <asp:label runat="server" id="lblDepartamento" text="Departamento"></asp:label>
                     <asp:DropDownList ID="ddlDepartamento" runat="server" CssClass="form-control">
@@ -77,7 +72,6 @@
                                     <asp:Label runat="server" ID="lblCodigo" Text='<%# Bind("lgCodigo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="Descripción" DataField="stDescripcion" />
                             <asp:BoundField HeaderText="Latitud" DataField="stLatitud" />
                             <asp:BoundField HeaderText="Longitud" DataField="stLongitud" />
                             <asp:BoundField HeaderText="Fauna" DataField="obclsFauna.stNombre" />

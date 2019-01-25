@@ -16,8 +16,8 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                 getFlora();
                 logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
                 Controllers.FloraControllers obFloraControllers = new Controllers.FloraControllers();
-                List<logica.Models.clsDepartamentos> consultaDepartamentos = obFloraControllers.getDepartamentos();
-                obclsFlora.CargarControlDepartamento(ref ddlDepartamento, consultaDepartamentos, "inCodigo", "stNombre", "-1", "<<Todos>>");
+                List<logica.Models.clsTipoFlora> consultaTipoFlora = obFloraControllers.getTipoFlora();
+                obclsFlora.CargarControlTipoFlora(ref ddlTipoFlora, consultaTipoFlora, "lgCodigo", "stDescripcion", "-1", "<<Todos>>");
             }
 
         }
@@ -26,7 +26,7 @@ namespace ConoceAColombia.web.Views.FloraAdmin
             try
             {
                 Controllers.FloraControllers obFloraControllers = new Controllers.FloraControllers();
-                List<logica.Models.clsFlora> ltsclsFlora = obFloraControllers.getFloraController();
+                List<logica.Models.clsFlora> ltsclsFlora = obFloraControllers.getFlora();
 
                 if (ltsclsFlora.Count > 0) gvwDatos.DataSource = ltsclsFlora;
                 else gvwDatos.DataSource = null;
@@ -50,8 +50,6 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                 if (String.IsNullOrEmpty(txtNomComun.Text)) stMensaje += "Ingrese Nombre, ";
                 if (String.IsNullOrEmpty(txtPeridoFloracion.Text)) stMensaje += "Ingrese Perido de Floración, ";
                 if (String.IsNullOrEmpty(txtAbundancia.Text)) stMensaje += "Ingrese abundancia, ";
-                if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
-                if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Codigo, ";
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
 
@@ -63,11 +61,9 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                     stDescripcion = txtDescripcion.Text,
                     stPeriodoFloracion = txtPeridoFloracion.Text,
                     stAbundancia = txtAbundancia.Text,
-                    stLatitud = txtLatitud.Text,
-                    stLongitud = txtLongitud.Text,
-                    obclsDepartamentos = new logica.Models.clsDepartamentos
+                    obclsTipoFlora = new logica.Models.clsTipoFlora
                     {
-                        inCodigo = Convert.ToInt64(ddlDepartamento.SelectedValue)
+                        lgCodigo = Convert.ToInt64(ddlTipoFlora.SelectedValue)
                     }
 
                 };
@@ -77,16 +73,16 @@ namespace ConoceAColombia.web.Views.FloraAdmin
 
                 if (lblOpcion.Text.Equals("1"))
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obFloraControllers.addFlora(clsFlora) + "!','success')</Script>");
+                    ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obFloraControllers.insertFlora(clsFlora) + "!','success')</Script>");
                     lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtNomCientifico.Text = txtNomComun.Text = txtPeridoFloracion.Text
-                         = txtAbundancia.Text = txtLatitud.Text= txtLongitud.Text =  String.Empty;
+                         = txtAbundancia.Text =  String.Empty;
                     getFlora();
                 }
                 else if (lblOpcion.Text.Equals("2"))
                 {
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('Mensaje!,'" + obFloraControllers.updateFlora(clsFlora) + "!','success')</Script>");
                     lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtNomCientifico.Text = txtNomComun.Text = txtPeridoFloracion.Text
-                         = txtAbundancia.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                         = txtAbundancia.Text =  String.Empty;
                     getFlora();
                 }
 
@@ -99,7 +95,7 @@ namespace ConoceAColombia.web.Views.FloraAdmin
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtNomCientifico.Text = txtNomComun.Text = txtPeridoFloracion.Text
-                         = txtAbundancia.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                         = txtAbundancia.Text =  String.Empty;
         }
 
         protected void gvwDatos_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -116,8 +112,7 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                     txtDescripcion.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[3].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[3].Text;
                     txtAbundancia.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[4].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[4].Text;
                     txtPeridoFloracion.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[5].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[5].Text;
-                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[6].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[6].Text;
-                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[7].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[7].Text;
+                    
                 }
                 else if (e.CommandName.Equals("Eliminar"))
                 {
@@ -128,12 +123,10 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                         stNombre = String.Empty,
                         stAbundancia = String.Empty,
                         stPeriodoFloracion = String.Empty,
-                        stLatitud = String.Empty,
-                        stLongitud = String.Empty,
                         stDescripcion = String.Empty,
-                        obclsDepartamentos = new logica.Models.clsDepartamentos
+                        obclsTipoFlora = new logica.Models.clsTipoFlora
                         {
-                            inCodigo = 0
+                            lgCodigo = 0
                         }
 
 
@@ -145,7 +138,7 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                     ClientScript.RegisterStartupScript(this.GetType(), "Mesaje", "<Script> swal('MENSAJE!', '" + obFloraControllers.deleteFlora(obclsFlora) + "!','Success')</Script>");
 
                     lblOpcion.Text = txtCodigo.Text = txtDescripcion.Text = txtNomCientifico.Text = txtNomComun.Text = txtPeridoFloracion.Text
-                         = txtAbundancia.Text = txtLatitud.Text = txtLongitud.Text = String.Empty;
+                         = txtAbundancia.Text =  String.Empty;
                     getFlora();
 
                 }

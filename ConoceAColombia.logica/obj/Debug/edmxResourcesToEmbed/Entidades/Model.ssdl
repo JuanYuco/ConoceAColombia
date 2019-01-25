@@ -165,8 +165,6 @@
     <Property Name="florDescripcion" Type="varchar" MaxLength="2000" />
     <Property Name="florAbundancia" Type="varchar" MaxLength="50" />
     <Property Name="florPeriodoFloracion" Type="varchar" MaxLength="50" />
-    <Property Name="florLatitud" Type="varchar" MaxLength="50" />
-    <Property Name="florLongitud" Type="varchar" MaxLength="50" />
     <Property Name="florTipo" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="tbFloraxDepartamento">

@@ -18,8 +18,6 @@
         <EntityTypeShape EntityType="bdConoceAColombiaModel.tbEstadios" Width="1.5" PointX="9" PointY="26.5" IsExpanded="true" />
         <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFauna" Width="1.5" PointX="6.75" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFaunaxDepartamento" Width="1.5" PointX="9" PointY="22.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFlora" Width="1.5" PointX="6.75" PointY="39.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFloraxDepartamento" Width="1.5" PointX="9" PointY="30.875" IsExpanded="true" />
         <EntityTypeShape EntityType="bdConoceAColombiaModel.tbGastronomia" Width="1.5" PointX="3" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="bdConoceAColombiaModel.tbHistoria" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="bdConoceAColombiaModel.tbMusica" Width="1.5" PointX="3" PointY="66.125" IsExpanded="true" />
@@ -61,7 +59,6 @@
         <AssociationConnector Association="bdConoceAColombiaModel.FK_deporDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_equiDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_estaDepartamento" ManuallyRouted="false" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastDepartamento" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_histDepartamento" ManuallyRouted="false" />
@@ -73,8 +70,6 @@
         <AssociationConnector Association="bdConoceAColombiaModel.FK_prjuDificultad" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_faunTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_fxdFauna" ManuallyRouted="false" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_florTipo" ManuallyRouted="false" />
-        <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdFlora" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_gastTipo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_histPeriodo" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_pxhHistoria" ManuallyRouted="false" />
@@ -88,6 +83,11 @@
         <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_tbEstadoIncidente" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_Tipo_Incidencia" ManuallyRouted="false" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_incidencia_comentarios_tbEstadoIncidente" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFlora" Width="1.5" PointX="6.75" PointY="39.75" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbFloraxDepartamento" Width="1.5" PointX="9" PointY="31" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdDepartamento" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_florTipo" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdFlora" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

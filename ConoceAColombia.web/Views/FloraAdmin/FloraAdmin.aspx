@@ -4,24 +4,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenedor" runat="server">
     <asp:TextBox ID="txtNombre" runat="server" Width="100%"></asp:TextBox>
-                    <ajaxToolkit:AutoCompleteExtender ID="acNombre" runat="server"
-                        ServicePath="~/Services/wsConsulta.asmx"
-                        ServiceMethod="getFloraWS"
-                        MinimumPrefixLength="2" 
-                        CompletionInterval="100"
-                        EnableCaching="false" 
-                        CompletionSetCount="10"
-                        FirstRowSelected="false" 
-                        UseContextKey="true" 
-                        TargetControlID="txtNombre"></ajaxToolkit:AutoCompleteExtender>
-                    <asp:ScriptManager ID="ScriptManager1" runat="server">
-                    </asp:ScriptManager>
+    <ajaxToolkit:AutoCompleteExtender ID="acNombre" runat="server"
+        ServicePath="~/Services/wsConsulta.asmx"
+        ServiceMethod="getFloraWS"
+        MinimumPrefixLength="2"
+        CompletionInterval="100"
+        EnableCaching="false"
+        CompletionSetCount="10"
+        FirstRowSelected="false"
+        UseContextKey="true"
+        TargetControlID="txtNombre">
+    </ajaxToolkit:AutoCompleteExtender>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <div class="mx-auto mt-5">
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-12">
-                    <asp:label runat="server" id="lblTitulo" text="Flora"></asp:label>
-                    <asp:label runat="server" id="lblOpcion" visible="false"></asp:label>
+                    <asp:Label runat="server" ID="lblTitulo" Text="Flora"></asp:Label>
+                    <asp:Label runat="server" ID="lblOpcion" Visible="false"></asp:Label>
                 </div>
             </div>
         </div>
@@ -29,61 +30,50 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblCodigo" text="Código"></asp:label>
-                    <asp:textbox runat="server" id="txtCodigo" cssclass="form-control"></asp:textbox>
+                    <asp:Label runat="server" ID="lblCodigo" Text="Código"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtCodigo" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblNomCientifico" text="Nombre Cientifico"></asp:label>
-                    <asp:textbox runat="server" id="txtNomCientifico" cssclass="form-control"></asp:textbox>
+                    <asp:Label runat="server" ID="lblNomCientifico" Text="Nombre Cientifico"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtNomCientifico" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblNomComun" text="NombreComun"></asp:label>
-                    <asp:textbox runat="server" id="txtNomComun" cssclass="form-control"></asp:textbox>
+                    <asp:Label runat="server" ID="lblNomComun" Text="NombreComun"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtNomComun" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblDescripcion" text="Descripcion"></asp:label>
-                    <asp:textbox runat="server" id="txtDescripcion" cssclass="form-control"></asp:textbox>
+                    <asp:Label runat="server" ID="lblDescripcion" Text="Descripcion"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblDepartamento" text="Departamento"></asp:label>
-                    <asp:dropdownlist id="ddlDepartamento" runat="server" cssclass="form-control">
-                    </asp:dropdownlist>
+                    <asp:Label runat="server" ID="lblTipoFlora" Text="TipoFlora"></asp:Label>
+                    <asp:DropDownList ID="ddlTipoFlora" runat="server" CssClass="form-control">
+                    </asp:DropDownList>
                 </div>
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblLatitud" text="Latitud"></asp:label>
-                    <asp:textbox runat="server" id="txtLatitud" cssclass="form-control"></asp:textbox>
+                    <asp:Label runat="server" ID="lblAbundancia" Text="Abundancia"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtAbundancia" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:label runat="server" id="lblLongitud" text="Longitud"></asp:label>
-                    <asp:textbox runat="server" id="txtLongitud" cssclass="form-control"></asp:textbox>
+                    <asp:Label runat="server" ID="lblPeriodoFloracion" Text="Periodo de Floracion"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtPeridoFloracion" CssClass="form-control"></asp:TextBox>
                 </div>
 
             </div>
         </div>
-        <div class="form-group">
-            <div class="form-row">
-                <div class="col-md-3">
-                    <asp:label runat="server" id="lblAbundancia" text="Abundancia"></asp:label>
-                    <asp:textbox runat="server" id="txtAbundancia" cssclass="form-control"></asp:textbox>
-                </div>
-                <div class="col-md-3">
-                    <asp:label runat="server" id="lblPeriodoFloracion" text="Periodo de Floracion"></asp:label>
-                    <asp:textbox runat="server" id="txtPeridoFloracion" cssclass="form-control"></asp:textbox>
-                </div>
-            </div>
-        </div>
+        
 
 
 
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-12">
-                    <asp:button runat="server" id="btnGuardar" text="Guardar" cssclass="btn btn-primary" onclick="btnGuardar_Click" />
-                    <asp:button runat="server" id="btnCancelar" text="Cancelar" cssclass="btn btn-primary" onclick="btnCancelar_Click" />
+                    <asp:Button runat="server" ID="btnGuardar" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" />
+                    <asp:Button runat="server" ID="btnCancelar" Text="Cancelar" CssClass="btn btn-primary" OnClick="btnCancelar_Click" />
                 </div>
             </div>
         </div>
@@ -91,14 +81,14 @@
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-12">
-                    <asp:label runat="server" id="lblResultado" text="Resultado"></asp:label>
+                    <asp:Label runat="server" ID="lblResultado" Text="Resultado"></asp:Label>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="form-row">
                 <div class="col-md-12" style="overflow: auto">
-                    <asp:gridview runat="server" id="gvwDatos" width="100%" autogeneratecolumns="False" emptydatatext="No se encontraron registros" onrowcommand="gvwDatos_RowCommand">
+                    <asp:GridView runat="server" ID="gvwDatos" Width="100%" AutoGenerateColumns="False" EmptyDataText="No se encontraron registros" OnRowCommand="gvwDatos_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo">
                                 <ItemTemplate>
@@ -108,12 +98,9 @@
                             <asp:BoundField HeaderText="Nombre Cientifico" DataField="stNombreCientifico" />
                             <asp:BoundField HeaderText="Nombre Comun" DataField="stNombre" />
                             <asp:BoundField HeaderText="Descripcion" DataField="stDescripcion" />
-							<asp:BoundField HeaderText="Abundancia" DataField="stAbundancia" />
+                            <asp:BoundField HeaderText="Abundancia" DataField="stAbundancia" />
                             <asp:BoundField HeaderText="Periodo de Floracion" DataField="stPeriodoFloracion" />
-                            <asp:BoundField HeaderText="Latitud" DataField="stLatitud" />
-                            <asp:BoundField HeaderText="Longitud" DataField="stLongitud"/>
-                            <asp:BoundField HeaderText="Codigo Departamento" DataField="obclsDepartamentos.inCodigo"/>
-                            <asp:BoundField HeaderText="Nombre Departamento" DataField="obclsDepartamentos.stNombre"/>
+                            <asp:BoundField HeaderText="Tipo Flora" DataField="obclsTipoFlora.stDescripcion" />
 
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
@@ -129,7 +116,7 @@
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:TemplateField>
                         </Columns>
-                    </asp:gridview>
+                    </asp:GridView>
                 </div>
             </div>
         </div>

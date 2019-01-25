@@ -24,12 +24,12 @@ namespace ConoceAColombia.ws.Servicios
             logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
             return JsonConvert.SerializeObject(obclsFlora.getFlora());
         }
-        [WebMethod]
-        public void InsertFlora(string stclsFlora)
-        {
-            logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
-            logica.Models.clsFlora obclsFloraModel = JsonConvert.DeserializeObject<logica.Models.clsFlora>(stclsFlora);
-            obclsFlora.InsertFlora(obclsFloraModel);
-        }
+        //[WebMethod]
+        //public void InsertFlora(string stclsFlora)
+        //{
+          //  logica.BL.clsFlora obclsFlora = new logica.BL.clsFlora();
+            //logica.Models.clsFlora obclsFloraModel = JsonConvert.DeserializeObject<logica.Models.clsFlora>(stclsFlora);
+            //obclsFlora.InsertFlora(obclsFloraModel);
+        //}
     }
 }

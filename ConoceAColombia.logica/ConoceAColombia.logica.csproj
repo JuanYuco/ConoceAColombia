@@ -89,6 +89,7 @@
     <Compile Include="BL\clsFauna.cs" />
     <Compile Include="BL\clsFaunaxDepartamento.cs" />
     <Compile Include="BL\clsFlora.cs" />
+    <Compile Include="BL\clsFloraxDepartamento.cs" />
     <Compile Include="BL\clsGastronomia.cs" />
     <Compile Include="BL\clsGeneral.cs" />
     <Compile Include="BL\clsHistoria.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="BL\clsTipodeHistoria.cs" />
     <Compile Include="BL\clsTipoDeportista.cs" />
     <Compile Include="BL\clsTipoFauna.cs" />
+    <Compile Include="BL\clsTipoFlora.cs" />
     <Compile Include="BL\clsTipoJuego.cs" />
     <Compile Include="BL\clsTipoPolitico.cs" />
     <Compile Include="BL\clsUsuarios.cs" />
@@ -275,6 +277,7 @@
     <Compile Include="Models\clsFauna.cs" />
     <Compile Include="Models\clsFaunaxDepartamento.cs" />
     <Compile Include="Models\clsFlora.cs" />
+    <Compile Include="Models\clsFloraxDepartamento.cs" />
     <Compile Include="Models\clsGastronomia.cs" />
     <Compile Include="Models\clsHistoria.cs" />
     <Compile Include="Models\clsMusica.cs" />
@@ -288,6 +291,7 @@
     <Compile Include="Models\clsTipodeArtista.cs" />
     <Compile Include="Models\clsTipodeGastronomia.cs" />
     <Compile Include="Models\clsTipoDeportista.cs" />
+    <Compile Include="Models\clsTipoFlora.cs" />
     <Compile Include="Models\clsTipoHistoria.cs" />
     <Compile Include="Models\clsTipoJuego.cs" />
     <Compile Include="Models\clsTipoPolitico.cs" />

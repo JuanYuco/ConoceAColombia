@@ -38,8 +38,6 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<tbEstadios> tbEstadios { get; set; }
         public virtual DbSet<tbFauna> tbFauna { get; set; }
         public virtual DbSet<tbFaunaxDepartamento> tbFaunaxDepartamento { get; set; }
-        public virtual DbSet<tbFlora> tbFlora { get; set; }
-        public virtual DbSet<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
         public virtual DbSet<tbGastronomia> tbGastronomia { get; set; }
         public virtual DbSet<tbHistoria> tbHistoria { get; set; }
         public virtual DbSet<tbMusica> tbMusica { get; set; }
@@ -69,5 +67,7 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<incidencia_comentarios> incidencia_comentarios { get; set; }
         public virtual DbSet<tbEstadoIncidente> tbEstadoIncidente { get; set; }
         public virtual DbSet<Tipo_Incidencia> Tipo_Incidencia { get; set; }
+        public virtual DbSet<tbFlora> tbFlora { get; set; }
+        public virtual DbSet<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
     }
 }

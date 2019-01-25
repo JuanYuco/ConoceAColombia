@@ -94,7 +94,7 @@
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="Nombre" DataField="histNombre" />
                             <asp:BoundField HeaderText="Descripcion" DataField="histDescripcion" />
-                            <asp:BoundField HeaderText="Tipo Historia" DataField="tihiDescripcion" />
+                            <asp:BoundField HeaderText="Periodo Historia" DataField="pehiDescripcion" />
                             <asp:BoundField HeaderText="Fecha Inicio" DataField="histFechaInicio" />
                             <asp:BoundField HeaderText="Fecha Fin" DataField="HistFechaFin"/>
                             <asp:BoundField HeaderText="Latitud" DataField="HistLatitud"/>

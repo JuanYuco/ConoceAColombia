@@ -51,7 +51,7 @@ namespace ConoceAColombia.web.Views.HistoriaAdmin
                 DataSet dsConsultaDos = clsHistoria.getHistoriaTipoDatos(-1);
 
                 clsHistoria.CargarControl(ref dllDepartamento, dsConsulta, "depaCodigo", "depaNombre", "-1", "<<Todos>>");
-                clsHistoria.CargarControl(ref ddlTipoHistoria, dsConsultaDos, "tihiCodigo", "tihiDescripcion", "-1", "<<Todos>>");
+                clsHistoria.CargarControl(ref ddlTipoHistoria, dsConsultaDos, "pehiCodigo", "pehiDescripcion", "-1", "<<Todos>>");
             }
         }
 
@@ -109,12 +109,12 @@ namespace ConoceAColombia.web.Views.HistoriaAdmin
                 {
                     lblOpcion.Text = "2";
                     txtCodigo.Text = ((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text;
-                    txtNombre.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[2].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[2].Text;
-                    txtDescripción.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[3].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[3].Text;
-                    txtFechaInicio.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[5].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[5].Text;
-                    txtFechaFin.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[6].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[6].Text;
-                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[7].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[7].Text;
-                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[8].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[8].Text;
+                    txtNombre.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[1].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[1].Text;
+                    txtDescripción.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[2].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[2].Text;
+                    txtFechaInicio.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[4].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[4].Text;
+                    txtFechaFin.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[5].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[5].Text;
+                    txtLatitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[6].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[6].Text;
+                    txtLongitud.Text = String.IsNullOrEmpty(gvwDatos.Rows[inIndice].Cells[7].Text) ? String.Empty : gvwDatos.Rows[inIndice].Cells[7].Text;
 
 
 

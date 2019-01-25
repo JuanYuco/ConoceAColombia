@@ -26,8 +26,6 @@ namespace ConoceAColombia.logica.Entidades
         public string florDescripcion { get; set; }
         public string florAbundancia { get; set; }
         public string florPeriodoFloracion { get; set; }
-        public string florLatitud { get; set; }
-        public string florLongitud { get; set; }
         public long florTipo { get; set; }
     
         public virtual tbTipoFlora tbTipoFlora { get; set; }
