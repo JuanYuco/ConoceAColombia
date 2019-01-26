@@ -68,5 +68,20 @@ namespace ConoceAColombia.web.Controllers
                 throw ew;
             }
         }
+
+
+        public List<logica.Models.clsTipoCulturas> getTipoCulturas()
+        {
+            try
+            {
+                logica.BL.clsCulturas obclsCulturas = new logica.BL.clsCulturas();
+                return obclsCulturas.getTipoCulturas();
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
     }
 }

@@ -21,9 +21,12 @@ namespace ConoceAColombia.logica.BL
                         cultCodigo = ob.lgCodigo,
                         cultNombre = ob.stNombre,
                         cultDescripcion = ob.stDescripcion,
-                        cultLatitud = ob.stLongitud,
+                        cultFechaInicio = ob.stFechaInicio,
+                        cultFechaFinal = ob.stFechaFin,
+                        cultLatitud = ob.stLatitud,
                         cultLongitud = ob.stLongitud,
-                        cultDepartamento = ob.obclsDepartamentos.inCodigo
+                        cultDepartamento = ob.obclsDepartamentos.inCodigo,
+                        cultTipo = ob.obclsTipoCulturas.lgCodigo
                     };
                     obbdConoceAColombiaEntities.tbCulturas.Add(obtbCulturas);
                     obbdConoceAColombiaEntities.SaveChanges();
@@ -51,9 +54,12 @@ namespace ConoceAColombia.logica.BL
                                                                    select q).FirstOrDefault();
                     obtbCultura.cultNombre = ob.stNombre;
                     obtbCultura.cultDescripcion = ob.stDescripcion;
+                    obtbCultura.cultFechaInicio = ob.stFechaInicio;
+                    obtbCultura.cultFechaFinal = ob.stFechaFin;
                     obtbCultura.cultLatitud = ob.stLatitud;
                     obtbCultura.cultLongitud = ob.stLongitud;
                     obtbCultura.cultDepartamento = ob.obclsDepartamentos.inCodigo;
+                    obtbCultura.cultTipo = ob.obclsTipoCulturas.lgCodigo;
                     obbdConoceAColombiaEntities.SaveChanges();
 
                     return "Se realizo proceso con exito";
@@ -99,14 +105,22 @@ namespace ConoceAColombia.logica.BL
                 {
                     List<Models.clsCulturas> lstclsCulturas
                         = (from q in obbdConoceAColombiaEntities.tbCulturas
+                           join tbTc in obbdConoceAColombiaEntities.tbTipoCultura on q.cultTipo equals tbTc.ticuCodigo
                            join tbDp in obbdConoceAColombiaEntities.tbDepartamento on q.cultDepartamento equals tbDp.depaCodigo
                            select new Models.clsCulturas
                            {
                                lgCodigo = q.cultCodigo,
                                stNombre = q.cultNombre,
                                stDescripcion = q.cultDescripcion,
+                               stFechaInicio = q.cultFechaInicio,
+                               stFechaFin = q.cultFechaFinal,
                                stLatitud = q.cultLatitud,
                                stLongitud = q.cultLongitud,
+                               obclsTipoCulturas = new Models.clsTipoCulturas
+                               {
+                                   lgCodigo = q.cultTipo,
+                                   stDescripcion = tbTc.ticuDescripcion
+                               },
                                obclsDepartamentos = new Models.clsDepartamentos
                                {
                                    inCodigo = q.cultDepartamento,
@@ -146,6 +160,29 @@ namespace ConoceAColombia.logica.BL
         }
 
 
+        public List<Models.clsTipoCulturas> getTipoCulturas()
+        {
+            try
+            {
+                using (Entidades.bdConoceAColombiaEntities obDatos = new Entidades.bdConoceAColombiaEntities())
+                {
+                    List<Models.clsTipoCulturas> lstclsTipoCulturas = (from q in obDatos.tbTipoCultura
+                                                                         select new Models.clsTipoCulturas
+                                                                         {
+                                                                             lgCodigo = q.ticuCodigo,
+                                                                             stDescripcion = q.ticuDescripcion
+                                                                         }).ToList();
+                    return lstclsTipoCulturas;
+                }
+
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
 
         public void CargarControlDepartamento(ref DropDownList ddlControl, List<Models.clsDepartamentos> dsConsulta, String stValor, String stTexto, String stValorEmcabezado, String stTextoEmcabezado)
         {
@@ -164,5 +201,26 @@ namespace ConoceAColombia.logica.BL
                 throw ew;
             }
         }
+
+
+        public void CargarControlTipoCulturas(ref DropDownList ddlControl, List<Models.clsTipoCulturas> dsConsulta, String stValor, String stTexto, String stValorEmcabezado, String stTextoEmcabezado)
+        {
+            try
+            {
+                ddlControl.DataSource = dsConsulta;
+                ddlControl.DataTextField = stTexto;
+                ddlControl.DataValueField = stValor;
+                ddlControl.DataBind();
+
+                ddlControl.Items.Insert(0, new ListItem(stTextoEmcabezado, stValorEmcabezado));
+
+            }
+            catch (Exception ew)
+            {
+                throw ew;
+            }
+        }
+
+
     }
 }

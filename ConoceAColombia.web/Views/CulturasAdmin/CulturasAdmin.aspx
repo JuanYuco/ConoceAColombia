@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Resources/Template Admin/Template Admin.Master" AutoEventWireup="true" CodeBehind="CulturasAdmin.aspx.cs" Inherits="ConoceAColombia.web.Views.CulturasAdmin.CulturasAdmin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Header" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenedor" runat="server">
@@ -27,13 +28,21 @@
                     <asp:TextBox runat="server" ID="txtDescripcion" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="col-md-3">
-                    <asp:Label runat="server" ID="lblLatitud" Text="Latitud"></asp:Label>
-                    <asp:TextBox runat="server" ID="txtLatitud" CssClass="form-control"></asp:TextBox>
+                    <asp:Label runat="server" ID="lblFechaInicio" Text="Fecha Inicio"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtFechaInicio" CssClass="form-control"></asp:TextBox>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <div class="form-row">
+                <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblFechaFin" Text="Fecha Fin"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtFechaFin" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblLatitud" Text="Latitud"></asp:Label>
+                    <asp:TextBox runat="server" ID="txtLatitud" CssClass="form-control"></asp:TextBox>
+                </div>
                 <div class="col-md-3">
                     <asp:Label runat="server" ID="lblLongitud" Text="Longitud"></asp:Label>
                     <asp:TextBox runat="server" ID="txtLongitud" CssClass="form-control"></asp:TextBox>
@@ -41,6 +50,17 @@
                 <div class="col-md-3">
                     <asp:Label runat="server" ID="lblDepartamento" Text="Departamento"></asp:Label>
                     <asp:DropDownList ID="ddlDepartamento" runat="server" CssClass="form-control">
+                    </asp:DropDownList>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-3">
+                    <asp:Label runat="server" ID="lblTipoCultura" Text="Tipo Culturas"></asp:Label>
+                    <asp:DropDownList ID="ddlTipoCulturas" runat="server" CssClass="form-control">
                     </asp:DropDownList>
                 </div>
             </div>
@@ -66,8 +86,8 @@
         </div>
         <div class="form-group">
             <div class="form-row">
-                <div class="col-md-12" style="overflow:auto">
-                    <asp:GridView runat="server" ID="gvwDatos" width="100%" AutoGenerateColumns="False" EmptyDataText="No se encontraron registros" OnRowCommand="gvwDatos_RowCommand">
+                <div class="col-md-12" style="overflow: auto">
+                    <asp:GridView runat="server" ID="gvwDatos" Width="100%" AutoGenerateColumns="False" EmptyDataText="No se encontraron registros" OnRowCommand="gvwDatos_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="Codigo">
                                 <ItemTemplate>
@@ -76,9 +96,12 @@
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="Nombre" DataField="stNombre" />
                             <asp:BoundField HeaderText="Descripción" DataField="stDescripcion" />
+                            <asp:BoundField HeaderText="Fecha Inicio" DataField="stFechaInicio" />
+                            <asp:BoundField HeaderText="Fecha Final" DataField="stFechaFin" />
                             <asp:BoundField HeaderText="Latitud" DataField="stLatitud" />
-                            <asp:BoundField HeaderText="Longitud" DataField="stLongitud"/>
-                            <asp:BoundField HeaderText="Nombre Departamento" DataField="obclsDepartamentos.stNombre"/>
+                            <asp:BoundField HeaderText="Longitud" DataField="stLongitud" />
+                            <asp:BoundField HeaderText="Nombre Departamento" DataField="obclsDepartamentos.stNombre" />
+                            <asp:BoundField HeaderText="Tipo Cultura" DataField="obclsTipoCulturas.stDescripcion" />
 
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>

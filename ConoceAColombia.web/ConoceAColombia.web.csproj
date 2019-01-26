@@ -327,6 +327,7 @@
     <Content Include="Views\FloraxDepartamentoAdmin\FloraxDepartamentoAdmin.aspx" />
     <Content Include="Views\PoliticoAdmin\PoliticoAdmin.aspx" />
     <Content Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx" />
+    <Content Include="Views\TipoCulturasAdmin\TipoCulturasAdmin.aspx" />
     <Content Include="Views\TipoDeportistaAdmin\TipoDeportistaAdmin.aspx" />
     <Content Include="Views\DificultadJuego\DificultadJuego.aspx" />
     <Content Include="Views\Empleados\Empleados.aspx" />
@@ -461,6 +462,7 @@
     <Compile Include="Controllers\RecuperarPasswordControllers.cs" />
     <Compile Include="Controllers\TematicasControllers.cs" />
     <Compile Include="Controllers\TipoAprendizajeControllers.cs" />
+    <Compile Include="Controllers\TipoCulturasControllers.cs" />
     <Compile Include="Controllers\TipodeArquitecturaControllers.cs" />
     <Compile Include="Controllers\TipodeArtistaControllers.cs" />
     <Compile Include="Controllers\TipodeGastronomiaControllers.cs" />
@@ -577,6 +579,13 @@
     </Compile>
     <Compile Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx.designer.cs">
       <DependentUpon>TipoAprendizajeAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TipoCulturasAdmin\TipoCulturasAdmin.aspx.cs">
+      <DependentUpon>TipoCulturasAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TipoCulturasAdmin\TipoCulturasAdmin.aspx.designer.cs">
+      <DependentUpon>TipoCulturasAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TipoDeportistaAdmin\TipoDeportistaAdmin.aspx.cs">
       <DependentUpon>TipoDeportistaAdmin.aspx</DependentUpon>

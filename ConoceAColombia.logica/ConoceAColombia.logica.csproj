@@ -103,6 +103,7 @@
     <Compile Include="BL\clsSuma.cs" />
     <Compile Include="BL\clsTematicasJuego.cs" />
     <Compile Include="BL\clsTipoAprendizaje.cs" />
+    <Compile Include="BL\clsTipoCulturas.cs" />
     <Compile Include="BL\clsTipodeArquitectura.cs" />
     <Compile Include="BL\clsTipodeArtista.cs" />
     <Compile Include="BL\clsTipodeGastronomia.cs" />
@@ -287,6 +288,7 @@
     <Compile Include="Models\clsPuntajePorPersona.cs" />
     <Compile Include="Models\clsTematicasJuego.cs" />
     <Compile Include="Models\clsTipoAprendizaje.cs" />
+    <Compile Include="Models\clsTipoCulturas.cs" />
     <Compile Include="Models\clsTipodeArquitectura.cs" />
     <Compile Include="Models\clsTipodeArtista.cs" />
     <Compile Include="Models\clsTipodeGastronomia.cs" />
