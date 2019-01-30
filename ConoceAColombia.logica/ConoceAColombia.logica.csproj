@@ -86,6 +86,7 @@
     <Compile Include="BL\clsDificultadJuego.cs" />
     <Compile Include="BL\clsEmpleados.cs" />
     <Compile Include="BL\clsEquipo.cs" />
+    <Compile Include="BL\clsEstadios.cs" />
     <Compile Include="BL\clsFauna.cs" />
     <Compile Include="BL\clsFaunaxDepartamento.cs" />
     <Compile Include="BL\clsFlora.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Models\clsDeportista.cs" />
     <Compile Include="Models\clsDicultadJuego.cs" />
     <Compile Include="Models\clsEquipo.cs" />
+    <Compile Include="Models\clsEstadios.cs" />
     <Compile Include="Models\clsFauna.cs" />
     <Compile Include="Models\clsFaunaxDepartamento.cs" />
     <Compile Include="Models\clsFlora.cs" />

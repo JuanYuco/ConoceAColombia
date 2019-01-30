@@ -324,6 +324,7 @@
     <Content Include="Views\AprendizajeAdmin\AprendizajeAdmin.aspx" />
     <Content Include="Views\CulturasAdmin\CulturasAdmin.aspx" />
     <Content Include="Views\DeportistaAdmin\DeportistaAdmin.aspx" />
+    <Content Include="Views\EstadiosAdmin\EstadiosAdmin.aspx" />
     <Content Include="Views\FloraxDepartamentoAdmin\FloraxDepartamentoAdmin.aspx" />
     <Content Include="Views\PoliticoAdmin\PoliticoAdmin.aspx" />
     <Content Include="Views\TipoAprendizajeAdmin\TipoAprendizajeAdmin.aspx" />
@@ -445,6 +446,7 @@
     <Compile Include="Controllers\DeportistaControllers.cs" />
     <Compile Include="Controllers\DificultadJuegoControllers.cs" />
     <Compile Include="Controllers\EquipoControllers.cs" />
+    <Compile Include="Controllers\EstadiosControllers.cs" />
     <Compile Include="Controllers\FaunaControllers.cs" />
     <Compile Include="Controllers\FaunaxDepartamentoControllers.cs" />
     <Compile Include="Controllers\FloraControllers.cs" />
@@ -558,6 +560,13 @@
     </Compile>
     <Compile Include="Views\DeportistaAdmin\DeportistaAdmin.aspx.designer.cs">
       <DependentUpon>DeportistaAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EstadiosAdmin\EstadiosAdmin.aspx.cs">
+      <DependentUpon>EstadiosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EstadiosAdmin\EstadiosAdmin.aspx.designer.cs">
+      <DependentUpon>EstadiosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\FloraxDepartamentoAdmin\FloraxDepartamentoAdmin.aspx.cs">
       <DependentUpon>FloraxDepartamentoAdmin.aspx</DependentUpon>
