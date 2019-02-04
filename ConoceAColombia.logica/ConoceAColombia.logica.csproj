@@ -94,6 +94,7 @@
     <Compile Include="BL\clsGastronomia.cs" />
     <Compile Include="BL\clsGeneral.cs" />
     <Compile Include="BL\clsHistoria.cs" />
+    <Compile Include="BL\clsLugares.cs" />
     <Compile Include="BL\clsMusica.cs" />
     <Compile Include="BL\clsPersonajesHistoricos.cs" />
     <Compile Include="BL\clsPersonajesxHistoria.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="BL\clsTipoFauna.cs" />
     <Compile Include="BL\clsTipoFlora.cs" />
     <Compile Include="BL\clsTipoJuego.cs" />
+    <Compile Include="BL\clsTipoLugares.cs" />
     <Compile Include="BL\clsTipoPolitico.cs" />
     <Compile Include="BL\clsUsuarios.cs" />
     <Compile Include="Entidades\incidencia.cs">
@@ -190,6 +192,9 @@
     <Compile Include="Entidades\tbHistoria.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbLugares.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbMusica.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -247,6 +252,9 @@
     <Compile Include="Entidades\tbTipoJuego.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\tbTipoLugares.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\tbTipoPersonajeAprendizaje.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -283,6 +291,7 @@
     <Compile Include="Models\clsFloraxDepartamento.cs" />
     <Compile Include="Models\clsGastronomia.cs" />
     <Compile Include="Models\clsHistoria.cs" />
+    <Compile Include="Models\clsLugares.cs" />
     <Compile Include="Models\clsMusica.cs" />
     <Compile Include="Models\clsPersonajesHistoricos.cs" />
     <Compile Include="Models\clsPolitico.cs" />
@@ -298,6 +307,7 @@
     <Compile Include="Models\clsTipoFlora.cs" />
     <Compile Include="Models\clsTipoHistoria.cs" />
     <Compile Include="Models\clsTipoJuego.cs" />
+    <Compile Include="Models\clsTipoLugares.cs" />
     <Compile Include="Models\clsTipoPolitico.cs" />
     <Compile Include="Models\clsUsuarios.cs" />
     <Compile Include="Models\clsPersonajesxHistoria.cs" />

@@ -69,5 +69,7 @@ namespace ConoceAColombia.logica.Entidades
         public virtual DbSet<Tipo_Incidencia> Tipo_Incidencia { get; set; }
         public virtual DbSet<tbFlora> tbFlora { get; set; }
         public virtual DbSet<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
+        public virtual DbSet<tbLugares> tbLugares { get; set; }
+        public virtual DbSet<tbTipoLugares> tbTipoLugares { get; set; }
     }
 }

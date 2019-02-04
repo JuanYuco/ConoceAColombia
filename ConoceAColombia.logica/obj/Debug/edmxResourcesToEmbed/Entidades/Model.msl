@@ -492,5 +492,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbLugares">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbLugares">
+        <MappingFragment StoreEntitySet="tbLugares">
+          <ScalarProperty Name="lugaImagen" ColumnName="lugaImagen" />
+          <ScalarProperty Name="lugaTipo" ColumnName="lugaTipo" />
+          <ScalarProperty Name="lugaDepartamento" ColumnName="lugaDepartamento" />
+          <ScalarProperty Name="lugaLongitud" ColumnName="lugaLongitud" />
+          <ScalarProperty Name="lugaLatitud" ColumnName="lugaLatitud" />
+          <ScalarProperty Name="lugaDireccion" ColumnName="lugaDireccion" />
+          <ScalarProperty Name="lugaFundacion" ColumnName="lugaFundacion" />
+          <ScalarProperty Name="lugaCiudad" ColumnName="lugaCiudad" />
+          <ScalarProperty Name="lugaDescripcion" ColumnName="lugaDescripcion" />
+          <ScalarProperty Name="lugaNombre" ColumnName="lugaNombre" />
+          <ScalarProperty Name="lugaCodigo" ColumnName="lugaCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoLugares">
+      <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbTipoLugares">
+        <MappingFragment StoreEntitySet="tbTipoLugares">
+          <ScalarProperty Name="tiluDescripcion" ColumnName="tiluDescripcion" />
+          <ScalarProperty Name="tiluCodigo" ColumnName="tiluCodigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -204,6 +204,22 @@
     <Property Name="histNombre" Type="varchar" MaxLength="100" />
     <Property Name="histPeriodo" Type="bigint" Nullable="false" />
   </EntityType>
+  <EntityType Name="tbLugares">
+    <Key>
+      <PropertyRef Name="lugaCodigo" />
+    </Key>
+    <Property Name="lugaCodigo" Type="bigint" Nullable="false" />
+    <Property Name="lugaNombre" Type="varchar" MaxLength="100" />
+    <Property Name="lugaDescripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="lugaCiudad" Type="varchar" MaxLength="100" />
+    <Property Name="lugaFundacion" Type="varchar" MaxLength="50" />
+    <Property Name="lugaDireccion" Type="varchar" MaxLength="100" />
+    <Property Name="lugaLatitud" Type="varchar" MaxLength="50" />
+    <Property Name="lugaLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="lugaDepartamento" Type="bigint" Nullable="false" />
+    <Property Name="lugaTipo" Type="bigint" Nullable="false" />
+    <Property Name="lugaImagen" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="tbMusica">
     <Key>
       <PropertyRef Name="musiCodigo" />
@@ -373,6 +389,13 @@
     </Key>
     <Property Name="tijuCodigo" Type="bigint" Nullable="false" />
     <Property Name="tijuDescripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbTipoLugares">
+    <Key>
+      <PropertyRef Name="tiluCodigo" />
+    </Key>
+    <Property Name="tiluCodigo" Type="bigint" Nullable="false" />
+    <Property Name="tiluDescripcion" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbTipoPersonajeAprendizaje">
     <Key>
@@ -819,6 +842,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_lugaDepartamento">
+    <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="1" />
+    <End Role="tbLugares" Type="Self.tbLugares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbLugares">
+        <PropertyRef Name="lugaDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lugaTipo">
+    <End Role="tbTipoLugares" Type="Self.tbTipoLugares" Multiplicity="1" />
+    <End Role="tbLugares" Type="Self.tbLugares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoLugares">
+        <PropertyRef Name="tiluCodigo" />
+      </Principal>
+      <Dependent Role="tbLugares">
+        <PropertyRef Name="lugaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_musiDepartamento">
     <End Role="tbDepartamento" Type="Self.tbDepartamento" Multiplicity="0..1" />
     <End Role="tbMusica" Type="Self.tbMusica" Multiplicity="*" />
@@ -933,6 +980,7 @@
     <EntitySet Name="tbFloraxDepartamento" EntityType="Self.tbFloraxDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbGastronomia" EntityType="Self.tbGastronomia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbHistoria" EntityType="Self.tbHistoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbLugares" EntityType="Self.tbLugares" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbMusica" EntityType="Self.tbMusica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPeriodoHistoria" EntityType="Self.tbPeriodoHistoria" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbPersonajeAprendizaje" EntityType="Self.tbPersonajeAprendizaje" Schema="dbo" store:Type="Tables" />
@@ -952,6 +1000,7 @@
     <EntitySet Name="tbTipoFlora" EntityType="Self.tbTipoFlora" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoIncidente" EntityType="Self.tbTipoIncidente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoJuego" EntityType="Self.tbTipoJuego" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoLugares" EntityType="Self.tbTipoLugares" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoPersonajeAprendizaje" EntityType="Self.tbTipoPersonajeAprendizaje" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoPolitico" EntityType="Self.tbTipoPolitico" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbTipoUsuario" EntityType="Self.tbTipoUsuario" Schema="dbo" store:Type="Tables" />
@@ -1083,6 +1132,14 @@
     <AssociationSet Name="FK_incidencia_Tipo_Incidencia" Association="Self.FK_incidencia_Tipo_Incidencia">
       <End Role="Tipo_Incidencia" EntitySet="Tipo_Incidencia" />
       <End Role="incidencia" EntitySet="incidencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lugaDepartamento" Association="Self.FK_lugaDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbLugares" EntitySet="tbLugares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lugaTipo" Association="Self.FK_lugaTipo">
+      <End Role="tbTipoLugares" EntitySet="tbTipoLugares" />
+      <End Role="tbLugares" EntitySet="tbLugares" />
     </AssociationSet>
     <AssociationSet Name="FK_musiDepartamento" Association="Self.FK_musiDepartamento">
       <End Role="tbDepartamento" EntitySet="tbDepartamento" />

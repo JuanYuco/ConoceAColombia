@@ -31,6 +31,7 @@ namespace ConoceAColombia.logica.Entidades
             this.tbHistoria = new HashSet<tbHistoria>();
             this.tbMusica = new HashSet<tbMusica>();
             this.tbFloraxDepartamento = new HashSet<tbFloraxDepartamento>();
+            this.tbLugares = new HashSet<tbLugares>();
         }
     
         public long depaCodigo { get; set; }
@@ -74,5 +75,7 @@ namespace ConoceAColombia.logica.Entidades
         public virtual ICollection<tbMusica> tbMusica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbFloraxDepartamento> tbFloraxDepartamento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbLugares> tbLugares { get; set; }
     }
 }

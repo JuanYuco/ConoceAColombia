@@ -88,6 +88,10 @@
         <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdDepartamento" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_florTipo" />
         <AssociationConnector Association="bdConoceAColombiaModel.FK_foxdFlora" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbLugares" Width="1.5" PointX="9" PointY="34.625" />
+        <EntityTypeShape EntityType="bdConoceAColombiaModel.tbTipoLugares" Width="1.5" PointX="6.75" PointY="47.375" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_lugaDepartamento" />
+        <AssociationConnector Association="bdConoceAColombiaModel.FK_lugaTipo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

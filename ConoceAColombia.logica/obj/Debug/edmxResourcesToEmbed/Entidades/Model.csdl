@@ -98,6 +98,7 @@
     <NavigationProperty Name="tbHistoria" Relationship="Self.FK_histDepartamento" FromRole="tbDepartamento" ToRole="tbHistoria" />
     <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
     <NavigationProperty Name="tbFloraxDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdDepartamento" FromRole="tbDepartamento" ToRole="tbFloraxDepartamento" />
+    <NavigationProperty Name="tbLugares" Relationship="bdConoceAColombiaModel.FK_lugaDepartamento" FromRole="tbDepartamento" ToRole="tbLugares" />
   </EntityType>
   <EntityType Name="tbDeportes">
     <Key>
@@ -1132,6 +1133,16 @@
       <End Role="tbFlora" EntitySet="tbFlora" />
       <End Role="tbFloraxDepartamento" EntitySet="tbFloraxDepartamento" />
     </AssociationSet>
+    <EntitySet Name="tbLugares" EntityType="bdConoceAColombiaModel.tbLugares" />
+    <EntitySet Name="tbTipoLugares" EntityType="bdConoceAColombiaModel.tbTipoLugares" />
+    <AssociationSet Name="FK_lugaDepartamento" Association="bdConoceAColombiaModel.FK_lugaDepartamento">
+      <End Role="tbDepartamento" EntitySet="tbDepartamento" />
+      <End Role="tbLugares" EntitySet="tbLugares" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lugaTipo" Association="bdConoceAColombiaModel.FK_lugaTipo">
+      <End Role="tbTipoLugares" EntitySet="tbTipoLugares" />
+      <End Role="tbLugares" EntitySet="tbLugares" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tbFlora">
     <Key>
@@ -1192,6 +1203,56 @@
       </Principal>
       <Dependent Role="tbFloraxDepartamento">
         <PropertyRef Name="foxdFlora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbLugares">
+    <Key>
+      <PropertyRef Name="lugaCodigo" />
+    </Key>
+    <Property Name="lugaCodigo" Type="Int64" Nullable="false" />
+    <Property Name="lugaNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lugaDescripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="lugaCiudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lugaFundacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lugaDireccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="lugaLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lugaLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lugaDepartamento" Type="Int64" Nullable="false" />
+    <Property Name="lugaTipo" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="tbDepartamento" Relationship="bdConoceAColombiaModel.FK_lugaDepartamento" FromRole="tbLugares" ToRole="tbDepartamento" />
+    <NavigationProperty Name="tbTipoLugares" Relationship="bdConoceAColombiaModel.FK_lugaTipo" FromRole="tbLugares" ToRole="tbTipoLugares" />
+    <Property Name="lugaImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbTipoLugares">
+    <Key>
+      <PropertyRef Name="tiluCodigo" />
+    </Key>
+    <Property Name="tiluCodigo" Type="Int64" Nullable="false" />
+    <Property Name="tiluDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbLugares" Relationship="bdConoceAColombiaModel.FK_lugaTipo" FromRole="tbTipoLugares" ToRole="tbLugares" />
+  </EntityType>
+  <Association Name="FK_lugaDepartamento">
+    <End Type="bdConoceAColombiaModel.tbDepartamento" Role="tbDepartamento" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbLugares" Role="tbLugares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamento">
+        <PropertyRef Name="depaCodigo" />
+      </Principal>
+      <Dependent Role="tbLugares">
+        <PropertyRef Name="lugaDepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lugaTipo">
+    <End Type="bdConoceAColombiaModel.tbTipoLugares" Role="tbTipoLugares" Multiplicity="1" />
+    <End Type="bdConoceAColombiaModel.tbLugares" Role="tbLugares" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoLugares">
+        <PropertyRef Name="tiluCodigo" />
+      </Principal>
+      <Dependent Role="tbLugares">
+        <PropertyRef Name="lugaTipo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
