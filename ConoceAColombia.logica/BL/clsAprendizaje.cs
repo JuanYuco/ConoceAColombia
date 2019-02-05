@@ -25,6 +25,7 @@ namespace ConoceAColombia.logica.BL
                                                                        stDescripcion = q.apreDescripcion,
                                                                        stFechaNacimiento = q.apreFechaNacimiento.ToString(),
                                                                        stCiudad = q.apreCiudad,
+                                                                       stImagen = q.apreImagen,
                                                                        stLatitud = q.apreLatitud,
                                                                        stLongitud = q.apreLongitud,
                                                                        obclsTipoAprendizaje = new Models.clsTipoAprendizaje
@@ -63,6 +64,7 @@ namespace ConoceAColombia.logica.BL
                         apreDescripcion = obclsAprendizaje.stDescripcion,
                         apreFechaNacimiento = Convert.ToDateTime(obclsAprendizaje.stFechaNacimiento),
                         apreCiudad = obclsAprendizaje.stCiudad,
+                        apreImagen = obclsAprendizaje.stImagen,
                         apreLatitud = obclsAprendizaje.stLatitud,
                         apreLongitud = obclsAprendizaje.stLongitud,
                         apreDepartamento = obclsAprendizaje.obclsDepartamentos.inCodigo,
@@ -93,6 +95,7 @@ namespace ConoceAColombia.logica.BL
                     obtbAprendizaje.apreDescripcion = ob.stDescripcion;
                     obtbAprendizaje.apreFechaNacimiento = Convert.ToDateTime(ob.stFechaNacimiento);
                     obtbAprendizaje.apreCiudad = ob.stCiudad;
+                    obtbAprendizaje.apreImagen = ob.stImagen;
                     obtbAprendizaje.apreLatitud = ob.stLatitud;
                     obtbAprendizaje.apreLongitud = ob.stLongitud;
                     obtbAprendizaje.apreDepartamento = ob.obclsDepartamentos.inCodigo;

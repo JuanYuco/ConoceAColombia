@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-
+using System.IO;
 
 namespace ConoceAColombia.web.Views.Ciudades_Principales_Admin
 {
@@ -62,18 +62,36 @@ namespace ConoceAColombia.web.Views.Ciudades_Principales_Admin
             {
                 String stMensaje = String.Empty;
                 if (String.IsNullOrEmpty(txtCodigo.Text)) stMensaje += "Ingrese Codigo, ";
-                if (String.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese Descripcion, ";
-                if (String.IsNullOrEmpty(txtReseña.Text)) stMensaje += "Ingrese Descripcion, ";
-                if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Descripcion, ";
-                if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Descripcion, ";
+                if (String.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese Nombre, ";
+                if (String.IsNullOrEmpty(txtReseña.Text)) stMensaje += "Ingrese Reseña, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
+                if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
+                if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\CiudadesPrincipales\") + txtCodigo.Text + "Ciudades" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsCiudadesPrincipales clsCiudadesPrincipales = new logica.Models.clsCiudadesPrincipales
                 {
                     lgCodigo = Convert.ToInt64(txtCodigo.Text),
                     stNombre = txtNombre.Text,
                     stReseña = txtReseña.Text,
+                    stImagen = stRutaDestino,
                     stLatitud = txtLatitud.Text,
                     stLongitud= txtLongitud.Text,
                     clsDepartamentos = new logica.Models.clsDepartamentos {inCodigo=Convert.ToInt64(ddlDepartamento.SelectedValue)}
@@ -123,6 +141,7 @@ namespace ConoceAColombia.web.Views.Ciudades_Principales_Admin
                         stReseña = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
+                        stImagen = String.Empty,
                         clsDepartamentos = new logica.Models.clsDepartamentos { inCodigo = 0}
                         
                     };

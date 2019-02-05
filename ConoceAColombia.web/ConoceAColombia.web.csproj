@@ -886,6 +886,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\Aprendizaje\" />
+    <Folder Include="Images\Artistas\" />
+    <Folder Include="Images\CiudadesPrincipales\" />
+    <Folder Include="Images\Culturas\" />
+    <Folder Include="Images\Departamento\" />
     <Folder Include="Models\" />
     <Folder Include="tmp\" />
   </ItemGroup>

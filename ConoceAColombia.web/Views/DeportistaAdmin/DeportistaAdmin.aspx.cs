@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,10 +45,28 @@ namespace ConoceAColombia.web.Views.DeportistaAdmin
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
                 if (String.IsNullOrEmpty(txtFechaNacimiento.Text)) stMensaje += "Ingrese Fecha de Nacimiento, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Deportista\") + txtCodigo.Text + "Deportista" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsDeportista clsDeportista = new logica.Models.clsDeportista
                 {
@@ -65,7 +84,8 @@ namespace ConoceAColombia.web.Views.DeportistaAdmin
                     obclsTipoDeportista = new logica.Models.clsTipoDeportista
                     {
                         lgCodigo = Convert.ToInt64(ddlTipoDeportista.SelectedIndex)
-                    }
+                    },
+                    stImagen = stRutaDestino
                     
 
                 };
@@ -125,7 +145,8 @@ namespace ConoceAColombia.web.Views.DeportistaAdmin
                         stCiudad = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
-                        obclsTipoDeportista = new logica.Models.clsTipoDeportista { lgCodigo = 0 }
+                        obclsTipoDeportista = new logica.Models.clsTipoDeportista { lgCodigo = 0 },
+                        stImagen = String.Empty
 
 
 

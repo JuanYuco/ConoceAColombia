@@ -111,6 +111,7 @@ namespace ConoceAColombia.logica.BL
                 _SqlCommand.Parameters.Add(new SqlParameter("@dCodigo", obclsCiudadesPrincipales.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dNombre", obclsCiudadesPrincipales.stNombre));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dReseña", obclsCiudadesPrincipales.stReseña));
+                _SqlCommand.Parameters.Add(new SqlParameter("@dImagen", obclsCiudadesPrincipales.stImagen));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLatitud", obclsCiudadesPrincipales.stLatitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLongitud", obclsCiudadesPrincipales.stLongitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDepartamento", obclsCiudadesPrincipales.clsDepartamentos.inCodigo));

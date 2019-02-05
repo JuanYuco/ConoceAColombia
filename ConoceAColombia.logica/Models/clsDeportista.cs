@@ -13,6 +13,7 @@ namespace ConoceAColombia.logica.Models
         public string stDescripcion { get; set; }
         public string stFechaNacimiento { get; set; }
         public string stCiudad { get; set; }
+        public string stImagen { get; set; }
         public string stLatitud { get; set; }
         public string stLongitud { get; set; }
         public clsTipoDeportista obclsTipoDeportista { get; set; }

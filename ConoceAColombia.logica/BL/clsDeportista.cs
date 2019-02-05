@@ -25,6 +25,7 @@ namespace ConoceAColombia.logica.BL
                                                              stDescripcion = q.depoDescripcion,
                                                              stFechaNacimiento = q.depoFechaNacimiento.ToString(),
                                                              stCiudad = q.depoCiudad,
+                                                             stImagen = q.depoImagen,
                                                              stLatitud = q.depoLatitud,
                                                              stLongitud = q.depoLongitud,
                                                              obclsTipoDeportista = new Models.clsTipoDeportista
@@ -63,6 +64,7 @@ namespace ConoceAColombia.logica.BL
                         depoDescripcion = obclsDeportista.stDescripcion,
                         depoFechaNacimiento =Convert.ToDateTime(obclsDeportista.stFechaNacimiento),
                         depoCiudad = obclsDeportista.stCiudad,
+                        depoImagen = obclsDeportista.stImagen,
                         depoLatitud = obclsDeportista.stLatitud,
                         depoLongitud = obclsDeportista.stLongitud,
                         depoDepartamento = obclsDeportista.obclsDepartamentos.inCodigo,
@@ -93,6 +95,7 @@ namespace ConoceAColombia.logica.BL
                     obtbDeportista.depoDescripcion = ob.stDescripcion;
                     obtbDeportista.depoFechaNacimiento = Convert.ToDateTime(ob.stFechaNacimiento);
                     obtbDeportista.depoCiudad = ob.stCiudad;
+                    obtbDeportista.depoImagen = ob.stImagen;
                     obtbDeportista.depoLatitud = ob.stLatitud;
                     obtbDeportista.depoLongitud = ob.stLongitud;
                     obtbDeportista.depoDepartamento = ob.obclsDepartamentos.inCodigo;

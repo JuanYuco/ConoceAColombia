@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 namespace ConoceAColombia.web.Views.Artistas_Admin
 {
@@ -69,10 +70,27 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
                 if (String.IsNullOrEmpty(txtFechaNacimiento.Text)) stMensaje += "Ingrese Fecha de Nacimiento, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Artistas\") + txtCodigo.Text + "Artistas" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsArtistas clsArtistas = new logica.Models.clsArtistas
                 {
@@ -84,7 +102,8 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                     stCiudad = txtCiudad.Text,
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
-                     clsTipodeArtista = new logica.Models.clsTipodeArtista { lgCodigo = Convert.ToInt64(ddlTipoArtista.SelectedValue)}
+                    stImagen = stRutaDestino,
+                    clsTipodeArtista = new logica.Models.clsTipodeArtista { lgCodigo = Convert.ToInt64(ddlTipoArtista.SelectedValue)}
                 };
 
                 Controllers.ArtistasControllers obArtistasControllers = new Controllers.ArtistasControllers();
@@ -135,8 +154,9 @@ namespace ConoceAColombia.web.Views.Artistas_Admin
                         stCiudad = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
+                        stImagen = String.Empty,
                         clsTipodeArtista = new logica.Models.clsTipodeArtista { lgCodigo = 0 }
-
+                        
 
                     };
 

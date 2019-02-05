@@ -63,6 +63,10 @@
                     <asp:DropDownList ID="ddlTipoCulturas" runat="server" CssClass="form-control">
                     </asp:DropDownList>
                 </div>
+                <div class="col-md-3">
+                    <asp:Label ID="lblImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                </div>
             </div>
         </div>
 
@@ -100,6 +104,7 @@
                             <asp:BoundField HeaderText="Fecha Final" DataField="stFechaFin" />
                             <asp:BoundField HeaderText="Latitud" DataField="stLatitud" />
                             <asp:BoundField HeaderText="Longitud" DataField="stLongitud" />
+                            <asp:BoundField HeaderText="Imagen" DataField="stImagen" />
                             <asp:BoundField HeaderText="Nombre Departamento" DataField="obclsDepartamentos.stNombre" />
                             <asp:BoundField HeaderText="Tipo Cultura" DataField="obclsTipoCulturas.stDescripcion" />
 

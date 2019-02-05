@@ -23,6 +23,7 @@ namespace ConoceAColombia.logica.Entidades
         public long artiDepartamento { get; set; }
         public string artiDescripcion { get; set; }
         public Nullable<System.DateTime> artiFechaNacimiento { get; set; }
+        public string artiImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbTipodeArtista tbTipodeArtista { get; set; }

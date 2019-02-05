@@ -58,6 +58,10 @@
         </div>
         <div class="form-group">
             <div class="form-row">
+                <div class="col-md-3">
+                    <asp:Label ID="lblImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                </div>
                  <div class="col-md-3">
                     <asp:Label runat="server" ID="lblDepartamento" Text="Departamento"></asp:Label>
                     <asp:DropDownList ID="ddlDepartamento" runat="server" CssClass="form-control">
@@ -101,6 +105,7 @@
                             <asp:BoundField HeaderText="Ciudad" DataField="artiCiudad" />
                             <asp:BoundField HeaderText="Latitud" DataField="artiLatitud" />
                             <asp:BoundField HeaderText="Longitud" DataField="artiLongitud" />
+                            <asp:BoundField HeaderText="Ruta Imagen" DataField="artiImagen" />
                             <asp:BoundField HeaderText="Departamento" DataField="depaNombre" />
 
                             <asp:TemplateField HeaderText="Editar">

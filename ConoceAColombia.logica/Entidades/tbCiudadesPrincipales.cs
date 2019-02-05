@@ -20,6 +20,7 @@ namespace ConoceAColombia.logica.Entidades
         public string ciprLatitud { get; set; }
         public string ciprLongitud { get; set; }
         public Nullable<long> ciprDepartamento { get; set; }
+        public string ciprImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
     }

@@ -46,6 +46,7 @@ namespace ConoceAColombia.logica.Entidades
         public string depaDemografia { get; set; }
         public string depaLatitud { get; set; }
         public string depaLongitud { get; set; }
+        public string depaImagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbArquitectura> tbArquitectura { get; set; }

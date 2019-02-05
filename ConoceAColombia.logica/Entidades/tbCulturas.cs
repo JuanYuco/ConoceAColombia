@@ -23,6 +23,7 @@ namespace ConoceAColombia.logica.Entidades
         public string cultFechaInicio { get; set; }
         public string cultFechaFinal { get; set; }
         public long cultTipo { get; set; }
+        public string cultImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbTipoCultura tbTipoCultura { get; set; }

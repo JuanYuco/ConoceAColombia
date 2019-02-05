@@ -23,6 +23,7 @@ namespace ConoceAColombia.logica.Entidades
         public string depoLongitud { get; set; }
         public long depoDepartamento { get; set; }
         public Nullable<System.DateTime> depoFechaNacimiento { get; set; }
+        public string depoImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbTipoDeportista tbTipoDeportista { get; set; }

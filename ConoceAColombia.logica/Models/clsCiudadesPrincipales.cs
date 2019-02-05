@@ -11,6 +11,7 @@ namespace ConoceAColombia.logica.Models
         public long lgCodigo { get; set; }
         public String stNombre { get; set; }
         public String stReseña { get; set; }
+        public String stImagen { get; set; }
         public String stLatitud { get; set; }
         public String stLongitud { get; set; }
         public clsDepartamentos clsDepartamentos {get; set;}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,9 +45,27 @@ namespace ConoceAColombia.web.Views.CulturasAdmin
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
                 if (String.IsNullOrEmpty(txtFechaInicio.Text)) stMensaje += "Ingrese la fecha de inicio, ";
                 if (String.IsNullOrEmpty(txtFechaFin.Text)) stMensaje += "Ingrese fecha del final, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Culturas\") + txtCodigo.Text + "Culturas" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsCulturas clsCulturas = new logica.Models.clsCulturas
                 {
@@ -55,6 +74,7 @@ namespace ConoceAColombia.web.Views.CulturasAdmin
                     stFechaInicio = txtFechaInicio.Text,
                     stFechaFin = txtFechaFin.Text,
                     stDescripcion = txtDescripcion.Text,
+                    stImagen = stRutaDestino,
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
                     obclsDepartamentos = new logica.Models.clsDepartamentos
@@ -122,7 +142,8 @@ namespace ConoceAColombia.web.Views.CulturasAdmin
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
                         stFechaFin = String.Empty,
-                        stFechaInicio = String.Empty
+                        stFechaInicio = String.Empty,
+                        stImagen = String.Empty
                     };
 
                     Controllers.CulturasControllers obCulturasControllers = new Controllers.CulturasControllers();

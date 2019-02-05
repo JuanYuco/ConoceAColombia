@@ -40,6 +40,7 @@
           <Property Name="artiDepartamento" Type="bigint" Nullable="false" />
           <Property Name="artiDescripcion" Type="varchar" MaxLength="1000" />
           <Property Name="artiFechaNacimiento" Type="date" />
+          <Property Name="artiImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbCiudadesPrincipales">
           <Key>
@@ -51,6 +52,7 @@
           <Property Name="ciprLatitud" Type="varchar" MaxLength="30" />
           <Property Name="ciprLongitud" Type="varchar" MaxLength="30" />
           <Property Name="ciprDepartamento" Type="bigint" />
+          <Property Name="ciprImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbCulturas">
           <Key>
@@ -65,6 +67,7 @@
           <Property Name="cultFechaInicio" Type="varchar" MaxLength="50" />
           <Property Name="cultFechaFinal" Type="varchar" MaxLength="50" />
           <Property Name="cultTipo" Type="bigint" Nullable="false" />
+          <Property Name="cultImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbDepartamento">
           <Key>
@@ -82,6 +85,7 @@
           <Property Name="depaDemografia" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="depaLatitud" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="depaLongitud" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="depaImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbDeportes">
           <Key>
@@ -103,6 +107,7 @@
           <Property Name="depoLongitud" Type="varchar" MaxLength="50" />
           <Property Name="depoDepartamento" Type="bigint" Nullable="false" />
           <Property Name="depoFechaNacimiento" Type="date" />
+          <Property Name="depoImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbDificultadJuego">
           <Key>
@@ -256,6 +261,7 @@
           <Property Name="apreLongitud" Type="varchar" MaxLength="50" />
           <Property Name="apreDepartamento" Type="bigint" Nullable="false" />
           <Property Name="apreFechaNacimiento" Type="date" />
+          <Property Name="apreImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbPersonajesHistoricos">
           <Key>
@@ -1222,6 +1228,7 @@
           <Property Name="artiFechaNacimiento" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_artiDepartamento" FromRole="tbArtistas" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbTipodeArtista" Relationship="Self.FK_artiGenero" FromRole="tbArtistas" ToRole="tbTipodeArtista" />
+          <Property Name="artiImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbCiudadesPrincipales">
           <Key>
@@ -1234,6 +1241,7 @@
           <Property Name="ciprLongitud" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="ciprDepartamento" Type="Int64" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_ciprDepartamento" FromRole="tbCiudadesPrincipales" ToRole="tbDepartamento" />
+          <Property Name="ciprImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbCulturas">
           <Key>
@@ -1250,6 +1258,7 @@
           <Property Name="cultTipo" Type="Int64" Nullable="false" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_cultDepartamento" FromRole="tbCulturas" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbTipoCultura" Relationship="Self.FK_culTipo" FromRole="tbCulturas" ToRole="tbTipoCultura" />
+          <Property Name="cultImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbDepartamento">
           <Key>
@@ -1282,6 +1291,7 @@
           <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
           <NavigationProperty Name="tbFloraxDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdDepartamento" FromRole="tbDepartamento" ToRole="tbFloraxDepartamento" />
           <NavigationProperty Name="tbLugares" Relationship="bdConoceAColombiaModel.FK_lugaDepartamento" FromRole="tbDepartamento" ToRole="tbLugares" />
+          <Property Name="depaImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbDeportes">
           <Key>
@@ -1308,6 +1318,7 @@
           <Property Name="depoFechaNacimiento" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_deporDepartamento" FromRole="tbDeportista" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbTipoDeportista" Relationship="Self.FK_deporTipo" FromRole="tbDeportista" ToRole="tbTipoDeportista" />
+          <Property Name="depoImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbDificultadJuego">
           <Key>
@@ -1443,6 +1454,7 @@
           <Property Name="apreFechaNacimiento" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_apreDepartamento" FromRole="tbPersonajeAprendizaje" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbTipoPersonajeAprendizaje" Relationship="Self.FK_apreTipo" FromRole="tbPersonajeAprendizaje" ToRole="tbTipoPersonajeAprendizaje" />
+          <Property Name="apreImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbPersonajesHistoricos">
           <Key>
@@ -2472,6 +2484,7 @@
           <EntitySetMapping Name="tbArtistas">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbArtistas">
               <MappingFragment StoreEntitySet="tbArtistas">
+                <ScalarProperty Name="artiImagen" ColumnName="artiImagen" />
                 <ScalarProperty Name="artiCodigo" ColumnName="artiCodigo" />
                 <ScalarProperty Name="artiNombre" ColumnName="artiNombre" />
                 <ScalarProperty Name="artiGenero" ColumnName="artiGenero" />
@@ -2487,6 +2500,7 @@
           <EntitySetMapping Name="tbCiudadesPrincipales">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCiudadesPrincipales">
               <MappingFragment StoreEntitySet="tbCiudadesPrincipales">
+                <ScalarProperty Name="ciprImagen" ColumnName="ciprImagen" />
                 <ScalarProperty Name="ciprCodigo" ColumnName="ciprCodigo" />
                 <ScalarProperty Name="ciprNombre" ColumnName="ciprNombre" />
                 <ScalarProperty Name="ciprReseña" ColumnName="ciprReseña" />
@@ -2499,6 +2513,7 @@
           <EntitySetMapping Name="tbCulturas">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCulturas">
               <MappingFragment StoreEntitySet="tbCulturas">
+                <ScalarProperty Name="cultImagen" ColumnName="cultImagen" />
                 <ScalarProperty Name="cultCodigo" ColumnName="cultCodigo" />
                 <ScalarProperty Name="cultNombre" ColumnName="cultNombre" />
                 <ScalarProperty Name="cultDescripcion" ColumnName="cultDescripcion" />
@@ -2514,6 +2529,7 @@
           <EntitySetMapping Name="tbDepartamento">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDepartamento">
               <MappingFragment StoreEntitySet="tbDepartamento">
+                <ScalarProperty Name="depaImagen" ColumnName="depaImagen" />
                 <ScalarProperty Name="depaCodigo" ColumnName="depaCodigo" />
                 <ScalarProperty Name="depaNombre" ColumnName="depaNombre" />
                 <ScalarProperty Name="depaCapital" ColumnName="depaCapital" />
@@ -2540,6 +2556,7 @@
           <EntitySetMapping Name="tbDeportista">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDeportista">
               <MappingFragment StoreEntitySet="tbDeportista">
+                <ScalarProperty Name="depoImagen" ColumnName="depoImagen" />
                 <ScalarProperty Name="depoCodigo" ColumnName="depoCodigo" />
                 <ScalarProperty Name="depoNombre" ColumnName="depoNombre" />
                 <ScalarProperty Name="depoDescripcion" ColumnName="depoDescripcion" />
@@ -2665,6 +2682,7 @@
           <EntitySetMapping Name="tbPersonajeAprendizaje">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajeAprendizaje">
               <MappingFragment StoreEntitySet="tbPersonajeAprendizaje">
+                <ScalarProperty Name="apreImagen" ColumnName="apreImagen" />
                 <ScalarProperty Name="apreCodigo" ColumnName="apreCodigo" />
                 <ScalarProperty Name="apreNombre" ColumnName="apreNombre" />
                 <ScalarProperty Name="apreDescripcion" ColumnName="apreDescripcion" />

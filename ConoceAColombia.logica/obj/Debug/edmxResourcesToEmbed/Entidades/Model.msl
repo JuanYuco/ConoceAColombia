@@ -28,6 +28,7 @@
     <EntitySetMapping Name="tbArtistas">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbArtistas">
         <MappingFragment StoreEntitySet="tbArtistas">
+          <ScalarProperty Name="artiImagen" ColumnName="artiImagen" />
           <ScalarProperty Name="artiCodigo" ColumnName="artiCodigo" />
           <ScalarProperty Name="artiNombre" ColumnName="artiNombre" />
           <ScalarProperty Name="artiGenero" ColumnName="artiGenero" />
@@ -43,6 +44,7 @@
     <EntitySetMapping Name="tbCiudadesPrincipales">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCiudadesPrincipales">
         <MappingFragment StoreEntitySet="tbCiudadesPrincipales">
+          <ScalarProperty Name="ciprImagen" ColumnName="ciprImagen" />
           <ScalarProperty Name="ciprCodigo" ColumnName="ciprCodigo" />
           <ScalarProperty Name="ciprNombre" ColumnName="ciprNombre" />
           <ScalarProperty Name="ciprReseña" ColumnName="ciprReseña" />
@@ -55,6 +57,7 @@
     <EntitySetMapping Name="tbCulturas">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbCulturas">
         <MappingFragment StoreEntitySet="tbCulturas">
+          <ScalarProperty Name="cultImagen" ColumnName="cultImagen" />
           <ScalarProperty Name="cultCodigo" ColumnName="cultCodigo" />
           <ScalarProperty Name="cultNombre" ColumnName="cultNombre" />
           <ScalarProperty Name="cultDescripcion" ColumnName="cultDescripcion" />
@@ -70,6 +73,7 @@
     <EntitySetMapping Name="tbDepartamento">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDepartamento">
         <MappingFragment StoreEntitySet="tbDepartamento">
+          <ScalarProperty Name="depaImagen" ColumnName="depaImagen" />
           <ScalarProperty Name="depaCodigo" ColumnName="depaCodigo" />
           <ScalarProperty Name="depaNombre" ColumnName="depaNombre" />
           <ScalarProperty Name="depaCapital" ColumnName="depaCapital" />
@@ -96,6 +100,7 @@
     <EntitySetMapping Name="tbDeportista">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbDeportista">
         <MappingFragment StoreEntitySet="tbDeportista">
+          <ScalarProperty Name="depoImagen" ColumnName="depoImagen" />
           <ScalarProperty Name="depoCodigo" ColumnName="depoCodigo" />
           <ScalarProperty Name="depoNombre" ColumnName="depoNombre" />
           <ScalarProperty Name="depoDescripcion" ColumnName="depoDescripcion" />
@@ -221,6 +226,7 @@
     <EntitySetMapping Name="tbPersonajeAprendizaje">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajeAprendizaje">
         <MappingFragment StoreEntitySet="tbPersonajeAprendizaje">
+          <ScalarProperty Name="apreImagen" ColumnName="apreImagen" />
           <ScalarProperty Name="apreCodigo" ColumnName="apreCodigo" />
           <ScalarProperty Name="apreNombre" ColumnName="apreNombre" />
           <ScalarProperty Name="apreDescripcion" ColumnName="apreDescripcion" />

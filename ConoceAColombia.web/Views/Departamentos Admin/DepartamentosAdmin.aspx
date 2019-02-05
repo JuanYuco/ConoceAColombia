@@ -80,6 +80,15 @@
 
         <div class="form-group">
             <div class="form-row">
+                <div class="col-md-3">
+                    <asp:Label ID="lblImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
                 <div class="col-md-12">
                     <asp:button runat="server" id="btnGuardar" text="Guardar" cssclass="btn btn-primary" OnClick="btnGuardar_Click" />
                     <asp:button runat="server" id="btnCancelar" text="Cancelar" cssclass="btn btn-primary" OnClick="btnCancelar_Click"/>
@@ -115,7 +124,7 @@
                             <asp:BoundField HeaderText="Demografia" DataField="depaDemografia" />
                             <asp:BoundField HeaderText="Latitud" DataField="depaLatitud" />
                             <asp:BoundField HeaderText="Longitud" DataField="depaLongitud" />
-
+                            <asp:BoundField HeaderText="Imagen" DataField="depaImagen" />
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ibEditar" runat="server" ImageUrl="~/Resources/Images/edit26-300px.png" Width="50px" Height="50px" CommandName="Editar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />

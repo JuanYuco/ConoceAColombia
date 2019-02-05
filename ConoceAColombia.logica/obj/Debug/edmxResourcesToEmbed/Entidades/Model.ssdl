@@ -35,6 +35,7 @@
     <Property Name="artiDepartamento" Type="bigint" Nullable="false" />
     <Property Name="artiDescripcion" Type="varchar" MaxLength="1000" />
     <Property Name="artiFechaNacimiento" Type="date" />
+    <Property Name="artiImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbCiudadesPrincipales">
     <Key>
@@ -46,6 +47,7 @@
     <Property Name="ciprLatitud" Type="varchar" MaxLength="30" />
     <Property Name="ciprLongitud" Type="varchar" MaxLength="30" />
     <Property Name="ciprDepartamento" Type="bigint" />
+    <Property Name="ciprImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbCulturas">
     <Key>
@@ -60,6 +62,7 @@
     <Property Name="cultFechaInicio" Type="varchar" MaxLength="50" />
     <Property Name="cultFechaFinal" Type="varchar" MaxLength="50" />
     <Property Name="cultTipo" Type="bigint" Nullable="false" />
+    <Property Name="cultImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbDepartamento">
     <Key>
@@ -77,6 +80,7 @@
     <Property Name="depaDemografia" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="depaLatitud" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="depaLongitud" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="depaImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbDeportes">
     <Key>
@@ -98,6 +102,7 @@
     <Property Name="depoLongitud" Type="varchar" MaxLength="50" />
     <Property Name="depoDepartamento" Type="bigint" Nullable="false" />
     <Property Name="depoFechaNacimiento" Type="date" />
+    <Property Name="depoImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbDificultadJuego">
     <Key>
@@ -251,6 +256,7 @@
     <Property Name="apreLongitud" Type="varchar" MaxLength="50" />
     <Property Name="apreDepartamento" Type="bigint" Nullable="false" />
     <Property Name="apreFechaNacimiento" Type="date" />
+    <Property Name="apreImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbPersonajesHistoricos">
     <Key>

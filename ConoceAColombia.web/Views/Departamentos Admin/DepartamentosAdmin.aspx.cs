@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Web.UI.WebControls;
 
 namespace ConoceAColombia.web.Views.Departamentos_Admin
@@ -60,9 +61,26 @@ namespace ConoceAColombia.web.Views.Departamentos_Admin
                 if (String.IsNullOrEmpty(txtPoblacion.Text)) stMensaje += "Ingrese Poblacion, ";
                 if (String.IsNullOrEmpty(txtSuperficie.Text)) stMensaje += "Ingrese Superficie, ";
                 if (String.IsNullOrEmpty(txtDemografia.Text)) stMensaje += "Ingrese Demografia, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Departamento\") + txtCodigo.Text + "Departamento" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsDepartamentos obclsDepartamentos = new logica.Models.clsDepartamentos
                 {
@@ -78,6 +96,7 @@ namespace ConoceAColombia.web.Views.Departamentos_Admin
                     stDemografia = txtDemografia.Text,
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
+                    stImagen = stRutaDestino
                     
             };
                 
@@ -131,6 +150,7 @@ namespace ConoceAColombia.web.Views.Departamentos_Admin
                         stDemografia = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
+                        stImagen = String.Empty
                     };
 
                     Controllers.DepartamentosControllers obdepartamentosControllers = new Controllers.DepartamentosControllers();

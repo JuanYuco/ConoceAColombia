@@ -39,6 +39,7 @@
     <Property Name="artiFechaNacimiento" Type="DateTime" Precision="0" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_artiDepartamento" FromRole="tbArtistas" ToRole="tbDepartamento" />
     <NavigationProperty Name="tbTipodeArtista" Relationship="Self.FK_artiGenero" FromRole="tbArtistas" ToRole="tbTipodeArtista" />
+    <Property Name="artiImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbCiudadesPrincipales">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="ciprLongitud" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="ciprDepartamento" Type="Int64" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_ciprDepartamento" FromRole="tbCiudadesPrincipales" ToRole="tbDepartamento" />
+    <Property Name="ciprImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbCulturas">
     <Key>
@@ -67,6 +69,7 @@
     <Property Name="cultTipo" Type="Int64" Nullable="false" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_cultDepartamento" FromRole="tbCulturas" ToRole="tbDepartamento" />
     <NavigationProperty Name="tbTipoCultura" Relationship="Self.FK_culTipo" FromRole="tbCulturas" ToRole="tbTipoCultura" />
+    <Property Name="cultImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbDepartamento">
     <Key>
@@ -99,6 +102,7 @@
     <NavigationProperty Name="tbMusica" Relationship="Self.FK_musiDepartamento" FromRole="tbDepartamento" ToRole="tbMusica" />
     <NavigationProperty Name="tbFloraxDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdDepartamento" FromRole="tbDepartamento" ToRole="tbFloraxDepartamento" />
     <NavigationProperty Name="tbLugares" Relationship="bdConoceAColombiaModel.FK_lugaDepartamento" FromRole="tbDepartamento" ToRole="tbLugares" />
+    <Property Name="depaImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbDeportes">
     <Key>
@@ -125,6 +129,7 @@
     <Property Name="depoFechaNacimiento" Type="DateTime" Precision="0" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_deporDepartamento" FromRole="tbDeportista" ToRole="tbDepartamento" />
     <NavigationProperty Name="tbTipoDeportista" Relationship="Self.FK_deporTipo" FromRole="tbDeportista" ToRole="tbTipoDeportista" />
+    <Property Name="depoImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbDificultadJuego">
     <Key>
@@ -260,6 +265,7 @@
     <Property Name="apreFechaNacimiento" Type="DateTime" Precision="0" />
     <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_apreDepartamento" FromRole="tbPersonajeAprendizaje" ToRole="tbDepartamento" />
     <NavigationProperty Name="tbTipoPersonajeAprendizaje" Relationship="Self.FK_apreTipo" FromRole="tbPersonajeAprendizaje" ToRole="tbTipoPersonajeAprendizaje" />
+    <Property Name="apreImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tbPersonajesHistoricos">
     <Key>

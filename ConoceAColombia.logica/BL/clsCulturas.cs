@@ -23,6 +23,7 @@ namespace ConoceAColombia.logica.BL
                         cultDescripcion = ob.stDescripcion,
                         cultFechaInicio = ob.stFechaInicio,
                         cultFechaFinal = ob.stFechaFin,
+                        cultImagen = ob.stImagen,
                         cultLatitud = ob.stLatitud,
                         cultLongitud = ob.stLongitud,
                         cultDepartamento = ob.obclsDepartamentos.inCodigo,
@@ -56,6 +57,7 @@ namespace ConoceAColombia.logica.BL
                     obtbCultura.cultDescripcion = ob.stDescripcion;
                     obtbCultura.cultFechaInicio = ob.stFechaInicio;
                     obtbCultura.cultFechaFinal = ob.stFechaFin;
+                    obtbCultura.cultImagen = ob.stImagen;
                     obtbCultura.cultLatitud = ob.stLatitud;
                     obtbCultura.cultLongitud = ob.stLongitud;
                     obtbCultura.cultDepartamento = ob.obclsDepartamentos.inCodigo;
@@ -114,6 +116,7 @@ namespace ConoceAColombia.logica.BL
                                stDescripcion = q.cultDescripcion,
                                stFechaInicio = q.cultFechaInicio,
                                stFechaFin = q.cultFechaFinal,
+                               stImagen = q.cultImagen,
                                stLatitud = q.cultLatitud,
                                stLongitud = q.cultLongitud,
                                obclsTipoCulturas = new Models.clsTipoCulturas

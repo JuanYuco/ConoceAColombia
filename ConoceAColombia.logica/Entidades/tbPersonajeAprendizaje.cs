@@ -23,6 +23,7 @@ namespace ConoceAColombia.logica.Entidades
         public string apreLongitud { get; set; }
         public long apreDepartamento { get; set; }
         public Nullable<System.DateTime> apreFechaNacimiento { get; set; }
+        public string apreImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbTipoPersonajeAprendizaje tbTipoPersonajeAprendizaje { get; set; }

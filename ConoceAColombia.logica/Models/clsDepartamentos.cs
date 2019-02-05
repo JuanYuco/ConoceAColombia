@@ -16,6 +16,7 @@ namespace ConoceAColombia.logica.Models
         public virtual String stFundacion { get; set; }
         public virtual String stGentilicio { get; set; }
         public virtual String stPoblacion { get; set; }
+        public virtual String stImagen { get; set; }
         public virtual String stLatitud { get; set; }
         public virtual String stDemografia { get; set; }
         public virtual String stLongitud { get; set; }
