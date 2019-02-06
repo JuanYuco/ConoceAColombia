@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -50,10 +51,27 @@ namespace ConoceAColombia.web.Views.EquipoAdmin
                 if (String.IsNullOrEmpty(txtPresidente.Text)) stMensaje += "Ingrese Presidente, ";
                 if (String.IsNullOrEmpty(txtFundación.Text)) stMensaje += "Ingrese Fundacion, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Equipos\") + txtCodigo.Text + "Equipos" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsEquipo clsEquipo = new logica.Models.clsEquipo
                 {
@@ -66,6 +84,7 @@ namespace ConoceAColombia.web.Views.EquipoAdmin
                     stDescripcion = txtDescripcion.Text,
                     stFundacion = txtFundación.Text,
                     stPresidente = txtPresidente.Text,
+                    stImagen = stRutaDestino,
                     obclsDeportes = new logica.Models.clsDeportes { lgCodigo = Convert.ToInt64(ddlDeportes.SelectedValue) }
                 };
 
@@ -118,6 +137,7 @@ namespace ConoceAColombia.web.Views.EquipoAdmin
                         stDescripcion = String.Empty,
                         stFundacion = String.Empty,
                         stPresidente = String.Empty,
+                        stImagen = String.Empty,
                         obclsDeportes = new logica.Models.clsDeportes { lgCodigo = 0 }
 
 

@@ -62,7 +62,10 @@
                     <asp:Label runat="server" ID="lblPeriodoFloracion" Text="Periodo de Floracion"></asp:Label>
                     <asp:TextBox runat="server" ID="txtPeridoFloracion" CssClass="form-control"></asp:TextBox>
                 </div>
-
+                <div class="col-md-3">
+                    <asp:Label ID="lblImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                </div>
             </div>
         </div>
         
@@ -100,6 +103,7 @@
                             <asp:BoundField HeaderText="Descripcion" DataField="stDescripcion" />
                             <asp:BoundField HeaderText="Abundancia" DataField="stAbundancia" />
                             <asp:BoundField HeaderText="Periodo de Floracion" DataField="stPeriodoFloracion" />
+                            <asp:BoundField HeaderText="Imagen" DataField="stImagen" />
                             <asp:BoundField HeaderText="Tipo Flora" DataField="obclsTipoFlora.stDescripcion" />
 
                             <asp:TemplateField HeaderText="Editar">

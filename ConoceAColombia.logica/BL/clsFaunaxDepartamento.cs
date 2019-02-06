@@ -239,6 +239,8 @@ namespace ConoceAColombia.logica.BL
                                                                                        {
                                                                                            lgCodigo = q.fxdFauna,
                                                                                            stNombre = tbFa.faunNombre,
+                                                                                           stDescripcion = tbFa.faunDescripcion,
+                                                                                           stImagen = tbFa.faunImagen,
                                                                                            obclsTipoFauna = new Models.clsTipoFauna
                                                                                            {
                                                                                                lgCodigo = tbFa.faunTipo,

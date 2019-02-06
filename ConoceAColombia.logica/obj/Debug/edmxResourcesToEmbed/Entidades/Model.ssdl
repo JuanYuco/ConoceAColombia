@@ -125,6 +125,7 @@
     <Property Name="equiDepartamento" Type="bigint" />
     <Property Name="equiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="equiLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="equiImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbEstadios">
     <Key>
@@ -140,6 +141,7 @@
     <Property Name="estaLongitud" Type="varchar" MaxLength="50" />
     <Property Name="estaDepartamento" Type="bigint" Nullable="false" />
     <Property Name="estaDeporte" Type="bigint" Nullable="false" />
+    <Property Name="estaImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbFauna">
     <Key>
@@ -149,6 +151,7 @@
     <Property Name="faunNombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="faunDescripcion" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="faunTipo" Type="bigint" Nullable="false" />
+    <Property Name="faunImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbFaunaxDepartamento">
     <Key>
@@ -171,6 +174,7 @@
     <Property Name="florAbundancia" Type="varchar" MaxLength="50" />
     <Property Name="florPeriodoFloracion" Type="varchar" MaxLength="50" />
     <Property Name="florTipo" Type="bigint" Nullable="false" />
+    <Property Name="florImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbFloraxDepartamento">
     <Key>
@@ -194,6 +198,7 @@
     <Property Name="gastLongitud" Type="varchar" MaxLength="50" />
     <Property Name="gastDepartamento" Type="bigint" />
     <Property Name="gastTipo" Type="bigint" />
+    <Property Name="gastImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbHistoria">
     <Key>
@@ -208,6 +213,7 @@
     <Property Name="histLongitud" Type="varchar" MaxLength="50" />
     <Property Name="histNombre" Type="varchar" MaxLength="100" />
     <Property Name="histPeriodo" Type="bigint" Nullable="false" />
+    <Property Name="histImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbLugares">
     <Key>
@@ -235,6 +241,7 @@
     <Property Name="musiDepartamento" Type="bigint" />
     <Property Name="musiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="musiLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="musiImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbPeriodoHistoria">
     <Key>
@@ -269,6 +276,7 @@
     <Property Name="pehiDescripcion" Type="varchar" MaxLength="5000" />
     <Property Name="pehiLatitud" Type="varchar" MaxLength="50" />
     <Property Name="pehiLongitud" Type="varchar" MaxLength="50" />
+    <Property Name="pehiImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbPersonajesxHistoria">
     <Key>
@@ -291,6 +299,7 @@
     <Property Name="poliLongitud" Type="varchar" MaxLength="50" />
     <Property Name="poliDepartamento" Type="bigint" Nullable="false" />
     <Property Name="poliFechaNacimiento" Type="date" />
+    <Property Name="poliImagen" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="tbPreguntasJuego">
     <Key>

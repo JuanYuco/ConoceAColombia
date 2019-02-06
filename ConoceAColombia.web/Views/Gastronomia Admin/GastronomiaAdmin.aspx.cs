@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 namespace ConoceAColombia.web.Views.Gastronomia_Admin
 {
@@ -64,10 +65,28 @@ namespace ConoceAColombia.web.Views.Gastronomia_Admin
                 if (String.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese Nombre, ";
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripcion, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Gastronomia\") + txtCodigo.Text + "Gastronomia" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsGastronomia clsGastronomia = new logica.Models.clsGastronomia
                 {
@@ -78,7 +97,8 @@ namespace ConoceAColombia.web.Views.Gastronomia_Admin
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
                     clsDepartamentos = new logica.Models.clsDepartamentos { inCodigo = Convert.ToInt64(ddlDepartamentos.SelectedValue) },
-                    clsTipodeGastronomia = new logica.Models.clsTipodeGastronomia { lgCodigo = Convert.ToInt64(ddlTipoGastronomia.SelectedValue) }
+                    clsTipodeGastronomia = new logica.Models.clsTipodeGastronomia { lgCodigo = Convert.ToInt64(ddlTipoGastronomia.SelectedValue) },
+                    stImagen = stRutaDestino
                 };
 
                 Controllers.GastronomiaControllers obGastronomiaControllers = new Controllers.GastronomiaControllers();
@@ -127,7 +147,8 @@ namespace ConoceAColombia.web.Views.Gastronomia_Admin
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
                         stDescripcion = String.Empty,
-                        clsTipodeGastronomia = new logica.Models.clsTipodeGastronomia { lgCodigo = 0 }
+                        clsTipodeGastronomia = new logica.Models.clsTipodeGastronomia { lgCodigo = 0 },
+                        stImagen = String.Empty
 
 
                     };

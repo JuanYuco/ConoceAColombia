@@ -18,6 +18,7 @@ namespace ConoceAColombia.logica.Mapping
             Map(x => x.stPresidente).Column("equiPresidente");
             Map(x => x.stFundacion).Column("equiFundacion");
             Map(x => x.stCiudad).Column("equiCiudad");
+            Map(x => x.stImagen).Column("equiImagen");
             Map(x => x.stLatitud).Column("equiLatitud");
             Map(x => x.stLongitud).Column("equiLongitud");
             References(x => x.obclsDeportes).Column("equiDeporte").ForeignKey("depoCodigo");

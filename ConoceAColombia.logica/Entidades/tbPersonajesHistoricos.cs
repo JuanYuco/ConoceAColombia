@@ -27,6 +27,7 @@ namespace ConoceAColombia.logica.Entidades
         public string pehiDescripcion { get; set; }
         public string pehiLatitud { get; set; }
         public string pehiLongitud { get; set; }
+        public string pehiImagen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbPersonajesxHistoria> tbPersonajesxHistoria { get; set; }

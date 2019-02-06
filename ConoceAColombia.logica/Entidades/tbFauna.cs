@@ -24,6 +24,7 @@ namespace ConoceAColombia.logica.Entidades
         public string faunNombre { get; set; }
         public string faunDescripcion { get; set; }
         public long faunTipo { get; set; }
+        public string faunImagen { get; set; }
     
         public virtual tbTipoFauna tbTipoFauna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

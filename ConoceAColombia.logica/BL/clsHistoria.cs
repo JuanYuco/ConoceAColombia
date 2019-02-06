@@ -150,6 +150,7 @@ namespace ConoceAColombia.logica.BL
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDepartamento", obclsHistoria.obclsDepartamentos.inCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLatitud", obclsHistoria.stLatitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLongitud", obclsHistoria.stLongitud));
+                _SqlCommand.Parameters.Add(new SqlParameter("@dImagen", obclsHistoria.stImagen));
                 _SqlCommand.Parameters.Add(new SqlParameter("@nOpcion", inOpcion));
 
 

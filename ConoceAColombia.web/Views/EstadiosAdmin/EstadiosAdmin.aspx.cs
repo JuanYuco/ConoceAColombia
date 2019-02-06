@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -46,9 +47,28 @@ namespace ConoceAColombia.web.Views.EstadiosAdmin
                 if (String.IsNullOrEmpty(txtFundacion.Text)) stMensaje += "Ingrese Fundación, ";
                 if (String.IsNullOrEmpty(txtCapacidad.Text)) stMensaje += "Ingrese Capacidad, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Estadios\") + txtCodigo.Text + "Estadios" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
+
 
                 logica.Models.clsEstadios clsEstadios = new logica.Models.clsEstadios
                 {
@@ -60,6 +80,7 @@ namespace ConoceAColombia.web.Views.EstadiosAdmin
                     stCiudad = txtCiudad.Text,
                     stLatitud = txtLatitud.Text,
                     stLongitud = txtLongitud.Text,
+                    stImagen = stRutaDestino,
                     obclsDepartamento = new logica.Models.clsDepartamentos
                     {
                         inCodigo = Convert.ToInt64(ddlDepartamento.SelectedValue)
@@ -126,7 +147,8 @@ namespace ConoceAColombia.web.Views.EstadiosAdmin
                         stLongitud = String.Empty,
                         stFundacion = String.Empty,
                         stCapacidad = String.Empty,
-                        stCiudad = String.Empty
+                        stCiudad = String.Empty,
+                        stImagen = String.Empty
                     };
 
                     Controllers.EstadiosControllers obEstadiosControllers = new Controllers.EstadiosControllers();

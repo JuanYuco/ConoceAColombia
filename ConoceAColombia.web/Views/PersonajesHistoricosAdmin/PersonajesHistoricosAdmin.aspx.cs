@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 namespace ConoceAColombia.web.Views.PersonajesHistoricosAdmin
 {
@@ -58,10 +59,28 @@ namespace ConoceAColombia.web.Views.PersonajesHistoricosAdmin
                 if (String.IsNullOrEmpty(txtNacimiento.Text)) stMensaje += "Ingrese Fecha de Nacimiento, ";
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripcion, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\PersonajesHistoricos\") + txtCodigo.Text + "PersonajesHistoricos" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsPersonajesHistoricos clsPersonajesHistoricos = new logica.Models.clsPersonajesHistoricos
                 {
@@ -71,7 +90,8 @@ namespace ConoceAColombia.web.Views.PersonajesHistoricosAdmin
                     stNombre = txtNombre.Text,
                     stCiudad = txtCiudad.Text,
                     stLatitud = txtLatitud.Text,
-                    stLongitud = txtLongitud.Text          
+                    stLongitud = txtLongitud.Text,
+                    stImagen = stRutaDestino
                 };
 
                 Controllers.PersonajesHistoricosControllers obPersonajesHistoricosControllers = new Controllers.PersonajesHistoricosControllers();
@@ -119,7 +139,8 @@ namespace ConoceAColombia.web.Views.PersonajesHistoricosAdmin
                         stDescripcion=String.Empty,
                         stCiudad = String.Empty,
                         stLatitud = String.Empty,
-                        stLongitud = String.Empty
+                        stLongitud = String.Empty,
+                        stImagen = String.Empty
                     };
 
                     Controllers.PersonajesHistoricosControllers obPersonajesHistoricosControllers = new Controllers.PersonajesHistoricosControllers();

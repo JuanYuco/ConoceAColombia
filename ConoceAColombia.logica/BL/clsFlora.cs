@@ -25,6 +25,7 @@ namespace ConoceAColombia.logica.BL
                                                             stAbundancia = q.florAbundancia,
                                                             stDescripcion = q.florDescripcion,
                                                             stPeriodoFloracion = q.florPeriodoFloracion,
+                                                            stImagen= q.florImagen,
                                                             obclsTipoFlora = new Models.clsTipoFlora
                                                             {
                                                                 lgCodigo = q.florTipo,
@@ -58,7 +59,8 @@ namespace ConoceAColombia.logica.BL
                         florDescripcion = obclsFlora.stDescripcion,
                         florAbundancia = obclsFlora.stAbundancia,
                         florPeriodoFloracion = obclsFlora.stPeriodoFloracion,
-                        florTipo = obclsFlora.obclsTipoFlora.lgCodigo
+                        florTipo = obclsFlora.obclsTipoFlora.lgCodigo,
+                        florImagen = obclsFlora.stImagen
                     });
                     obDatos.SaveChanges();
                     return "Se realizo con exito";
@@ -82,7 +84,8 @@ namespace ConoceAColombia.logica.BL
                                                         {
                                                             lgCodigo = q.florCodigo,
                                                             stNombre = q.florNomComun,
-                                                            stNombreCientifico = q.florNomCientifico
+                                                            stNombreCientifico = q.florNomCientifico,
+                                                            stImagen = q.florImagen
                                                         } ).ToList();
                     return lstclFlora;
 
@@ -109,6 +112,7 @@ namespace ConoceAColombia.logica.BL
                         florDescripcion = obclsFlora.stDescripcion,
                         florAbundancia = obclsFlora.stAbundancia,
                         florPeriodoFloracion = obclsFlora.stPeriodoFloracion,
+                        florImagen = obclsFlora.stImagen
                         
                        
                     });
@@ -139,6 +143,7 @@ namespace ConoceAColombia.logica.BL
                     obtbFlora.florAbundancia = ob.stAbundancia;
                     obtbFlora.florPeriodoFloracion = ob.stPeriodoFloracion;
                     obtbFlora.florTipo = ob.obclsTipoFlora.lgCodigo;
+                    obtbFlora.florImagen = ob.stImagen;
                     
                     obbdConoceAColombiaEntities.SaveChanges();
 

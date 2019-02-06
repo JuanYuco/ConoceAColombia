@@ -67,6 +67,7 @@ namespace ConoceAColombia.logica.BL
                 _SqlCommand.Parameters.Add(new SqlParameter("@dNacimiento", obclsPersonajesHistoricos.stFechaNacimiento));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dCiudad", obclsPersonajesHistoricos.stCiudad));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDescripcion", obclsPersonajesHistoricos.stDescripcion));
+                _SqlCommand.Parameters.Add(new SqlParameter("@dImagen", obclsPersonajesHistoricos.stImagen));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLatitud", obclsPersonajesHistoricos.stLatitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLongitud", obclsPersonajesHistoricos.stLongitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@nOpcion", inOpcion));

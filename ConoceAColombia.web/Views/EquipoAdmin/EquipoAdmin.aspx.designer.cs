@@ -211,6 +211,24 @@ namespace ConoceAColombia.web.Views.EquipoAdmin {
         protected global::System.Web.UI.WebControls.TextBox txtLongitud;
         
         /// <summary>
+        /// Control lblImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImagen;
+        
+        /// <summary>
+        /// Control fuImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuImagen;
+        
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>

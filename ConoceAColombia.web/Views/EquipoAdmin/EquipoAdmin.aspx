@@ -69,6 +69,10 @@
                      <asp:label runat="server" id="lblLongitud" text="Longitud"></asp:label>
                     <asp:textbox runat="server" id="txtLongitud" cssclass="form-control"></asp:textbox>
                 </div>
+                <div class="col-md-3">
+                    <asp:Label ID="lblImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                </div>
             </div>
         </div>
 
@@ -106,6 +110,7 @@
                             <asp:BoundField HeaderText="Ciudad" DataField="stCiudad"/>
                             <asp:BoundField HeaderText="Latitud" DataField="stLatitud"/>
                             <asp:BoundField HeaderText="Longitud" DataField="stLongitud"/>
+                            <asp:BoundField HeaderText="Imagen" DataField="stImagen" />
                             <asp:BoundField HeaderText="Deporte" DataField="obclsDeportes.stNombre"/>
                             <asp:BoundField HeaderText="Departamento" DataField="obclsDepartamentos.stNombre"/>
                             <asp:TemplateField HeaderText="Editar">

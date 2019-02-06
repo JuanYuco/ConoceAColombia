@@ -124,6 +124,7 @@
     <EntitySetMapping Name="tbEquipos">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEquipos">
         <MappingFragment StoreEntitySet="tbEquipos">
+          <ScalarProperty Name="equiImagen" ColumnName="equiImagen" />
           <ScalarProperty Name="equiCodigo" ColumnName="equiCodigo" />
           <ScalarProperty Name="equiNombre" ColumnName="equiNombre" />
           <ScalarProperty Name="equiDescripcion" ColumnName="equiDescripcion" />
@@ -140,6 +141,7 @@
     <EntitySetMapping Name="tbEstadios">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEstadios">
         <MappingFragment StoreEntitySet="tbEstadios">
+          <ScalarProperty Name="estaImagen" ColumnName="estaImagen" />
           <ScalarProperty Name="estaCodigo" ColumnName="estaCodigo" />
           <ScalarProperty Name="estaNombre" ColumnName="estaNombre" />
           <ScalarProperty Name="estaDescripcion" ColumnName="estaDescripcion" />
@@ -156,6 +158,7 @@
     <EntitySetMapping Name="tbFauna">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
         <MappingFragment StoreEntitySet="tbFauna">
+          <ScalarProperty Name="faunImagen" ColumnName="faunImagen" />
           <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
           <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
           <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
@@ -177,6 +180,7 @@
     <EntitySetMapping Name="tbGastronomia">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbGastronomia">
         <MappingFragment StoreEntitySet="tbGastronomia">
+          <ScalarProperty Name="gastImagen" ColumnName="gastImagen" />
           <ScalarProperty Name="gastCodigo" ColumnName="gastCodigo" />
           <ScalarProperty Name="gastNombre" ColumnName="gastNombre" />
           <ScalarProperty Name="gastDescripcion" ColumnName="gastDescripcion" />
@@ -191,6 +195,7 @@
     <EntitySetMapping Name="tbHistoria">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbHistoria">
         <MappingFragment StoreEntitySet="tbHistoria">
+          <ScalarProperty Name="histImagen" ColumnName="histImagen" />
           <ScalarProperty Name="histCodigo" ColumnName="histCodigo" />
           <ScalarProperty Name="histDescripcion" ColumnName="histDescripcion" />
           <ScalarProperty Name="histFechaInicio" ColumnName="histFechaInicio" />
@@ -206,6 +211,7 @@
     <EntitySetMapping Name="tbMusica">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbMusica">
         <MappingFragment StoreEntitySet="tbMusica">
+          <ScalarProperty Name="musiImagen" ColumnName="musiImagen" />
           <ScalarProperty Name="musiCodigo" ColumnName="musiCodigo" />
           <ScalarProperty Name="musiNombre" ColumnName="musiNombre" />
           <ScalarProperty Name="musiDescripcion" ColumnName="musiDescripcion" />
@@ -242,6 +248,7 @@
     <EntitySetMapping Name="tbPersonajesHistoricos">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajesHistoricos">
         <MappingFragment StoreEntitySet="tbPersonajesHistoricos">
+          <ScalarProperty Name="pehiImagen" ColumnName="pehiImagen" />
           <ScalarProperty Name="pehiCodigo" ColumnName="pehiCodigo" />
           <ScalarProperty Name="pehiNombre" ColumnName="pehiNombre" />
           <ScalarProperty Name="pehiNacimiento" ColumnName="pehiNacimiento" />
@@ -264,6 +271,7 @@
     <EntitySetMapping Name="tbPolitico">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPolitico">
         <MappingFragment StoreEntitySet="tbPolitico">
+          <ScalarProperty Name="poliImagen" ColumnName="poliImagen" />
           <ScalarProperty Name="poliCodigo" ColumnName="poliCodigo" />
           <ScalarProperty Name="poliNombre" ColumnName="poliNombre" />
           <ScalarProperty Name="poliDescripcion" ColumnName="poliDescripcion" />
@@ -477,6 +485,7 @@
     <EntitySetMapping Name="tbFlora">
       <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
         <MappingFragment StoreEntitySet="tbFlora">
+          <ScalarProperty Name="florImagen" ColumnName="florImagen" />
           <ScalarProperty Name="florTipo" ColumnName="florTipo" />
           <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
           <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />

@@ -75,6 +75,7 @@ namespace ConoceAColombia.logica.BL
                                 stPresidente = q.stPresidente,
                                 stFundacion = q.stFundacion,
                                 stCiudad = q.stCiudad,
+                                stImagen = q.stImagen,
                                 stLatitud = q.stLatitud,
                                 stLongitud =q.stLongitud,
                                 obclsDeportes = new Models.clsDeportes

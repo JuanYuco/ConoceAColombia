@@ -29,6 +29,7 @@ namespace ConoceAColombia.logica.Entidades
         public string histLongitud { get; set; }
         public string histNombre { get; set; }
         public long histPeriodo { get; set; }
+        public string histImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbPeriodoHistoria tbPeriodoHistoria { get; set; }

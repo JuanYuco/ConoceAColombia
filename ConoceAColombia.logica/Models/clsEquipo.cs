@@ -14,6 +14,7 @@ namespace ConoceAColombia.logica.Models
         public virtual string stPresidente { get; set; }
         public virtual string stFundacion { get; set; }
         public virtual string stCiudad { get; set; }
+        public virtual string stImagen { get; set; }
         public virtual string stLatitud { get; set; }
         public virtual string stLongitud { get; set; }
         public virtual clsDeportes obclsDeportes { get; set; }

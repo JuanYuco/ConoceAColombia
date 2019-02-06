@@ -27,6 +27,7 @@ namespace ConoceAColombia.logica.BL
                                                                        stCiudad = q.poliCiudad,
                                                                        stLatitud = q.poliLatitud,
                                                                        stLongitud = q.poliLongitud,
+                                                                       stImagen = q.poliImagen,
                                                                        obclsTipoPolitico = new Models.clsTipoPolitico
                                                                        {
                                                                            lgCodigo = q.poliTipo,
@@ -64,7 +65,8 @@ namespace ConoceAColombia.logica.BL
                         poliLatitud = obclsPolitico.stLatitud,
                         poliLongitud = obclsPolitico.stLongitud,
                         poliDepartamento = obclsPolitico.obclsDepartamentos.inCodigo,
-                        poliTipo = obclsPolitico.obclsTipoPolitico.lgCodigo
+                        poliTipo = obclsPolitico.obclsTipoPolitico.lgCodigo,
+                        poliImagen = obclsPolitico.stImagen
                     });
                     obDatos.SaveChanges();
                     return "Se realizo con exito";
@@ -95,6 +97,7 @@ namespace ConoceAColombia.logica.BL
                     obtbPolitico.poliLongitud = ob.stLongitud;
                     obtbPolitico.poliDepartamento = ob.obclsDepartamentos.inCodigo;
                     obtbPolitico.poliTipo = ob.obclsTipoPolitico.lgCodigo;
+                    obtbPolitico.poliImagen = ob.stImagen;
                     obbdConoceAColombiaEntities.SaveChanges();
 
                     return "Se realizo proceso con exito";

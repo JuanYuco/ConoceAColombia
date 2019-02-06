@@ -24,6 +24,7 @@ namespace ConoceAColombia.logica.Entidades
         public string estaLongitud { get; set; }
         public long estaDepartamento { get; set; }
         public long estaDeporte { get; set; }
+        public string estaImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbDeportes tbDeportes { get; set; }

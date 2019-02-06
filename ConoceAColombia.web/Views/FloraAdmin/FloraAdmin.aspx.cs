@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -51,7 +52,27 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                 if (String.IsNullOrEmpty(txtPeridoFloracion.Text)) stMensaje += "Ingrese Perido de Floración, ";
                 if (String.IsNullOrEmpty(txtAbundancia.Text)) stMensaje += "Ingrese abundancia, ";
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
-                if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
+                if (!string.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Flora\") + txtCodigo.Text + "Flora" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
+
 
                 logica.Models.clsFlora clsFlora = new logica.Models.clsFlora
                 {
@@ -64,7 +85,8 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                     obclsTipoFlora = new logica.Models.clsTipoFlora
                     {
                         lgCodigo = Convert.ToInt64(ddlTipoFlora.SelectedValue)
-                    }
+                    },
+                    stImagen = stRutaDestino
 
                 };
 
@@ -127,7 +149,8 @@ namespace ConoceAColombia.web.Views.FloraAdmin
                         obclsTipoFlora = new logica.Models.clsTipoFlora
                         {
                             lgCodigo = 0
-                        }
+                        },
+                        stImagen = String.Empty
 
 
 

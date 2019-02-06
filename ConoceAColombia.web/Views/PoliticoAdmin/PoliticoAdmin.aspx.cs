@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,10 +45,27 @@ namespace ConoceAColombia.web.Views.PoliticoAdmin
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
                 if (String.IsNullOrEmpty(txtFechaNacimiento.Text)) stMensaje += "Ingrese Fecha de Nacimiento, ";
                 if (String.IsNullOrEmpty(txtCiudad.Text)) stMensaje += "Ingrese Ciudad, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Politico\") + txtCodigo.Text + "Politico" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsPolitico clsPolitico = new logica.Models.clsPolitico
                 {
@@ -65,7 +83,8 @@ namespace ConoceAColombia.web.Views.PoliticoAdmin
                     obclsTipoPolitico = new logica.Models.clsTipoPolitico
                     {
                         lgCodigo = Convert.ToInt64(ddlTipoDeportista.SelectedIndex)
-                    }
+                    },
+                    stImagen = stRutaDestino
 
 
                 };
@@ -124,7 +143,8 @@ namespace ConoceAColombia.web.Views.PoliticoAdmin
                         stCiudad = String.Empty,
                         stLatitud = String.Empty,
                         stLongitud = String.Empty,
-                        obclsTipoPolitico = new logica.Models.clsTipoPolitico { lgCodigo = 0 }
+                        obclsTipoPolitico = new logica.Models.clsTipoPolitico { lgCodigo = 0 },
+                        stImagen = String.Empty
 
 
 

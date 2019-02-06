@@ -17,6 +17,7 @@ namespace ConoceAColombia.logica.Models
         public clsDepartamentos obclsDepartamentos { get; set; }
         public string stLatitud { get; set; }
         public string stLongitud { get; set; }
+        public string stImagen { get; set; }
 
     }
 }

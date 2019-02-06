@@ -22,6 +22,7 @@ namespace ConoceAColombia.logica.BL
                                                                      lgCodigo = q.faunCodigo,
                                                                      stNombre = q.faunNombre,
                                                                      stDescripcion = q.faunDescripcion,
+                                                                     stImagen = q.faunImagen,
                                                                      obclsTipoFauna = new Models.clsTipoFauna
                                                                      {
                                                                         lgCodigo =  q.faunTipo,
@@ -49,7 +50,8 @@ namespace ConoceAColombia.logica.BL
                         faunCodigo = obclsFauna.lgCodigo,
                         faunNombre = obclsFauna.stNombre,
                         faunDescripcion = obclsFauna.stDescripcion,
-                        faunTipo = obclsFauna.obclsTipoFauna.lgCodigo
+                        faunTipo = obclsFauna.obclsTipoFauna.lgCodigo,
+                        faunImagen = obclsFauna.stImagen
                     });
                     obDatos.SaveChanges();
                     return "Se realizo con exito";
@@ -74,6 +76,7 @@ namespace ConoceAColombia.logica.BL
                                                            select q).FirstOrDefault();
                     obtbFauna.faunNombre = ob.stNombre;
                     obtbFauna.faunDescripcion = ob.stDescripcion;
+                    obtbFauna.faunImagen = ob.stImagen;
                     obtbFauna.faunTipo = ob.obclsTipoFauna.lgCodigo;
                     obbdConoceAColombiaEntities.SaveChanges();
 

@@ -130,6 +130,7 @@
           <Property Name="equiDepartamento" Type="bigint" />
           <Property Name="equiLatitud" Type="varchar" MaxLength="50" />
           <Property Name="equiLongitud" Type="varchar" MaxLength="50" />
+          <Property Name="equiImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbEstadios">
           <Key>
@@ -145,6 +146,7 @@
           <Property Name="estaLongitud" Type="varchar" MaxLength="50" />
           <Property Name="estaDepartamento" Type="bigint" Nullable="false" />
           <Property Name="estaDeporte" Type="bigint" Nullable="false" />
+          <Property Name="estaImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbFauna">
           <Key>
@@ -154,6 +156,7 @@
           <Property Name="faunNombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="faunDescripcion" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="faunTipo" Type="bigint" Nullable="false" />
+          <Property Name="faunImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbFaunaxDepartamento">
           <Key>
@@ -176,6 +179,7 @@
           <Property Name="florAbundancia" Type="varchar" MaxLength="50" />
           <Property Name="florPeriodoFloracion" Type="varchar" MaxLength="50" />
           <Property Name="florTipo" Type="bigint" Nullable="false" />
+          <Property Name="florImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbFloraxDepartamento">
           <Key>
@@ -199,6 +203,7 @@
           <Property Name="gastLongitud" Type="varchar" MaxLength="50" />
           <Property Name="gastDepartamento" Type="bigint" />
           <Property Name="gastTipo" Type="bigint" />
+          <Property Name="gastImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbHistoria">
           <Key>
@@ -213,6 +218,7 @@
           <Property Name="histLongitud" Type="varchar" MaxLength="50" />
           <Property Name="histNombre" Type="varchar" MaxLength="100" />
           <Property Name="histPeriodo" Type="bigint" Nullable="false" />
+          <Property Name="histImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbLugares">
           <Key>
@@ -240,6 +246,7 @@
           <Property Name="musiDepartamento" Type="bigint" />
           <Property Name="musiLatitud" Type="varchar" MaxLength="50" />
           <Property Name="musiLongitud" Type="varchar" MaxLength="50" />
+          <Property Name="musiImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbPeriodoHistoria">
           <Key>
@@ -274,6 +281,7 @@
           <Property Name="pehiDescripcion" Type="varchar" MaxLength="5000" />
           <Property Name="pehiLatitud" Type="varchar" MaxLength="50" />
           <Property Name="pehiLongitud" Type="varchar" MaxLength="50" />
+          <Property Name="pehiImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbPersonajesxHistoria">
           <Key>
@@ -296,6 +304,7 @@
           <Property Name="poliLongitud" Type="varchar" MaxLength="50" />
           <Property Name="poliDepartamento" Type="bigint" Nullable="false" />
           <Property Name="poliFechaNacimiento" Type="date" />
+          <Property Name="poliImagen" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tbPreguntasJuego">
           <Key>
@@ -1346,6 +1355,7 @@
           <NavigationProperty Name="tbDepartamento1" Relationship="Self.FK_equiDepartamento" FromRole="tbEquipos" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbDeportes" Relationship="Self.depoCodigo" FromRole="tbEquipos" ToRole="tbDeportes" />
           <NavigationProperty Name="tbDeportes1" Relationship="Self.FK_equiDeporte" FromRole="tbEquipos" ToRole="tbDeportes" />
+          <Property Name="equiImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbEstadios">
           <Key>
@@ -1363,6 +1373,7 @@
           <Property Name="estaDeporte" Type="Int64" Nullable="false" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_estaDepartamento" FromRole="tbEstadios" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbDeportes" Relationship="Self.FK_estaDeporte" FromRole="tbEstadios" ToRole="tbDeportes" />
+          <Property Name="estaImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbFauna">
           <Key>
@@ -1374,6 +1385,7 @@
           <Property Name="faunTipo" Type="Int64" Nullable="false" />
           <NavigationProperty Name="tbTipoFauna" Relationship="Self.FK_faunTipo" FromRole="tbFauna" ToRole="tbTipoFauna" />
           <NavigationProperty Name="tbFaunaxDepartamento" Relationship="Self.FK_fxdFauna" FromRole="tbFauna" ToRole="tbFaunaxDepartamento" />
+          <Property Name="faunImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbFaunaxDepartamento">
           <Key>
@@ -1401,6 +1413,7 @@
           <Property Name="gastTipo" Type="Int64" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_gastDepartamento" FromRole="tbGastronomia" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbTipodeGastronomia" Relationship="Self.FK_gastTipo" FromRole="tbGastronomia" ToRole="tbTipodeGastronomia" />
+          <Property Name="gastImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbHistoria">
           <Key>
@@ -1418,6 +1431,7 @@
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_histDepartamento" FromRole="tbHistoria" ToRole="tbDepartamento" />
           <NavigationProperty Name="tbPeriodoHistoria" Relationship="Self.FK_histPeriodo" FromRole="tbHistoria" ToRole="tbPeriodoHistoria" />
           <NavigationProperty Name="tbPersonajesxHistoria" Relationship="Self.FK_pxhHistoria" FromRole="tbHistoria" ToRole="tbPersonajesxHistoria" />
+          <Property Name="histImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbMusica">
           <Key>
@@ -1430,6 +1444,7 @@
           <Property Name="musiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="musiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbDepartamento" Relationship="Self.FK_musiDepartamento" FromRole="tbMusica" ToRole="tbDepartamento" />
+          <Property Name="musiImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbPeriodoHistoria">
           <Key>
@@ -1468,6 +1483,7 @@
           <Property Name="pehiLatitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="pehiLongitud" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbPersonajesxHistoria" Relationship="Self.FK_pxhPersonaje" FromRole="tbPersonajesHistoricos" ToRole="tbPersonajesxHistoria" />
+          <Property Name="pehiImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbPersonajesxHistoria">
           <Key>
@@ -1493,6 +1509,7 @@
           <Property Name="poliDepartamento" Type="Int64" Nullable="false" />
           <Property Name="poliFechaNacimiento" Type="DateTime" Precision="0" />
           <NavigationProperty Name="tbTipoPolitico" Relationship="Self.FK_poliTipo" FromRole="tbPolitico" ToRole="tbTipoPolitico" />
+          <Property Name="poliImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbPreguntasJuego">
           <Key>
@@ -2352,6 +2369,7 @@
           <Property Name="florTipo" Type="Int64" Nullable="false" />
           <NavigationProperty Name="tbTipoFlora" Relationship="bdConoceAColombiaModel.FK_florTipo" FromRole="tbFlora" ToRole="tbTipoFlora" />
           <NavigationProperty Name="tbFloraxDepartamento" Relationship="bdConoceAColombiaModel.FK_foxdFlora" FromRole="tbFlora" ToRole="tbFloraxDepartamento" />
+          <Property Name="florImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbFloraxDepartamento">
           <Key>
@@ -2580,6 +2598,7 @@
           <EntitySetMapping Name="tbEquipos">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEquipos">
               <MappingFragment StoreEntitySet="tbEquipos">
+                <ScalarProperty Name="equiImagen" ColumnName="equiImagen" />
                 <ScalarProperty Name="equiCodigo" ColumnName="equiCodigo" />
                 <ScalarProperty Name="equiNombre" ColumnName="equiNombre" />
                 <ScalarProperty Name="equiDescripcion" ColumnName="equiDescripcion" />
@@ -2596,6 +2615,7 @@
           <EntitySetMapping Name="tbEstadios">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbEstadios">
               <MappingFragment StoreEntitySet="tbEstadios">
+                <ScalarProperty Name="estaImagen" ColumnName="estaImagen" />
                 <ScalarProperty Name="estaCodigo" ColumnName="estaCodigo" />
                 <ScalarProperty Name="estaNombre" ColumnName="estaNombre" />
                 <ScalarProperty Name="estaDescripcion" ColumnName="estaDescripcion" />
@@ -2612,6 +2632,7 @@
           <EntitySetMapping Name="tbFauna">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFauna">
               <MappingFragment StoreEntitySet="tbFauna">
+                <ScalarProperty Name="faunImagen" ColumnName="faunImagen" />
                 <ScalarProperty Name="faunCodigo" ColumnName="faunCodigo" />
                 <ScalarProperty Name="faunNombre" ColumnName="faunNombre" />
                 <ScalarProperty Name="faunDescripcion" ColumnName="faunDescripcion" />
@@ -2633,6 +2654,7 @@
           <EntitySetMapping Name="tbGastronomia">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbGastronomia">
               <MappingFragment StoreEntitySet="tbGastronomia">
+                <ScalarProperty Name="gastImagen" ColumnName="gastImagen" />
                 <ScalarProperty Name="gastCodigo" ColumnName="gastCodigo" />
                 <ScalarProperty Name="gastNombre" ColumnName="gastNombre" />
                 <ScalarProperty Name="gastDescripcion" ColumnName="gastDescripcion" />
@@ -2647,6 +2669,7 @@
           <EntitySetMapping Name="tbHistoria">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbHistoria">
               <MappingFragment StoreEntitySet="tbHistoria">
+                <ScalarProperty Name="histImagen" ColumnName="histImagen" />
                 <ScalarProperty Name="histCodigo" ColumnName="histCodigo" />
                 <ScalarProperty Name="histDescripcion" ColumnName="histDescripcion" />
                 <ScalarProperty Name="histFechaInicio" ColumnName="histFechaInicio" />
@@ -2662,6 +2685,7 @@
           <EntitySetMapping Name="tbMusica">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbMusica">
               <MappingFragment StoreEntitySet="tbMusica">
+                <ScalarProperty Name="musiImagen" ColumnName="musiImagen" />
                 <ScalarProperty Name="musiCodigo" ColumnName="musiCodigo" />
                 <ScalarProperty Name="musiNombre" ColumnName="musiNombre" />
                 <ScalarProperty Name="musiDescripcion" ColumnName="musiDescripcion" />
@@ -2698,6 +2722,7 @@
           <EntitySetMapping Name="tbPersonajesHistoricos">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPersonajesHistoricos">
               <MappingFragment StoreEntitySet="tbPersonajesHistoricos">
+                <ScalarProperty Name="pehiImagen" ColumnName="pehiImagen" />
                 <ScalarProperty Name="pehiCodigo" ColumnName="pehiCodigo" />
                 <ScalarProperty Name="pehiNombre" ColumnName="pehiNombre" />
                 <ScalarProperty Name="pehiNacimiento" ColumnName="pehiNacimiento" />
@@ -2720,6 +2745,7 @@
           <EntitySetMapping Name="tbPolitico">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbPolitico">
               <MappingFragment StoreEntitySet="tbPolitico">
+                <ScalarProperty Name="poliImagen" ColumnName="poliImagen" />
                 <ScalarProperty Name="poliCodigo" ColumnName="poliCodigo" />
                 <ScalarProperty Name="poliNombre" ColumnName="poliNombre" />
                 <ScalarProperty Name="poliDescripcion" ColumnName="poliDescripcion" />
@@ -2933,6 +2959,7 @@
           <EntitySetMapping Name="tbFlora">
             <EntityTypeMapping TypeName="bdConoceAColombiaModel.tbFlora">
               <MappingFragment StoreEntitySet="tbFlora">
+                <ScalarProperty Name="florImagen" ColumnName="florImagen" />
                 <ScalarProperty Name="florTipo" ColumnName="florTipo" />
                 <ScalarProperty Name="florPeriodoFloracion" ColumnName="florPeriodoFloracion" />
                 <ScalarProperty Name="florAbundancia" ColumnName="florAbundancia" />

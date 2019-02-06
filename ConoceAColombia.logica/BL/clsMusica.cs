@@ -114,6 +114,7 @@ namespace ConoceAColombia.logica.BL
                 _SqlCommand.Parameters.Add(new SqlParameter("@dCodigo", obclsMusica.lgCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dNombre", obclsMusica.stNombre));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDescripcion", obclsMusica.stDescripcion));
+                _SqlCommand.Parameters.Add(new SqlParameter("@dMusica", obclsMusica.stImagen));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDepartamento", obclsMusica.clsDepartamentos.inCodigo));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLatitud", obclsMusica.stLatitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLongitud", obclsMusica.stLongitud));

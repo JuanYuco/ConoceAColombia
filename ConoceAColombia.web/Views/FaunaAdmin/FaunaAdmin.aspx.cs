@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -42,14 +43,33 @@ namespace ConoceAColombia.web.Views.FaunaAdmin
                 if (String.IsNullOrEmpty(txtCodigo.Text)) stMensaje += "Ingrese Codigo, ";
                 if (String.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese Nombre, ";
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripción, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Fauna\") + txtCodigo.Text + "Fauna" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsFauna clsFauna = new logica.Models.clsFauna
                 {
                     lgCodigo = Convert.ToInt64(txtCodigo.Text),
                     stNombre = txtNombre.Text,
                     stDescripcion = txtDescripcion.Text,
+                    stImagen = stRutaDestino,
                     obclsTipoFauna = new logica.Models.clsTipoFauna
                     {
                         lgCodigo = Convert.ToInt64(ddlTipoFauna.SelectedValue)
@@ -102,7 +122,8 @@ namespace ConoceAColombia.web.Views.FaunaAdmin
                     {
                         lgCodigo = Convert.ToInt32(((Label)gvwDatos.Rows[inIndice].FindControl("lblCodigo")).Text),
                         stNombre = String.Empty,
-                        stDescripcion = String.Empty
+                        stDescripcion = String.Empty,
+                        stImagen = String.Empty
 
 
 

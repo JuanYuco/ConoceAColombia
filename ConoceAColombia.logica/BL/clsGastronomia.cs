@@ -139,6 +139,7 @@ namespace ConoceAColombia.logica.BL
                 _SqlCommand.Parameters.Add(new SqlParameter("@dNombre", obclsGastronomia.stNombre));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDescripcion", obclsGastronomia.stDescripcion));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dCiudad", obclsGastronomia.stCiudad));
+                _SqlCommand.Parameters.Add(new SqlParameter("@dImagen", obclsGastronomia.stImagen));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLatitud", obclsGastronomia.stLatitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dLongitud", obclsGastronomia.stLongitud));
                 _SqlCommand.Parameters.Add(new SqlParameter("@dDepartamento", obclsGastronomia.clsDepartamentos.inCodigo));

@@ -44,6 +44,10 @@
                     <asp:DropDownList ID="ddlDepartamento" runat="server" CssClass="form-control">
                     </asp:DropDownList>
                 </div>
+                <div class="col-md-3">
+                    <asp:Label ID="lblImagen" runat="server" Text="Subir Imagen"></asp:Label>
+                    <asp:FileUpload ID="fuImagen" runat="server" CssClass="form-control" placeholder="Agregar Imagen"></asp:FileUpload>
+                </div>
             </div>
         </div>
 
@@ -80,6 +84,7 @@
                             <asp:BoundField HeaderText="Departamento" DataField="depaNombre" />
                             <asp:BoundField HeaderText="Latitud" DataField="musiLatitud" />
                             <asp:BoundField HeaderText="Longitud" DataField="musiLongitud"/>
+                            <asp:BoundField HeaderText="Imagen" DataField="musiImagen"/>
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
                                     <asp:ImageButton ID="ibEditar" runat="server" ImageUrl="~/Resources/Images/edit26-300px.png" Width="50px" Height="50px" CommandName="Editar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" />

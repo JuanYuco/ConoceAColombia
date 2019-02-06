@@ -20,6 +20,7 @@ namespace ConoceAColombia.logica.Entidades
         public Nullable<long> musiDepartamento { get; set; }
         public string musiLatitud { get; set; }
         public string musiLongitud { get; set; }
+        public string musiImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
     }

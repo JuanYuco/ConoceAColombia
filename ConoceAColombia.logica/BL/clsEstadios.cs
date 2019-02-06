@@ -27,7 +27,8 @@ namespace ConoceAColombia.logica.BL
                         estaLatitud = ob.stLatitud,
                         estaLongitud = ob.stLongitud,
                         estaDepartamento = ob.obclsDepartamento.inCodigo,
-                        estaDeporte = ob.obclsDeporte.lgCodigo
+                        estaDeporte = ob.obclsDeporte.lgCodigo,
+                        estaImagen = ob.stImagen
                     };
                     obbdConoceAColombiaEntities.tbEstadios.Add(obtbEstadios);
                     obbdConoceAColombiaEntities.SaveChanges();
@@ -58,6 +59,7 @@ namespace ConoceAColombia.logica.BL
                     obtbEstadios.estaFundacion = ob.stFundacion;
                     obtbEstadios.estaCapacidad = ob.stCapacidad;
                     obtbEstadios.estaCiudad = ob.stCiudad;
+                    obtbEstadios.estaImagen = ob.stImagen;
                     obtbEstadios.estaLatitud = ob.stLatitud;
                     obtbEstadios.estaLongitud = ob.stLongitud;
                     obtbEstadios.estaDepartamento = ob.obclsDepartamento.inCodigo;
@@ -117,6 +119,7 @@ namespace ConoceAColombia.logica.BL
                                stFundacion = q.estaFundacion,
                                stCapacidad = q.estaCapacidad,
                                stCiudad = q.estaCiudad,
+                               stImagen = q.estaImagen,
                                stLatitud = q.estaLatitud,
                                stLongitud = q.estaLongitud,
                                obclsDeporte = new Models.clsDeportes

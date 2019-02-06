@@ -22,6 +22,7 @@ namespace ConoceAColombia.logica.Entidades
         public string gastLongitud { get; set; }
         public Nullable<long> gastDepartamento { get; set; }
         public Nullable<long> gastTipo { get; set; }
+        public string gastImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbTipodeGastronomia tbTipodeGastronomia { get; set; }

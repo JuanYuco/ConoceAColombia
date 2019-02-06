@@ -23,6 +23,7 @@ namespace ConoceAColombia.logica.Entidades
         public string poliLongitud { get; set; }
         public long poliDepartamento { get; set; }
         public Nullable<System.DateTime> poliFechaNacimiento { get; set; }
+        public string poliImagen { get; set; }
     
         public virtual tbTipoPolitico tbTipoPolitico { get; set; }
     }

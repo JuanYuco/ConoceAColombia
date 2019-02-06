@@ -24,6 +24,7 @@ namespace ConoceAColombia.logica.Entidades
         public Nullable<long> equiDepartamento { get; set; }
         public string equiLatitud { get; set; }
         public string equiLongitud { get; set; }
+        public string equiImagen { get; set; }
     
         public virtual tbDepartamento tbDepartamento { get; set; }
         public virtual tbDepartamento tbDepartamento1 { get; set; }

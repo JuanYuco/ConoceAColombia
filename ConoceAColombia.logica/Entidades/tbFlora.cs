@@ -27,6 +27,7 @@ namespace ConoceAColombia.logica.Entidades
         public string florAbundancia { get; set; }
         public string florPeriodoFloracion { get; set; }
         public long florTipo { get; set; }
+        public string florImagen { get; set; }
     
         public virtual tbTipoFlora tbTipoFlora { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

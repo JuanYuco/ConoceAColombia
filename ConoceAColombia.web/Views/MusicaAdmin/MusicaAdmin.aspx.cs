@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using System.IO;
 
 namespace ConoceAColombia.web.Views.MusicaAdmin
 {
@@ -60,10 +61,28 @@ namespace ConoceAColombia.web.Views.MusicaAdmin
                 if (String.IsNullOrEmpty(txtCodigo.Text)) stMensaje += "Ingrese Codigo, ";
                 if (String.IsNullOrEmpty(txtNombre.Text)) stMensaje += "Ingrese Nombre, ";
                 if (String.IsNullOrEmpty(txtDescripcion.Text)) stMensaje += "Ingrese Descripcion, ";
+                if (fuImagen.HasFile == false) stMensaje += "Agrega una imagen, ";
                 if (String.IsNullOrEmpty(txtLatitud.Text)) stMensaje += "Ingrese Latitud, ";
                 if (String.IsNullOrEmpty(txtLongitud.Text)) stMensaje += "Ingrese Longitud, ";
 
                 if (!String.IsNullOrEmpty(stMensaje)) throw new Exception(stMensaje.TrimEnd(','));
+
+
+                if (!Path.GetExtension(fuImagen.FileName).Equals(".jpg"))
+                    throw new Exception("Solo se admiten formatos .JPG");
+
+                String stRuta = Server.MapPath(@"~\tmp\") + fuImagen.FileName;
+                fuImagen.PostedFile.SaveAs(stRuta);
+                String stRutaDestino = Server.MapPath(@"~\Images\Musica\") + txtCodigo.Text + "Musica" + Path.GetExtension(fuImagen.FileName);
+                if (File.Exists(stRutaDestino))
+                {
+                    File.SetAttributes(stRutaDestino, FileAttributes.Normal);
+                    File.Delete(stRutaDestino);
+                }
+
+                File.Copy(stRuta, stRutaDestino);
+                File.SetAttributes(stRuta, FileAttributes.Normal);
+                File.Delete(stRuta);
 
                 logica.Models.clsMusica clsMusica = new logica.Models.clsMusica
                 {
@@ -72,7 +91,8 @@ namespace ConoceAColombia.web.Views.MusicaAdmin
                     clsDepartamentos = new logica.Models.clsDepartamentos { inCodigo = Convert.ToInt64(ddlDepartamento.SelectedValue) },
                     stDescripcion = txtDescripcion.Text,
                     stLatitud = txtLatitud.Text,
-                    stLongitud = txtLongitud.Text
+                    stLongitud = txtLongitud.Text,
+                    stImagen = stRutaDestino
                     
                 };
 
@@ -120,7 +140,8 @@ namespace ConoceAColombia.web.Views.MusicaAdmin
                         stNombre = String.Empty,
                         stDescripcion = String.Empty,
                         stLatitud = String.Empty,
-                        stLongitud = String.Empty
+                        stLongitud = String.Empty,
+                        stImagen = String.Empty
 
                     };
 
